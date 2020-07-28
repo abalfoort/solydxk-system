@@ -1,0 +1,63 @@
+Source: solydxk-system
+Section: admin
+Priority: optional
+Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
+Build-Depends: debhelper-compat (= 12)
+  , python3
+  , intltool
+  , itstool
+  , po4a
+  , transifex-client
+  , translate-toolkit
+  , dh-python
+Standards-Version: 4.5.0
+
+Package: solydxk-system
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+  , python3
+  , python3-gi
+  , python3-apt
+  , gir1.2-gtk-3.0
+  , aptitude
+  , parted
+  , curl
+  , procps
+  , console-data
+  , python3-dateutil
+  , rsync
+  , udisks2
+  , haveged
+  , ntfs-3g
+  , btrfs-progs
+  , exfat-utils
+  , dosfstools
+  , gir1.2-udisks-2.0
+  , pciutils
+  , passwd
+  , kmod
+  , debconf
+  , gawk
+  , apt
+  , apt-show-versions
+  , apt-transport-https
+  , hwinfo
+  , pv
+  , zenity
+Recommends: cryptsetup
+Conflicts: solydkbo-grub2-theme
+  , solydkbe-grub2-theme
+  , solydxbe-grub2-theme
+  , solydk-grub2-theme
+  , xksudo
+  , ddm
+  , debian-plymouth-manager
+Replaces: solydkbo-grub2-theme
+  , solydkbe-grub2-theme
+  , solydxbe-grub2-theme
+  , solydk-grub2-theme
+  , xksudo
+  , ddm
+  , debian-plymouth-manager
+Description: SolydXK core system configuration.
+ Core system configuration for SolydXK and system configuration application.

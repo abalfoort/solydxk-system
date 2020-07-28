@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK-Systemeinstellungen: Gerätetreiber-Hilfe</h1>
+	<div class="main">
+		<h2>Beschreibung</h2>
+		<p>Der Gerätetreiber ist ein Tool, das Benutzern bei der Installation von
+Hardwaretreibern von Drittanbietern hilft. Aktuell können Nvidia-, AMD/ATI-
+und Broadcom-Treiber installiert werden und ermöglichen die Installation des
+PAE-Kernels für Multicore-32-Bit-Systeme. Der Gerätetreiber listet nur die
+Geräte auf, die unterstützt werden. Es werden keine weiteren Geräte
+aufgelistet, die oben erwähnt wurden.</p>
+
+		<h2>Wichtig</h2>
+		<p>Der Gerätetreiber kann nur Treiber installieren, die in den Repositories
+verfügbar sind. Stellen Sie sicher, dass Sie über eine Internetverbindung
+verfügen, wenn Sie die Treiber installieren möchten.</p>
+
+		<h2>Befehle</h2>
+		<p>Wenn Sie die Treiberinstallation im Terminal durchführen wollen, können Sie
+die folgenden Befehle benutzen:</p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>Dadurch werden die Treiber für Ihre AMD/ATI-Grafikkarte
+installiert. AMD/ATI-Karten ab Version HD 5000 werden von den Treibern
+unterstützt. Für Versionen zwischen 1000 und 5000 werden die Radeon-Treiber
+verwendet. Benutzen Sie "ddm -p amd", um die Treiber von Ihrem System zu
+entfernen.</p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Dies wird die passenden Treiber für Ihre Nvidia Grafikkarte wählen. Für
+Hybridgrafikkarten (gleichzeitig Nvidia und Intel) werden die Bumblebee
+Treiber ausgewählt. Benutzen Sie "ddm -p nividia" um die Treiber von Ihrem
+System zu entfernen.</p>
+
+		<h3># ddm -i open</h3>
+		<p>Dieser Befehl ermöglicht die Rückkehr zum quelloffenen Nouveau-Treiber. Er
+wird sämtliche proprietären Treiber von Ihrem System entfernen.</p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Dieser Befehl wird die passenden Treiber für Ihren Broadcom W-LAN-Adapter
+installieren. Benutzen Sie "ddm -p broadcom" um die Treiber von Ihrem System
+zu entfernen.</p>
+
+		<h3># ddm -i pae</h3>
+		<p>Dies installiert den PAE Kernel für 32-bit Betriebssysteme auf
+Multi-Prozessor-Systemen. Benutzen Sie "ddm -p pae" um den PAE Kernel von
+Ihrem System zu entfernen. Der Kernel kann nicht deinstalliert werden,
+während er in Benutzung ist.</p>
+
+		<h2>Protokollierung aktiv</h2>
+		<h3>Datei: /var/log/solydxk-system.log</h3>
+		<p>Bitte fügen Sie Ihre Logdatei bei, wenn Sie ein Problem in unserem Forum
+veröffentlichen: <a href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK System Settings: Ajuda per als controladors</h1>
+	<div class="main">
+		<h2>Descripció </h2>
+		<p>El Device Driver és una eina per ajudar als usuaris a instal·lar
+controladors de maquinari de tercers. Actualment es poden instal·lar
+controladors nVidia, AMD/ATI i Broadcom; també es pot instal·lar el kernel
+PAE per als sistemes multi-nucli de 32 bit. El Device Driver només us
+llistarà els dispositius amb suport. No llista altres dispositius que els
+esmentats abans.</p>
+
+		<h2>Important </h2>
+		<p>El Device Driver només pot instal·lar controladors disponibles als
+dipòsits. Assegureu-vos que teniu connexió a internet si voleu instal·lar
+els controladors.</p>
+
+		<h2>Ordres </h2>
+		<p>Si preferiu instal·lar els controladors des del terminal, podeu usar
+aquestes ordres: </p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>Això instal·larà els controladors per la vostra tarja gràfica AMD/ATI. Els
+controladors donen suport a les targes a partir de la versió HD 5000. Les
+versions entre 1000 i 5000 usen els controladors Radeon. Useu l'ordre "ddm
+-p amd" per eliminar aquests controladors del vostre sistema. </p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Això triarà els controladors correctes per a la vostra tarja gràfica
+Nvidia. També seleccionarà els controladors Bumblebee en el cas que tingueu
+una tarja híbrida (amb Nvidia i Intel). Useu "ddm -p nvidia" per eliminar
+els controladors del vostre sistema. </p>
+
+		<h3># ddm -i open</h3>
+		<p>Podeu usar aquesta ordre per a reinstal·lar els controladors lliures
+Nouveau. Això eliminarà els controladors propietaris del vostre sistema. </p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Aquesta ordre instal·larà el controlador adequat per al vostre adaptador
+sense fils Broadcom. Useu "ddm -p broadcom" per eliminar aquests
+controladors del vostre sistema. </p>
+
+		<h3># ddm -i pae</h3>
+		<p>Això instal·larà el nucli (kernel) PAE en sistemes multiprocessador amb
+S. O. de 32 bit. Useu "ddm -p pae" per eliminar el kernel PAE del vostre
+sistema. Tingueu en compte que no es pot eliminar el nucli que s'està
+executant en aquell moment. </p>
+
+		<h2>Autenticant</h2>
+		<h3>Fitxer: /var/log/solydxk-system.log</h3>
+		<p>Si us plau, adjunteu el vostre fitxer d'informe quan vulgueu informar d'un
+problema al nostre fòrum: <a href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Check if GUI is already started
+if ! pgrep -f python3.*solydxk/system &>/dev/null; then
+    pkexec solydxk-system-pkexec $@
+fi
+
+

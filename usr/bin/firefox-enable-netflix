@@ -1,0 +1,17 @@
+#!/bin/sh
+
+FFDIR="$HOME/.mozilla/firefox/profiles.ini"
+
+if [ -f "$FFDIR/profiles.ini" ]; then
+    FFUSERDIRS=$(grep Path "$PROFILES" | cut -d'=' -f 2)
+    for FFUSERDIR in $FFUSERDIRS; do
+        if [ -d "$FFDIR/$FFUSERDIR" ]; then
+            echo '''
+// Set variables for Netflix
+pref("media.eme.enabled", true);
+pref("media.gmp-widevinecdm.enabled", true);
+pref("media.gmp-gmpopenh264.enabled", true); 
+''' >> "$FFDIR/user.js"
+        fi
+    done
+fi

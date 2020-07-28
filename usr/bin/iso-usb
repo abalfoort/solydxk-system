@@ -1,0 +1,194 @@
+#!/bin/bash
+
+# Script to burn ISO to USB pen drive
+#
+# Exit codes:
+# 0: OK
+# 1: ISO path not provided/not existing
+# 2: User cancel
+# 3: Device path not provided/not existing
+# 4: Incorrect arguments
+# 5: No USB inserted
+#
+# Author: Arjen Balfoort (arjenbalfoort@solydxk.com)
+
+function usage() {
+    echo '=================================================================='
+    echo 'ISO to USB Help:'
+    echo '=================================================================='
+    echo '-d /dev/device            Device path of the USB.'
+    echo '                          When omitted, the user is asked for the device path.'
+    echo '-g                        Force graphical messages in terminal.'
+    echo '-h                        This screen.'
+    echo '-i "/path/to/your.iso"    Path to the ISO to write to the device.'
+    echo '                          When omitted, the user is asked for the path.'
+    echo '=================================================================='
+}
+
+DEVICE=''
+GUI=false
+ISO=''
+while getopts ":d:ghi:" OPT; do
+    case $OPT in
+        d)
+            # Device (remove trailing digits)
+            DEVICE=$OPTARG
+            ;;
+        g)
+            # GUI
+            GUI=true
+            ;;
+        h)
+            # Help
+            usage
+            exit 0
+            ;;
+        i)
+            # ISO
+            ISO=$OPTARG
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG"
+            usage
+            exit 4
+            ;;
+        :)
+            echo "Option -$OPTARG requires an argument."
+            usage
+            exit 4
+            ;;
+        *)
+            echo "Unknown error."
+            usage
+            exit 4
+            ;;
+    esac
+done
+
+APP='solydxk-system'
+
+# Prepare for translations
+# https://www.gnu.org/software/gettext/manual/html_node/Preparing-Shell-Scripts.html
+. gettext.sh
+
+TEXTDOMAIN=$APP
+export TEXTDOMAIN
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAINDIR
+
+TITLE=$(eval_gettext 'ISO to USB')
+TXTISO=$(eval_gettext 'Full path to ISO file')
+TXTDEVICE=$(eval_gettext 'Confirm USB device')
+TXTWARN=$(eval_gettext 'This will destroy all data on:')
+TXTCONFIRM=$(eval_gettext 'Are you sure you want to proceed?')
+TXTINSERT=$(eval_gettext 'No USB pen drive found.')
+TXTISOPATH=$(eval_gettext 'No ISO path provided.')
+
+# Get media-optical path of theme
+INI="$HOME/.config/gtk-3.0/settings.ini"
+if [ -e "$INI" ]; then
+    THEME="/usr/share/icons/$(sed -n '/^gtk-icon-theme-name=/s///p' "$INI")"
+    ICON=$(find "$THEME/64"* -name "media-optical.*"  2>/dev/null)
+    if [ -z "$ICON" ] || [ ! -e "$ICON" ]; then
+        ICON=$(find "$THEME/devices/64"* -name "media-optical.*"  2>/dev/null)
+    fi
+fi
+
+# Get path to ISO
+if [ -z "$ISO" ] || [ ! -e "$ISO" ]; then
+    if [ -t 1 ] && ! $GUI; then
+        read -e -p "$TXTISO: " -i "$ISO" ISO
+    else
+        ISO=$(zenity --entry \
+                               --window-icon="$ICON" \
+                               --width=300 \
+                               --title="$TITLE" \
+                               --text="$TXTISO:" \
+                               --entry-text "$ISO")
+    fi
+fi
+EXT=${ISO##*.}
+EXT=${EXT,,}
+if [ -z "$ISO" ] || [ ! -e "$ISO" ] || [ "$EXT" != 'iso' ]; then
+    if [ -t 1 ] && ! $GUI; then
+        echo "$TXTISOPATH"
+    else
+        zenity --info \
+                   --window-icon="$ICON" \
+                   --width=300 \
+                   --title="$TITLE" \
+                   --text="$TXTISOPATH"
+    fi
+    exit 1
+fi
+
+# Get USB device
+if [ -z "$DEVICE" ] || [ ! -e "$DEVICE" ]; then
+    for DEVNM in $(ls /dev | egrep 'sd[a-z]$'); do
+        DETACHABLE=$(grep -h . /sys/block/$DEVNM/removable)
+        if [ "$DETACHABLE" -eq 1 ]; then
+            #Ask user to confirm USB device
+            if [ -t 1 ] && ! $GUI; then
+                read -e -p "$TXTDEVICE: " -i "$DEVNM" DEVICE
+            else
+                DEVICE=$(zenity --entry \
+                                              --window-icon="$ICON" \
+                                              --width=300 \
+                                              --title="$TITLE" \
+                                              --text="$TXTDEVICE:" \
+                                              --entry-text "/dev/$DEVNM")
+            fi
+            break
+        fi
+    done
+    if [ "$DETACHABLE" -eq 0 ]; then
+        if [ -t 1 ] && ! $GUI; then
+            echo "$TXTINSERT"
+        else
+            zenity --info \
+                       --window-icon="$ICON" \
+                       --width=300 \
+                       --title="$TITLE" \
+                       --text="$TXTINSERT"
+        fi
+        exit 5
+    fi
+fi
+
+# Show progress
+if [ ! -z "$DEVICE" ] && [ -e "$DEVICE" ]; then
+    #Pipe pv output to zenity and show nice progress bar
+    if [ -t 1 ] && ! $GUI; then
+        echo "$TXTWARN $DEVICE"
+        read -p "$TXTCONFIRM [yN]: " ANSWER
+        case $ANSWER in
+            [Yy]* ) 
+                sudo dd if="$ISO" of=$DEVICE bs=64k oflag=dsync status=progress
+                ;;
+            * ) 
+                exit 2
+                ;;
+        esac
+    else
+        zenity --question \
+                   --window-icon="$ICON" \
+                   --width=300 \
+                   --title="$TITLE" \
+                   --text="$TXTWARN $DEVICE\n$TXTCONFIRM"
+        if [ $? = 0 ] ; then
+            pv -n "$ISO" 2> >(zenity --progress \
+                                                       --window-icon="$ICON" \
+                                                       --width=300 \
+                                                       --title="$TITLE" \
+                                                       --text="$(basename $ISO) > $DEVICE:" \
+                                                       --percentage=0 \
+                                                       --auto-close \
+                                                       --auto-kill) | pkexec dd of=$DEVICE bs=64k oflag=dsync
+        fi
+    fi
+else
+    echo 'No device path provided.'
+    exit 3
+fi
+
+exit 0

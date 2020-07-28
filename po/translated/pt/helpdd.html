@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>Configurações do Sistema SolydXK: Ajuda do Driver do Dispositivo</h1>
+	<div class="main">
+		<h2>Descrição</h2>
+		<p>O Driver de Dispositivo é uma ferramenta para ajudar os utilizadores na
+instalação de drivers de hardware de terceiros. Actualmente, os drivers da
+Nvidia, AMD/ATI e Broadcom podem ser instaladas e permite instalar o kernel
+PAE para sistemas de 32 bits multi-core. O Driver de Dispositivo só irá
+listar os dispositivos que são suportados. Ele não irá listar quaisquer
+outros dispositivos mencionados acima.</p>
+
+		<h2>Importante</h2>
+		<p>O Driver de Dispositivo só pode instalar drivers que estão disponíveis nos
+repositórios. Certifique-se de ter uma conexão à Internet se desejar
+instalar os drivers.</p>
+
+		<h2>Comandos</h2>
+		<p>Se você prefere instalar os drivers pelo terminal, pode usar os seguintes
+comandos:</p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>Isto irá instalar os drivers para sua placa gráfica AMD / ATI. As placas AMD
+/ ATI da versão HD 5000 e superior são suportados pelos drivers. Versões
+entre 1000 e 5000 usarão os drivers Radeon. Use "ddm -p amd" para remover os
+drivers do seu sistema.</p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Isso irá seleccionar os drivers correctos para a sua placa gráfica
+Nvidia. Ele selecionará os drivers do Bumblebee caso você tenha uma placa
+híbrida (Nvidia e Intel). Use "ddm -p nvidia" para remover os drivers do seu
+sistema.</p>
+
+		<h3># ddm -i open</h3>
+		<p>Você pode usar este comando se quiser reverter para os drivers do Nouveau
+aberto. Ele removerá todos os drivers proprietários do seu sistema.</p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Este comando irá instalar o driver correto para o adaptador wireless
+Broadcom. Use "ddm -p broadcom" para remover os drivers do seu sistema.</p>
+
+		<h3># ddm -i pae</h3>
+		<p>Isto irá instalar o kernel PAE em sistemas multi-processadores que executam
+um sistema operativo de 32 bits. Use "ddm -p pae" para remover o kernel PAE
+do seu sistema. Observe que você não pode remover o kernel quando
+actualmente você o tem inicializado.</p>
+
+		<h2>Registos</h2>
+		<h3>Ficheiro: /var/log/solydxk-system.log</h3>
+		<p>Por favor, anexe seu ficheiro de log quando você publica um problema no
+nosso fórum: <a href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>

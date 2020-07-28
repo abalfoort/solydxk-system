@@ -1,0 +1,23 @@
+[Desktop Entry]
+Comment=Limit the xsession-errors file size
+Comment[ca]=Limita la mida del fitxer xsession-errors
+Comment[da]=Begræns størrelsen på xsession-errors-filen
+Comment[de]=Die Größe der Datei xsession-errors begrenzen
+Comment[fr]=Limiter la taille du registre d'erreur xsession
+Comment[it]=Limita le dimensioni del file xsession-errors
+Comment[lt]=Apriboti xsession-errors failo dydį
+Comment[nl]=Beperk de bestandsgrootte van xsession-errors
+Comment[pt]=Limitar o tamanho do ficheiro xsession-errors
+Exec=xsession-logcontrol
+Name=Xsession Errors Log Control
+Name[ca]=Control del registre Xsession Errors
+Name[da]=Xsession Errors logstyring
+Name[de]=Xsession-Fehler Protokollsteuerung
+Name[fr]=Contrôle des registres d'erreurs (logs) Xsession
+Name[it]=Log di controllo degli errori di Xsession
+Name[lt]=Xsession klaidų žurnalo valdymas
+Name[nl]=Xsession Errors Log Beheer
+Name[pt]=Controle de Log de Erros Xsession
+StartupNotify=false
+Terminal=false
+Type=Application

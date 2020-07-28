@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK sistemos nustatymai: Įrenginių tvarkyklių žinynas</h1>
+	<div class="main">
+		<h2>Aprašas</h2>
+		<p>Įrenginių tvarkyklės yra įrankis, skirtas padėti naudotojams įdiegti
+trečiųjų šalių aparatinės įrangos tvarkykles. Šiuo metu gali būti įdiegtos
+Nvidia, ATI ir Broadcom tvarkyklės bei yra leidžiama įdiegti PAE branduolį,
+skirtą kelių branduolių 32-bitų sistemoms. Įrenginių tvarkyklės išvardys tik
+tuos įrenginius, kurie yra palaikomi. Išskyrus juos, daugiau nebus išvardyti
+jokie įrenginiai.</p>
+
+		<h2>Svarbu</h2>
+		<p>Įrenginių tvarkyklės gali įdiegti tik tas tvarkykles, kurios yra prieinamos
+saugyklose. Norėdami įdiegti tvarkykles, įsitikinkite, kad esate prisijungę
+prie interneto.</p>
+
+		<h2>Komandos</h2>
+		<p>Jeigu teikiate pirmenybę įdiegti tvarkykles per terminalą, galite naudoti
+šias komandas:</p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>Tai įdiegs tvarkykles, skirtas jūsų AMD/ATI grafikos plokštei. Tvarkyklės
+palaiko AMD/ATI plokštes nuo versijos HD 5000 ir naujesnes. Versijos tarp
+1000 ir 5000 naudos Radeon tvarkykles. Norėdami pašalinti tvarkykles iš savo
+sistemos, naudokite komandą "ddm -p amd".</p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Tai, jūsų Nvidia grafikos plokštei parinks tinkamas tvarkykles. Tuo atveju,
+jeigu turite hibridinę plokštę (Nvidia ir Intel), tai parinks Bumblebee
+tvarkykles. Naudokite "ddm -p nvidia", kad pašalintumėte tvarkykles iš savo
+sistemos.</p>
+
+		<h3># ddm -i open</h3>
+		<p>Jūs galite naudoti šią komandą, jeigu norite sugrįžti prie atvirų Nouveau
+tvarkyklių. Tai pašalins bet kokias nuosavybines tvarkykles iš jūsų
+sistemos.</p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Ši komanda jūsų belaidžiam Broadcom adapteriui įdiegs tinkamas
+tvarkykles. Naudokite "ddm -p broadcom", kad pašalintumėte tvarkykles iš
+savo sistemos.</p>
+
+		<h3># ddm -i pae</h3>
+		<p>Tai, kelių procesorių sistemose, kuriose vykdoma 32-bitų operacinė sistema,
+įdiegs PAE branduolį. Naudokite "ddm -p pae", kad pašalintumėte PAE
+branduolį iš savo sistemos. Turėkite omenyje, kad jūs negalite pašalinti
+branduolio, kuomet jūsų sistema yra paleista į tą branduolį.</p>
+
+		<h2>Registravimas</h2>
+		<h3>Failas: /var/log/solydxk-system.log</h3>
+		<p>Prašome pridėti savo žurnalo failą, kai skelbiate apie problemą mūsų forume:
+<a href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>

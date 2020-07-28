@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK System Settings: Aide pilote de périphérique</h1>
+	<div class="main">
+		<h2>Description</h2>
+		<p>Le Device Driver est un outil pour aider les utilisateurs à installer des
+drivers tiers de matériel. Actuellement, les pilotes Nvidia, AMD/ATI et
+Broadcom ainsi que le noyau PAE pour les systèmes 32bits multi-cœurs peuvent
+être installés. Le Device Driver répertorie uniquement les périphériques
+pris en charge. Il ne listera aucun autre périphérique que ceux mentionnés
+ci-dessus.</p>
+
+		<h2>Important</h2>
+		<p>Le Device Driver peut seulement installer les pilotes disponibles dans les
+dépôts. Assurez vous d'avoir une connexion internet si vous voulez les
+installer.</p>
+
+		<h2>Commandes</h2>
+		<p>Si vous préferez installer des pilotes via le terminal, vous pouvez utiliser
+les commandes suivantes:</p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>Cela installera les drivers pour votre carte graphique AMD/ATI. Les versions
+HD 5000 et supérieures sont prises en charge par ces pilotes. Les versions
+entre 1000 et 5000 utiliseront les drivers Radeon. Utilisez "ddm -p amd"
+pour supprimer les pilotes de votre système.</p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Ceci sélectionnera le bon pilote pour votre carte graphique Nvidia. Le
+pilote Bumblebee sera choisi si vous utilisez une carte hybride (à la fois
+Nvidia et intel). Utilisez la commande "ddm -p nvidia" pour supprimer ces
+pilotes de votre système.</p>
+
+		<h3># ddm -i open</h3>
+		<p>Vous pouvez utiliser cette commande si vous souhaitez revenir à
+l'utilisation des pilotes libres Nouveau. Tous les pilotes propriétaires
+seront supprimés de votre système. </p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Cette commande installera le bon pilote pour votre carte wifi
+Broadcom. Utilisez la commande "ddm -p broadcom" pour supprimer ce pilote de
+votre système.</p>
+
+		<h3># ddm -i pae</h3>
+		<p>Ceci installera le noyau PAE pour les systèmes multi-processeurs exécutant
+un système d'exploitation 32-bits. Utilisez la commande "ddm -p pae" pour
+supprimer ce noyau de votre système. Vous ne pourrez cependant pas supprimer
+ce noyau si vous l'avez utilisé pour démarrer votre système et qu'il est en
+cours d'utilisation.</p>
+
+		<h2>Connexion</h2>
+		<h3>Fichier: /var/log/solydxk-system.log</h3>
+		<p>Veuillez joindre votre fichier de logs quand vous postez un problème sur nos
+forums: <a href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+#. (itstool) path: action/description
+#: ./usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
+msgid "Run LuckyBackup as super user"
+msgstr ""
+
+#. (itstool) path: action/message
+#: ./usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
+msgid "Authentication is required to run LuckyBackup (super user)"
+msgstr ""
+
