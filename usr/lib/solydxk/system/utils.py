@@ -549,6 +549,24 @@ def comment_line(file_path, pattern, comment=True):
         if not comment:
             cmd = "sed -i '/^#.*{p}/s/^#//' {f}".format(p=pattern, f=file_path)
         shell_exec(cmd)
+        
+
+def replace_pattern_in_file(pattern, replace_string, file, append_if_not_exists=True):
+    if exists(file):
+        cont = None
+        p_obj = re.compile(pattern, re.MULTILINE)
+        with open(file, 'r') as f:
+            cont = f.read()
+        if re.search(p_obj, cont):
+            cont = re.sub(p_obj, replace_string, cont)
+        else:
+            if append_if_not_exists:
+                cont = cont + "\n" + replace_string + "\n"
+            else:
+                cont = None
+        if cont:
+            with open(file, 'w') as f:
+                f.write(cont)
 
 
 def get_nr_files_in_dir(path, recursive=True):

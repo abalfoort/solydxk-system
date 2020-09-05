@@ -3,7 +3,7 @@
 import re
 import os
 import threading
-import utils
+from utils import shell_exec, replace_pattern_in_file
 
 # i18n: http://docs.python.org/3/library/gettext.html
 import gettext
@@ -31,7 +31,7 @@ class Grub():
     def getCurrentResolution(self):
         res = None
         boot = self.getConfig()
-        if boot is not None:
+        if boot:
             lines = []
             with open(boot, 'r') as f:
                 lines = f.read().splitlines()
@@ -48,7 +48,7 @@ class Grub():
         return res
         
     def write_log(self, message, level='debug'):
-        if self.log is not None:
+        if self.log:
             self.log.write(message, 'Grub', level)
 
 
@@ -64,14 +64,13 @@ class GrubSave(threading.Thread):
         try:
             boot = self.grub.getConfig()
 
-            if boot and self.resolution is not None:
-                cmd = 'sed -i -e \'/GRUB_GFXMODE=/ c GRUB_GFXMODE=%s\' %s' % (self.resolution, boot)
-                utils.shell_exec(cmd)
+            if boot and self.resolution:
+                replace_pattern_in_file(r'^#?GRUB_GFXMODE\s*=.*', 'GRUB_GFXMODE={}'.format(self.resolution), boot)
                 # Update grub and initram
                 if 'grub' in boot:
-                    utils.shell_exec('update-grub')
+                    shell_exec('update-grub')
                 else:
-                    utils.shell_exec('update-burg')
+                    shell_exec('update-burg')
             else:
                 self.write_log(_("Neither grub nor burg found"), 'error')
 
@@ -79,5 +78,5 @@ class GrubSave(threading.Thread):
             self.write_log(detail, 'exception')
             
     def write_log(self, message, level='debug'):
-        if self.log is not None:
+        if self.log:
             self.log.write(message, 'GrubSave', level)

@@ -1,3 +1,21 @@
+solydxk-system (3.7.5) stable; urgency=low
+
+  * Fix Plymouth bug not setting resolution
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 04 Sep 2020 22:31:58 +0200
+
+solydxk-system (3.7.4) stable; urgency=low
+
+  * mount.luks: mount encrypted partition in /tmp if not available in fstab
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sun, 23 Aug 2020 20:54:57 +0200
+
+solydxk-system (3.7.3) stable; urgency=low
+
+  * Updated translation: pt
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 07 Aug 2020 10:19:42 +0200
+
 solydxk-system (3.7.2) stable; urgency=low
 
   * Include com.solydxk.pkexec.luckybackup.policy

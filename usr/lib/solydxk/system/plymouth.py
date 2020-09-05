@@ -7,7 +7,8 @@ import re
 import threading
 import os
 from os.path import exists, isfile
-from utils import getoutput, shell_exec, str_to_nr, get_package_version
+from utils import getoutput, shell_exec, str_to_nr, get_package_version, \
+                  replace_pattern_in_file
 from grub import Grub
 from shutil import which
 
@@ -109,29 +110,16 @@ class Plymouth():
         lines = []
         res = self.grub.getCurrentResolution()
 
-        # The Wheezy way of configuring
-        if res is None:
-            with open(self.modulesPath, 'r') as f:
+        if self.boot:
+            with open(self.boot, 'r') as f:
                 lines = f.readlines()
             for line in lines:
-                matchObj = re.search(r'^uvesafb\s+mode_option\s*=\s*([0-9x]+)', line)
+                # Search text for resolution
+                matchObj = re.search(r'^GRUB_GFXPAYLOAD_LINUX\s*=[\s"]*([0-9]+x[0-9]+)', line)
                 if matchObj:
                     res = matchObj.group(1)
                     self.write_log("Current Plymouth resolution: %(res)s" % { "res": res })
                     break
-
-        # Old way of configuring Plymouth
-        if res is None:
-            if self.boot is not None:
-                with open(self.boot, 'r') as f:
-                    lines = f.readlines()
-                for line in lines:
-                    # Search text for resolution
-                    matchObj = re.search(r'^GRUB_GFXPAYLOAD_LINUX\s*=[\s"]*([0-9]+x[0-9]+)', line)
-                    if matchObj:
-                        res = matchObj.group(1)
-                        self.write_log("Current Plymouth resolution: %(res)s" % { "res": res })
-                        break
             else:
                 self.write_log(_("Neither grub nor burg found in /etc/default"), 'warning')
         return res
@@ -184,47 +172,38 @@ class PlymouthSave(threading.Thread):
             shell_exec(r"sed -i -e '/^radeon modeset.*/d' %s" % self.modulesPath)
             shell_exec(r"sed -i -e '/^i915 modeset.*/d' %s" % self.modulesPath)
             shell_exec(r"sed -i -e '/^uvesafb\s*mode_option.*/d' %s" % self.modulesPath)
-            if self.boot is not None:
-                shell_exec(r"sed -i -e '/^GRUB_GFXPAYLOAD_LINUX.*/d' %s" % self.boot)
-            splashFile = '/etc/initramfs-tools/conf.d/splash'
-            if exists(splashFile):
-                os.remove(splashFile)
 
             # Set/Unset splash
             self.queue_progress()
             if self.boot:
-                cmd = r"sed -i -e 's/\s*[a-z]*splash//' {}".format(self.boot)
-                shell_exec(cmd)
+                # Remove splash/nosplash before configuration
+                replace_pattern_in_file(r'\s*[a-z]*splash', '', self.boot)
+                replace_pattern_in_file(r'^GRUB_GFXPAYLOAD_LINUX\s*=', '#GRUB_GFXPAYLOAD_LINUX=', self.boot, False)
                 if not self.theme:
                     self.write_log("Set nosplash")
                     cmd = r"sed -i -e '/^GRUB_CMDLINE_LINUX_DEFAULT=/ s/\"$/ nosplash\"/' {}".format(self.boot)
                     shell_exec(cmd)
-                    # Comment the GRUB_GFXMODE line if needed
-                    cmd = r"sed -i '/GRUB_GFXMODE=/s/^/#/' %s" % self.boot
-                    shell_exec(cmd)
+                    # Comment the GRUB_GFXMODE line
+                    #replace_pattern_in_file(r'^GRUB_GFXMODE\s*=', '#GRUB_GFXMODE=', self.boot)
                 else:
                     self.write_log("Set splash")
                     cmd = r"sed -i -e '/^GRUB_CMDLINE_LINUX_DEFAULT=/ s/\"$/ splash\"/' {}".format(self.boot)
                     shell_exec(cmd)
                     # Set resolution
                     if self.resolution:
-                        res_str = '{}x24,1024x768,auto'.format(self.resolution)
+                        res_str = '{},1024x768,auto'.format(self.resolution)
                         self.write_log("GRUB_GFXMODE={}".format(res_str))
-                        cmd = r"sed -i -e '/GRUB_GFXMODE=/ c GRUB_GFXMODE={0}' {1}".format(res_str, self.boot)
-                        shell_exec(cmd)
-                        # Check for GRUB_GFXPAYLOAD_LINUX and append if not found
-                        with open(self.boot, "r+") as file:
-                            for line in file:
-                                if 'GRUB_GFXPAYLOAD_LINUX' in line:
-                                   break
-                            else: # not found, we are at the eof
-                                file.write('\n#Keep gfxpayload\nGRUB_GFXPAYLOAD_LINUX=keep')
+                        replace_pattern_in_file(r'^#?GRUB_GFXMODE\s*=.*', 'GRUB_GFXMODE={}'.format(res_str), self.boot)
+                        replace_pattern_in_file(r'^#?GRUB_GFXPAYLOAD_LINUX\s*=.*', 'GRUB_GFXPAYLOAD_LINUX=keep', self.boot)
+
 
             # Only for plymouth version older than 9
             self.queue_progress()
+            update_initramfs = False
             if self.theme is not None and self.resolution is not None:
                 plymouthVersion = str_to_nr(get_package_version("plymouth").replace('.', '')[0:2], True)
                 self.write_log("plymouthVersion={}".format(plymouthVersion))
+                splashFile = '/etc/initramfs-tools/conf.d/splash'
                 if plymouthVersion < 9:
                     # Write uvesafb command to modules file
                     self.write_log("> Use uvesafb to configure Plymouth")
@@ -234,10 +213,16 @@ class PlymouthSave(threading.Thread):
 
                     # Use framebuffer
                     line = "FRAMEBUFFER=y"
-                    with open('/etc/initramfs-tools/conf.d/splash', 'w') as f:
+                    with open(splashFile, 'w') as f:
                         f.write(line)
+                        
+                    # We need to update initramfs later
+                    update_initramfs = True
+                    
+                elif exists(splashFile):
+                    os.remove(splashFile)
 
-            if self.boot is not None:
+            if self.boot:
                 # Read grub for debugging purposes
                 with open(self.boot, 'r') as f:
                     content = f.read()
@@ -245,6 +230,8 @@ class PlymouthSave(threading.Thread):
 
                 # Update grub
                 self.queue_progress()
+                if update_initramfs:
+                    shell_exec('update-initramfs -u -k all')
                 if 'grub' in self.boot:
                     shell_exec('update-grub')
                 else:
