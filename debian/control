@@ -44,7 +44,8 @@ Depends: ${misc:Depends}, ${python3:Depends}
   , hwinfo
   , pv
   , zenity
-Recommends: cryptsetup
+Recommends: cryptsetup | cryptsetup-run,
+  , cryptsetup-initramfs
 Conflicts: solydkbo-grub2-theme
   , solydkbe-grub2-theme
   , solydxbe-grub2-theme
