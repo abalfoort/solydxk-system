@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <translations@solydxk.com>, 2018
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
 # Luis Filipe Teixeira <lufilte@gmail.com>, 2020
 #
 #, fuzzy
@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-24 11:41+0200\n"
+"POT-Creation-Date: 2020-09-05 11:15+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Luis Filipe Teixeira <lufilte@gmail.com>, 2020\n"
-"Language-Team: Portuguese (https://www.transifex.com/solydxk/teams/54212/"
+"Language-Team: Portuguese (https://www.transifex.com/abalfoort/teams/54212/"
 "pt/)\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:76
+#: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:75
 msgid "Neither grub nor burg found"
 msgstr "Nem grub ou burg foi encontrado"
 
@@ -87,7 +87,7 @@ msgstr ""
 "As Configurações do Sistema SolydXK falharam com o seguinte erro. Por favor "
 "envie um relatório de bug!"
 
-#: usr/lib/solydxk/system/plymouth.py:136
+#: usr/lib/solydxk/system/plymouth.py:124
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Nem grub ou burg foi encontrado em /etc/default"
 
@@ -457,11 +457,12 @@ msgstr ""
 "A partição não está cifrada.\n"
 "Por favor, escolha outra partição para cifrar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:842
-msgid "Could not install cryptsetup."
+#: usr/lib/solydxk/system/solydxk_system.py:848
+#, fuzzy
+msgid "Could not install cryptsetup/cryptsetup-initramfs."
 msgstr "Não foi possível instalar o cryptsetup."
 
-#: usr/lib/solydxk/system/solydxk_system.py:859
+#: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
 msgid ""
 "%s is not encrypted.\n"
@@ -470,11 +471,11 @@ msgstr ""
 "%s não é cifrada.\n"
 "Por favor, de escolher uma partição cifrada."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1004
+#: usr/lib/solydxk/system/solydxk_system.py:1010
 msgid "Backup"
 msgstr "Cópia de segurança"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1039
+#: usr/lib/solydxk/system/solydxk_system.py:1045
 #, python-format
 msgid ""
 "You need a backup partition with at least %s free.\n"
@@ -483,7 +484,7 @@ msgstr ""
 "Você precisa de uma partição de backup com pelo menos %s livre.\n"
 "Monte uma unidade de backup e aperte o botão de actualização."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1397
+#: usr/lib/solydxk/system/solydxk_system.py:1403
 msgid ""
 "Firefox and/or Thunderbird are running.\n"
 "Please close these applications before you continue."
@@ -491,7 +492,7 @@ msgstr ""
 "Firefox e/ou Thunderbird estão em execução.\n"
 "Por favor de fechar as aplicações antes de continuar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1419
+#: usr/lib/solydxk/system/solydxk_system.py:1425
 msgid ""
 "SolydXK System Settings cannot download and install the software "
 "localization packages\n"
@@ -502,8 +503,8 @@ msgstr ""
 "Por favor, repita este processo quando você estabelecer uma conexão com a "
 "Internet."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1577
-#: usr/lib/solydxk/system/solydxk_system.py:1662
+#: usr/lib/solydxk/system/solydxk_system.py:1583
+#: usr/lib/solydxk/system/solydxk_system.py:1668
 msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
@@ -511,49 +512,54 @@ msgstr ""
 "Não foi possível atualizar a cache do apt.\n"
 "Por favor, atualize a cache apt manualmente com: apt-get update"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1581
+#: usr/lib/solydxk/system/solydxk_system.py:1587
 msgid "Nothing to do."
 msgstr "Nada a fazer."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1669
+#: usr/lib/solydxk/system/solydxk_system.py:1675
 msgid "There are no repositories to save."
 msgstr "Não há nenhum repositórios para salvar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Current"
 msgstr "Actual"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Country"
 msgstr "País"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Repository"
 msgstr "Repositório"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "URL"
 msgstr "URL"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Speed"
 msgstr "Velocidade"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2018
+#: usr/lib/solydxk/system/solydxk_system.py:1929
+#, fuzzy
+msgid "Please select a Plymouth theme."
+msgstr "Seleccionar um tema de arranque Plymouth splash."
+
+#: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr ""
 "É necessário reiniciar o sistema para que as novas configurações sejam "
 "afetadas."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2019
+#: usr/lib/solydxk/system/solydxk_system.py:2028
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2030
+#: usr/lib/solydxk/system/solydxk_system.py:2039
 msgid "Encryption done"
 msgstr "Crifragem concluída."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2031
+#: usr/lib/solydxk/system/solydxk_system.py:2040
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -563,11 +569,11 @@ msgstr ""
 "\n"
 "Você deseja reiniciar o computador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2034
+#: usr/lib/solydxk/system/solydxk_system.py:2043
 msgid "Decryption done"
 msgstr "Decifração concluída"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2035
+#: usr/lib/solydxk/system/solydxk_system.py:2044
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -577,16 +583,16 @@ msgstr ""
 "\n"
 "Você deseja reiniciar o computador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2047
+#: usr/lib/solydxk/system/solydxk_system.py:2056
 #, python-brace-format
 msgid "Passphrase changed for {0}."
 msgstr "Frase-senha alterada para {0}."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2099
+#: usr/lib/solydxk/system/solydxk_system.py:2108
 msgid "Partition passphrase"
 msgstr "Frase-senha da partição"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2100
+#: usr/lib/solydxk/system/solydxk_system.py:2109
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
@@ -654,12 +660,13 @@ msgstr "Cifrar ou decifrar este dispositivo USB com o SolydXK System."
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr ""
+msgstr "Executar o LuckyBackup como super utilizador"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
 msgid "Authentication is required to run LuckyBackup (super user)"
 msgstr ""
+"É necessária autenticação para executar o LuckyBackup (super utilizador)"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.solydxk-system.policy:8
@@ -851,6 +858,7 @@ msgid "Examples"
 msgstr "Exemplos"
 
 #: po/en/help.html%2Bhtml.body.div.p:19-3
+#, fuzzy
 msgid ""
 "When you start SolydXK System Settings you will see a list of partitions "
 "that you can either encrypt or decrypt. An encrypted partition shows this "
@@ -858,8 +866,7 @@ msgid ""
 "unencrypted partition shows this icon: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. Your selection will decide which actions can be "
 "taken on that partition. Removable media will show these icons: <img src=\"/"
-"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
-"share/solydxk/system/icons/encrypted-usb.png\" />"
+"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
 "Quando você iniciar as Configurações do Sistema SolydXK, você verá uma lista "
 "de partições que pode cifrar ou decifrar. Uma partição cifrada mostra este "
