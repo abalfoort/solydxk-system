@@ -14,13 +14,19 @@ def clear_partition(partition):
     if compare_package_versions(openssl_version, '1.1.1') == 'smaller':
         # deprecated key derivation in openssl 1.1.1+
         enc_key = '-aes-256-ctr'
-    shell_exec("openssl enc {0} -pass pass:\"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)\" -nosalt < /dev/zero > {1}".format(enc_key, partition.enc_status['device']))
+    # Check "man openssl-enc" for options
+    shell_exec("head -c 5M /dev/zero | openssl enc {0} -pass pass:\"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)\" -nosalt > {1}".format(enc_key, partition.enc_status['device']))
 
 
-def encrypt_partition(device, passphrase):
+def encrypt_partition(device, passphrase, luks_version=1):
     if unmount_partition(device):
         # Cannot use echo to pass the passphrase to cryptsetup because that adds a carriadge return
-        shell_exec("printf \"%s\" | cryptsetup luksFormat --type luks2 --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-random %s" % (passphrase, device))
+        # Use LUKS1 for now because grub does not support LUKS2, yet:
+        # https://git.savannah.gnu.org/cgit/grub.git/commit/?id=365e0cc3e7e44151c14dd29514c2f870b49f9755
+        shell_exec("printf \"{passphrase}\" | cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 " \
+                   "--use-random --type luks{luks_version} --iter-time 5000 luksFormat {device}".format(passphrase=partition.enc_passphrase,
+                                                                                                        luks_version=luks_version,
+                                                                                                        device=partition.enc_status['device']))
         mapped_device, filesystem = connect_block_device(device, passphrase)
         return mapped_device
     return ''
@@ -80,6 +86,8 @@ def get_status(device):
         mapped_name = basename(device)
         status_dict['active'] = "/dev/mapper/{}".format(mapped_name)
 
+    if status_dict['type'] != '':
+        print(("Encryption: mapped drive status = {}".format(status_dict)))
     return status_dict
 
 
@@ -87,7 +95,7 @@ def create_keyfile(keyfile_path, device, passphrase):
     # Note: do this outside the chroot.
     # https://www.martineve.com/2012/11/02/luks-encrypting-multiple-partitions-on-debianubuntu-with-a-single-passphrase/
     if not exists(keyfile_path):
-        shell_exec("dd if=/dev/urandom of=%s bs=1024 count=4" % keyfile_path)
+        shell_exec("dd if=/dev/urandom of=%s bs=512 count=8 iflag=fullblock" % keyfile_path)
         shell_exec("chmod 0400 %s" % keyfile_path)
     # Remove any keys for this device first
     shell_exec("printf \"%s\" | cryptsetup luksRemoveKey %s %s" % (passphrase, device, keyfile_path))

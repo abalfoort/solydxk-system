@@ -824,11 +824,17 @@ class SolydXKSystemSettings(object):
                         return
                         
             # Install cryptsetup if needed
-            if not is_package_installed('cryptsetup'):
-                cmd = "apt-get {} install cryptsetup".format(get_apt_force())
+            pck_list = ''
+            if not is_package_installed('cryptsetup') or not is_package_installed('cryptsetup-run'):
+                pck_list = 'cryptsetup'
+            if not is_package_installed('cryptsetup-initramfs'):
+                pck_list += ' cryptsetup-initramfs'
+            if pck_list:
+                cmd = "apt-get {apt} install {pcks}".format(apt=get_apt_force(), pcks=pck_list)
                 os.system(cmd)
             
-            if is_package_installed('cryptsetup'):
+            if (is_package_installed('cryptsetup') or is_package_installed('cryptsetup-run')) \
+               and is_package_installed('cryptsetup-initramfs'):
                 # Run encrypt/decrypt in separate thread
                 self.set_buttons_state(False)
                 t = EnDecryptPartitions(self.my_partitions, backup_partition, self.encrypt, self.my_passphrase, self.queue, self.log)
@@ -839,7 +845,7 @@ class SolydXKSystemSettings(object):
                 GLib.timeout_add(5, self.check_thread, name)
             else:
                 # Show a warning message
-                msg = _("Could not install cryptsetup.")
+                msg = _("Could not install cryptsetup/cryptsetup-initramfs.")
                 self.log.write(msg, 'endecrypt')
                 WarningDialog('endecrypt', msg)
 
@@ -1915,10 +1921,13 @@ class SolydXKSystemSettings(object):
         selected_theme = None
         resolution = None
         if self.chkEnableSplash.get_active():
-            selected_theme = self.tvSplashHandler.getToggledValues()[0]
-            resolution = self.cmbSplashResolutionHandler.getValue()
-            self.log.write("Plymouth theme: {} ({})".format(selected_theme, resolution), 'save_splash', 'info')
-            
+            try:
+                selected_theme = self.tvSplashHandler.getToggledValues()[0]
+                resolution = self.cmbSplashResolutionHandler.getValue()
+                self.log.write("Plymouth theme: {} ({})".format(selected_theme, resolution), 'save_splash', 'info')
+            except:
+                WarningDialog(self.btnSaveSplash.get_label(), _("Please select a Plymouth theme."))
+        
         name = 'splash'
         self.set_buttons_state(False)
         # Start saving in a separate thread
