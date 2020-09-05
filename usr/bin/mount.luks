@@ -38,3 +38,7 @@ if [ ! -z $(sudo which cryptsetup) ]; then
 fi
 
 sudo mount $PARMS
+if [ "$?" -gt 0 ]; then
+    mkdir /tmp/$BN
+    sudo mount $PARMS /tmp/$BN
+fi
