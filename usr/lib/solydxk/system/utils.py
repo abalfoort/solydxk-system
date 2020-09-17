@@ -232,22 +232,32 @@ def get_system_version_info():
     return info
 
 
+def get_current_resolution():
+    res = getoutput("xrandr | awk '/*/{print $1}'")[0]
+    if not res:
+        res = getoutput("xdpyinfo | awk '/dimensions/{print $2}'")[0]
+    return res
+
+
 # Get valid screen resolutions
 def get_resolutions(minRes='', maxRes='', reverse_order=False, use_vesa=False):
     cmd = None
-    resolutions = []
-    default_res = ['640x480', '800x600', '1024x768', '1280x1024', '1600x1200']
+    resolutions = ['']
+    default_res = ['640x480', '800x600', '1024x768', '1280x1024']
 
-    cmd = "xrandr | awk '{print $1}' | egrep '[0-9]+x[0-9]+$'"
     if use_vesa:
         vbeModes = '/sys/bus/platform/drivers/uvesafb/uvesafb.0/vbe_modes'
         if exists(vbeModes):
-            cmd = "cat %s | cut -d'-' -f1" % vbeModes
+            resolutions = getoutput("cat %s | cut -d'-' -f1" % vbeModes, 5)
         elif is_package_installed('hwinfo'):
-            cmd = "hwinfo --framebuffer | awk '{print $3}' | egrep '[0-9]+x[0-9]+$' | uniq"        
+            resolutions = getoutput("hwinfo --framebuffer | awk '/[0-9]+x[0-9]+\s/{print $3}'", 5)
+    else:
+        resolutions = getoutput("xrandr | awk '/[0-9]+x[0-9]+\s/{print $1}'", 5)
 
-    resolutions = getoutput(cmd, 5)
     if not resolutions[0]:
+        # Add current resolution and set that as maximum
+        maxRes = get_current_resolution()
+        default_res.append(maxRes)
         resolutions = default_res
 
     # Remove any duplicates from the list
@@ -279,8 +289,9 @@ def get_resolutions(minRes='', maxRes='', reverse_order=False, use_vesa=False):
                 itemW = str_to_nr(itemList[0], True)
                 itemH = str_to_nr(itemList[1], True)
                 # Check if it can be added
-                if itemW >= minW and itemH >= minH and (maxW == 0 or itemW <= maxW) and (maxH == 0 or itemH <= maxH):
-                    #print(("Resolution added: %(res)s" % { "res": item }))
+                if (itemW >= minW and itemH >= minH) and \
+                   (maxW == 0 and maxH == 0 or (maxW > 0 and maxH > 0 and itemW <= maxW and itemH <= maxH)):
+                    print(("Resolution added: %(res)s" % { "res": item }))
                     avlResTmp.append([itemW, itemH])
 
     # Sort the list and return as readable resolution strings
@@ -290,13 +301,6 @@ def get_resolutions(minRes='', maxRes='', reverse_order=False, use_vesa=False):
     return avlRes
     
 
-def get_current_resolution():
-    res = getoutput("xrandr | grep '*' | awk '{print $1}'")[0]
-    if not res:
-        res = getoutput("xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/'")[0]
-    return res
-    
-    
 def get_current_aspect_ratio():
     return get_resolution_aspect_ratio(get_current_resolution())
 

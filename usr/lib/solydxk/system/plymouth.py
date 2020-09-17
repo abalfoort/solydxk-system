@@ -111,17 +111,18 @@ class Plymouth():
         res = self.grub.getCurrentResolution()
 
         if self.boot:
+            cont = ''
             with open(self.boot, 'r') as f:
-                lines = f.readlines()
-            for line in lines:
+                cont = f.read()
+            if cont:
                 # Search text for resolution
-                matchObj = re.search(r'^GRUB_GFXPAYLOAD_LINUX\s*=[\s"]*([0-9]+x[0-9]+)', line)
+                p_obj = re.compile(r'^GRUB_GFXMODE\s*=[\s"]*([0-9]+x[0-9]+)', re.MULTILINE)
+                matchObj = re.search(p_obj, cont)
                 if matchObj:
                     res = matchObj.group(1)
                     self.write_log("Current Plymouth resolution: %(res)s" % { "res": res })
-                    break
-            else:
-                self.write_log(_("Neither grub nor burg found in /etc/default"), 'warning')
+        else:
+            self.write_log(_("Neither grub nor burg found in /etc/default"), 'warning')
         return res
         
     def write_log(self, message, level='debug'):

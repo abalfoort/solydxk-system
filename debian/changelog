@@ -1,3 +1,15 @@
+solydxk-system (3.7.7) stable; urgency=low
+
+  * Fix screen resolution selection logic
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Mon, 07 Sep 2020 15:25:20 +0200
+
+solydxk-system (3.7.6) stable; urgency=low
+
+  * Use current resolution as max if no resolutions list could be retrieved
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Mon, 07 Sep 2020 09:08:10 +0200
+
 solydxk-system (3.7.5) stable; urgency=low
 
   * Fix Plymouth bug not setting resolution
