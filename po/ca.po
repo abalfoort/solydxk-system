@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <translations@solydxk.com>, 2018
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
 # Eduard Selma <selma@tinet.cat>, 2019
 #
 #, fuzzy
@@ -12,17 +12,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-24 11:41+0200\n"
+"POT-Creation-Date: 2020-10-24 19:18+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Eduard Selma <selma@tinet.cat>, 2019\n"
-"Language-Team: Catalan (https://www.transifex.com/solydxk/teams/54212/ca/)\n"
+"Language-Team: Catalan (https://www.transifex.com/abalfoort/teams/54212/"
+"ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:76
+#: usr/lib/solydxk/system/main.py:53
+msgid "Unexpected error"
+msgstr "Error inesperat "
+
+#: usr/lib/solydxk/system/main.py:54
+msgid ""
+"SolydXK System Settings has failed with the following unexpected error. "
+"Please submit a bug report!"
+msgstr ""
+"SolydXK System Settings ha fallat amb el següent error inesperat. Si us "
+"plau, envieu un informe d'error!"
+
+#: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:75
 msgid "Neither grub nor burg found"
 msgstr "No he trobat GRUB ni BURG"
 
@@ -73,19 +86,7 @@ msgstr ""
 "No puc canviar canviar la contrasenya de {0}\n"
 "Si us plau, doneu la contrasenya actual i la nova."
 
-#: usr/lib/solydxk/system/main.py:53
-msgid "Unexpected error"
-msgstr "Error inesperat "
-
-#: usr/lib/solydxk/system/main.py:54
-msgid ""
-"SolydXK System Settings has failed with the following unexpected error. "
-"Please submit a bug report!"
-msgstr ""
-"SolydXK System Settings ha fallat amb el següent error inesperat. Si us "
-"plau, envieu un informe d'error!"
-
-#: usr/lib/solydxk/system/plymouth.py:136
+#: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "No he trobat GRUB ni BURG a /etc/default"
 
@@ -451,11 +452,11 @@ msgstr ""
 "La partició no està encriptada.\n"
 "Si us plau, trieu-ne una altra per desencriptar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:842
-msgid "Could not install cryptsetup."
+#: usr/lib/solydxk/system/solydxk_system.py:848
+msgid "Could not install cryptsetup/cryptsetup-initramfs."
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:859
+#: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
 msgid ""
 "%s is not encrypted.\n"
@@ -464,11 +465,11 @@ msgstr ""
 "%s no està encriptada.\n"
 "Si us plau, trieu una partició encriptada."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1004
+#: usr/lib/solydxk/system/solydxk_system.py:1010
 msgid "Backup"
 msgstr "Còpia de seguretat"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1039
+#: usr/lib/solydxk/system/solydxk_system.py:1045
 #, python-format
 msgid ""
 "You need a backup partition with at least %s free.\n"
@@ -477,7 +478,7 @@ msgstr ""
 "Cal una partició de còpia de seguretat amb un mínim de%s lliure.\n"
 "Munteu un disc de còpia de seguretat i premeu el botó Actualitza."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1397
+#: usr/lib/solydxk/system/solydxk_system.py:1403
 msgid ""
 "Firefox and/or Thunderbird are running.\n"
 "Please close these applications before you continue."
@@ -485,7 +486,7 @@ msgstr ""
 "Firefox i/or Thunderbird s'estan executant.\n"
 "Si us plau tanqueu aquestes aplicacions abans de continuar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1419
+#: usr/lib/solydxk/system/solydxk_system.py:1425
 msgid ""
 "SolydXK System Settings cannot download and install the software "
 "localization packages\n"
@@ -495,8 +496,8 @@ msgstr ""
 "localització de programari\n"
 "Si us plau, repetiu el procés quan tingueu connexió a internet."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1577
-#: usr/lib/solydxk/system/solydxk_system.py:1662
+#: usr/lib/solydxk/system/solydxk_system.py:1583
+#: usr/lib/solydxk/system/solydxk_system.py:1668
 msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
@@ -504,47 +505,51 @@ msgstr ""
 "No he pogut actualitzar la memòria cau d'APT.\n"
 "Si us plau, actualitzeu-la manualment amb apt-get update "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1581
+#: usr/lib/solydxk/system/solydxk_system.py:1587
 msgid "Nothing to do."
 msgstr "Res a fer."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1669
+#: usr/lib/solydxk/system/solydxk_system.py:1675
 msgid "There are no repositories to save."
 msgstr "No hi ha dipòsits per desar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Current"
 msgstr "Actual "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Country"
 msgstr "País "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Repository"
 msgstr "Dipòsit "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "URL"
 msgstr "URL "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Speed"
 msgstr "Velocitat "
 
-#: usr/lib/solydxk/system/solydxk_system.py:2018
+#: usr/lib/solydxk/system/solydxk_system.py:1929
+msgid "Please select a Plymouth theme."
+msgstr ""
+
+#: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Us cal tornar a arrencar el sistema per activar la nova configuració."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2019
+#: usr/lib/solydxk/system/solydxk_system.py:2028
 msgid "Reboot"
 msgstr "Reinicia"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2030
+#: usr/lib/solydxk/system/solydxk_system.py:2039
 msgid "Encryption done"
 msgstr "Fet l'encriptatge"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2031
+#: usr/lib/solydxk/system/solydxk_system.py:2040
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -554,11 +559,11 @@ msgstr ""
 "\n"
 "Voleu tornar a arrencar l'ordinador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2034
+#: usr/lib/solydxk/system/solydxk_system.py:2043
 msgid "Decryption done"
 msgstr "Fet el desencriptatge"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2035
+#: usr/lib/solydxk/system/solydxk_system.py:2044
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -568,16 +573,16 @@ msgstr ""
 "\n"
 "Voleu tornar a arrencar l'ordinador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2047
+#: usr/lib/solydxk/system/solydxk_system.py:2056
 #, python-brace-format
 msgid "Passphrase changed for {0}."
 msgstr "Canviada la contrasenya per {0}."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2099
+#: usr/lib/solydxk/system/solydxk_system.py:2108
 msgid "Partition passphrase"
 msgstr "Contrasenya de la partició"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2100
+#: usr/lib/solydxk/system/solydxk_system.py:2109
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
@@ -620,6 +625,20 @@ msgstr "No s'ha trobat cap llapis USB."
 msgid "No ISO path provided."
 msgstr "No s'ha donat cap camí vers al ISO"
 
+#: usr/share/applications/solydxk-system.desktop.in.h:2
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
+msgid "Change system settings for SolydXK"
+msgstr "Canvia els Paràmetres de Sistema de SolydXK"
+
+#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
+msgid "Encrypt or decrypt this USB device with SolydXK System."
+msgstr "Encripta o desencripta aquest dispositiu USB amb SolydXK System."
+
+#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
+msgid "System"
+msgstr "Sistema"
+
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
 msgstr "Limita la mida del fitxer xsession-errors"
@@ -627,20 +646,6 @@ msgstr "Limita la mida del fitxer xsession-errors"
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:2
 msgid "Xsession Errors Log Control"
 msgstr "Control del registre Xsession Errors"
-
-#: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
-msgid "Change system settings for SolydXK"
-msgstr "Canvia els Paràmetres de Sistema de SolydXK"
-
-#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
-msgid "System"
-msgstr "Sistema"
-
-#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
-msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr "Encripta o desencripta aquest dispositiu USB amb SolydXK System."
 
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
@@ -850,17 +855,8 @@ msgid ""
 "unencrypted partition shows this icon: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. Your selection will decide which actions can be "
 "taken on that partition. Removable media will show these icons: <img src=\"/"
-"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
-"share/solydxk/system/icons/encrypted-usb.png\" />"
+"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
-"Quan engegueu SolydXK System Settings veureu una llista de particions que "
-"podeu encriptar o desencriptar. Una partició encriptada mostra la icona: "
-"<img src=\"/usr/share/solydxk/system/icons/encrypted.png\" /> i una partició "
-"no encriptada mostra aquesta icona: <img src=\"/usr/share/solydxk/system/"
-"icons/unencrypted.png\" />. La vostra tria determinarà quines accions es "
-"poden fer en cada partició. Els dispositius extraïbles mostraran aquestes "
-"icones: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
-"i <img src=\"/usr/share/solydxk/system/icons/encrypted-usb.png\" />"
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <translations@solydxk.com>, 2018
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
 # Tony Albers, 2020
 #
 #, fuzzy
@@ -12,17 +12,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-24 11:41+0200\n"
+"POT-Creation-Date: 2020-10-24 19:18+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Tony Albers, 2020\n"
-"Language-Team: Danish (https://www.transifex.com/solydxk/teams/54212/da/)\n"
+"Language-Team: Danish (https://www.transifex.com/abalfoort/teams/54212/da/)\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:76
+#: usr/lib/solydxk/system/main.py:53
+msgid "Unexpected error"
+msgstr "Uventet fejl"
+
+#: usr/lib/solydxk/system/main.py:54
+msgid ""
+"SolydXK System Settings has failed with the following unexpected error. "
+"Please submit a bug report!"
+msgstr ""
+"SolydXK Systemindstillinger er brudt sammen med følgende uventede fejl. "
+"Indsend venligst en fejlrapport."
+
+#: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:75
 msgid "Neither grub nor burg found"
 msgstr "Hverken grub eller burg kunne findes."
 
@@ -73,19 +85,7 @@ msgstr ""
 "Kodeordssætningen for {0} kunne ikke ændres.\n"
 "Angive venligst den korrekte nuværende og nye kodeordssætning."
 
-#: usr/lib/solydxk/system/main.py:53
-msgid "Unexpected error"
-msgstr "Uventet fejl"
-
-#: usr/lib/solydxk/system/main.py:54
-msgid ""
-"SolydXK System Settings has failed with the following unexpected error. "
-"Please submit a bug report!"
-msgstr ""
-"SolydXK Systemindstillinger er brudt sammen med følgende uventede fejl. "
-"Indsend venligst en fejlrapport."
-
-#: usr/lib/solydxk/system/plymouth.py:136
+#: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Hverken grub eller burg kunne findes i /etc/default"
 
@@ -455,11 +455,11 @@ msgstr ""
 "Partitionen er ikke krypteret.\n"
 "Vælg venligst en anden partition at dekryptere."
 
-#: usr/lib/solydxk/system/solydxk_system.py:842
-msgid "Could not install cryptsetup."
-msgstr "Cryptsetup kunne ikke installeres."
+#: usr/lib/solydxk/system/solydxk_system.py:848
+msgid "Could not install cryptsetup/cryptsetup-initramfs."
+msgstr "Cryptsetup/cryptsetup-initramfs kunne ikke installeres."
 
-#: usr/lib/solydxk/system/solydxk_system.py:859
+#: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
 msgid ""
 "%s is not encrypted.\n"
@@ -468,11 +468,11 @@ msgstr ""
 "%s er ikke krypteret.\n"
 "Vælg venligst en krypteret partition."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1004
+#: usr/lib/solydxk/system/solydxk_system.py:1010
 msgid "Backup"
 msgstr "Backup"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1039
+#: usr/lib/solydxk/system/solydxk_system.py:1045
 #, python-format
 msgid ""
 "You need a backup partition with at least %s free.\n"
@@ -481,7 +481,7 @@ msgstr ""
 "Du har brug for en backup partition med mindst %s ledig plads.\n"
 "Montér et backupmedie og tryk på 'Opdatér'."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1397
+#: usr/lib/solydxk/system/solydxk_system.py:1403
 msgid ""
 "Firefox and/or Thunderbird are running.\n"
 "Please close these applications before you continue."
@@ -489,7 +489,7 @@ msgstr ""
 "Firefox og / eller Thunderbird kører.\n"
 "Luk dem venligst før du fortsætter."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1419
+#: usr/lib/solydxk/system/solydxk_system.py:1425
 msgid ""
 "SolydXK System Settings cannot download and install the software "
 "localization packages\n"
@@ -499,8 +499,8 @@ msgstr ""
 "regionsindstillinger\n"
 "Gentag venligst denne proces når du har oprettet forbindelse til internettet."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1577
-#: usr/lib/solydxk/system/solydxk_system.py:1662
+#: usr/lib/solydxk/system/solydxk_system.py:1583
+#: usr/lib/solydxk/system/solydxk_system.py:1668
 msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
@@ -508,47 +508,51 @@ msgstr ""
 "apt-mellemlageret kunne ikke opdateres.\n"
 "Opdatér venligst apt-mellemlageret manuelt med: apt-get update"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1581
+#: usr/lib/solydxk/system/solydxk_system.py:1587
 msgid "Nothing to do."
 msgstr "Der er intet at gøre."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1669
+#: usr/lib/solydxk/system/solydxk_system.py:1675
 msgid "There are no repositories to save."
 msgstr "Der er ingen repositorier der skal gemmes."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Current"
 msgstr "Aktuelt"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Country"
 msgstr "Land"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Repository"
 msgstr "Repositorie"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "URL"
 msgstr "URL-adresse"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1673
+#: usr/lib/solydxk/system/solydxk_system.py:1679
 msgid "Speed"
 msgstr "Hastighed"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2018
+#: usr/lib/solydxk/system/solydxk_system.py:1929
+msgid "Please select a Plymouth theme."
+msgstr "Vælg venligst et design til Plymouth-systemopstarteren."
+
+#: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Du skal genstarte maskinen før ændringerne træder i kraft."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2019
+#: usr/lib/solydxk/system/solydxk_system.py:2028
 msgid "Reboot"
 msgstr "Genstart"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2030
+#: usr/lib/solydxk/system/solydxk_system.py:2039
 msgid "Encryption done"
 msgstr "Kryptering udført"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2031
+#: usr/lib/solydxk/system/solydxk_system.py:2040
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -558,11 +562,11 @@ msgstr ""
 "\n"
 "Vil du genstarte maskinen nu?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2034
+#: usr/lib/solydxk/system/solydxk_system.py:2043
 msgid "Decryption done"
 msgstr "Dekryptering udført"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2035
+#: usr/lib/solydxk/system/solydxk_system.py:2044
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -572,16 +576,16 @@ msgstr ""
 "\n"
 "Vil du genstarte maskinen nu?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2047
+#: usr/lib/solydxk/system/solydxk_system.py:2056
 #, python-brace-format
 msgid "Passphrase changed for {0}."
 msgstr "Kodeordssætning ændret for {0}."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2099
+#: usr/lib/solydxk/system/solydxk_system.py:2108
 msgid "Partition passphrase"
 msgstr "Kodeordssætning til partition"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2100
+#: usr/lib/solydxk/system/solydxk_system.py:2109
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
@@ -624,6 +628,20 @@ msgstr "Der blev ikke fundet en USB-pen"
 msgid "No ISO path provided."
 msgstr "Der blev ikke angivet en sti til ISO'en."
 
+#: usr/share/applications/solydxk-system.desktop.in.h:2
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
+msgid "Change system settings for SolydXK"
+msgstr "Skift systemindstillinger for SolydXK"
+
+#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
+msgid "Encrypt or decrypt this USB device with SolydXK System."
+msgstr "Kryptér eller dekryptér denne USB-enhed med SolydXK systemet."
+
+#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
+msgid "System"
+msgstr "System"
+
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
 msgstr "Begræns størrelsen på xsession-errors-filen"
@@ -632,34 +650,20 @@ msgstr "Begræns størrelsen på xsession-errors-filen"
 msgid "Xsession Errors Log Control"
 msgstr "Xsession Errors logstyring"
 
-#: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
-msgid "Change system settings for SolydXK"
-msgstr "Skift systemindstillinger for SolydXK"
-
-#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
-msgid "System"
-msgstr "System"
-
-#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
-msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr "Kryptér eller dekryptér denne USB-enhed med SolydXK systemet."
-
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr ""
+msgstr "Kør LuckyBackup som superbruger"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
 msgid "Authentication is required to run LuckyBackup (super user)"
-msgstr ""
+msgstr "Autentificering er nødvendig for at køre Luckybackup (som superbruger)"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.solydxk-system.policy:8
 msgid "Authentication is required to run SolydXK System Settings"
-msgstr "Godkendelse er påkrævet for at starte SolydXK Systemindstillinger"
+msgstr "Autentificering er påkrævet for at starte SolydXK Systemindstillinger"
 
 #: po/en/helpdd.html%2Bhtml.body.h1:8-2
 msgid "SolydXK System Settings: Device Driver Help"
@@ -849,17 +853,16 @@ msgid ""
 "unencrypted partition shows this icon: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. Your selection will decide which actions can be "
 "taken on that partition. Removable media will show these icons: <img src=\"/"
-"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
-"share/solydxk/system/icons/encrypted-usb.png\" />"
+"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
-"Når du starter SolydXK Systemindstillinger vil du se en liste over "
-"partitioner du kan vælge at enten kryptere eller dekryptere. En krypteret "
-"partition har denne ikon: <img src=\"/usr/share/solydxk/system/icons/"
-"encrypted.png\" /> og en ukrypteret partition har denne: <img src=\"/usr/"
-"share/solydxk/system/icons/unencrypted.png\" />. Dit valg er afgørende for "
-"hvilke ting man kan gøre med partitionen. Flytbare enheder vil have disse "
-"ikoner: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
-"and <img src=\"/usr/share/solydxk/system/icons/encrypted-usb.png\" />"
+"Når du starter SolydXK Systemindstillinger, vil du blive vist en liste over "
+"partitioner som du kan kryptere eller dekryptere. En krypteret partition "
+"vises med denne ikon: <img src=\"/usr/share/solydxk/system/icons/encrypted."
+"png\" /> og en ukrypteret partition vises med denne: <img src=\"/usr/share/"
+"solydxk/system/icons/unencrypted.png\" />. Dit valg vil afgøre hvilke "
+"handlinger det udføres på den valgte partition. Flytbare mediaer vil vises "
+"med disse ikoner: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb."
+"png\" /><img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" />"
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"

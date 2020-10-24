@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 11:15+0200\n"
+"POT-Creation-Date: 2020-10-24 19:18+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Luis Filipe Teixeira <lufilte@gmail.com>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/abalfoort/teams/54212/"
@@ -22,6 +22,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: usr/lib/solydxk/system/main.py:53
+msgid "Unexpected error"
+msgstr "Erro inesperado"
+
+#: usr/lib/solydxk/system/main.py:54
+msgid ""
+"SolydXK System Settings has failed with the following unexpected error. "
+"Please submit a bug report!"
+msgstr ""
+"As Configurações do Sistema SolydXK falharam com o seguinte erro. Por favor "
+"envie um relatório de bug!"
 
 #: usr/lib/solydxk/system/grub.py:47 usr/lib/solydxk/system/grub.py:75
 msgid "Neither grub nor burg found"
@@ -75,19 +87,7 @@ msgstr ""
 "Não foi possível alterar a frase-senha para {0}\n"
 "Por favor, forneça a actual e a nova frase-senha."
 
-#: usr/lib/solydxk/system/main.py:53
-msgid "Unexpected error"
-msgstr "Erro inesperado"
-
-#: usr/lib/solydxk/system/main.py:54
-msgid ""
-"SolydXK System Settings has failed with the following unexpected error. "
-"Please submit a bug report!"
-msgstr ""
-"As Configurações do Sistema SolydXK falharam com o seguinte erro. Por favor "
-"envie um relatório de bug!"
-
-#: usr/lib/solydxk/system/plymouth.py:124
+#: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Nem grub ou burg foi encontrado em /etc/default"
 
@@ -458,9 +458,8 @@ msgstr ""
 "Por favor, escolha outra partição para cifrar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:848
-#, fuzzy
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr "Não foi possível instalar o cryptsetup."
+msgstr "Não é possível instalar cryptsetup/cryptsetup-initramfs."
 
 #: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
@@ -541,9 +540,8 @@ msgid "Speed"
 msgstr "Velocidade"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1929
-#, fuzzy
 msgid "Please select a Plymouth theme."
-msgstr "Seleccionar um tema de arranque Plymouth splash."
+msgstr "Por favor seleccione um tema Plymouth."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
@@ -635,6 +633,20 @@ msgstr "Não foi encontrado uma pen USB."
 msgid "No ISO path provided."
 msgstr "Não foi fornecido o caminho para o ISO."
 
+#: usr/share/applications/solydxk-system.desktop.in.h:2
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
+msgid "Change system settings for SolydXK"
+msgstr "Alterar as configurações do sistema para SolydXK"
+
+#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
+msgid "Encrypt or decrypt this USB device with SolydXK System."
+msgstr "Cifrar ou decifrar este dispositivo USB com o SolydXK System."
+
+#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
+msgid "System"
+msgstr "Sistema"
+
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
 msgstr "Limitar o tamanho do ficheiro xsession-errors"
@@ -642,20 +654,6 @@ msgstr "Limitar o tamanho do ficheiro xsession-errors"
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:2
 msgid "Xsession Errors Log Control"
 msgstr "Controle de Log de Erros Xsession"
-
-#: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
-msgid "Change system settings for SolydXK"
-msgstr "Alterar as configurações do sistema para SolydXK"
-
-#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
-msgid "System"
-msgstr "Sistema"
-
-#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
-msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr "Cifrar ou decifrar este dispositivo USB com o SolydXK System."
 
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
@@ -858,7 +856,6 @@ msgid "Examples"
 msgstr "Exemplos"
 
 #: po/en/help.html%2Bhtml.body.div.p:19-3
-#, fuzzy
 msgid ""
 "When you start SolydXK System Settings you will see a list of partitions "
 "that you can either encrypt or decrypt. An encrypted partition shows this "
@@ -868,14 +865,14 @@ msgid ""
 "taken on that partition. Removable media will show these icons: <img src=\"/"
 "usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
-"Quando você iniciar as Configurações do Sistema SolydXK, você verá uma lista "
-"de partições que pode cifrar ou decifrar. Uma partição cifrada mostra este "
+"Quando inicia as Configurações do Sistema SolydXK, verá uma lista de "
+"partições que pode cifrar ou decifrar. Uma partição cifrada mostra este "
 "ícone:  <img src=\"/usr/share/solydxk/system/icons/encrypted.png\" /> e uma "
 "partição não cifrada mostra este ícone: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. A sua selecção irá decidir quais as acções que "
 "podem ser tomadas nessa partição. Os meios removíveis mostrarão estes "
 "ícones: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
-"e <img src=\"/usr/share/solydxk/system/icons/encrypted-usb.png\" />"
+"e "
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"

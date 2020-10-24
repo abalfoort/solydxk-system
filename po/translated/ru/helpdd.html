@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK System Settings: Device Driver Help</h1>
+	<div class="main">
+		<h2>Описание</h2>
+		<p>The Device Driver is a tool to help users installing third-party hardware
+drivers. Currently Nvidia, AMD/ATI and Broadcom drivers can be installed and
+allows to install the PAE kernel for multi-core 32-bit systems. The Device
+Driver will only list those devices that are supported. It will not list any
+other devices then mentioned above.</p>
+
+		<h2>Важный</h2>
+		<p>The Device Driver can only install drivers which are available in the
+repositories. Make sure you have an internet connection if you want to
+install the drivers.</p>
+
+		<h2>Команды</h2>
+		<p>Если вы предпочитаете установить драйверы с помощью терминала, вы можете
+использовать следующие команды:</p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards
+from version HD 5000 and up are supported by the drivers. Versions between
+1000 and 5000 will use the Radeon drivers. Use "ddm -p amd" to remove the
+drivers from your system.</p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Это позволит выбрать правильные драйверы для видеокарты NVIDIA. Он подберет
+Bumblebee  в случае, если у вас гибридная карта (как NVIDIA и
+Intel). Используйте "ddm -p nvidia" чтобы удалить драйверы из системы.</p>
+
+		<h3># ddm -i open</h3>
+		<p>Вы можете использовать эту команду, если вы хотите вернуться к открытым
+драйверам. Это удалит любые проприетарные драйверы из вашей системы</p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Эта команда установит нужный драйвер для вашего беспроводного адаптера
+Broadcom. Используйте "ddm -p broadcom" для удаления драйвера из системы.</p>
+
+		<h3># ddm -i pae</h3>
+		<p>Это позволит установить pae-ядро для многопроцессорных систем под
+управлением 32-разрядной ОС. Использовать "ddm -p pae", чтобы удалить ядро
+pae из вашей системы. Обратите внимание, что нельзя удалить ядро, когда вы
+находитесь в сессии запущенной в нем в текущий момент.</p>
+
+		<h2>Логирование</h2>
+		<h3>File: /var/log/solydxk-system.log</h3>
+		<p>Please, attach your log file when you post an issue on our forum: <a
+href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>
