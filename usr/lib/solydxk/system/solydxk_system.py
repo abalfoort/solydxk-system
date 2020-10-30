@@ -51,7 +51,7 @@ class SolydXKSystemSettings(object):
         # Get script and data paths
         self.scriptDir = abspath(dirname(__file__))
         self.shareDir = self.scriptDir.replace('lib', 'share')
-        self.title = _("SolydXK System Settings")
+        self.title = "SolydXK System Settings"
         
         # Show splash screen while loading
         if not nosplash:
@@ -1422,8 +1422,8 @@ class SolydXKSystemSettings(object):
             #self.queue.join()
             GLib.timeout_add(250, self.check_thread, name)
         else:
-            msg = _("SolydXK System Settings cannot download and install the software localization packages\n"
-                    "Please repeat this process when you established an internet connection.")
+            msg = _("{title} cannot download and install the software localization packages\n"
+                    "Please repeat this process when you established an internet connection.".format(title=self.title))
             WarningDialog(self.btnSaveLocale.get_label(), msg)
 
     def fill_treeview_locale(self):
