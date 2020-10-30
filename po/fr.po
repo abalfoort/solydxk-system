@@ -7,15 +7,16 @@
 # Kyodev, 2018
 # Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
 # anechampenois <analogic@zaclys.net>, 2019
+# Gaïus Baltar <ichbin1199@gmail.com>, 2020
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2020-10-30 16:41+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: anechampenois <analogic@zaclys.net>, 2019\n"
+"Last-Translator: Gaïus Baltar <ichbin1199@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/abalfoort/teams/54212/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -90,13 +91,6 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Ni Grub ni burg  trouvés dans /etc/default"
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "SolydXK System Settings"
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -459,7 +453,7 @@ msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:848
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr ""
+msgstr "cryptsetup/cryptsetup-initramfs n'a pu être installé"
 
 #: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
@@ -492,9 +486,9 @@ msgstr ""
 "Fermez ces programmes avant de continuer."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, fuzzy, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
 "SolydXK System Settings ne peut pas charger et installer le paquet de "
@@ -540,7 +534,7 @@ msgstr "Vitesse"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1929
 msgid "Please select a Plymouth theme."
-msgstr ""
+msgstr "Veuillez sélectionner un thème Plymouth."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
@@ -598,12 +592,12 @@ msgstr ""
 #: usr/bin/iso-usb:79
 #, sh-format
 msgid "ISO to USB"
-msgstr ""
+msgstr "ISO à USB"
 
 #: usr/bin/iso-usb:80
 #, sh-format
 msgid "Full path to ISO file"
-msgstr ""
+msgstr "Chemin d'accès complet au fichier ISO"
 
 #: usr/bin/iso-usb:81
 #, sh-format
@@ -613,12 +607,12 @@ msgstr ""
 #: usr/bin/iso-usb:82
 #, sh-format
 msgid "This will destroy all data on:"
-msgstr ""
+msgstr "Ceci détruira toutes les données sur:"
 
 #: usr/bin/iso-usb:83
 #, sh-format
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Etes-vous sûr de vouloir continuer?"
 
 #: usr/bin/iso-usb:84
 #, sh-format
@@ -628,7 +622,13 @@ msgstr ""
 #: usr/bin/iso-usb:85
 #, sh-format
 msgid "No ISO path provided."
-msgstr ""
+msgstr "Pas de chemin vers l'ISO fourni."
+
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "SolydXK System Settings"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
@@ -638,7 +638,7 @@ msgstr "Changer les paramètres système de SolydXK"
 
 #: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
 msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr ""
+msgstr "Chiffrez ou déchiffrez ce lecteur USB avec SolydXK System."
 
 #: usr/share/kservices5/settings-system-admin.desktop.in.h:1
 msgid "System"
@@ -655,12 +655,13 @@ msgstr "Contrôle des registres d'erreurs (logs) Xsession"
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr ""
+msgstr "Lancer LuckyBackup en tant qu' administrateur"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
 msgid "Authentication is required to run LuckyBackup (super user)"
 msgstr ""
+"Une authentification est requise pour lancer LuckyBackup (administrateur)"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.solydxk-system.policy:8
