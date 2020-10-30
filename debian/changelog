@@ -1,3 +1,9 @@
+solydxk-system (3.7.9) stable; urgency=low
+
+  * Fix bug not encrypting
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 30 Oct 2020 16:40:53 +0100
+
 solydxk-system (3.7.8) stable; urgency=low
 
   * Updated translation: da

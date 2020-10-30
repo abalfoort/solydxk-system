@@ -7,15 +7,16 @@ from utils import shell_exec, getoutput, get_uuid, \
                   get_package_version, compare_package_versions
 
 
-def clear_partition(partition):
-    unmount_partition(partition)
+def clear_partition(device):
+    unmount_partition(device)
     enc_key = '-pbkdf2'
     openssl_version = get_package_version('openssl')
     if compare_package_versions(openssl_version, '1.1.1') == 'smaller':
         # deprecated key derivation in openssl 1.1.1+
         enc_key = '-aes-256-ctr'
     # Check "man openssl-enc" for options
-    shell_exec("head -c 5M /dev/zero | openssl enc {0} -pass pass:\"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)\" -nosalt > {1}".format(enc_key, partition.enc_status['device']))
+    shell_exec("head -c 5M /dev/zero | openssl enc {key} -pass pass:\"$(dd if=/dev/urandom" 
+               " bs=128 count=1 2>/dev/null | base64)\" -nosalt > {device}".format(key=enc_key, device=device))
 
 
 def encrypt_partition(device, passphrase, luks_version=1):
@@ -24,9 +25,9 @@ def encrypt_partition(device, passphrase, luks_version=1):
         # Use LUKS1 for now because grub does not support LUKS2, yet:
         # https://git.savannah.gnu.org/cgit/grub.git/commit/?id=365e0cc3e7e44151c14dd29514c2f870b49f9755
         shell_exec("printf \"{passphrase}\" | cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 " \
-                   "--use-random --type luks{luks_version} --iter-time 5000 luksFormat {device}".format(passphrase=partition.enc_passphrase,
+                   "--use-random --type luks{luks_version} --iter-time 5000 luksFormat {device}".format(passphrase=passphrase,
                                                                                                         luks_version=luks_version,
-                                                                                                        device=partition.enc_status['device']))
+                                                                                                        device=device))
         mapped_device, filesystem = connect_block_device(device, passphrase)
         return mapped_device
     return ''
