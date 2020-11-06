@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2017
 # Davide Favaro <belzebu87@gmail.com>, 2017
-# Franco Frolloni <franco@frolloni.eu>, 2019
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2020
+# Franco Frolloni <franco@frolloni.eu>, 2020
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2020-11-02 11:41+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Franco Frolloni <franco@frolloni.eu>, 2019\n"
+"Last-Translator: Franco Frolloni <franco@frolloni.eu>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/abalfoort/teams/54212/"
 "it/)\n"
 "Language: it\n"
@@ -91,13 +91,6 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Non sono stati trovati né grub né burg in /etc/default"
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "Impostazioni di sistema di SolydXK"
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -458,7 +451,7 @@ msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:848
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr ""
+msgstr "Non ho potuto installare cryptsetup/cryptsetup-initramfs."
 
 #: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
@@ -491,15 +484,11 @@ msgstr ""
 "Prego chiudere queste applicazioni prima di continuare"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
-"SolydXK System Settings non può scaricare ed installare i pacchetti per la "
-"traduzione.\n"
-"Si prega di ripetere il processo quando si disporrà di una connessione ad "
-"internet funzionante."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1583
 #: usr/lib/solydxk/system/solydxk_system.py:1668
@@ -540,7 +529,7 @@ msgstr "Velocit"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1929
 msgid "Please select a Plymouth theme."
-msgstr ""
+msgstr "Seleziona un tema per la schermata di caricamento di Plymouth."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
@@ -631,6 +620,12 @@ msgstr "Nessuna chiavetta USB trovata."
 msgid "No ISO path provided."
 msgstr "Non è stato fornito alcun percorso ISO."
 
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "Impostazioni di sistema di SolydXK"
+
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -639,7 +634,7 @@ msgstr "Cambia le impostazioni di sistema per SolydXK"
 
 #: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
 msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr ""
+msgstr "Cripta o decripta questo device USB con SolydXK System"
 
 #: usr/share/kservices5/settings-system-admin.desktop.in.h:1
 msgid "System"
@@ -656,12 +651,12 @@ msgstr "Log di controllo degli errori di Xsession"
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr ""
+msgstr "Lancia LuckyBackup come super user"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
 msgid "Authentication is required to run LuckyBackup (super user)"
-msgstr ""
+msgstr "Autenticazione richiesta per lanciare LuckyBackup (super user)"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.solydxk-system.policy:8
@@ -862,6 +857,14 @@ msgid ""
 "taken on that partition. Removable media will show these icons: <img src=\"/"
 "usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
+"All'vavio di SolydXK System Settings sarà possibile vedere la lista delle "
+"partizioni che possono essere cifrate o decifrate. Le partizioni cifrate "
+"saranno indicate con questa icona: <img src=\"/usr/share/solydxk/system/"
+"icons/encrypted.png\" />mentre le partizioni non cifrate con questa icona: "
+"<img src=\"/usr/share/solydxk/system/icons/unencrypted.png\" />. Sarà "
+"possibile selezionarle e decidere quali azioni effettuare sulle partizioni. "
+"Le periferiche rimovibili saranno indicate con le seguenti icone: <img src="
+"\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> e "
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"
