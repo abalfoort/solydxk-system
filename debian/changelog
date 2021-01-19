@@ -1,3 +1,21 @@
+solydxk-system (3.8.3) stable; urgency=low
+
+  * Do not translate commands in html pages
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Tue, 19 Jan 2021 16:55:44 +0100
+
+solydxk-system (3.8.2) stable; urgency=low
+
+  * Updated translation: ca
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 17 Dec 2020 09:38:09 +0100
+
+solydxk-system (3.8.1) stable; urgency=low
+
+  * Update unattended upgrade configuration
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 02 Dec 2020 09:10:44 +0100
+
 solydxk-system (3.8.0) stable; urgency=low
 
   * Updated translation: it
