@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2019
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2021-01-19 18:55+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2019\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
 "Language-Team: Dutch (https://www.transifex.com/abalfoort/teams/54212/nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -87,13 +87,6 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "grub en burg zijn niet in /etc/default gevonden"
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "SolydXK Systeeminstellingen"
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -455,7 +448,7 @@ msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:848
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr ""
+msgstr "Kon cryptsetup/cryptsetup-initramfs niet installeren."
 
 #: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
@@ -488,13 +481,12 @@ msgstr ""
 "Sluit deze toepassingen voordat u doorgaat."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
-"SolydXK Systeem kan de software lokalisatiepakketten niet downloaden en "
-"installeren\n"
+"{title} kan de software lokalisatiepakketten niet downloaden en installeren\n"
 "Herhaal dit proces als u een internetverbinding hebt ingesteld."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1583
@@ -536,7 +528,7 @@ msgstr "Snelheid"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1929
 msgid "Please select a Plymouth theme."
-msgstr ""
+msgstr "Selecteer een Plymouth boot splash thema."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
@@ -624,6 +616,12 @@ msgstr "Geen USB-stick gevonden."
 msgid "No ISO path provided."
 msgstr "Geen ISO-pad opgegeven."
 
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "SolydXK Systeeminstellingen"
+
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -649,12 +647,12 @@ msgstr "Xsession Errors Log Beheer"
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr ""
+msgstr "Start luckyBackup als super user"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
 msgid "Authentication is required to run LuckyBackup (super user)"
-msgstr ""
+msgstr "Verificatie is vereist om om LuckyBackup als super user uit te voeren"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.solydxk-system.policy:8
@@ -710,10 +708,6 @@ msgstr ""
 "Als u bij voorkeur de terminal gebruikt om de drivers te installeren, kunt u "
 "gebruik maken van de volgende commando's:"
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr "# ddm -i amd"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
@@ -726,10 +720,6 @@ msgstr ""
 "Versies tussen 1000 en 5000 zullen de Radeon drivers gebruiken. Gebruik "
 "\"ddm -p amd\" om de drivers van uw systeem te verwijderen."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
-msgstr "# ddm -i nvidia"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
 "This will select the right drivers for your Nvidia graphical card. It will "
@@ -741,10 +731,6 @@ msgstr ""
 "Nvidia en Intel) heeft. Gebruik \"ddm -p nvidia\" om de drivers van uw "
 "systeem te verwijderen."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr "# ddm -i open"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
@@ -754,10 +740,6 @@ msgstr ""
 "drivers. Het zal ieder driver die niet open source is van uw systeem te "
 "verwijderen."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr "# ddm -i broadcom"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
@@ -766,10 +748,6 @@ msgstr ""
 "Dit commando zal de juiste driver voor uw draadloze Broadcom adapter "
 "installeren. Gebruik \"ddm -p broadcom\" om de drivers van uw systeem te "
 "verwijderen."
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
-msgstr "# ddm -i pae"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -785,10 +763,6 @@ msgstr ""
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
 msgstr "Logging"
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
-msgstr "Bestand: /var/log/solydxk-system.log"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
@@ -856,6 +830,13 @@ msgid ""
 "taken on that partition. Removable media will show these icons: <img src=\"/"
 "usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
+"Wanneer u SolydXK Systeeminstellingen start, ziet u een lijst met partities "
+"die u kunt versleutelen of ontsleutelen. Een versleutelde partitie toont dit "
+"icoon: <img src=\"/usr/share/solydxk/system/icons/encrypted.png\" /> en een "
+"onversleutelde partitie laat dit icoon zien: <img src=\"/usr/share/solydxk/"
+"system/icons/unencrypted.png\" />. Uw selectie bepaalt welke acties op die "
+"partitie kunnen worden uitgevoerd. Verwijderbare media tonen deze iconen: "
+"<img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> en "
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"
@@ -909,16 +890,6 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr "Open een terminal en voor de volgende commando's uit:"
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
@@ -926,10 +897,6 @@ msgid ""
 msgstr ""
 "U kunt uw systeem nu herstarten en contoleren of de boot partitie correct is "
 "gekoppeld:"
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
-msgstr "$ mount | grep sda2"
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
 msgid ""

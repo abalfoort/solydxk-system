@@ -4,19 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Kyodev, 2018
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
-# anechampenois <analogic@zaclys.net>, 2019
-# Gaïus Baltar <ichbin1199@gmail.com>, 2020
+# anechampenois <analogic@zaclys.net>, 2021
+# Gaïus Baltar <ichbin1199@gmail.com>, 2021
+# Kyodev, 2021
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-30 16:41+0100\n"
+"POT-Creation-Date: 2021-01-19 18:55+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Gaïus Baltar <ichbin1199@gmail.com>, 2020\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/abalfoort/teams/54212/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -486,13 +486,13 @@ msgstr ""
 "Fermez ces programmes avant de continuer."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
-"SolydXK System Settings ne peut pas charger et installer le paquet de "
-"localisation du logiciel\n"
+"{title} ne peut pas charger et installer le paquet de localisation du "
+"logiciel\n"
 "Veuillez recommencer quand vous aurez établi une connexion internet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1583
@@ -602,7 +602,7 @@ msgstr "Chemin d'accès complet au fichier ISO"
 #: usr/bin/iso-usb:81
 #, sh-format
 msgid "Confirm USB device"
-msgstr ""
+msgstr "Confirmer la clé USB."
 
 #: usr/bin/iso-usb:82
 #, sh-format
@@ -617,7 +617,7 @@ msgstr "Etes-vous sûr de vouloir continuer?"
 #: usr/bin/iso-usb:84
 #, sh-format
 msgid "No USB pen drive found."
-msgstr ""
+msgstr "Aucune clé USB trouvée."
 
 #: usr/bin/iso-usb:85
 #, sh-format
@@ -718,10 +718,6 @@ msgstr ""
 "Si vous préferez installer des pilotes via le terminal, vous pouvez utiliser "
 "les commandes suivantes:"
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr "# ddm -i amd"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
@@ -734,10 +730,6 @@ msgstr ""
 "entre 1000 et 5000 utiliseront les drivers Radeon. Utilisez \"ddm -p amd\" "
 "pour supprimer les pilotes de votre système."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
-msgstr "# ddm -i nvidia"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
 "This will select the right drivers for your Nvidia graphical card. It will "
@@ -749,10 +741,6 @@ msgstr ""
 "Nvidia et intel). Utilisez la commande \"ddm -p nvidia\" pour supprimer ces "
 "pilotes de votre système."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr "# ddm -i open"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
@@ -762,10 +750,6 @@ msgstr ""
 "l'utilisation des pilotes libres Nouveau. Tous les pilotes propriétaires "
 "seront supprimés de votre système. "
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr "# ddm -i broadcom"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
@@ -774,10 +758,6 @@ msgstr ""
 "Cette commande installera le bon pilote pour votre carte wifi Broadcom. "
 "Utilisez la commande \"ddm -p broadcom\" pour supprimer ce pilote de votre "
 "système."
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
-msgstr "# ddm -i pae"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -794,10 +774,6 @@ msgstr ""
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
 msgstr "Connexion"
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
-msgstr "Fichier: /var/log/solydxk-system.log"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
@@ -865,6 +841,14 @@ msgid ""
 "taken on that partition. Removable media will show these icons: <img src=\"/"
 "usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
+"Quand vous démarrer SolydXK System Settings vous verrez une liste de "
+"partitions que vous pouvez chiffrer et déchiffrer. Un partition chiffrée est "
+"indiquée par cette icône: <img src=\"/usr/share/solydxk/system/icons/"
+"encrypted.png\" /> et une partition non chiffrée par celle-ci: <img src=\"/"
+"usr/share/solydxk/system/icons/unencrypted.png\" />. Votre sélection "
+"décidera quelle action sera faite sur la partition. Les médias amovibles "
+"seront indiqués par ces icônes: <img src=\"/usr/share/solydxk/system/icons/"
+"unencrypted-usb.png\" />et "
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"
@@ -915,19 +899,6 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr "Ouvrir un terminal et lancer les commandes suivantes comme root:"
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-"# mkdir /mnt/boot /mnt/root \n"
-"# mount /dev/sda1 /mnt/boot \n"
-"# mount /dev/sda2 /mnt/root \n"
-"# cp -a /mnt/root/boot/* /mnt/boot/ \n"
-"# echo \"UUID=$(blkid -o value -s UUID /dev/sda1) /boot ext4 defaults 0 0\" "
-">> /mnt/root/etc/fstab"
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
@@ -935,10 +906,6 @@ msgid ""
 msgstr ""
 "Vous pouvez maintenant rebooter votre système et contrôler si la partition "
 "boot est montée proprement:"
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
-msgstr "$ mount | grep sda2"
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
 msgid ""

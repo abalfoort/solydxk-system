@@ -36,20 +36,12 @@ msgid ""
 "commands:"
 msgstr ""
 
-#: ./po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr ""
-
 #: ./po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
 "from version HD 5000 and up are supported by the drivers. Versions between "
 "1000 and 5000 will use the Radeon drivers. Use \"ddm -p amd\" to remove the "
 "drivers from your system."
-msgstr ""
-
-#: ./po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
 msgstr ""
 
 #: ./po/en/helpdd.html%2Bhtml.body.div.p:25-3
@@ -59,28 +51,16 @@ msgid ""
 "Intel). Use \"ddm -p nvidia\" to remove the drivers from your system."
 msgstr ""
 
-#: ./po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr ""
-
 #: ./po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
 "drivers. It will remove any proprietary drivers from your system."
 msgstr ""
 
-#: ./po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr ""
-
 #: ./po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
 "adapter. Use \"ddm -p broadcom\" to remove the drivers from your system."
-msgstr ""
-
-#: ./po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
 msgstr ""
 
 #: ./po/en/helpdd.html%2Bhtml.body.div.p:34-3
@@ -92,10 +72,6 @@ msgstr ""
 
 #: ./po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
-msgstr ""
-
-#: ./po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
 msgstr ""
 
 #: ./po/en/helpdd.html%2Bhtml.body.div.p:38-3

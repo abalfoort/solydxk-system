@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: device-driver-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2021-01-19 18:38+0100\n"
 "PO-Revision-Date: 2017-04-09 19:58+0000\n"
 "Last-Translator: Slobodan Simić <slsimic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/solydxk/device-driver-"
@@ -73,14 +73,6 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr ""
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-#, fuzzy
-msgid "SolydXK System Settings"
-msgstr "   "
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 #, fuzzy
@@ -452,9 +444,9 @@ msgid ""
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
 
@@ -581,6 +573,13 @@ msgstr ""
 msgid "No ISO path provided."
 msgstr ""
 
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+#, fuzzy
+msgid "SolydXK System Settings"
+msgstr "   "
+
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -668,11 +667,6 @@ msgid ""
 msgstr ""
 "Ако желите да инсталирате драјвере из терминала, употребите следеће команде:"
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-#, fuzzy
-msgid "# ddm -i amd"
-msgstr "# ddm -i ati"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 #, fuzzy
 msgid ""
@@ -686,10 +680,6 @@ msgstr ""
 "5000 користиће Radeon драјвере. Користите „ddm -p ati“ да уклоните драјвере "
 "са система."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
-msgstr "# ddm -i nvidia"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
 "This will select the right drivers for your Nvidia graphical card. It will "
@@ -700,10 +690,6 @@ msgstr ""
 "„Bumblebee“ драјвере у случају да имате хибридну картицу (Nvidia или Intel). "
 "Користите „ddm -p nvidia“ да уклоните драјвере са система."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr "# ddm -i open"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
@@ -712,10 +698,6 @@ msgstr ""
 "Ову команду можете користити ако желите да се вратите на слободне „Nouveau“ "
 "драјвере. Уклониће све власничке драјвере са система."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr "# ddm -i broadcom"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
@@ -723,10 +705,6 @@ msgid ""
 msgstr ""
 "Ово ће изабрати праве драјвере за ваш Broadcom adapter. Користите „ddm -p "
 "broadcom“ да уклоните драјвере са система."
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
-msgstr "# ddm -i pae"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -741,11 +719,6 @@ msgstr ""
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
 msgstr "Дневник"
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-#, fuzzy
-msgid "File: /var/log/solydxk-system.log"
-msgstr "Фајл: /var/log/ddm.log"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 #, fuzzy
@@ -843,21 +816,10 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr ""
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
 "mounted:"
-msgstr ""
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
 msgstr ""
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
@@ -926,6 +888,26 @@ msgid ""
 "Don't forget to attach the log file when you post an issue on our forum: /"
 "var/log/solydxk-system.log"
 msgstr ""
+
+#, fuzzy
+#~ msgid "# ddm -i amd"
+#~ msgstr "# ddm -i ati"
+
+#~ msgid "# ddm -i nvidia"
+#~ msgstr "# ddm -i nvidia"
+
+#~ msgid "# ddm -i open"
+#~ msgstr "# ddm -i open"
+
+#~ msgid "# ddm -i broadcom"
+#~ msgstr "# ddm -i broadcom"
+
+#~ msgid "# ddm -i pae"
+#~ msgstr "# ddm -i pae"
+
+#, fuzzy
+#~ msgid "File: /var/log/solydxk-system.log"
+#~ msgstr "Фајл: /var/log/ddm.log"
 
 #, fuzzy
 #~ msgid "GDebi Package Installer"

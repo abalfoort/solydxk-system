@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Davide Favaro <belzebu87@gmail.com>, 2017
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2020
-# Franco Frolloni <franco@frolloni.eu>, 2020
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
+# Davide Favaro <belzebu87@gmail.com>, 2021
+# Franco Frolloni <franco@frolloni.eu>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-02 11:41+0100\n"
+"POT-Creation-Date: 2021-01-19 18:55+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Franco Frolloni <franco@frolloni.eu>, 2020\n"
+"Last-Translator: Franco Frolloni <franco@frolloni.eu>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/abalfoort/teams/54212/"
 "it/)\n"
 "Language: it\n"
@@ -489,6 +489,9 @@ msgid ""
 "{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
+"{title} Impossobole scaricare e installare il software dei pacchetti di "
+"localizzazione\n"
+"Prego ripetere il processo quando sarà stabilita una connessione a internet ."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1583
 #: usr/lib/solydxk/system/solydxk_system.py:1668
@@ -710,10 +713,6 @@ msgid ""
 msgstr ""
 "Se preferisci installare i driver da terminale, puoi usare i seguenti comandi"
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr "# ddm -i amd"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
@@ -726,10 +725,6 @@ msgstr ""
 "in su. Versioni tra la 1000 e la 5000 useranno i driver Radeon. Usa \"ddm -p "
 "amd\" per rimuovere i driver dal tuo sistema."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
-msgstr "# ddm -i nvidia"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
 "This will select the right drivers for your Nvidia graphical card. It will "
@@ -741,10 +736,6 @@ msgstr ""
 "(sia Nvidia che Intel). Usa \"ddm -p nvidia\" per rimuovere i driver dal tuo "
 "sistema."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr "# ddm -i open"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
@@ -753,10 +744,6 @@ msgstr ""
 "Puoi usare questo comando se vuoi tornare indietro ai driver open Nouveau. "
 "Verranno rimossi tutti i driver proprietari dal tuo sistema."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr "# ddm -i broadcom"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
@@ -764,10 +751,6 @@ msgid ""
 msgstr ""
 "Questo comando installerà i driver corretti per il tuo adattatore wireless "
 "Broadcom. Usa \"ddm -p broadcom\" per rimuovere i driver dal tuo sistema."
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
-msgstr "# ddm -i pae"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -783,10 +766,6 @@ msgstr ""
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
 msgstr "Registrazione di log"
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
-msgstr "File: /var/log/solydxk-system.log"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
@@ -916,16 +895,6 @@ msgid "Open a terminal, and run these commands as root:"
 msgstr ""
 "Aprire un terminale ed inserire questi comandi come amministratore (root):"
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
@@ -933,10 +902,6 @@ msgid ""
 msgstr ""
 "Si prega di riavviare il compyter e controllare se la partizione di boot è "
 "stata montata correttamente."
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
-msgstr "$ mount | grep sda2"
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
 msgid ""

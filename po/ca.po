@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
-# Eduard Selma <selma@tinet.cat>, 2019
+# Eduard Selma <selma@tinet.cat>, 2021
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2021-01-19 18:55+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Eduard Selma <selma@tinet.cat>, 2019\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
 "Language-Team: Catalan (https://www.transifex.com/abalfoort/teams/54212/"
 "ca/)\n"
 "Language: ca\n"
@@ -89,13 +89,6 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "No he trobat GRUB ni BURG a /etc/default"
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "SolydXK System Settings"
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -454,7 +447,7 @@ msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:848
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr ""
+msgstr "No puc instal·lar cryptsetup/cryptsetup-initramfs."
 
 #: usr/lib/solydxk/system/solydxk_system.py:865
 #, python-format
@@ -487,14 +480,14 @@ msgstr ""
 "Si us plau tanqueu aquestes aplicacions abans de continuar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
-"SolydXK System Settings no pot descarregar i instal·lar els paquets de "
-"localització de programari\n"
-"Si us plau, repetiu el procés quan tingueu connexió a internet."
+"{title} no puc descarregar i instal·lar els paquets de  programari de "
+"localització\n"
+"Si us plau, repetiu aquest procés quan tingueu connexió a internet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1583
 #: usr/lib/solydxk/system/solydxk_system.py:1668
@@ -535,7 +528,7 @@ msgstr "Velocitat "
 
 #: usr/lib/solydxk/system/solydxk_system.py:1929
 msgid "Please select a Plymouth theme."
-msgstr ""
+msgstr "Trieu una pantalla de presentació de Plymouth."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2027
 msgid "You need to reboot your system for the new settings to take affect."
@@ -625,6 +618,12 @@ msgstr "No s'ha trobat cap llapis USB."
 msgid "No ISO path provided."
 msgstr "No s'ha donat cap camí vers al ISO"
 
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "SolydXK System Settings"
+
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -650,12 +649,12 @@ msgstr "Control del registre Xsession Errors"
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr ""
+msgstr "Executeu LuckyBackup com a administrador"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
 msgid "Authentication is required to run LuckyBackup (super user)"
-msgstr ""
+msgstr "Cal autenticar-se per executar LuckyBackup com administrador"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.solydxk-system.policy:8
@@ -711,10 +710,6 @@ msgstr ""
 "Si preferiu instal·lar els controladors des del terminal, podeu usar "
 "aquestes ordres: "
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr "# ddm -i amd"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
@@ -727,10 +722,6 @@ msgstr ""
 "versions entre 1000 i 5000 usen els controladors Radeon. Useu l'ordre \"ddm -"
 "p amd\" per eliminar aquests controladors del vostre sistema. "
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
-msgstr "# ddm -i nvidia"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
 "This will select the right drivers for your Nvidia graphical card. It will "
@@ -742,10 +733,6 @@ msgstr ""
 "tarja híbrida (amb Nvidia i Intel). Useu \"ddm -p nvidia\" per eliminar els "
 "controladors del vostre sistema. "
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr "# ddm -i open"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
@@ -753,10 +740,6 @@ msgid ""
 msgstr ""
 "Podeu usar aquesta ordre per a reinstal·lar els controladors lliures "
 "Nouveau. Això eliminarà els controladors propietaris del vostre sistema. "
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr "# ddm -i broadcom"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
@@ -766,10 +749,6 @@ msgstr ""
 "Aquesta ordre instal·larà el controlador adequat per al vostre adaptador "
 "sense fils Broadcom. Useu \"ddm -p broadcom\" per eliminar aquests "
 "controladors del vostre sistema. "
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
-msgstr "# ddm -i pae"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -785,10 +764,6 @@ msgstr ""
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
 msgstr "Autenticant"
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
-msgstr "Fitxer: /var/log/solydxk-system.log"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
@@ -857,6 +832,14 @@ msgid ""
 "taken on that partition. Removable media will show these icons: <img src=\"/"
 "usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
 msgstr ""
+"Quan engegueu SolydXK System Settings veureu una llista de particions que "
+"podeu encriptar o desencriptar. Una partició encriptada mostra la icona: "
+"<img src=\"/usr/share/solydxk/system/icons/encrypted.png\" /> i una partició "
+"no encriptada mostra aquesta icona: <img src=\"/usr/share/solydxk/system/"
+"icons/unencrypted.png\" />. La vostra tria determinarà quines accions es "
+"poden fer en cada partició. Els dispositius extraïbles mostraran aquestes "
+"icones: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
+"i "
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"
@@ -906,16 +889,6 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr "Obriu un terminal, i entreu aquestes ordres com a root: "
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
@@ -923,10 +896,6 @@ msgid ""
 msgstr ""
 "Ara podeu tornar a arrencar el vostre sistema i comprovar si la partició "
 "d'arrencada s'ha muntat com cal."
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
-msgstr "$ mount | grep sda2"
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
 msgid ""

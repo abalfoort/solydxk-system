@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: updatemanager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2021-01-19 18:38+0100\n"
 "PO-Revision-Date: 2016-09-15 17:29+0000\n"
 "Last-Translator: hierra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/solydxk/"
@@ -74,13 +74,6 @@ msgstr ""
 
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
-msgstr ""
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
@@ -436,9 +429,9 @@ msgid ""
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
 
@@ -561,6 +554,12 @@ msgstr ""
 msgid "No ISO path provided."
 msgstr ""
 
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr ""
+
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -636,20 +635,12 @@ msgid ""
 "commands:"
 msgstr ""
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr ""
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
 "from version HD 5000 and up are supported by the drivers. Versions between "
 "1000 and 5000 will use the Radeon drivers. Use \"ddm -p amd\" to remove the "
 "drivers from your system."
-msgstr ""
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
 msgstr ""
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
@@ -659,28 +650,16 @@ msgid ""
 "Intel). Use \"ddm -p nvidia\" to remove the drivers from your system."
 msgstr ""
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr ""
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
 "drivers. It will remove any proprietary drivers from your system."
 msgstr ""
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr ""
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
 "adapter. Use \"ddm -p broadcom\" to remove the drivers from your system."
-msgstr ""
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
 msgstr ""
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
@@ -692,10 +671,6 @@ msgstr ""
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
-msgstr ""
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
 msgstr ""
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
@@ -789,21 +764,10 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr ""
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
 "mounted:"
-msgstr ""
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
 msgstr ""
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3

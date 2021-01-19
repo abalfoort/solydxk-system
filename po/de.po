@@ -4,19 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2018
-# ilu lu, 2018
-# Werner Jud, 2019
-# pitfd, 2020
+# pitfd, 2021
+# ilu lu, 2021
+# Werner Jud, 2021
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 19:18+0200\n"
+"POT-Creation-Date: 2021-01-19 18:55+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: pitfd, 2020\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
 "Language-Team: German (https://www.transifex.com/abalfoort/teams/54212/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -93,13 +93,6 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Weder grub noch burg wurden in /etc/default gefunden"
-
-#: usr/lib/solydxk/system/solydxk_system.py:54
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "SolydXK Systemeinstellungen"
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -501,13 +494,13 @@ msgstr ""
 "before you continue."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1425
+#, python-brace-format
 msgid ""
-"SolydXK System Settings cannot download and install the software "
-"localization packages\n"
+"{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
-"SolydXK System Einstellung kann Softwarepakete für die Einrichtung der "
-"Sprachumgebung nicht downloaden und installieren.\n"
+"{title} kann Softwarepakete für die Einrichtung der Sprachumgebung nicht "
+"downloaden und installieren.\n"
 "Bitte wiederholen Sie den Schritt, wenn eine Internetverbindung besteht."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1583
@@ -642,6 +635,12 @@ msgstr "Kein USB-Stick gefunden."
 msgid "No ISO path provided."
 msgstr "Kein ISO-Pfad angegeben."
 
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "SolydXK Systemeinstellungen"
+
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -733,10 +732,6 @@ msgstr ""
 "Wenn Sie die Treiberinstallation im Terminal durchführen wollen, können Sie "
 "die folgenden Befehle benutzen:"
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:21-3
-msgid "# ddm -i amd"
-msgstr "# ddm -i amd"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
 "This will install the drivers for your AMD/ATI graphical card. AMD/ATI cards "
@@ -749,10 +744,6 @@ msgstr ""
 "zwischen 1000 und 5000 werden die Radeon-Treiber verwendet. Benutzen Sie "
 "\"ddm -p amd\", um die Treiber von Ihrem System zu entfernen."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:24-3
-msgid "# ddm -i nvidia"
-msgstr "# ddm -i nvidia"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
 "This will select the right drivers for your Nvidia graphical card. It will "
@@ -764,10 +755,6 @@ msgstr ""
 "Treiber ausgewählt. Benutzen Sie \"ddm -p nividia\" um die Treiber von Ihrem "
 "System zu entfernen."
 
-#: po/en/helpdd.html%2Bhtml.body.div.h3:27-3
-msgid "# ddm -i open"
-msgstr "# ddm -i open"
-
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
@@ -775,10 +762,6 @@ msgid ""
 msgstr ""
 "Dieser Befehl ermöglicht die Rückkehr zum quelloffenen Nouveau-Treiber. Er "
 "wird sämtliche proprietären Treiber von Ihrem System entfernen."
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:30-3
-msgid "# ddm -i broadcom"
-msgstr "# ddm -i broadcom"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
@@ -788,10 +771,6 @@ msgstr ""
 "Dieser Befehl wird die passenden Treiber für Ihren Broadcom W-LAN-Adapter "
 "installieren. Benutzen Sie \"ddm -p broadcom\" um die Treiber von Ihrem "
 "System zu entfernen."
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:33-3
-msgid "# ddm -i pae"
-msgstr "# ddm -i pae"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -807,10 +786,6 @@ msgstr ""
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
 msgstr "Protokollierung aktiv"
-
-#: po/en/helpdd.html%2Bhtml.body.div.h3:37-3
-msgid "File: /var/log/solydxk-system.log"
-msgstr "Datei: /var/log/solydxk-system.log"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
@@ -943,16 +918,6 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr "Open a terminal, and run these commands as root:"
 
-#: po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
@@ -960,10 +925,6 @@ msgid ""
 msgstr ""
 "Sie können Ihr System jetzt neu starten und prüfen, ob Ihre Partition "
 "korrekt eingehängt wurden."
-
-#: po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
-msgstr "$ mount | grep sda2"
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
 msgid ""

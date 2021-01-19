@@ -90,21 +90,10 @@ msgstr ""
 msgid "Open a terminal, and run these commands as root:"
 msgstr ""
 
-#: ./po/en/help.html%2Bhtml.body.div.pre:29-3
-msgid ""
-"# mkdir /mnt/boot /mnt/root # mount /dev/sda1 /mnt/boot # mount /dev/sda2 /"
-"mnt/root # cp -a /mnt/root/boot/* /mnt/boot/ # echo \"UUID=$(blkid -o value -"
-"s UUID /dev/sda1) /boot ext4 defaults 0 0\" >> /mnt/root/etc/fstab"
-msgstr ""
-
 #: ./po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
 "mounted:"
-msgstr ""
-
-#: ./po/en/help.html%2Bhtml.body.div.pre:35-3
-msgid "$ mount | grep sda2"
 msgstr ""
 
 #: ./po/en/help.html%2Bhtml.body.div.p:36-3
