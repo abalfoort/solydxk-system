@@ -6,7 +6,7 @@
 
 FLE=$1
 USR=$2
-if [ "$USR" == '' ]; then
+if [ -z "$USR" ]; then
     USR=$(logname)
 fi
 
@@ -16,8 +16,4 @@ if [ -z "$USR" ]; then
     exit 1
 fi
 
-CMD=$(which kde-open)
-if [ -z "$CMD" ]; then
-    CMD="xdg-open"
-fi
-sudo -H -u $USR bash -c "$CMD \"$FLE\""
+sudo -H -u $USR xdg-open "$FLE"
