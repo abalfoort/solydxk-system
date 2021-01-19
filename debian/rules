@@ -46,9 +46,6 @@ override_dh_builddeb:
 	rm -rf ./debian/$(source)
 
 update:
-	# Push pot file to Transifex
-	tx push -s
-
 	# Get translations from Transifex
 	tx pull -a
 
@@ -89,6 +86,10 @@ update:
 
 	# Create pot files from html files
 	@ html2po -i ./po/en -o ./po/pot -P --duplicates=merge && echo "HTML pot files created"
+	
+	# Remove unwanted tags
+	@ sed -i '/body.div.pre/,/^$$/d' ./po/pot/*.pot
+	@ sed -i '/body.div.h3/,/^$$/d' ./po/pot/helpdd.pot
 
 	# Get strings from policy files
 	@ for POLICY in $(policyfiles); do \
@@ -128,3 +129,7 @@ update:
 			rm -rvf "$${D}"; \
 		fi; \
 	done && echo "HTML files scanned for translations"
+	
+	# Push pot file to Transifex
+	tx push -s
+
