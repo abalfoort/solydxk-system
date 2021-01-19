@@ -21,7 +21,7 @@ APT::Periodic::Download-Upgradeable-Packages "0";
 #    Requires the package "unattended-upgrades" and will write
 #    a log in /var/log/unattended-upgrades
 # 
-APT::Periodic::AutocleanInterval "7";
+# APT::Periodic::AutocleanInterval "7";
 #  - Do "apt-get autoclean" every n-days (0=disable)
 #
 #  APT::Periodic::Verbose "0";
