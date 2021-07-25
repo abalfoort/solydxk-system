@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Moo, 2021
 # Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
+# Moo, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-19 18:55+0100\n"
+"POT-Creation-Date: 2021-06-16 09:36+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
+"Last-Translator: Moo, 2021\n"
 "Language-Team: Lithuanian (https://www.transifex.com/abalfoort/teams/54212/"
 "lt/)\n"
 "Language: lt\n"
@@ -92,6 +92,10 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Kataloge /etc/default nerasta nei grub, nei burg"
+
+#: usr/lib/solydxk/system/solydxk_system.py:126
+msgid "View log"
+msgstr "Rodyti žurnalą"
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -840,7 +844,8 @@ msgid ""
 "unencrypted partition shows this icon: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. Your selection will decide which actions can be "
 "taken on that partition. Removable media will show these icons: <img src=\"/"
-"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
+"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
+"share/solydxk/system/icons/encrypted-usb.png\" />."
 msgstr ""
 "Paleidę SolydXK sistemos nustatymus, matysite skaidinių, kuriuos galite "
 "šifruoti arba iššifruoti, sąrašą. Šalia šifruoto skaidinio yra rodoma ši "
@@ -849,7 +854,8 @@ msgstr ""
 "system/icons/unencrypted.png\" />. Jūsų pasirinkimas apspręs kokie veiksmai "
 "galės būti taikomi tam tikram skaidiniui. Šalia keičiamųjų laikmenų bus "
 "rodomos šios piktogramos: <img src=\"/usr/share/solydxk/system/icons/"
-"unencrypted-usb.png\" /> ir "
+"unencrypted-usb.png\" /> ir <img src=\"/usr/share/solydxk/system/icons/"
+"encrypted-usb.png\" />."
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"

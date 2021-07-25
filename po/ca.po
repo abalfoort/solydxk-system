@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-19 18:55+0100\n"
+"POT-Creation-Date: 2021-05-21 08:50+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
 "Language-Team: Catalan (https://www.transifex.com/abalfoort/teams/54212/"
@@ -89,6 +89,10 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "No he trobat GRUB ni BURG a /etc/default"
+
+#: usr/lib/solydxk/system/solydxk_system.py:126
+msgid "View log"
+msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -830,7 +834,8 @@ msgid ""
 "unencrypted partition shows this icon: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. Your selection will decide which actions can be "
 "taken on that partition. Removable media will show these icons: <img src=\"/"
-"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
+"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
+"share/solydxk/system/icons/encrypted-usb.png\" />."
 msgstr ""
 "Quan engegueu SolydXK System Settings veureu una llista de particions que "
 "podeu encriptar o desencriptar. Una partició encriptada mostra la icona: "
@@ -839,7 +844,7 @@ msgstr ""
 "icons/unencrypted.png\" />. La vostra tria determinarà quines accions es "
 "poden fer en cada partició. Els dispositius extraïbles mostraran aquestes "
 "icones: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
-"i "
+"i <img src=\"/usr/share/solydxk/system/icons/encrypted-usb.png\" />."
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"

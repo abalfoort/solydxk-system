@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
 # Davide Favaro <belzebu87@gmail.com>, 2021
 # Franco Frolloni <franco@frolloni.eu>, 2021
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-19 18:55+0100\n"
+"POT-Creation-Date: 2021-05-21 08:50+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Franco Frolloni <franco@frolloni.eu>, 2021\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/abalfoort/teams/54212/"
 "it/)\n"
 "Language: it\n"
@@ -91,6 +91,10 @@ msgstr ""
 #: usr/lib/solydxk/system/plymouth.py:125
 msgid "Neither grub nor burg found in /etc/default"
 msgstr "Non sono stati trovati né grub né burg in /etc/default"
+
+#: usr/lib/solydxk/system/solydxk_system.py:126
+msgid "View log"
+msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:127
 msgid "Save backports"
@@ -834,7 +838,8 @@ msgid ""
 "unencrypted partition shows this icon: <img src=\"/usr/share/solydxk/system/"
 "icons/unencrypted.png\" />. Your selection will decide which actions can be "
 "taken on that partition. Removable media will show these icons: <img src=\"/"
-"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and"
+"usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
+"share/solydxk/system/icons/encrypted-usb.png\" />."
 msgstr ""
 "All'vavio di SolydXK System Settings sarà possibile vedere la lista delle "
 "partizioni che possono essere cifrate o decifrate. Le partizioni cifrate "
@@ -843,7 +848,8 @@ msgstr ""
 "<img src=\"/usr/share/solydxk/system/icons/unencrypted.png\" />. Sarà "
 "possibile selezionarle e decidere quali azioni effettuare sulle partizioni. "
 "Le periferiche rimovibili saranno indicate con le seguenti icone: <img src="
-"\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> e "
+"\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> e<img src=\"/usr/"
+"share/solydxk/system/icons/encrypted-usb.png\" />."
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"
