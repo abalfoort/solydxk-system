@@ -114,7 +114,6 @@ class SolydXKSystemSettings(object):
         self.tvDeviceDriver = go("tvDeviceDriver")
         self.btnSaveDeviceDriver = go("btnSaveDeviceDriver")
         self.btnHelpDeviceDriver = go("btnHelpDeviceDriver")
-        self.btnLogDeviceDriver = go("btnLogDeviceDriver")
         self.chkBackportsDeviceDriver = go("chkBackportsDeviceDriver")
         self.chkEnableSplash = go("chkEnableSplash")
         self.swSplash = go("swSplash")
@@ -124,6 +123,7 @@ class SolydXKSystemSettings(object):
         self.cmbSplashResolution = go("cmbSplashResolution")
 
         # GUI translations
+        go("btnLogDeviceDriver").set_label(_("View log"))
         self.btnSaveBackports.set_label(_("Save backports"))
         self.btnSaveMirrors.set_label(_("Save mirrors"))
         self.btnCheckMirrorSpeed.set_label(_("Check mirrors speed"))
