@@ -165,3 +165,14 @@ def get_crypttab_info(crypttab_path):
                                              'uuid': uuid,
                                              'key_file': key_file}
     return crypttab_info
+
+def cleanup_passphrase(passphrase):
+        # Only ASCII characters allowed, excluding white spaces
+        clean_passphrase = ''
+        for char in passphrase:
+            c_code = ord(char)
+            if (c_code > 32 and c_code < 95) or \
+               (c_code > 96 and c_code < 127):
+                clean_passphrase += char
+        
+        return clean_passphrase

@@ -28,7 +28,7 @@ from dialogs import MessageDialog, QuestionDialog, InputDialog, \
                     WarningDialog
 from mirror import MirrorGetSpeed, Mirror, get_mirror_data, get_local_repos
 from encryption import is_encrypted, create_keyfile, write_crypttab, \
-                       connect_block_device
+                       connect_block_device, cleanup_passphrase
 from endecrypt_partitions import EnDecryptPartitions, ChangePassphrase
 from plymouth import Plymouth, PlymouthSave
 from image import ImageHandler
@@ -986,12 +986,17 @@ class SolydXKSystemSettings(object):
                                               columnTypesList=self.encrypt_col_types,
                                               firstItemIsColName=True,
                                               multipleSelection=True)
-                                              
-
+    
     def check_passphrase(self):
         self.my_passphrase = ''
-        pf1 = self.txtPassphrase1.get_text().strip()
-        pf2 = self.txtPassphrase2.get_text().strip()
+        
+        pf1 = cleanup_passphrase(self.txtPassphrase1.get_text())
+        pf2 = cleanup_passphrase(self.txtPassphrase2.get_text())
+        
+        # Reset text fields with clean passphrase
+        self.txtPassphrase1.set_text(pf1)
+        self.txtPassphrase2.set_text(pf2)
+        
         if pf1 == '' and pf2 == '':
             self.imgPassphraseCheck.hide()
         else:
