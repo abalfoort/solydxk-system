@@ -5,7 +5,7 @@ RepositoryType: deb
 BaseURI: https://repository.solydxk.com/
 MatchURI: repository.solydxk.com
 MirrorsFile: SolydXK.mirrors
-Description: SolydXK 11 EE
+Description: SolydXK 12 EE
 Component: main
 CompDescription: Officially supported
 Component: upstream
@@ -14,15 +14,28 @@ Component: import
 CompDescription: Includes non-DFSG-compatible Software
 Component: testing
 CompDescription: SolydXK packages in development for testing
-Component: rpi
-CompDescription: SolydXK packages for the Raspberry PI
+
+Suite: solydxk-12
+RepositoryType: deb
+BaseURI: https://repository.solydxk.com/
+MatchURI: repository.solydxk.com
+MirrorsFile: SolydXK.mirrors
+Description: SolydXK 12
+Component: main
+CompDescription: Officially supported
+Component: upstream
+CompDescription: Officially supported - essential newer versions of packages
+Component: import
+CompDescription: Includes non-DFSG-compatible Software
+Component: testing
+CompDescription: SolydXK packages in development for testing
 
 Suite: solydxk-11
 RepositoryType: deb
 BaseURI: https://repository.solydxk.com/
 MatchURI: repository.solydxk.com
 MirrorsFile: SolydXK.mirrors
-Description: SolydXK 11 EE
+Description: SolydXK 11
 Component: main
 CompDescription: Officially supported
 Component: upstream
@@ -31,8 +44,6 @@ Component: import
 CompDescription: Includes non-DFSG-compatible Software
 Component: testing
 CompDescription: SolydXK packages in development for testing
-Component: rpi
-CompDescription: SolydXK packages for the Raspberry PI
 
 Suite: solydxk-10
 RepositoryType: deb
@@ -48,8 +59,6 @@ Component: import
 CompDescription: Includes non-DFSG-compatible Software
 Component: testing
 CompDescription: SolydXK packages in development for testing
-Component: rpi
-CompDescription: SolydXK packages for the Raspberry PI
 
 Suite: solydxk-9
 RepositoryType: deb
@@ -67,21 +76,3 @@ Component: testing
 CompDescription: SolydXK packages in development for testing
 Component: rpi
 CompDescription: SolydXK packages for the Raspberry PI
-
-Suite: solydxk-8
-RepositoryType: deb
-BaseURI: https://repository.solydxk.com/
-MatchURI: repository.solydxk.com
-MirrorsFile: SolydXK.mirrors
-Description: SolydXK 8
-Component: main
-CompDescription: Officially supported
-Component: upstream
-CompDescription: Officially supported - essential newer versions of packages
-Component: import
-CompDescription: Includes non-DFSG-compatible Software
-Component: testing
-CompDescription: SolydXK packages in development for testing
-Component: rpi
-CompDescription: SolydXK packages for the Raspberry PI
-
