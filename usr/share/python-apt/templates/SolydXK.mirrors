@@ -15,3 +15,5 @@ http://ftp.acc.umu.se/mirror/solydxk.com/repository
 http://ftpmirror.infania.net/mirror/solydxk/repository
 #LOC:GB
 http://www.mirrorservice.org/sites/repository.solydxk.com
+#LOC:US
+http://files.elixirhosting.com/pub/os/linux/solydxk/repository
