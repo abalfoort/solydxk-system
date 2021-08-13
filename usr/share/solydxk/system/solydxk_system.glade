@@ -986,7 +986,6 @@
                             <property name="margin-top">10</property>
                             <property name="hexpand">True</property>
                             <property name="max-length">20</property>
-                            <property name="visibility">False</property>
                             <property name="invisible-char">●</property>
                             <property name="input-purpose">password</property>
                             <signal name="changed" handler="on_txtPassphrase1_changed" swapped="no"/>
@@ -1002,7 +1001,6 @@
                             <property name="can-focus">True</property>
                             <property name="hexpand">True</property>
                             <property name="max-length">20</property>
-                            <property name="visibility">False</property>
                             <property name="invisible-char">●</property>
                             <property name="input-purpose">password</property>
                             <signal name="changed" handler="on_txtPassphrase2_changed" swapped="no"/>
