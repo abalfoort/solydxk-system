@@ -1,3 +1,35 @@
+solydxk-system (3.9.1) stable; urgency=low
+
+  * Fix chroot-partition not finding missing target dirs
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 12 Aug 2021 11:30:13 +0200
+
+solydxk-system (3.9.0) stable; urgency=low
+
+  * Added solydxk-12 repository to python-apt SolydXK.info
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 12 Aug 2021 07:46:34 +0200
+
+solydxk-system (3.8.9) stable; urgency=low
+
+  * Remove solydxk-logos.sh script
+  * Updated translation: ca
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 05 Aug 2021 15:03:25 +0200
+
+solydxk-system (3.8.8) stable; urgency=low
+
+  * Mount efivars in chroot-partition
+  * Added elixirhosting (US) to our apt repository list
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 30 Jul 2021 23:54:59 +0200
+
+solydxk-system (3.8.7) stable; urgency=low
+
+  * Do not allow spaces in encryption passphrase
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 30 Jul 2021 10:01:16 +0200
+
 solydxk-system (3.8.6) stable; urgency=low
 
   * Updated translation: sr
