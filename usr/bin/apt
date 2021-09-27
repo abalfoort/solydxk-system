@@ -184,7 +184,7 @@ search|show)
 	Command="aptitude $Cmd $Args";;
 sy|sync)
 	Command="${Sudo}apt-get update && ${Sudo}apt-get dist-upgrade${OptV:+ --verbose-versions}"
-	[ $OptA ] && Command+=" && ${Sudo}apt-get autoremove"
+	[ $OptA ] && Command+=" && ${Sudo}apt-get --purge autoremove"
 	[ $OptC ] && Command+=" && ${Sudo}apt-get clean"
 	;;
 una|unavailable)
