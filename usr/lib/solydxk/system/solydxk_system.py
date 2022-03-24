@@ -1207,6 +1207,10 @@ class SolydXKSystemSettings(object):
                                 line = line.strip()
                                 lineData = line.split()
                                 #print(("++++ lineData=%s" % str(lineData)))
+                                
+                                if len(lineData) <= 1:
+                                    continue
+                                
                                 matchObj = re.search(r'[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}', lineData[1])
                                 if matchObj:
                                     crypttab_uuid = matchObj.group(0)
