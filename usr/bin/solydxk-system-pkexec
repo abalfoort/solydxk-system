@@ -4,6 +4,7 @@
 # Supported arguments:
 # -d|--debug: debug with -Wd arguments
 DEBUG='-OO'
+PY='/usr/lib/solydxk/system/main.py'
 for ARG in $@; do
   case $ARG in
     -d|--debug)
@@ -11,10 +12,13 @@ for ARG in $@; do
       ;;
     -n)
       ARGS="$ARGS $ARG"
-    ;;
+      ;;
+    -a)
+      PY='/usr/lib/solydxk/system/adjust.py'
+      ;;
   *)
     # Unknown option
   esac
 done
 
-python3 ${DEBUG}  /usr/lib/solydxk/system/main.py $ARGS
+python3 ${DEBUG} ${PY} $ARGS
