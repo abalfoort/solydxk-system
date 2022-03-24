@@ -30,7 +30,7 @@ Depends: ${misc:Depends}, ${python3:Depends}
   , haveged
   , ntfs-3g
   , btrfs-progs
-  , exfat-utils
+  , exfat-utils | exfatprogs
   , dosfstools
   , gir1.2-udisks-2.0
   , pciutils
