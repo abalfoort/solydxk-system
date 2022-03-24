@@ -130,8 +130,10 @@ Fetch(){
 
 
 case $Cmd in
-autoclean|autoremove|build-deb|check|clean|dselect-upgrade|install|purge|remove|update)
+autoclean|autoremove|build-deb|check|clean|dselect-upgrade|install|remove|update)
 	Command="${Sudo}apt-get $Cmd $Args";;
+purge)
+	Command="${Sudo}apt-get $Cmd $Args --autoremove";;
 upg|upgrade)
 	Command="${Sudo}apt-get upgrade${OptV:+ --verbose-versions} $Args";;
 di|dist-upgrade|du|fu|full|full-upgrade)
