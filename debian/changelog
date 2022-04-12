@@ -1,3 +1,15 @@
+solydxk-system (3.9.8) stable; urgency=low
+
+  * Add password verification entry field for luks encryption
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sun, 10 Apr 2022 16:44:57 +0200
+
+solydxk-system (3.9.7) stable; urgency=low
+
+  * Fix chroot-partition crashing when resolv.conf is a symlink
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sat, 02 Apr 2022 14:03:53 +0200
+
 solydxk-system (3.9.6) stable; urgency=high
 
   * Fix bug crashing when crypttab contains lines with a single word/character

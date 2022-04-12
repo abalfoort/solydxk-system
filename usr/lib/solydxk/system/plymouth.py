@@ -14,8 +14,7 @@ from shutil import which
 
 # i18n: http://docs.python.org/3/library/gettext.html
 import gettext
-from gettext import gettext as _
-gettext.textdomain('solydxk-system')
+_ = gettext.translation('solydxk-system', fallback=True).gettext
 
 # Handles general plymouth functions
 class Plymouth():

@@ -97,7 +97,7 @@ def create_keyfile(keyfile_path, device, passphrase):
     # https://www.martineve.com/2012/11/02/luks-encrypting-multiple-partitions-on-debianubuntu-with-a-single-passphrase/
     if not exists(keyfile_path):
         shell_exec("dd if=/dev/urandom of=%s bs=512 count=8 iflag=fullblock" % keyfile_path)
-        shell_exec("chmod 0400 %s" % keyfile_path)
+        shell_exec("chmod 000 %s" % keyfile_path)
     # Remove any keys for this device first
     shell_exec("printf \"%s\" | cryptsetup luksRemoveKey %s %s" % (passphrase, device, keyfile_path))
     # Now add the new key for this device
@@ -167,12 +167,12 @@ def get_crypttab_info(crypttab_path):
     return crypttab_info
 
 def cleanup_passphrase(passphrase):
-        # Only ASCII characters allowed, excluding white spaces
-        clean_passphrase = ''
-        for char in passphrase:
-            c_code = ord(char)
-            if (c_code > 32 and c_code < 95) or \
-               (c_code > 96 and c_code < 127):
-                clean_passphrase += char
-        
-        return clean_passphrase
+    # Only ASCII characters allowed, excluding white spaces
+    clean_passphrase = ''
+    for char in passphrase:
+        c_code = ord(char)
+        if (c_code > 32 and c_code < 95) or \
+           (c_code > 96 and c_code < 127):
+            clean_passphrase += char
+    
+    return clean_passphrase

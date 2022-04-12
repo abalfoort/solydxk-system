@@ -6,7 +6,6 @@ import gi
 gi.require_version('Gtk', '3.0')
 
 import sys
-import gettext
 from os.path import abspath, dirname
 from utils import compare_package_versions
 from dialogs import ErrorDialog
@@ -21,9 +20,9 @@ parser.add_argument('-n', '--nosplash', action="store_true", help='No startup sp
 args, extra = parser.parse_known_args()
 nosplash = args.nosplash
 
-# i18n: http://docs.python.org/2/library/gettext.html
-gettext.install("solydxk-system", "/usr/share/locale")
-_ = gettext.gettext
+# i18n: http://docs.python.org/3/library/gettext.html
+import gettext
+_ = gettext.translation('solydxk-system', fallback=True).gettext
 
 scriptDir = abspath(dirname(__file__))
 

@@ -36,8 +36,7 @@ from splash import Splash
 
 # i18n: http://docs.python.org/3/library/gettext.html
 import gettext
-from gettext import gettext as _
-gettext.textdomain('solydxk-system')
+_ = gettext.translation('solydxk-system', fallback=True).gettext
 
 TMPMOUNT = '/mnt/solydxk-system'
 
@@ -2117,10 +2116,9 @@ class SolydXKSystemSettings(object):
         passphrase_title = _("Partition passphrase")
         passphrase_text = _("Please, provide the current passphrase\n"
                             "for the encrypted partition")
-        pf_dialog = InputDialog(title=passphrase_title,
-                    text="%s:\n\n<b>%s</b>" % (passphrase_text, device_path),
-                    is_password=True)
-        return pf_dialog.show().strip()
+        return InputDialog(title=passphrase_title,
+                           text="%s:\n\n<b>%s</b>" % (passphrase_text, device_path),
+                           is_password=True).show()
         
     def update_progress(self, step=-1, pulse=False, text=None):
         if step >= 0 and step <= 1:

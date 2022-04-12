@@ -225,46 +225,51 @@ class SelectDirectoryDialog(object):
 class InputDialog(Gtk.MessageDialog):
     def __init__(self, title, text, text2=None, parent=None, default_value='', is_password=False):
         parent = parent or next((w for w in Gtk.Window.list_toplevels() if w.get_title()), None)
-
-        Gtk.MessageDialog.__init__(self, parent=parent, 
-                                   modal=True, 
-                                   destroy_with_parent=True, 
-                                   message_type=Gtk.MessageType.QUESTION, 
-                                   buttons=Gtk.ButtonsType.OK,
-                                   text=text)
+        super().__init__(title=title, transient_for=parent, flags=0)
+        if parent: self.set_icon(parent.get_icon())
+        self.add_buttons(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+        self.set_default_response(Gtk.ResponseType.OK)
         self.set_position(Gtk.WindowPosition.CENTER)
-        if parent is not None:
-            self.set_icon(parent.get_icon())
-        self.set_title(title)
         self.set_markup(text)
         if text2: self.format_secondary_markup(text2)
 
-        # Add entry field
-        entry = Gtk.Entry()
+        # Add entry field(s)
+        box = self.get_content_area()
+        box.set_property('margin-left', 10)
+        box.set_property('margin-right', 10)
+        entry1 = Gtk.Entry()
+        entry1.set_text(default_value)
+        box.pack_start(entry1, True, True, 0)
+        self.entry1 = entry1
         if is_password:
-            entry.set_visibility(False)
-        entry.set_text(default_value)
-        entry.connect("activate",
-                      lambda ent, dlg, resp: dlg.response(resp),
-                      self, Gtk.ResponseType.OK)
-        self.vbox.pack_end(entry, True, True, 0)
+            self.set_response_sensitive(Gtk.ResponseType.OK, False)
+            entry1.set_visibility(False)
+            self.entry1.connect("changed", self.on_entry_changed)
+            entry2 = Gtk.Entry()
+            entry2.set_visibility(False)
+            entry2.set_activates_default(True)
+            box.pack_start(entry2, True, True, 0)
+            self.entry2 = entry2
+            self.entry2.connect("changed", self.on_entry_changed)
         self.vbox.show_all()
-        self.entry = entry
-
-        self.set_default_response(Gtk.ResponseType.OK)
 
     def set_value(self, text):
-        self.entry.set_text(text)
+        self.entry1.set_text(text)
+        
+    def on_entry_changed(self, widget):
+        value1 = self.entry1.get_text().strip()
+        value2 = self.entry2.get_text().strip()
+        button_sensitive = len(value1) > 0 and value1 == value2
+        self.set_response_sensitive(Gtk.ResponseType.OK, button_sensitive)
 
     def show(self):
         try:
-            result = self.run()
-            if result == Gtk.ResponseType.OK:
-                return self.entry.get_text().strip()
+            if self.run() == Gtk.ResponseType.OK:
+                return self.entry1.get_text().strip()
             else:
-                return ''
+                return None
         except Exception as detail:
             print((">> InputDialog error: {}".format(detail)))
-            return ''
+            return None
         finally:
             self.destroy()
