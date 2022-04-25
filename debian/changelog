@@ -1,3 +1,15 @@
+solydxk-system (4.0.0) stable; urgency=low
+
+  * Updated /usr/share/python-apt/templates/SolydXK.mirrors 
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 20 Apr 2022 19:09:29 +0200
+
+solydxk-system (3.9.9) stable; urgency=low
+
+  * Updated translation: pt
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sat, 16 Apr 2022 07:49:19 +0200
+
 solydxk-system (3.9.8) stable; urgency=low
 
   * Add password verification entry field for luks encryption
