@@ -27,7 +27,6 @@ Depends: ${misc:Depends}, ${python3:Depends}
   , python3-dateutil
   , rsync
   , udisks2
-  , haveged
   , ntfs-3g
   , btrfs-progs
   , exfat-utils | exfatprogs
