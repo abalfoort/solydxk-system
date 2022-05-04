@@ -5,6 +5,7 @@ write_blame = False
 
 from time import process_time
 import os
+import re
 from os.path import exists, splitext, dirname, isdir, basename, join
 from adjust_sources import Sources
 from logger import Logger
@@ -148,41 +149,51 @@ try:
     if write_blame: log.write("Blame 03 - {}".format(process_time() - t), 'blame')
 
     # Restore LSB information
-    codename = getoutput("grep CODENAME /usr/share/solydxk/info")[0].strip()
-    release = getoutput("grep RELEASE /usr/share/solydxk/info")[0].strip()
-    if not has_string_in_file(codename, "/etc/lsb-release"):
-        with open("/etc/lsb-release", "w") as f:
-            f.writelines(getoutput("grep DISTRIB_ID /usr/share/solydxk/info")[0].strip() + "\n")
-            f.writelines("DISTRIB_" + release + "\n")
-            f.writelines("DISTRIB_" + codename + "\n")
-            f.writelines("DISTRIB_" + getoutput("grep DESCRIPTION /usr/share/solydxk/info")[0] + "\n")
-        log.write("/etc/lsb-release overwritten",  'lsb-release')
-    if not has_string_in_file(codename, "/usr/lib/os-release"):
-        with open("/usr/lib/os-release", "w") as f:
-            f.writelines(getoutput("grep DESCRIPTION /usr/share/solydxk/info")[0].replace("DESCRIPTION", "PRETTY_NAME") + "\n")
-            f.writelines(getoutput("grep DISTRIB_ID /usr/share/solydxk/info")[0].replace("DISTRIB_ID", "ID") + "\n")
-            f.writelines(codename.replace("CODENAME", "NAME") + "\n")
-            f.writelines(release.replace("RELEASE", "VERSION_ID") + "\n")
-            f.writelines(release.replace("RELEASE", "VERSION") + "\n")
-            f.writelines(codename.replace("CODENAME", "VERSION_CODENAME") + "\n")
-            f.writelines('ANSI_COLOR="1;31"\n')
-            f.writelines('HOME_URL="https://www.solydxk.com/"\n')
-            f.writelines('SUPPORT_URL="https://forums.solydxk.com/"\n')
-            f.writelines('BUG_REPORT_URL="https://forums.solydxk.com/"\n')
-        log.write("/usr/lib/os-release overwritten",  'os-release')
+    with open('/usr/share/solydxk/info', 'r') as f:
+        info = f.readlines()
+
+    def get_info_line(par_name):
+        matches = [match for match in info if par_name in match]
+        return '' if not matches else matches[0]
+
+    codename = get_info_line("CODENAME")
+    release = get_info_line("RELEASE")
+    distrib_id = get_info_line("DISTRIB_ID")
+    description = get_info_line("DESCRIPTION")
+    pretty_name = get_info_line("PRETTY_NAME")
+    home_url = get_info_line("HOME_URL")
+    support_url = get_info_line("SUPPORT_URL")
+    bug_report_url = get_info_line("BUG_REPORT_URL")
+    
+    with open("/etc/lsb-release", "w") as f:
+        f.writelines([distrib_id,
+                      "DISTRIB_" + release,
+                      "DISTRIB_" + codename,
+                      "DISTRIB_" + description])
+    log.write("/etc/lsb-release overwritten",  'lsb-release')
+
+    with open("/usr/lib/os-release", "w") as f:
+        f.writelines([pretty_name,
+                      codename.replace("CODENAME", "NAME"),
+                      release.replace("RELEASE", "VERSION_ID"),
+                      distrib_id.replace("DISTRIB_ID", "ID"),
+                      release.replace("RELEASE", "VERSION"),
+                      codename.replace("CODENAME", "VERSION_CODENAME"),
+                      home_url,
+                      support_url,
+                      bug_report_url])
+    log.write("/usr/lib/os-release overwritten",  'os-release')
 
     if write_blame: log.write("Blame 04 - {}".format(process_time() - t), 'blame')
 
     # Restore /etc/issue and /etc/issue.net
-    issue = getoutput("grep DESCRIPTION /usr/share/solydxk/info")[0].replace("DESCRIPTION=", "").replace("\"", "")
-    if not has_string_in_file(issue, "/etc/issue"):
-        with open("/etc/issue", "w") as f:
-            f.writelines(issue + " \\n \\l\n")
-        log.write("/etc/issue overwritten",  'issue')
-    if not has_string_in_file(issue, "/etc/issue.net"):
-        with open("/etc/issue.net", "w") as f:
-            f.writelines(issue + '\n')
-        log.write("/etc/issue.net overwritten",  'issue')
+    issue = description.replace("DESCRIPTION=", "").replace("\"", "")
+    with open("/etc/issue", "w") as f:
+        f.writelines(issue.strip() + " \\n \\l\n")
+    log.write("/etc/issue overwritten",  'issue')
+    with open("/etc/issue.net", "w") as f:
+        f.writelines(issue)
+    log.write("/etc/issue.net overwritten",  'issue')
 
     if write_blame: log.write("Blame 05 - {}".format(process_time() - t), 'blame')
 
