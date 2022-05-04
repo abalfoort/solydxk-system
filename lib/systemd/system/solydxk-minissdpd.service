@@ -1,0 +1,11 @@
+[Unit]
+Description=Configure /etc/default/minissdpd
+After=network-online.target
+Before=minissdpd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/solydxk/scripts/minissdpd.sh
+
+[Install]
+WantedBy=multi-user.target

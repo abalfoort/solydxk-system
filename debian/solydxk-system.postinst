@@ -2,40 +2,68 @@
 
 set -e
 
-# Automatically added by dh_systemd_enable
-# This will only remove masks created by d-s-h on package removal.
-deb-systemd-helper unmask solydxk-cifs-umount.service >/dev/null || true
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# This will only remove masks created by d-s-h on package removal.
+	deb-systemd-helper unmask 'solydxk-cifs-umount.service' >/dev/null || true
 
-# was-enabled defaults to true, so new installations run enable.
-if deb-systemd-helper --quiet was-enabled solydxk-cifs-umount.service; then
-	# Enables the unit on first installation, creates new
-	# symlinks on upgrades if the unit file has changed.
-	deb-systemd-helper enable solydxk-cifs-umount.service >/dev/null || true
-else
-	# Update the statefile to add new symlinks (if any), which need to be
-	# cleaned up on purge. Also remove old symlinks.
-	deb-systemd-helper update-state solydxk-cifs-umount.service >/dev/null || true
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'solydxk-cifs-umount.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'solydxk-cifs-umount.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'solydxk-cifs-umount.service' >/dev/null || true
+	fi
 fi
 # End automatically added section
-# Automatically added by dh_systemd_enable
-# This will only remove masks created by d-s-h on package removal.
-deb-systemd-helper unmask solydxk-system-aptupdate.service >/dev/null || true
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# This will only remove masks created by d-s-h on package removal.
+	deb-systemd-helper unmask 'solydxk-minissdpd.service' >/dev/null || true
 
-# was-enabled defaults to true, so new installations run enable.
-if deb-systemd-helper --quiet was-enabled solydxk-system-aptupdate.service; then
-	# Enables the unit on first installation, creates new
-	# symlinks on upgrades if the unit file has changed.
-	deb-systemd-helper enable solydxk-system-aptupdate.service >/dev/null || true
-else
-	# Update the statefile to add new symlinks (if any), which need to be
-	# cleaned up on purge. Also remove old symlinks.
-	deb-systemd-helper update-state solydxk-system-aptupdate.service >/dev/null || true
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'solydxk-minissdpd.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'solydxk-minissdpd.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'solydxk-minissdpd.service' >/dev/null || true
+	fi
 fi
 # End automatically added section
-# Automatically added by dh_systemd_start
-if [ -d /run/systemd/system ]; then
-	systemctl --system daemon-reload >/dev/null || true
-	deb-systemd-invoke start solydxk-cifs-umount.service solydxk-system-aptupdate.service >/dev/null || true
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# This will only remove masks created by d-s-h on package removal.
+	deb-systemd-helper unmask 'solydxk-system-aptupdate.service' >/dev/null || true
+
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'solydxk-system-aptupdate.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'solydxk-system-aptupdate.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'solydxk-system-aptupdate.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if [ -d /run/systemd/system ]; then
+		systemctl --system daemon-reload >/dev/null || true
+		if [ -n "$2" ]; then
+			_dh_action=restart
+		else
+			_dh_action=start
+		fi
+		deb-systemd-invoke $_dh_action 'solydxk-cifs-umount.service' 'solydxk-system-aptupdate.service' >/dev/null || true
+	fi
 fi
 # End automatically added section
 
@@ -121,11 +149,11 @@ case "$1" in
         # Remove old samba settings
         SMB='/etc/samba/smb.conf'
         if [ -f $SMB ]; then
-        if grep -Fq "## SOLYDXK" $SMB; then
-            #sed -i -e 's/\[global\]/\[global\]\n  ## SOLYDXK\n\n  follow symlinks = yes\n  wide links = yes\n  unix extensions = no\n  client lanman auth = yes\n  client ntlmv2 auth = no\n/' $SMB
-            #sed -i -e 's/^;create mask/create mask/' $SMB
-            sed -i -e '/^ \{2,\}## SOLYDXK/,/^ \{2,\}client ntlmv2 auth = no/d' "$SMB"
-        fi
+            if grep -Fq "## SOLYDXK" $SMB; then
+                #sed -i -e 's/\[global\]/\[global\]\n  ## SOLYDXK\n\n  follow symlinks = yes\n  wide links = yes\n  unix extensions = no\n  client lanman auth = yes\n  client ntlmv2 auth = no\n/' $SMB
+                #sed -i -e 's/^;create mask/create mask/' $SMB
+                sed -i -e '/^ \{2,\}## SOLYDXK/,/^ \{2,\}client ntlmv2 auth = no/d' "$SMB"
+            fi
         fi
         
         python3 /usr/lib/solydxk/system/adjust.py
@@ -133,18 +161,18 @@ case "$1" in
         # Remove old initv script
         INITCONF='/etc/init.d/solydxk-system'
         if [ -e $INITCONF ]; then
-        update-rc.d solydxk-system remove
-        rm $INITCONF
+            update-rc.d solydxk-system remove
+            rm $INITCONF
         fi
         
         # If dpkg removed /usr/local/bin: recreate it
         if [ ! -e /usr/local/bin ]; then
-        mkdir -p /usr/local/bin
+            mkdir -p /usr/local/bin
         fi
         
         # Set the right permissions to /etc/skel/.gnupg
         if [ -d /etc/skel/.gnupg ]; then
-        chmod -R 700 /etc/skel/.gnupg
+            chmod -R 700 /etc/skel/.gnupg
         fi
         
         # Check for rogue files
