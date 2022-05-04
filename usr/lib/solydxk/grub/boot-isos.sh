@@ -93,7 +93,7 @@ while read -r BLK; do
 	# only look at partitions with a filesystem (i.e. ignore extended and
 	# unformatted (BIOS boot) partitions) which are not root or swap (can't use
 	# MP for that, as that might miss swap partitions on other disks)
-	if [ $FS ] && [ $FS != swap ] && [ "$TP" == "part" ] && [ "$MP" != "/" ]; then
+	if [ ! -z $FS ] && [[ 'part crypt' == *$TP* ]] && [[ 'swap crypto_LUKS' != *$FS* ]] && [ "$MP" != "/" ]; then
 		check_partition "$NM" "$ID" "$MP"
 	fi
 done < <(lsblk -lpno NAME,TYPE,FSTYPE,UUID,MOUNTPOINT)
