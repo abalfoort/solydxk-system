@@ -14,31 +14,53 @@ if [ ! -z $(sudo which cryptsetup) ]; then
     if [ ! -z $PART ]; then
         # Check if encrypted
         if $(sudo cryptsetup isLuks $PART); then
-            BN=$(basename $PART)
-            MAP=/dev/mapper/$BN
+            LUKS_NAME=$(lsblk -dno UUID $PART 2>/dev/null) || LUKS_NAME=$(basename $PART)
             # Check that partition is mapped
-            if [ "$(sudo cryptsetup status $BN | grep 'device:' | awk '{print $NF}')" == "$PART" ]; then
-                echo "$PART already mapped to $MAP"
-                PARMS='-v '$(echo $PARMS | sed "s|$PART|$MAP|")
-            else
-                echo "cryptsetup open $PART $BN"
-                sudo cryptsetup open $PART $BN
+            for LM in $(ls /dev/mapper); do
+                S=$(sudo cryptsetup status /dev/mapper/$LM | grep device)
+                if [[ "$S" == *$PART* ]]; then
+                    # Check if already mounted
+                    MP=$(lsblk -no MOUNTPOINT "/dev/mapper/$LM" 2>/dev/null)
+                    if [ -z "$MP" ]; then
+                        exit 0
+                    fi
+                    
+                    # Mount the mapped device
+                    echo "$PART already mapped to: /dev/mapper/$LM"
+                    if [ -z "$(mount | grep /dev/mapper/$LM)" ]; then
+                        PARMS='-v '$(echo $PARMS | sed "s|$PART|/dev/mapper/$LM|")
+                        mkdir -p /tmp/$LUKS_NAME
+                        sudo mount $PARMS /tmp/$LUKS_NAME
+                    fi
+                    exit 0
+                fi
+            done
+            
+            # Check if in terminal
+            if [ -t 1 ]; then
+                echo "cryptsetup open $PART $LUKS_NAME"
+                sudo cryptsetup open $PART $LUKS_NAME
                 # Check again that the partition is mapped
-                if [ "$(sudo cryptsetup status $BN | grep 'device:' | awk '{print $NF}')" == "$PART" ]; then
-                    echo "$PART mapped to $MAP"
-                    PARMS='-v '$(echo $PARMS | sed "s|$PART|$MAP|")
+                if [ "$(sudo cryptsetup status $LUKS_NAME | grep 'device:' | awk '{print $NF}')" == "$PART" ]; then
+                    echo "$PART mapped to /dev/mapper/$LUKS_NAME"
+                    PARMS='-v '$(echo $PARMS | sed "s|$PART|/dev/mapper/$LUKS_NAME|")
+                    mkdir -p /tmp/$LUKS_NAME
+                    sudo mount $PARMS /tmp/$LUKS_NAME
+                    exit 0
                 else
                     # Partition probably already manually mapped
                     # but cannot retrieve the mapped drive from device path
-                    echo "ERROR: could not map $PART to $MAP"
+                    echo "ERROR: could not map $PART to /dev/mapper/$LUKS_NAME"
+                    exit 1
                 fi
             fi
+        else
+            if ! device_is_mounted; then
+                echo "$PART not a luks device; skipping"
+            fi
         fi
+    else
+        echo "No device was given; skipping"
     fi
 fi
-
-sudo mount $PARMS
-if [ "$?" -gt 0 ]; then
-    mkdir /tmp/$BN
-    sudo mount $PARMS /tmp/$BN
-fi
+exit 0
