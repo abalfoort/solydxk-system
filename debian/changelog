@@ -1,3 +1,23 @@
+solydxk-system (4.0.3) stable; urgency=low
+
+  * adjust.py: update /etc/*release code
+  * Fix error: error: unknown filesystem in boot-isos.sh
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 28 Apr 2022 16:52:10 +0200
+
+solydxk-system (4.0.2) stable; urgency=low
+
+  * Fix /etc/*release not written correctly
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 27 Apr 2022 12:51:12 +0200
+
+solydxk-system (4.0.1) stable; urgency=low
+
+  * Create fix for minissdpd not finding interface: minissdpd.sh
+  * Remove dependency haveged
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Tue, 26 Apr 2022 09:54:44 +0200
+
 solydxk-system (4.0.0) stable; urgency=low
 
   * Updated /usr/share/python-apt/templates/SolydXK.mirrors 
