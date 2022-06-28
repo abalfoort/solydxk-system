@@ -3,26 +3,26 @@
 PARMS=$@
 
 # Before unmounting, check if encrypted and mapped
-if [ ! -z $(sudo which cryptsetup) ]; then
-    for W in ${PARMS}; do
-        if [ "${W:0:5}" == '/dev/' ]; then
-            PART=$W
-            if $(sudo cryptsetup isLuks $PART); then
-                PART=/dev/mapper/$(basename $PART)
-            fi
-            break
-        fi
-    done
+if [ -z $(sudo which cryptsetup) ]; then
+    exit 1
+fi
 
-    if [ -z $PART ]; then
-        sudo umount $PARMS
-    else
-        sudo umount -v $PART
-        if [ "${PART:4:8}" == '/mapper/' ]; then
-            echo "cryptsetup close $PART"
-            sudo cryptsetup close $PART
+for PART in ${PARMS}; do
+    if [ "${W:0:5}" == '/dev/' ]; then
+        if $(sudo cryptsetup isLuks $PART); then
+            for LM in $(ls /dev/mapper); do
+                S=$(sudo cryptsetup status /dev/mapper/$LM | grep device)
+                if [[ "$S" == *$PART* ]]; then
+                    # Check if mounted
+                    MP=$(lsblk -no MOUNTPOINT "/dev/mapper/$LM" 2>/dev/null)
+                    if [ ! -z "$MP" ]; then
+                        echo "sudo umount $MP"
+                        sudo umount $MP
+                    fi
+                    echo "sudo cryptsetup close /dev/mapper/$LM"
+                    sudo cryptsetup close /dev/mapper/$LM
+                fi
+            done
         fi
     fi
-else
-    sudo umount $PARMS
-fi
+done
