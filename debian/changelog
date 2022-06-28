@@ -1,3 +1,39 @@
+solydxk-system (4.0.9) stable; urgency=low
+
+  * Updated translation: es_419 (latin america)
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Tue, 28 Jun 2022 08:28:25 +0200
+
+solydxk-system (4.0.8) stable; urgency=low
+
+  * Updated mirrors list
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 22 Jun 2022 11:33:11 +0200
+
+solydxk-system (4.0.7) stable; urgency=low
+
+  * Add/change additional mounts for chroot-partition
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sun, 19 Jun 2022 13:54:27 +0200
+
+solydxk-system (4.0.6) stable; urgency=low
+
+  * Rewrite umount.luks
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sat, 28 May 2022 17:48:17 +0200
+
+solydxk-system (4.0.5) stable; urgency=low
+
+  * mount.luk: fix crashing on mounting non-encrypted partitions
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 25 May 2022 13:54:47 +0200
+
+solydxk-system (4.0.4) stable; urgency=low
+
+  * Fix ddm scripts with -s parameter
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 04 May 2022 15:41:03 +0200
+
 solydxk-system (4.0.3) stable; urgency=low
 
   * adjust.py: update /etc/*release code
