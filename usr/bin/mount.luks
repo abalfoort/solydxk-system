@@ -12,9 +12,10 @@ if [ ! -z $(sudo which cryptsetup) ]; then
     done
 
     if [ ! -z $PART ]; then
+        MOUNT_NAME=$(lsblk -dno UUID $PART 2>/dev/null) || MOUNT_NAME=$(basename $PART)
+        MOUNT_NAME="luks-$MOUNT_NAME"
         # Check if encrypted
         if $(sudo cryptsetup isLuks $PART); then
-            LUKS_NAME=$(lsblk -dno UUID $PART 2>/dev/null) || LUKS_NAME=$(basename $PART)
             # Check that partition is mapped
             for LM in $(ls /dev/mapper); do
                 S=$(sudo cryptsetup status /dev/mapper/$LM | grep device)
@@ -29,8 +30,8 @@ if [ ! -z $(sudo which cryptsetup) ]; then
                     echo "$PART already mapped to: /dev/mapper/$LM"
                     if [ -z "$(mount | grep /dev/mapper/$LM)" ]; then
                         PARMS='-v '$(echo $PARMS | sed "s|$PART|/dev/mapper/$LM|")
-                        mkdir -p /tmp/$LUKS_NAME
-                        sudo mount $PARMS /tmp/$LUKS_NAME
+                        mkdir -p /tmp/$MOUNT_NAME
+                        sudo mount $PARMS /tmp/$MOUNT_NAME
                     fi
                     exit 0
                 fi
@@ -38,26 +39,27 @@ if [ ! -z $(sudo which cryptsetup) ]; then
             
             # Check if in terminal
             if [ -t 1 ]; then
-                echo "cryptsetup open $PART $LUKS_NAME"
-                sudo cryptsetup open $PART $LUKS_NAME
+                echo "cryptsetup open $PART $MOUNT_NAME"
+                sudo cryptsetup open $PART $MOUNT_NAME
                 # Check again that the partition is mapped
-                if [ "$(sudo cryptsetup status $LUKS_NAME | grep 'device:' | awk '{print $NF}')" == "$PART" ]; then
-                    echo "$PART mapped to /dev/mapper/$LUKS_NAME"
-                    PARMS='-v '$(echo $PARMS | sed "s|$PART|/dev/mapper/$LUKS_NAME|")
-                    mkdir -p /tmp/$LUKS_NAME
-                    sudo mount $PARMS /tmp/$LUKS_NAME
+                if [ "$(sudo cryptsetup status $MOUNT_NAME | grep 'device:' | awk '{print $NF}')" == "$PART" ]; then
+                    echo "$PART mapped to /dev/mapper/$MOUNT_NAME"
+                    PARMS='-v '$(echo $PARMS | sed "s|$PART|/dev/mapper/$MOUNT_NAME|")
+                    mkdir -p /tmp/$MOUNT_NAME
+                    sudo mount $PARMS /tmp/$MOUNT_NAME
                     exit 0
                 else
                     # Partition probably already manually mapped
                     # but cannot retrieve the mapped drive from device path
-                    echo "ERROR: could not map $PART to /dev/mapper/$LUKS_NAME"
+                    echo "ERROR: could not map $PART to /dev/mapper/$MOUNT_NAME"
                     exit 1
                 fi
             fi
         else
-            if ! device_is_mounted; then
-                echo "$PART not a luks device; skipping"
-            fi
+            echo "$PART not a luks device"
+            echo "Regular mount on /tmp/$MOUNT_NAME"
+            mkdir -p /tmp/$MOUNT_NAME
+            sudo mount $PARMS /tmp/$MOUNT_NAME
         fi
     else
         echo "No device was given; skipping"
