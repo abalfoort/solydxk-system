@@ -22,37 +22,37 @@ verbose=H
 showcmd=false
 while [ "$1" != "" ]; do
     case $1 in
-        for | -f | --for )
-		shift
-                text=$1
-                ;;
-        in | --in | -i )
-		shift
-		directory=$1
-                ;;
-        -h | --help )           
-		usage
-                exit
-                ;;
-	-b | --include-binaries )
-		binary=
-		;;
-	-c | --case-sensitive )
-		case=
-		;;
-	-s | --show-filenames-only )
-		verbose=l
-		;;
-	-n | --name-filter )
-		shift
-		namefilter="-name \"$1\""
-		;;
-	-cmd | --show-command )
-		showcmd=true
-		;;
-        * )     
-		usage
-                exit 1
+    for | -f | --for )
+        shift
+        text=$1
+        ;;
+    in | --in | -i )
+        shift
+        directory=$1
+        ;;
+    -h | --help )
+        usage
+        exit
+        ;;
+    -b | --include-binaries )
+        binary=
+        ;;
+    -c | --case-sensitive )
+        case=
+        ;;
+    -s | --show-filenames-only )
+        verbose=l
+        ;;
+    -n | --name-filter )
+        shift
+        namefilter="-name \"$1\""
+        ;;
+    -cmd | --show-command )
+        showcmd=true
+        ;;
+    * )
+        usage
+        exit 1
     esac
     shift
 done
@@ -62,9 +62,9 @@ cmd="find $directory $namefilter -type f -exec grep -$case$verbose$binary \"$tex
 
 # Show command string
 if $showcmd; then
-	echo "=========================================================================="
-	echo $cmd
-	echo "=========================================================================="
+    echo "=========================================================================="
+    echo $cmd
+    echo "=========================================================================="
 fi
 
 # Execute the command
