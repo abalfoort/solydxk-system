@@ -170,7 +170,7 @@ fi
 
 # Try to avoid detecting dual video cards where nvidia is still primary.
 # The old method would try to install bumblebee on desktops with nvidia cards and intel integrated on the motherboard
-if ! $TEST; then
+if ! $TEST && ! $SHOW; then
   apt-get update
 fi
 # Check for Optimus

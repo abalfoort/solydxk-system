@@ -255,7 +255,7 @@ fi
 PCKS="$ADDITIONALPCKS $PCKS"
 
 # Check if all these packages exist in the repository
-if [ ! $TEST ]; then
+if ! $TEST && ! $SHOW; then
   apt-get update
 fi
 for PCK in $PCKS; do

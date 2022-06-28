@@ -161,7 +161,7 @@ fi
 
 # Install the Broadcom drivers
 # Get the appropriate driver
-if [ ! $TEST ]; then
+if ! $TEST && ! $SHOW; then
   apt-get update
 fi
 for DID in $DEVICEIDS; do
