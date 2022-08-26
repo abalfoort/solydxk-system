@@ -1,3 +1,16 @@
+solydxk-system (4.1.1) stable; urgency=low
+
+  * Remove /usr/bin/bootinfoscript
+  * Add recommends boot-info-script
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 26 Aug 2022 11:45:37 +0200
+
+solydxk-system (4.1.0) stable; urgency=low
+
+  * Fix bug not able to add backports repo
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sat, 30 Jul 2022 13:09:02 +0200
+
 solydxk-system (4.0.9) stable; urgency=low
 
   * Updated translation: es_419 (latin america)
