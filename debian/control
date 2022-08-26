@@ -45,6 +45,7 @@ Depends: ${misc:Depends}, ${python3:Depends}
   , zenity
 Recommends: cryptsetup | cryptsetup-run,
   , cryptsetup-initramfs
+  , boot-info-script
 Conflicts: solydkbo-grub2-theme
   , solydkbe-grub2-theme
   , solydxbe-grub2-theme
