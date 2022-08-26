@@ -9,11 +9,12 @@ from random import choice
 import re
 import threading
 import operator
-import apt
+import glob
 import filecmp
 from os import walk, listdir
 from os.path import exists, isdir, expanduser,  splitext,  dirname, islink
 from distutils.version import LooseVersion, StrictVersion
+import apt
 
 deb_name = {}
 deb_name[11] = "bullseye"
@@ -22,7 +23,7 @@ deb_name[9] = "stretch"
 deb_name[8] = "jessie"
 deb_name[7] = "wheezy"
 
-    
+
 def shell_exec_popen(command, kwargs={}):
     print(("Executing: %s" % command))
     #return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, **kwargs)
@@ -521,19 +522,16 @@ def get_firefox_version():
 
 # Check for backports
 def get_backports(exclude_disabled=True):
-    opt = ''
-    if exclude_disabled:
-        opt = '| grep -v ^#'
-    try:
-        bp = getoutput("grep backports /etc/apt/sources.list %s" % opt)
-    except:
-        bp = ['']
-    if not bp[0]:
-        try:
-            bp = getoutput("grep backports /etc/apt/sources.list.d/*.list %s" % opt)
-        except:
-            bp = ['']
-    return bp
+    files = glob.glob('/etc/apt/**/*.list', recursive=True)
+    backports = []
+    for file in files:
+        with open(file,'r') as f:
+            for line in f.readlines():
+                if 'backports' in line:
+                    if exclude_disabled and line.strip()[0] == '#':
+                        continue
+                    backports.append(line)
+    return backports
 
 
 def has_newer_in_backports(package_name, backports_repository):

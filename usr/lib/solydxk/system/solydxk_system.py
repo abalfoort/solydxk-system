@@ -255,7 +255,7 @@ class SolydXKSystemSettings(object):
             self.fill_treeview_available()
             self.fill_cmb_timezone_continent()
             self.fill_treeview_locale()
-            if self.backports[0]:
+            if self.backports:
                 self.chkEnableBackports.set_active(True)
             else:
                 self.chkBackportsDeviceDriver.set_sensitive(False)
@@ -1560,7 +1560,7 @@ class SolydXKSystemSettings(object):
                     repo_line = "deb http://{debian_domain}/debian/ {backports_name} main contrib non-free".format(debian_domain=debian_domain, backports_name=backports_name)
                     self.log.write("Add line to sources.list: %s" % repo_line, 'save_backport')
                     with open(sources_path, 'a') as f:
-                        f.write(repo_line)
+                        f.write(repo_line + '\n')
                     sources_changed = True
         else:
             # Comment the backports repository entry in sources.list
@@ -1598,7 +1598,7 @@ class SolydXKSystemSettings(object):
         # Make sure the current state is saved
         # and that the backports checkbox for devices is enabled/disabled
         self.backports = get_backports()
-        if self.backports[0]:
+        if self.backports:
             self.chkBackportsDeviceDriver.set_sensitive(True)
         else:
             self.chkBackportsDeviceDriver.set_sensitive(False)
@@ -1699,7 +1699,7 @@ class SolydXKSystemSettings(object):
         pre_str = ''
         if not '://' in url:
             pre_str = '://'
-        url = "%s%s" % (pre_str, url)
+        url = "%s%s" % (pre_str, url.rstrip('/'))
         blnRet = False
 
         for repo in get_local_repos():
