@@ -1,3 +1,9 @@
+solydxk-system (4.1.2) stable; urgency=low
+
+  * Updated translation: de
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Thu, 06 Oct 2022 12:29:48 +0200
+
 solydxk-system (4.1.1) stable; urgency=low
 
   * Remove /usr/bin/bootinfoscript
