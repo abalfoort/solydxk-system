@@ -1,3 +1,15 @@
+solydxk-system (4.1.4) stable; urgency=low
+
+  * Updated translations
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sun, 09 Oct 2022 11:37:11 +0200
+
+solydxk-system (4.1.3) stable; urgency=low
+
+  * Updated translation: es
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Fri, 07 Oct 2022 19:15:13 +0200
+
 solydxk-system (4.1.2) stable; urgency=low
 
   * Updated translation: de

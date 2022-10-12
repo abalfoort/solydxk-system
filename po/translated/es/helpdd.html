@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK System Settings: Ayuda para el controlador del dispositivo</h1>
+	<div class="main">
+		<h2>Descripción</h2>
+		<p>Device Driver es una herramienta que ayuda a los usuarios a instalar
+controladores de hardware de terceros. Actualmente se pueden instalar los
+controladores de Nvidia, AMD/ATI y Broadcom y permite instalar el kernel PAE
+para sistemas multinúcleo de 32 bits. Device Driver sólo listará aquellos
+dispositivos que son soportados. No listará ningún otro dispositivo que no
+haya sido mencionado anteriormente.</p>
+
+		<h2>Importante</h2>
+		<p>Device Driver sólo puede instalar los controladores que están disponibles en
+los repositorios. Asegúrese de tener una conexión a Internet si desea
+instalar los controladores.</p>
+
+		<h2>Comandos</h2>
+		<p>Si prefiere instalar los controladores mediante una terminal, puede utilizar
+los siguientes comandos:</p>
+
+		<p>&nbsp;</p>
+
+		<h3># ddm -i amd</h3>
+		<p>Esto instalará los controladores para su tarjeta gráfica AMD/ATI. Las
+tarjetas AMD/ATI a partir de la versión HD 5000 son compatibles con los
+controladores. Las versiones entre 1000 y 5000 utilizarán los controladores
+Radeon. Utilice "ddm -p amd" para eliminar los controladores de su sistema.</p>
+
+		<h3># ddm -i nvidia</h3>
+		<p>Esto seleccionará los controladores adecuados para su tarjeta gráfica
+Nvidia. Seleccionará los controladores Bumblebee en caso de que tengas una
+tarjeta híbrida (tanto Nvidia como Intel). Utilice "ddm -p nvidia" para
+eliminar los controladores de su sistema.</p>
+
+		<h3># ddm -i open</h3>
+		<p>Puede utilizar este comando si desea volver a los controladores abiertos de
+Nouveau. Eliminará cualquier controlador propietario de su sistema.</p>
+
+		<h3># ddm -i broadcom</h3>
+		<p>Este comando instalará el controlador adecuado para su adaptador inalámbrico
+Broadcom. Utilice "ddm -p broadcom" para eliminar los controladores de su
+sistema.</p>
+
+		<h3># ddm -i pae</h3>
+		<p>Esto instalará el kernel PAE en sistemas multiprocesadores que ejecuten un
+SO de 32 bits. Utilice "ddm -p pae" para eliminar el kernel PAE de su
+sistema. Tenga en cuenta que no puede eliminar el kernel cuando está
+arrancando en ese kernel.</p>
+
+		<h2>Registro</h2>
+		<h3>File: /var/log/solydxk-system.log</h3>
+		<p>Por favor, adjunte su archivo de registro cuando publique un problema en
+nuestro foro: <a href="https://forums.solydxk.com"
+target="_blank">https://forums.solydxk.com</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../link/general.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="background"></div>
+	<h1>SolydXK System Settings Ayuda para el cifrado</h1>
+	<div class="main">
+		<h2>Descripción</h2>
+		<p>Cifre las particiones de su sistema con LUKS.</p>
+
+		<h2>Importante</h2>
+		<p>SolydXK System Settings creará y restaurará una copia de seguridad de los
+datos de la partición que va a cifrar o descifrar. Monte una partición o
+unidad externa para este propósito antes de empezar.</p>
+		<p>SolydXK System Settings no puede cifrar una partición root o home
+arrancada. Si deseas hacerlo, puedes descargar la última ISO de nuestro
+sitio principal y ejecutar SolydXK System Settings en una sesión live. Ten
+en cuenta que necesita una partición de arranque sin cifrar si quieres
+cifrar tu partición root y que Grub2 se instalará en el disco donde está la
+partición root.</p>
+		<p>Sólo se guardan en fstab las particiones que están montadas en fstab. Si
+deseas incluir nuevas particiones en fstab debe añadirlas manualmente antes
+de ejecutar SolydXK System Settings.</p>
+
+		<h2>Ejemplos</h2>
+		<p>When you start SolydXK System Settings you will see a list of partitions
+that you can either encrypt or decrypt. An encrypted partition shows this
+icon: <img src="/usr/share/solydxk/system/icons/encrypted.png" /> and an unencrypted partition shows this icon: <img src="/usr/share/solydxk/system/icons/unencrypted.png" />. Your selection will decide which actions can be taken on that
+partition. Removable media will show these icons: <img src="/usr/share/solydxk/system/icons/unencrypted-usb.png" /> and <img src="/usr/share/solydxk/system/icons/encrypted-usb.png" />.</p>
+		<p>A continuación se muestran algunos ejemplos sobre cómo utilizar SolydXK
+System Settings:</p>
+
+		<h3>Cifrar una memoria USB</h3>
+		<p>Inserta un pendrive USB y móntalo. Pulsa el botón de actualizar para que
+aparezca el pendrive y selecciona la partición de esa unidad que deseas
+cifrar. Introduce tu frase de acceso dos veces y pulsa el botón "Cifrar".</p>
+		
+		<h3>Cifrar la partición raíz (y la de intercambio)</h3>
+		<strong><p>ADVERTENCIA: ¡hazlo bajo tu propio riesgo!</p></strong>
+		<p>Necesitará una partición /boot sin cifrar. Si no tienes una partición /boot,
+aquí tienes cómo crear una. En una sesión live, inicie GParted y cree una
+partición de al menos 200 MB de espacio libre. Esta partición puede crearse
+a partir de espacio no asignado existente, o reduciendo otra partición y
+utilizando el espacio libre recién creado. En este ejemplo he creado una
+nueva partición: /dev/sda1 que quiero montar como /boot en la partición raíz
+/dev/sda2. Cambia las rutas de las particiones según tu situación.</p>
+		<p>Abra un terminal y ejecute estos comandos como root:</p>
+		<pre># mkdir /mnt/boot /mnt/root
+# mount /dev/sda1 /mnt/boot
+# mount /dev/sda2 /mnt/root
+# cp -a /mnt/root/boot/* /mnt/boot/
+# echo "UUID=$(blkid -o value -s UUID /dev/sda1)    /boot   ext4    defaults    0   0" >> /mnt/root/etc/fstab</pre>
+		<p>Ahora puede reiniciar su sistema y comprobar si la partición de arranque
+está correctamente montada:</p>
+		<pre>$ mount | grep sda2</pre>
+		<p>Para cifrar la partición raíz root (y la de intercambio swap), es necesario
+volver a iniciar una sesión live, iniciar SolydXK System Settings y
+seleccionar la partición raíz (y cualquier otra partición que desees
+cifrar).</p>
+		
+		<h3>Cambiar la frase de acceso de una partición encriptada</h3>
+		<p>Selecciona una partición encriptada de la lista, rellena tu frase de acceso
+dos veces y pulsa el botón "Cambiar frase de acceso".</p>
+		
+		<h3>Crear un archivo de claves para una selección de particiones cifradas</h3>
+		<p>Selecciona varias particiones cifradas de la lista, completa tu frase de
+acceso dos veces y pulsa el botón "Crear manualmente el archivo de
+claves". La primera partición cifrada contendrá el archivo de claves,
+mientras que las otras particiones se abrirán automáticamente con ese
+archivo de claves.</p>
+		
+		<h3>Descifrar una partición</h3>
+		<p>Selecciona una partición cifrada de la lista, completa tu frase de acceso
+dos veces y pulsa el botón "Descifrar". SolydXK System Settings buscará una
+partición con suficiente espacio libre para crear una copia de seguridad
+temporal de la partición que deseas descifrar. Se te pedirá un medio de
+respaldo si no puede encontrar suficiente espacio libre para continuar.</p>
+		
+
+		<h2>Resolución de problemas</h2>
+		<p>Por favor, ayuda a mejorar esta aplicación. Puedes encontrar el código
+fuente en nuestra página de <a
+href="https://github.com/SolydXK/solydxk-system" target="_blank">GitHub</a>.</p>
+		<p>Si por alguna razón su sistema no monta la partición recién encriptada, por
+favor visite nuestro <a href="https://forums.solydxk.com"
+target="_blank">foro</a> y publique su problema allí.</p>
+		<p>No olvide adjuntar el archivo de registro cuando publique un problema en
+nuestro foro: /var/log/solydxk-system.log</p>
+    </div>
+  </body>
+</html>
