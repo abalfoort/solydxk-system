@@ -40,6 +40,7 @@ hold            Hold packages
 install         Install or upgrade packages
 installed       List installed packages - all if no names are specified
 list            List available packages - all if no names are specified
+listrepo        List installed packages from given repository
 policy          Show policy settings for packages
 purge           Remove packages and their configuration files
 rdepends        Show reverse dependency information for packages
@@ -178,6 +179,8 @@ installed)
 	Command="$RealApt list --installed $Args";;
 list)
 	Command="$RealApt list $Args";;
+listrepo)
+	Command="aptitude search \"?narrow(~i, ~A$Args)\"";;
 po|policy)
 	Command="apt-cache policy $Args";;
 rei|reinstall)
