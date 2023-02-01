@@ -1,0 +1,8 @@
+[Unit]
+Description=Root gtk3
+
+[Service]
+ExecStart=/usr/lib/solydxk/scripts/root-gtk3
+
+[Install]
+WantedBy=multi-user.target 

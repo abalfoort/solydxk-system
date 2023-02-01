@@ -1,0 +1,7 @@
+#!/bin/bash
+
+GTK3='/root/.config/gtk-3.0'
+if [ ! -L "${GTK3}" ] && [ -e ${GTK3} ]; then
+    mv -f "${GTK3}" "${GTK3}".bak
+    ln -sf $(getent passwd 1000 | cut -d':' -f 6)/.config/gtk-3.0 "${GTK3}"
+fi
