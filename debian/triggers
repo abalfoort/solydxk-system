@@ -2,3 +2,4 @@ interest-await /etc/lsb-release
 interest-await /usr/lib/os-release
 interest-await /etc/issue
 interest-await /etc/issue.net
+interest-await /usr/share/applications/gdebi.desktop

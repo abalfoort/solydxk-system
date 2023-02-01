@@ -2,9 +2,9 @@
 
 set -e
 
-# Automatically added by dh_systemd_start
-if [ -d /run/systemd/system ]; then
-	deb-systemd-invoke stop solydxk-cifs-umount.service solydxk-system-aptupdate.service >/dev/null
+# Automatically added by dh_installsystemd/13.3.4
+if [ -d /run/systemd/system ] && [ "$1" = remove ]; then
+	deb-systemd-invoke stop 'solydxk-cifs-umount.service' 'solydxk-minissdpd.service' 'solydxk-root-gtk3.service' 'solydxk-system-aptupdate.service' >/dev/null || true
 fi
 # End automatically added section
 
