@@ -1,3 +1,9 @@
+solydxk-system (4.1.9) stable; urgency=low
+
+  * Cleanup and simplify adjust.py
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Sat, 18 Feb 2023 16:22:40 +0100
+
 solydxk-system (4.1.8) stable; urgency=low
 
   * Create script to set root gtk-3 theme same as first users theme
