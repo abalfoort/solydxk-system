@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -e '/etc/apt/trusted.gpg' ]; then
+    exit
+fi
+
 D=/etc/apt
 [ -e $D/trusted.gpg ] || { echo "$D/trusted.gpg not present"; exit 1; }
 K=$D/trusted.gpg.obsolete

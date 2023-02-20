@@ -1,0 +1,13 @@
+interest-await /etc/lsb-release
+interest-await /usr/lib/os-release
+interest-await /etc/issue
+interest-await /etc/issue.net
+interest-await /usr/share/applications/gdebi.desktop
+interest-await /usr/share/applications/xfce4-mail-reader.desktop
+interest-await /usr/share/applications/xfce4-web-browser.desktop
+interest-await /usr/share/applications/hardinfo.desktop
+interest-await /usr/share/applications/luckybackup-su.desktop
+interest-await /usr/share/applications/luckybackup.desktop
+interest-await /etc/pulse/daemon.conf
+interest-await /etc/grub.d/10_linux
+interest-await /etc/skel/.bashrc

@@ -84,40 +84,80 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 fi
 # End automatically added section
 
-# Function to remove all diversions of a package
-function remove_divert {
-    if [ ! -z "$1" ]; then
-        for CMD in $(LANG=C dpkg-divert --list "$1" | awk '{print $3}'); do
-            DIVERT=$(LANG=C dpkg-divert --list "$CMD" | awk '{print $5}')
-            if [ -e "$DIVERT" ]; then
-                if [ -e "$CMD" ]; then
-                    mv "$CMD" "$CMD.bak"
-                fi
-                cp "$DIVERT" "$DIVERT.bak"
-                dpkg-divert --remove --rename "$CMD"
-                if [ ! -e "$CMD" ]; then
-                    mv "$DIVERT.bak" "$CMD"
-                else
-                    if [ -e "$DIVERT.bak" ]; then
-                        rm "$DIVERT.bak"
-                    fi
-                     if [ -e "$CMD.bak" ]; then
-                        rm "$CMD.bak"
-                    fi
-                fi
-            else
-                dpkg-divert --remove "$CMD"
-            fi
-        done
+function adust_trigger_files {
+    # Desktop files
+    FLE='/usr/share/applications/gdebi.desktop'
+    if [ -f "$FLE" ]; then
+        sed -i 's#Exec=.*#Exec=sh -c "gdebi-gtk %f"#' "$FLE"
     fi
+    FLE='/usr/share/applications/xfce4-mail-reader.desktop'
+    if [ -f "$FLE" ]; then
+        sed -i 's#OnlyShowIn=.*#NoDisplay=true#' "$FLE"
+    fi
+    FLE='/usr/share/applications/xfce4-web-browser.desktop'
+    if [ -f "$FLE" ]; then
+        sed -i 's#OnlyShowIn=.*#NoDisplay=true#' "$FLE"
+    fi
+    FLE='/usr/share/applications/hardinfo.desktop'
+    if [ -f "$FLE" ]; then
+        sed -i 's#Icon=.*#Icon=hardinfo#' "$FLE"
+    fi
+    FLE='/usr/share/applications/luckybackup-su.desktop'
+    if [ -f "$FLE" ]; then
+        sed -i 's#Icon=.*#Icon=luckybackup#' "$FLE"
+    fi
+    FLE='/usr/share/applications/luckybackup.desktop'
+    if [ -f "$FLE" ]; then
+        sed -i 's#Icon=.*#Icon=luckybackup#' "$FLE"
+    fi
+    
+    # Pulsaudio files
+    FLE='/etc/pulse/daemon.conf'
+    if [ -f "$FLE" ]; then
+        # Fix volume always set to 100%
+        sed -i '/^# Fix pulse/,/= no/d' "$FLE"
+        sed -i 's/.*flat-v.*lumes.*/flat-volumes = no/' "$FLE"
+    fi
+    
+    # Add live menus in grub when needed
+    FLE='/etc/grub.d/10_linux'
+    SH='/usr/lib/solydxk/grub/boot-isos.sh'
+    if [ -f "$FLE" ]; then
+        if ! grep -q "$SH" "$FLE"; then
+            sed -i "s#echo '}'#if [ -e "$SH" ]; then /bin/bash "$SH"; fi; echo '}}'#" "$FLE"
+        fi
+    fi
+    
+    # Adapt .bashrc
+    FLE='/etc/skel/.bashrc'
+    INFO='/usr/share/solydxk/info'
+    if [ -f "$FLE" ]; then
+        # Fix volume always set to 100%
+        sed -i 's/;31m/;34m/' "$FLE"
+        sed -i 's/;32m/;34m/' "$FLE"
+        sed -i 's/#\s*alias\s/alias /g' "$FLE"
+        if [ -f "$INFO" ]; then
+            cat >> "$FLE" << EOF
+# Source the SolydXK info file
+if [ -f /usr/share/solydxk/info ]; then
+  . /usr/share/solydxk/info
+fi
+EOF
+        fi
+    fi
+}
+
+function run_scripts {
+    /bin/bash /usr/lib/solydxk/scripts/os-prober-luks.sh
+    /bin/bash /usr/lib/solydxk/scripts/ping-uid.sh
+    /bin/bash /usr/lib/solydxk/scripts/kodi.sh
+    /bin/bash /usr/lib/solydxk/scripts/fix-gpg.sh
 }
 
 
 case "$1" in
     configure|upgrade|update|reconfigure)
-        # Fix change gone rogue
-        remove_divert '/usr/bin/pkexec'
-        
+
         if [ -f /etc/default/grub ]; then
             sed -i -e 's/GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR=`lsb_release -d -s 2>\/dev\/null || echo SolydXK`/' /etc/default/grub
         fi
@@ -126,60 +166,41 @@ case "$1" in
             sed -i -e 's/[# ]*greeter-hide-users=.*/greeter-hide-users=false/' /etc/lightdm/lightdm.conf
         fi
             
-            CONT=""
-            if [ -f /etc/modprobe.d/alsa-base.conf ]; then
-                CONT=$(cat /etc/modprobe.d/alsa-base.conf)
-            fi
-            
-            CHK="options snd-hda-intel model"
-            case "$CONT" in
-                *$CHK* )
-                    #echo "snd-hda-intel model already set"
-                    ;;
-                *) 
-                    echo "snd-hda-intel model set to auto"
-                    echo >> /etc/modprobe.d/alsa-base.conf
-                    echo "options snd-hda-intel model=auto" >> /etc/modprobe.d/alsa-base.conf
-            esac
-            
-            CONT=""
-            if [ -f /etc/modprobe.d/alsa-base-blacklist.conf ]; then
-                CONT=$(cat /etc/modprobe.d/alsa-base-blacklist.conf)
-            fi
-            
-            CHK="blacklist pcspkr"
-            case "$CONT" in
-                *$CHK* )
-                    #echo "pcspkr already blacklisted"
-                    ;;
-                *) 
-                    echo "pcspkr blacklisted"
-                    echo >> /etc/modprobe.d/alsa-base-blacklist.conf
-                echo "blacklist pcspkr" >> /etc/modprobe.d/alsa-base-blacklist.conf
-            esac
+        CONT=""
+        if [ -f /etc/modprobe.d/alsa-base.conf ]; then
+            CONT=$(cat /etc/modprobe.d/alsa-base.conf)
+        fi
+        
+        CHK="options snd-hda-intel model"
+        case "$CONT" in
+            *$CHK* )
+                #echo "snd-hda-intel model already set"
+                ;;
+            *) 
+                echo "snd-hda-intel model set to auto"
+                echo >> /etc/modprobe.d/alsa-base.conf
+                echo "options snd-hda-intel model=auto" >> /etc/modprobe.d/alsa-base.conf
+        esac
+        
+        CONT=""
+        if [ -f /etc/modprobe.d/alsa-base-blacklist.conf ]; then
+            CONT=$(cat /etc/modprobe.d/alsa-base-blacklist.conf)
+        fi
+        
+        CHK="blacklist pcspkr"
+        case "$CONT" in
+            *$CHK* )
+                #echo "pcspkr already blacklisted"
+                ;;
+            *) 
+                echo "pcspkr blacklisted"
+                echo >> /etc/modprobe.d/alsa-base-blacklist.conf
+            echo "blacklist pcspkr" >> /etc/modprobe.d/alsa-base-blacklist.conf
+        esac
 
         if which glib-compile-schemas >/dev/null 2>&1
         then
             glib-compile-schemas /usr/share/glib-2.0/schemas
-        fi
-        
-        # Remove old samba settings
-        SMB='/etc/samba/smb.conf'
-        if [ -f $SMB ]; then
-            if grep -Fq "## SOLYDXK" $SMB; then
-                #sed -i -e 's/\[global\]/\[global\]\n  ## SOLYDXK\n\n  follow symlinks = yes\n  wide links = yes\n  unix extensions = no\n  client lanman auth = yes\n  client ntlmv2 auth = no\n/' $SMB
-                #sed -i -e 's/^;create mask/create mask/' $SMB
-                sed -i -e '/^ \{2,\}## SOLYDXK/,/^ \{2,\}client ntlmv2 auth = no/d' "$SMB"
-            fi
-        fi
-        
-        python3 /usr/lib/solydxk/system/adjust.py
-        
-        # Remove old initv script
-        INITCONF='/etc/init.d/solydxk-system'
-        if [ -e $INITCONF ]; then
-            update-rc.d solydxk-system remove
-            rm $INITCONF
         fi
         
         # If dpkg removed /usr/local/bin: recreate it
@@ -192,14 +213,35 @@ case "$1" in
             chmod -R 700 /etc/skel/.gnupg
         fi
         
-        # Check for rogue files
-        find /usr/share/applications -type l -name "*firefox.desktop" -exec rm {} \;
+        PNG='/usr/share/images/desktop-base/desktop-grub.png'
+        if [ -e "$PNG" ]; then
+            ln -sf "$PNG" /etc/alternatives/desktop-grub
+        fi
+        
+        # Update cache
+        UDD=$(which update-desktop-database)
+        if [ ! -z "$UDD" ]; then
+            update-desktop-database -q
+        fi
+        
+        # Recreate pixbuf cache
+        PIX_CACHE='/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders'
+        if [ -x "$PIX_CACHE" ]; then
+            $PIX_CACHE --update-cache
+        fi
+        
+        adust_trigger_files
+        run_scripts
+        python3 /usr/lib/solydxk/system/adjust.py
+        
         ;;
         
     abort-upgrade|abort-remove|abort-deconfigure)
         ;;
         
     triggered)
+        adust_trigger_files
+        run_scripts
         python3 /usr/lib/solydxk/system/adjust.py
         ;;
         
