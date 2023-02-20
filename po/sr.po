@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-10 16:45+0200\n"
+"POT-Creation-Date: 2023-02-19 18:24+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Slobodan Simić <slsimic@gmail.com>, 2021\n"
 "Language-Team: Serbian (https://www.transifex.com/abalfoort/teams/54212/"
@@ -622,13 +622,11 @@ msgid "No ISO path provided."
 msgstr "Нисте навели ИСО путању."
 
 #: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
 msgid "SolydXK System Settings"
 msgstr "Системске поставке за СолидИксК"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
 msgid "Change system settings for SolydXK"
 msgstr "Измена системских поставки за СолидИксК"

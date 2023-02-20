@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-28 08:28+0200\n"
+"POT-Creation-Date: 2023-02-19 18:24+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: F A <jaw2pc@gmail.com>, 2022\n"
 "Language-Team: Spanish (Latin America) (https://www.transifex.com/abalfoort/"
@@ -634,13 +634,11 @@ msgid "No ISO path provided."
 msgstr "No se ha proporcionado la ruta ISO."
 
 #: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:1
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
 msgid "SolydXK System Settings"
 msgstr "SolydXK System Settings"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kde4/services/kcm_solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
 msgid "Change system settings for SolydXK"
 msgstr "Cambiar la configuración del sistema para SolydXK"
