@@ -3,7 +3,7 @@ Description=Update Apt Cache
 After=network-online.target
 
 [Service]
-Type=idle
+Type=oneshot
 ExecStart=/usr/bin/apt-get update
 
 [Install]
