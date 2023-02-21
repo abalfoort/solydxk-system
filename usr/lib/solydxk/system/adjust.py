@@ -4,16 +4,8 @@
 
 import os
 from os.path import exists, dirname, isdir
-from logger import Logger
-from utils import get_apt_force, get_package_version,  \
+from utils import get_apt_force, is_package_installed,  \
     get_apt_cache_locked_program, get_debian_version
-
-# Init logging
-LOG_FILE = "/var/log/solydxk-system.log"
-log = Logger(LOG_FILE, addLogTime=True, maxSizeKB=5120)
-log.write('=====================================', 'adjust')
-log.write(">>> Start SolydXK Adjustment <<<", 'adjust')
-log.write('=====================================', 'adjust')
 
 # --force-yes is deprecated in stretch
 APT_FORCE = get_apt_force()
@@ -38,10 +30,10 @@ try:
     ver = get_debian_version()
     for prog in fix_progs:
         if ver >= prog[3] or prog[3] == 0:
-            if get_package_version(prog[0]) != '':
+            if is_package_installed(prog[0]):
                 options = prog[2].split('|')
                 if options[0] == 'purge' or options[0] == 'install':
-                    if get_apt_cache_locked_program() == '':
+                    if not get_apt_cache_locked_program():
                         os.system(
                             f"apt-get {options[0]} {APT_FORCE} {prog[1]}")
                 elif options[0] == 'touch' and not exists(prog[1]):
@@ -56,7 +48,6 @@ try:
                         f"mkdir -p {prog[1]}; chown {options[1]} {prog[1]}; chmod {options[2]} {prog[1]}")
 except Exception as detail:
     print(detail)
-    log.write(detail,  'Adjust 01')
 
 def get_info_line(par_name):
     """ Return the info per line """
@@ -83,10 +74,8 @@ if exists('/usr/share/solydxk/info'):
                         "DISTRIB_" + release,
                         "DISTRIB_" + codename,
                         "DISTRIB_" + description])
-        log.write("/etc/lsb-release overwritten",  'lsb-release')
     except Exception as detail:
         print(detail)
-        log.write(detail,  'lsb-release')
 
     try:
         with open(file="/usr/lib/os-release", mode="w", encoding="utf-8") as f:
@@ -99,20 +88,15 @@ if exists('/usr/share/solydxk/info'):
                         home_url,
                         support_url,
                         bug_report_url])
-        log.write("/usr/lib/os-release overwritten",  'os-release')
     except Exception as detail:
         print(detail)
-        log.write(detail,  'os-release')
 
     try:
         # Restore /etc/issue and /etc/issue.net
         issue = description.replace("DESCRIPTION=", "").replace("\"", "")
         with open(file="/etc/issue", mode="w", encoding="utf-8") as f:
             f.writelines(issue.strip() + " \\n \\l\n")
-        log.write("/etc/issue overwritten",  'issue')
         with open(file="/etc/issue.net", mode="w", encoding="utf-8") as f:
             f.writelines(issue)
-        log.write("/etc/issue.net overwritten",  'issue')
     except Exception as detail:
         print(detail)
-        log.write(detail,  'issue')
