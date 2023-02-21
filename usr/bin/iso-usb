@@ -10,7 +10,7 @@
 # 4: Incorrect arguments
 # 5: No USB inserted
 #
-# Author: Arjen Balfoort (arjenbalfoort@solydxk.com)
+# Author: Arjen Balfoort (arjenbalfoort@hotmail.com)
 
 function usage() {
     echo '=================================================================='
