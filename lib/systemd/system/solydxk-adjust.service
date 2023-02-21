@@ -1,0 +1,10 @@
+[Unit]
+Description=Update /etc/*release /etc/issue(.net)
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/lib/solydxk/system/adjust.py
+
+[Install]
+WantedBy=multi-user.target
