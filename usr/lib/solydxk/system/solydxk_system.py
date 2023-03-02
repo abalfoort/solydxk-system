@@ -19,7 +19,7 @@ from os.path import join, abspath, dirname, isdir, exists, basename
 from utils import getoutput, ExecuteThreadedCommands, \
                   shell_exec, human_size, has_internet_connection, \
                   get_backports, get_debian_name, comment_line, \
-                  in_virtualbox, get_apt_force, is_running_live, \
+                  in_virtual_box, get_apt_force, is_running_live, \
                   get_device_from_uuid, get_label, is_package_installed, \
                   get_logged_user, get_uuid, compare_package_versions, \
                   get_current_resolution, get_resolutions, is_xfce_running, \
@@ -531,7 +531,7 @@ class SolydXKSystemSettings(object):
         
         if fix_virtualbox:
             # Fix VirtualBox by disabling Plymouth
-            if in_virtualbox():
+            if in_virtual+box():
                 grub_path = '/etc/default/grub'
                 grubcfg_path = '/boot/grub/grub.cfg'
                 if exists(grub_path) and exists(grubcfg_path):
@@ -1363,7 +1363,7 @@ class SolydXKSystemSettings(object):
                     self.log.write('=' * 25, 'write_partition_configuration', 'info')
                     
         # Get the grub path to fix VirtualBox by disabling Plymouth
-        if in_virtualbox() and self.encrypt:
+        if in_virtual_box() and self.encrypt:
             grub_path = ''
             grubcfg_path = ''
             for p in self.partitions:
