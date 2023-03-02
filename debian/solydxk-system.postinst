@@ -67,6 +67,29 @@ EOF
     fi
 }
 
+function install_root_files {
+    mkdir -p /root/.config/gtk-3.0
+    
+    if [ ! -e /root/.config/gtk-3.0/gtk.css ]; then
+        cp -f /usr/share/solydxk/root_files/.config/gtk-3.0/gtk.css /root/.config/gtk-3.0/
+    fi
+    if [ ! -e /root/.bashrc ]; then
+        cp -f /usr/share/solydxk/root_files/.bashrc /root/
+    fi
+    if [ ! -e /root/.profile ]; then
+        cp -f /usr/share/solydxk/root_files/.profile /root/
+    fi
+    if [ ! -e /root/.selected_editor ]; then
+        cp -f /usr/share/solydxk/root_files/.selected_editor /root/
+    fi
+    if [ ! -e /root/.mozilla ]; then
+        touch /root/.mozilla
+    fi
+    if [ ! -e /root/.thunderbird ]; then
+        touch /root/.thunderbird
+    fi
+}
+
 function run_scripts {
     /bin/bash /usr/lib/solydxk/scripts/os-prober-luks.sh
     /bin/bash /usr/lib/solydxk/scripts/ping-uid.sh
@@ -152,6 +175,7 @@ case "$1" in
         
         adust_trigger_files
         run_scripts
+        install_root_files
         python3 /usr/lib/solydxk/system/adjust.py
         
         ;;
