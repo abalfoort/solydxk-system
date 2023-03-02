@@ -1,3 +1,15 @@
+solydxk-system (4.2.2) stable; urgency=low
+
+  * Add default configuration for /root
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Feb 2023 10:32:25 +0100
+
+solydxk-system (4.2.1) stable; urgency=high
+
+  * Fix type not starting GUI
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 22 Feb 2023 18:32:15 +0100
+
 solydxk-system (4.2.0) stable; urgency=low
 
   * Revert set root gtk-3 theme
