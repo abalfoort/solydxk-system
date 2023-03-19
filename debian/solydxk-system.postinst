@@ -52,15 +52,20 @@ function adust_trigger_files {
     FLE='/etc/skel/.bashrc'
     INFO='/usr/share/solydxk/info'
     if [ -f "$FLE" ]; then
+        # Fix multiple entries in .bashrc
+        # - Search for start line until first empty line and delete that
+        sed -i '/# Source the SolydXK info file/,/^$/{/^$/!d}' "$FLE"
         # Fix volume always set to 100%
         sed -i 's/;31m/;34m/' "$FLE"
         sed -i 's/;32m/;34m/' "$FLE"
         sed -i 's/#\s*alias\s/alias /g' "$FLE"
-        if [ -f "$INFO" ]; then
+        # Check if already added
+        if ! grep -Fq "$INFO" "$FLE"; then
             cat >> "$FLE" << EOF
-# Source the SolydXK info file
-if [ -f /usr/share/solydxk/info ]; then
-  . /usr/share/solydxk/info
+
+# Source SolydXK info file
+if [ -f $INFO ]; then
+    . $INFO
 fi
 EOF
         fi
