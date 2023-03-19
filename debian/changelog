@@ -1,3 +1,16 @@
+solydxk-system (4.2.4) stable; urgency=low
+
+  * Set gtk root border to 2px
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Mar 2023 11:41:09 +0100
+
+solydxk-system (4.2.3) stable; urgency=low
+
+  * Simplify root theme
+  * postinst: fix multiple entries in .bashrc
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 16 Mar 2023 18:11:53 +0100
+
 solydxk-system (4.2.2) stable; urgency=low
 
   * Add default configuration for /root
