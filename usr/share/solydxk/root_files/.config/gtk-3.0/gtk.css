@@ -1,44 +1,6 @@
-@define-color bg_color #ff3535;
+@define-color root_color #ff0000;
 
-menubar,
-menubar > menuitem,
-notebook > header {
-    background-color: @bg_color;
+window {
+    border: 2px solid @root_color;
 }
-
-menubar menuitem:hover {
-    background-color: shade(@bg_color, 0.80);
-}
-
-menubar menu > menuitem:hover {
-    background-color: @bg_color;
-}
-
-toolbar {
-    background-image: linear-gradient(to bottom,
-                                      shade(@bg_color, 1.0),
-                                      shade(@bg_color, 0.80)
-                                      );
-}
-
-toolbar button:hover,
-toolbar button:active,
-toolbar button:checked,
-toolbar button:focus,
-toolbar entry,
-toolbar radio,
-toolbar check {
-    border: 1px solid shade(@bg_color, 1.50);
-}
-
-toolbar button {
-    background-color: shade(@bg_color, 0.80);
-}
-
-/* Synaptic's toolbar */
-.primary-toolbar {
-    background-image: linear-gradient(to bottom,
-                                      shade(@bg_color, 1.0),
-                                      shade(@bg_color, 0.80)
-                                      );
-}
+ 
