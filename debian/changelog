@@ -1,3 +1,9 @@
+solydxk-system (4.2.5) stable; urgency=low
+
+  * Replace /etc/skel/.face with SolydXK icon
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 20 Mar 2023 14:14:24 +0100
+
 solydxk-system (4.2.4) stable; urgency=low
 
   * Set gtk root border to 2px
