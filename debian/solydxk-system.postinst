@@ -70,6 +70,12 @@ fi
 EOF
         fi
     fi
+    
+    # Change face icon
+    FLE='/etc/skel/.face'
+    if [ -f "$FLE" ]; then
+        cp '/usr/share/icons/hicolor/scalable/apps/solydxk.svg' "$FLE"
+    fi
 }
 
 function install_root_files {

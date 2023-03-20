@@ -11,3 +11,4 @@ interest-await /usr/share/applications/luckybackup.desktop
 interest-await /etc/pulse/daemon.conf
 interest-await /etc/grub.d/10_linux
 interest-await /etc/skel/.bashrc
+interest-await /etc/skel/.face
