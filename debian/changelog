@@ -2,6 +2,7 @@ solydxk-system (4.2.5) stable; urgency=low
 
   * Replace /etc/skel/.face with SolydXK icon
   * Remove repo speed test: not working anymore
+  * Fix repo switch
 
  -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 20 Mar 2023 14:14:24 +0100
 
