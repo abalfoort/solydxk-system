@@ -650,6 +650,17 @@ def get_swap_device():
     """ Return the swap device """
     return getoutput("grep '/' /proc/swaps | awk '{print $1}'")[0]
 
+def has_value_in_multi_array(value, multi_array, index=None):
+    """ Check if value exist in multi-dimensional array """
+    if not index:
+        return any(value in x for x in multi_array)
+    for lst in multi_array:
+        try:
+            if value == lst[index]: return True
+        except Exception:
+            return False
+    return False
+
 
 class ExecuteThreadedCommands(threading.Thread):
     """ Class to run commands in a thread and return the output in a queue """

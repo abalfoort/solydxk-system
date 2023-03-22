@@ -43,7 +43,11 @@ class Logger():
                 dateFmtStr = '%d-%m-%Y %H:%M:%S'
 
             # Log to file
-            logging.basicConfig(filename=self.logPath, level=self.defaultLevel, format=formatStr, datefmt=dateFmtStr)
+            try:
+                logging.basicConfig(filename=self.logPath, level=self.defaultLevel, format=formatStr, datefmt=dateFmtStr)
+            except Exception:
+                # File is not writable: console only
+                logging.basicConfig(level=self.defaultLevel, format='%(levelname)-10s%(message)s')
 
             # Define a Handler which writes INFO messages or higher to the console
             # Debug messages are written to a specified log file

@@ -23,7 +23,7 @@ from utils import getoutput, ExecuteThreadedCommands, \
                   get_device_from_uuid, get_label, is_package_installed, \
                   get_logged_user, get_uuid, compare_package_versions, \
                   get_current_resolution, get_resolutions, is_xfce_running, \
-                  is_process_running
+                  is_process_running, has_value_in_multi_array
 from dialogs import MessageDialog, QuestionDialog, InputDialog, \
                     WarningDialog
 from mirror import MirrorGetSpeed, Mirror, get_mirror_data, get_local_repos
@@ -531,7 +531,7 @@ class SolydXKSystemSettings(object):
         
         if fix_virtualbox:
             # Fix VirtualBox by disabling Plymouth
-            if in_virtual+box():
+            if in_virtual_box():
                 grub_path = '/etc/default/grub'
                 grubcfg_path = '/boot/grub/grub.cfg'
                 if exists(grub_path) and exists(grubcfg_path):
@@ -1627,18 +1627,20 @@ class SolydXKSystemSettings(object):
             sel = model.get_value(itr, 0)
             if sel:
                 repo = model.get_value(itr, 2)
-                url = model.get_value(itr, 3)
+                url = model.get_value(itr, 3).rstrip('/')
                 not_changed = ''
                 # Get currently selected data
                 for mirror in self.mirrors:
                     if mirror[0] and mirror[2] == repo:
+                        mirror[3] = mirror[3].rstrip('/')
                         if mirror[3] != url:
                             # Currently selected mirror
                             replaceRepos.append([mirror[3], url])
                         else:
                             not_changed = url
                         break
-                if url not in replaceRepos and url not in not_changed:
+                if (not has_value_in_multi_array(value=url, multi_array=replaceRepos, index=1) 
+                    and url not in not_changed):
                     # Append the repositoriy to the sources file
                     replaceRepos.append(['', url])
             itr = model.iter_next(itr)

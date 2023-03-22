@@ -172,7 +172,9 @@ class Mirror():
                     line = line.strip()
                     if not line.startswith('#'):
                         for repo in replaceRepos:
-                            if repo[0] != '' and repo[0] in line:
+                            if repo[0] == '':
+                                continue
+                            if repo[0] in line:
                                 skip = False
                                 for excl in excludeStrings:
                                     if excl in line:
