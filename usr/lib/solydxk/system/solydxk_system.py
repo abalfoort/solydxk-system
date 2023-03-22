@@ -1607,7 +1607,9 @@ class SolydXKSystemSettings(object):
         # Fill mirror list
         if len(self.mirrors) > 1:
             # Fill treeview
-            col_type_lst = ['bool', 'str', 'str', 'str', 'str']
+            # Remove speed test: not working anymore
+            #col_type_lst = ['bool', 'str', 'str', 'str', 'str']
+            col_type_lst = ['bool', 'str', 'str', 'str']
             self.tvMirrorsHandler.fillTreeview(self.mirrors, col_type_lst, 0, 400, True)
 
             # TODO - We have no mirrors: hide the tab until we do
@@ -1684,7 +1686,9 @@ class SolydXKSystemSettings(object):
             MessageDialog(self.lblRepositories.get_label(), msg)
 
     def get_mirrors(self):
-        mirrors = [[_("Current"), _("Country"), _("Repository"), _("URL"), _("Speed")]]
+        # Remove speed test: not working anymore
+        #mirrors = [[_("Current"), _("Country"), _("Repository"), _("URL"), _("Speed")]]
+        mirrors = [[_("Current"), _("Country"), _("Repository"), _("URL")]]
         for mirror in self.activeMirrors:
             if mirror:
                 self.log.write("Mirror data: %s" % ' '.join(mirror), 'get_mirrors')
@@ -1692,7 +1696,9 @@ class SolydXKSystemSettings(object):
                 # Save current debian repo in a variable
                 if blnCurrent and 'debian.org' in mirror[2]:
                     self.current_debian_repo = mirror[2]
-                mirrors.append([blnCurrent, mirror[0], mirror[1], mirror[2], ''])
+                # Remove speed test: not working anymore
+                #mirrors.append([blnCurrent, mirror[0], mirror[1], mirror[2], ''])
+                mirrors.append([blnCurrent, mirror[0], mirror[1], mirror[2]])
         return mirrors
 
     def is_url_in_sources(self, url):
@@ -1782,7 +1788,7 @@ class SolydXKSystemSettings(object):
         ret = []
         # Create approriate command
         # Use env LANG=C to ensure the output of dist-upgrade is always en_US
-        cmd = "env LANG=C sudo apt-get autoremove --assume-no | grep -E '^ '"
+        cmd = "env LANG=C apt-get autoremove --assume-no | grep -E '^ '"
         lst = getoutput(cmd)
 
         # Loop through each line and fill the package lists

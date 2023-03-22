@@ -427,7 +427,6 @@
                     <child>
                       <object class="GtkButton" id="btnCheckMirrorSpeed">
                         <property name="label" context="yes">Check mirrors speed</property>
-                        <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="can-default">True</property>
                         <property name="has-default">True</property>

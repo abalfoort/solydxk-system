@@ -643,7 +643,7 @@ def get_device_from_uuid(uuid):
 
 def get_label(partition_path):
     """ Return label of partition """
-    return getoutput(f"sudo blkid -o value -s LABEL {partition_path}")[0]
+    return getoutput(f"blkid -o value -s LABEL {partition_path}")[0]
 
 
 def get_swap_device():
