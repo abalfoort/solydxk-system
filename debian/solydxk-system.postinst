@@ -78,27 +78,24 @@ EOF
     fi
 }
 
+function _file_to_root {
+    cd $1
+    ROOTDIR="/root/$3"
+    mkdir -p $ROOTDIR
+    for F in $2; do
+        if [ -e "$F" ] && [ ! -e "${ROOTDIR}${F}" ]; then
+            cp -v --parents "$F" "${ROOTDIR}"
+        fi
+    done
+}
+
 function install_root_files {
-    mkdir -p /root/.config/gtk-3.0
+    # Copy root files
+    FLS='.config/gtk-3.0/gtk.css .mozilla .selected_editor .thunderbird'
+    _file_to_root '/usr/share/solydxk/root_files' "$FLS"
     
-    if [ ! -e /root/.config/gtk-3.0/gtk.css ]; then
-        cp -f /usr/share/solydxk/root_files/.config/gtk-3.0/gtk.css /root/.config/gtk-3.0/
-    fi
-    if [ ! -e /root/.bashrc ]; then
-        cp -f /usr/share/solydxk/root_files/.bashrc /root/
-    fi
-    if [ ! -e /root/.profile ]; then
-        cp -f /usr/share/solydxk/root_files/.profile /root/
-    fi
-    if [ ! -e /root/.selected_editor ]; then
-        cp -f /usr/share/solydxk/root_files/.selected_editor /root/
-    fi
-    if [ ! -e /root/.mozilla ]; then
-        touch /root/.mozilla
-    fi
-    if [ ! -e /root/.thunderbird ]; then
-        touch /root/.thunderbird
-    fi
+    # Copy skel files to root
+    _file_to_root '/etc/skel' '.bashrc .profile'
 }
 
 function run_scripts {

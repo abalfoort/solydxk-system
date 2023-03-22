@@ -3,4 +3,39 @@
 window {
     border: 2px solid @root_color;
 }
- 
+
+
+/*
+   You can enable the following code
+   to colorize the menu bar and the boolbar.
+*/
+
+/*
+menubar,
+menubar > menuitem,
+toolbar,
+.primary-toolbar {
+    background-color: shade(@root_color, 1.30);
+}
+
+menubar menuitem:hover,
+menubar menu > menuitem:hover {
+    background-color: shade(@root_color, 1.40);
+    border-color: @root_color;
+}
+
+toolbar button,
+toolbar entry,
+toolbar radio,
+toolbar check {
+    border: 2px solid @root_color;
+}
+
+toolbar button {
+    background-color: shade(@root_color, 1.25);
+}
+
+toolbar button:hover {
+    border-color: shade(@root_color, 1.50);
+}
+*/
