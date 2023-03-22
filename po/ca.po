@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 18:24+0100\n"
+"POT-Creation-Date: 2023-03-22 10:41+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Eduard Selma <selma@tinet.cat>, 2021\n"
 "Language-Team: Catalan (https://www.transifex.com/abalfoort/teams/54212/"
@@ -494,7 +494,7 @@ msgstr ""
 "Si us plau, repetiu aquest procés quan tingueu connexió a internet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1591
-#: usr/lib/solydxk/system/solydxk_system.py:1676
+#: usr/lib/solydxk/system/solydxk_system.py:1678
 msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
@@ -506,47 +506,43 @@ msgstr ""
 msgid "Nothing to do."
 msgstr "Res a fer."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1683
+#: usr/lib/solydxk/system/solydxk_system.py:1685
 msgid "There are no repositories to save."
 msgstr "No hi ha dipòsits per desar."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Current"
 msgstr "Actual "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Country"
 msgstr "País "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Repository"
 msgstr "Dipòsit "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "URL"
 msgstr "URL "
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
-msgid "Speed"
-msgstr "Velocitat "
-
-#: usr/lib/solydxk/system/solydxk_system.py:1937
+#: usr/lib/solydxk/system/solydxk_system.py:1943
 msgid "Please select a Plymouth theme."
 msgstr "Trieu una pantalla de presentació de Plymouth."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2035
+#: usr/lib/solydxk/system/solydxk_system.py:2041
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Us cal tornar a arrencar el sistema per activar la nova configuració."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2036
+#: usr/lib/solydxk/system/solydxk_system.py:2042
 msgid "Reboot"
 msgstr "Reinicia"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2047
+#: usr/lib/solydxk/system/solydxk_system.py:2053
 msgid "Encryption done"
 msgstr "Fet l'encriptatge"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2048
+#: usr/lib/solydxk/system/solydxk_system.py:2054
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -556,11 +552,11 @@ msgstr ""
 "\n"
 "Voleu tornar a arrencar l'ordinador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2051
+#: usr/lib/solydxk/system/solydxk_system.py:2057
 msgid "Decryption done"
 msgstr "Fet el desencriptatge"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2052
+#: usr/lib/solydxk/system/solydxk_system.py:2058
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -570,16 +566,16 @@ msgstr ""
 "\n"
 "Voleu tornar a arrencar l'ordinador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2064
+#: usr/lib/solydxk/system/solydxk_system.py:2070
 #, python-brace-format
 msgid "Passphrase changed for {0}."
 msgstr "Canviada la contrasenya per {0}."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2116
+#: usr/lib/solydxk/system/solydxk_system.py:2122
 msgid "Partition passphrase"
 msgstr "Contrasenya de la partició"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2117
+#: usr/lib/solydxk/system/solydxk_system.py:2123
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
@@ -987,3 +983,6 @@ msgid ""
 msgstr ""
 "No us oblideu d'adjuntar el fitxer de registre (/var/log/solydxk-system.log) "
 "quan exposeu el vostre problema al fòrum."
+
+#~ msgid "Speed"
+#~ msgstr "Velocitat "

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 18:24+0100\n"
+"POT-Creation-Date: 2023-03-22 10:41+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2022\n"
 "Language-Team: Danish (https://www.transifex.com/abalfoort/teams/54212/da/)\n"
@@ -496,7 +496,7 @@ msgstr ""
 "Gentag venligst denne proces når du har oprettet forbindelse til internettet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1591
-#: usr/lib/solydxk/system/solydxk_system.py:1676
+#: usr/lib/solydxk/system/solydxk_system.py:1678
 msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
@@ -508,47 +508,43 @@ msgstr ""
 msgid "Nothing to do."
 msgstr "Der er intet at gøre."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1683
+#: usr/lib/solydxk/system/solydxk_system.py:1685
 msgid "There are no repositories to save."
 msgstr "Der er ingen repositorier der skal gemmes."
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Current"
 msgstr "Aktuelt"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Country"
 msgstr "Land"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Repository"
 msgstr "Repositorie"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "URL"
 msgstr "URL-adresse"
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
-msgid "Speed"
-msgstr "Hastighed"
-
-#: usr/lib/solydxk/system/solydxk_system.py:1937
+#: usr/lib/solydxk/system/solydxk_system.py:1943
 msgid "Please select a Plymouth theme."
 msgstr "Vælg venligst et design til Plymouth-systemopstarteren."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2035
+#: usr/lib/solydxk/system/solydxk_system.py:2041
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Du skal genstarte maskinen før ændringerne træder i kraft."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2036
+#: usr/lib/solydxk/system/solydxk_system.py:2042
 msgid "Reboot"
 msgstr "Genstart"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2047
+#: usr/lib/solydxk/system/solydxk_system.py:2053
 msgid "Encryption done"
 msgstr "Kryptering udført"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2048
+#: usr/lib/solydxk/system/solydxk_system.py:2054
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -558,11 +554,11 @@ msgstr ""
 "\n"
 "Vil du genstarte maskinen nu?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2051
+#: usr/lib/solydxk/system/solydxk_system.py:2057
 msgid "Decryption done"
 msgstr "Dekryptering udført"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2052
+#: usr/lib/solydxk/system/solydxk_system.py:2058
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -572,16 +568,16 @@ msgstr ""
 "\n"
 "Vil du genstarte maskinen nu?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2064
+#: usr/lib/solydxk/system/solydxk_system.py:2070
 #, python-brace-format
 msgid "Passphrase changed for {0}."
 msgstr "Kodeordssætning ændret for {0}."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2116
+#: usr/lib/solydxk/system/solydxk_system.py:2122
 msgid "Partition passphrase"
 msgstr "Kodeordssætning til partition"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2117
+#: usr/lib/solydxk/system/solydxk_system.py:2123
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
@@ -987,3 +983,6 @@ msgid ""
 msgstr ""
 "Glem ikke at tilføje log-filen når du opretter et indlæg på vores forum: /"
 "var/log/solydxk-system.log"
+
+#~ msgid "Speed"
+#~ msgstr "Hastighed"

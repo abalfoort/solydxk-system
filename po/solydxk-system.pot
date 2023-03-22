@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 18:27+0100\n"
+"POT-Creation-Date: 2023-03-22 10:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -424,7 +424,7 @@ msgid ""
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:1591
-#: usr/lib/solydxk/system/solydxk_system.py:1676
+#: usr/lib/solydxk/system/solydxk_system.py:1678
 msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
@@ -434,74 +434,70 @@ msgstr ""
 msgid "Nothing to do."
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:1683
+#: usr/lib/solydxk/system/solydxk_system.py:1685
 msgid "There are no repositories to save."
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Current"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Country"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "Repository"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
+#: usr/lib/solydxk/system/solydxk_system.py:1691
 msgid "URL"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:1687
-msgid "Speed"
-msgstr ""
-
-#: usr/lib/solydxk/system/solydxk_system.py:1937
+#: usr/lib/solydxk/system/solydxk_system.py:1943
 msgid "Please select a Plymouth theme."
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2035
+#: usr/lib/solydxk/system/solydxk_system.py:2041
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2036
+#: usr/lib/solydxk/system/solydxk_system.py:2042
 msgid "Reboot"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2047
+#: usr/lib/solydxk/system/solydxk_system.py:2053
 msgid "Encryption done"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2048
+#: usr/lib/solydxk/system/solydxk_system.py:2054
 msgid ""
 "Encryption has finished.\n"
 "\n"
 "Do you want to restart your computer?"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2051
+#: usr/lib/solydxk/system/solydxk_system.py:2057
 msgid "Decryption done"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2052
+#: usr/lib/solydxk/system/solydxk_system.py:2058
 msgid ""
 "Decryption has finished.\n"
 "\n"
 "Do you want to restart your computer?"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2064
+#: usr/lib/solydxk/system/solydxk_system.py:2070
 #, python-brace-format
 msgid "Passphrase changed for {0}."
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2116
+#: usr/lib/solydxk/system/solydxk_system.py:2122
 msgid "Partition passphrase"
 msgstr ""
 
-#: usr/lib/solydxk/system/solydxk_system.py:2117
+#: usr/lib/solydxk/system/solydxk_system.py:2123
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
