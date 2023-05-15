@@ -24,7 +24,8 @@ fix_progs = [['login', '/var/log/btmp', 'touch|root:utmp|600', 0],
              ['consolekit', '/var/log/ConsoleKit', 'mkdir|root:root|755', 0],
              ['exim4-base', '/var/log/exim4', 'mkdir|Debian-exim:adm|755', 0],
              ['lightdm', '/var/lib/lightdm/data', 'mkdir|lightdm:lightdm|755', 0],
-             ['usbguard', '/etc/usbguard/rules.conf', 'touch|root:root|600', 0]]
+             ['usbguard', '/etc/usbguard/rules.conf', 'touch|root:root|600', 0],
+             ['ntpsec', '/var/log/ntpsec', 'mkdir|ntpsec:ntpsec|755', 0]]
 
 try:
     ver = get_debian_version()
