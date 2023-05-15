@@ -44,7 +44,10 @@ function adust_trigger_files {
     SH='/usr/lib/solydxk/grub/boot-isos.sh'
     if [ -f "$FLE" ]; then
         if ! grep -q "$SH" "$FLE"; then
-            sed -i "s#echo '}'#if [ -e "$SH" ]; then /bin/bash "$SH"; fi; echo '}}'#" "$FLE"
+            sed -i "s#echo '}'#if [ -e "$SH" ]; then /bin/bash "$SH"; fi; echo '}'#" "$FLE"
+        else
+            # Fix bad format
+            sed -i "s/fi; echo '}}'/fi; echo '}'/" "$FLE"
         fi
     fi
     
