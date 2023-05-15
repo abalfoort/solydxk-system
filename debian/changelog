@@ -1,3 +1,15 @@
+solydxk-system (4.2.7) stable; urgency=low
+
+  * Fix ntpsec: create /var/log/ntpsec
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 15 May 2023 08:34:47 +0200
+
+solydxk-system (4.2.6) stable; urgency=high
+
+  * Fix bad format in /etc/grub.d/10_linux
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 30 Apr 2023 09:26:11 +0200
+
 solydxk-system (4.2.5) stable; urgency=low
 
   * Replace /etc/skel/.face with SolydXK icon
