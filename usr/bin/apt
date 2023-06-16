@@ -45,6 +45,7 @@ policy          Show policy settings for packages
 purge           Remove packages and their configuration files
 rdepends        Show reverse dependency information for packages
 reinstall       Download and (possibly) reinstall already installed packages
+reinstall-all   Reinstall packages, including dependencies and recommends 
 remove          Remove packages
 repair          Try to fix broken and/or misconfigured packages
 search          Search for packages by name and/or expression
@@ -185,6 +186,8 @@ po|policy)
 	Command="apt-cache policy $Args";;
 rei|reinstall)
 	Command="${Sudo}apt-get install --reinstall $Args";;
+reinstall-all)
+	Command="${Sudo}apt-get install --reinstall $Args $(apt-cache depends $Args | grep -Po '(Depends:|Recommends:)\s+\K[^ ]+$' | grep -v '<' | tr '\n' ' ')";;
 search|show)
 	Command="aptitude $Cmd $Args";;
 sy|sync)
