@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ScriptName=apt
-ScriptVersion=2.8.4
-ScriptDate=2017-01-30
+ScriptVersion=2.10.0
+ScriptDate=2023-06-16
 
-# Copyright:  2011-2017 Frank & Arjen @ SolydXK
-# Licence:    EUPL 1.1 (GPL 2 compatible)
-#             https://joinup.ec.europa.eu/community/eupl/og_page/eupl
+# Copyright:  2011-2023 Frank & Arjen @ SolydXK
+# Licence:    EUPL 1.2 (GPL 2 compatible)
+#             https://joinup.ec.europa.eu/collection/eupl/introduction-eupl-licence
 # Disclaimer: Use entirely at your own risk.
 
 Info="$ScriptName - version $ScriptVersion - $ScriptDate
@@ -65,7 +65,8 @@ If a command takes arguments such as names of packages or files, more than one
 argument may be given, unless that makes no sense (or the command is diversion
 related).
 All upgrade related commands can take a -v option, for a more detailed list of
-packages to upgrade."
+packages to upgrade. A -k option may be given, if dpkg is to automatically keep
+any old configuration file which was modified by the user."
 
 while [ $# -gt 0 ]; do
 	if [ "${1:0:1}" != "-" ]; then
@@ -85,8 +86,9 @@ while [ $# -gt 0 ]; do
 				b)OptB=1;;
 				c)OptC=1;;
 				h)OptH=1;;
+				k)OptK=" -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold";;
 				u)OptU=1;;
-				v)OptV=1;;
+				v)OptV=" --verbose-versions";;
 				*)Args+=" -${S:I:1}"
 				esac
 			done
@@ -132,14 +134,12 @@ Fetch(){
 
 
 case $Cmd in
-autoclean|autoremove|build-deb|check|clean|dselect-upgrade|install|remove|update)
+autoclean|autoremove|build-deb|check|clean|dselect-upgrade|install|purge|remove|update)
 	Command="${Sudo}apt-get $Cmd $Args";;
-purge)
-	Command="${Sudo}apt-get $Cmd $Args --autoremove";;
 upg|upgrade)
-	Command="${Sudo}apt-get upgrade${OptV:+ --verbose-versions} $Args";;
+	Command="${Sudo}apt-get upgrade$OptK$OptV $Args";;
 di|dist-upgrade|du|fu|full|full-upgrade)
-	Command="${Sudo}apt-get dist-upgrade${OptV:+ --verbose-versions} $Args";;
+	Command="${Sudo}apt-get dist-upgrade$OptK$OptV $Args";;
 bu|build)
 	Command="${Sudo}dpkg-buildpackage $Args";;
 changelog|moo|source)
@@ -191,8 +191,8 @@ reinstall-all)
 search|show)
 	Command="aptitude $Cmd $Args";;
 sy|sync)
-	Command="${Sudo}apt-get update && ${Sudo}apt-get dist-upgrade${OptV:+ --verbose-versions}"
-	[ $OptA ] && Command+=" && ${Sudo}apt-get --purge autoremove"
+	Command="${Sudo}apt-get update && ${Sudo}apt-get dist-upgrade$OptK$OptV $Args"
+	[ $OptA ] && Command+=" && ${Sudo}apt-get autoremove -y --purge"
 	[ $OptC ] && Command+=" && ${Sudo}apt-get clean"
 	;;
 una|unavailable)
@@ -203,7 +203,7 @@ und|undivert)
 	else
 		R=$(sed -n 's|^.*diversion of \('$Args'\) .*$|\1|p' < <(LANG=C dpkg-divert --list))
 	fi
-	for D in $R; do Command+="${Sudo}dpkg-divert --remove --rename $D;${OptH:+$'\n'}"; done
+	for D in $R; do Command+="${Sudo}dpkg-divert --rename --remove $D;${OptH:+$'\n'}"; done
 	[ "$Command" ] && Command="${Command:0:-1}" || Command="echo no such diversion"
 	;;
 unh|unhold)
