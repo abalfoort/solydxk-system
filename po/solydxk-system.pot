@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-15 08:35+0200\n"
+"POT-Creation-Date: 2023-06-17 15:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -656,9 +656,9 @@ msgstr ""
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
-"Please, attach your log file when you post an issue on our forum: <a href="
-"\"https://forums.solydxk.com\" target=\"_blank\">https://forums.solydxk.com</"
-"a>"
+"Please, attach your log file when you post an issue on our forum: <a "
+"href=\"https://forums.solydxk.com\" target=\"_blank\">https://forums.solydxk."
+"com</a>"
 msgstr ""
 
 #: po/en/help.html%2Bhtml.body.h1:8-2
@@ -800,16 +800,16 @@ msgstr ""
 
 #: po/en/help.html%2Bhtml.body.div.p:49-3
 msgid ""
-"Please help improve this application. You can find the source on our <a href="
-"\"https://github.com/SolydXK/solydxk-system\" target=\"_blank\">GitHub</a> "
-"page."
+"Please help improve this application. You can find the source on our <a "
+"href=\"https://github.com/SolydXK/solydxk-system\" target=\"_blank\">GitHub</"
+"a> page."
 msgstr ""
 
 #: po/en/help.html%2Bhtml.body.div.p:50-3
 msgid ""
 "If for some reason your system does not mount the newly encrypted partition, "
-"please visit our <a href=\"https://forums.solydxk.com\" target=\"_blank"
-"\">forum</a> and post your issue there."
+"please visit our <a href=\"https://forums.solydxk.com\" "
+"target=\"_blank\">forum</a> and post your issue there."
 msgstr ""
 
 #: po/en/help.html%2Bhtml.body.div.p:51-3
