@@ -4,13 +4,16 @@
 
 import os
 from os.path import exists, dirname, isdir
-from utils import get_apt_force, is_package_installed,  \
-    get_apt_cache_locked_program, get_debian_version
+from utils import get_apt_force, is_package_installed, \
+                  get_apt_cache_locked_program, get_debian_version
 
 # --force-yes is deprecated in stretch
 APT_FORCE = get_apt_force()
 
-# Fix some programs [package, what to fix, options (touch/mkdir/purge/install|owner:group|permissions), exec from debian version (0 = all)]
+# Fix some programs:
+# [package, what to fix, options(1), exec from debian version(2)
+# (1): touch/mkdir/purge/install|owner:group|permissions
+# (2): check /etc/debian_version or 0 = all
 fix_progs = [['login', '/var/log/btmp', 'touch|root:utmp|600', 0],
              ['login', '/var/log/lastlog', 'touch|root:utmp|664', 0],
              ['login', '/var/log/faillog', 'touch|root:utmp|664', 0],
@@ -18,8 +21,7 @@ fix_progs = [['login', '/var/log/btmp', 'touch|root:utmp|600', 0],
              ['apache2', '/var/log/apache2', 'mkdir|root:adm|755', 0],
              ['mysql-client', '/var/log/mysql', 'mkdir|mysql:adm|755', 0],
              ['clamav', '/var/log/clamav', 'mkdir|clamav:clamav|755', 0],
-             ['clamav', '/var/log/clamav/freshclam.log',
-                 'touch|clamav:clamav|644', 0],
+             ['clamav', '/var/log/clamav/freshclam.log', 'touch|clamav:clamav|644', 0],
              ['samba', '/var/log/samba', 'mkdir|root:adm|755', 0],
              ['consolekit', '/var/log/ConsoleKit', 'mkdir|root:root|755', 0],
              ['exim4-base', '/var/log/exim4', 'mkdir|Debian-exim:adm|755', 0],
@@ -60,6 +62,7 @@ if exists('/usr/share/solydxk/info'):
         info = f.readlines()
 
     codename = get_info_line("CODENAME")
+    edition = get_info_line("EDITION")
     release = get_info_line("RELEASE")
     distrib_id = get_info_line("DISTRIB_ID")
     description = get_info_line("DESCRIPTION")

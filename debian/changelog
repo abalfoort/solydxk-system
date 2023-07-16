@@ -1,3 +1,9 @@
+solydxk-system (4.3.0) stable; urgency=low
+
+  * Add Grub theme configuration
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 11 Jul 2023 10:16:36 +0200
+
 solydxk-system (4.2.9) stable; urgency=low
 
   * Updated apt

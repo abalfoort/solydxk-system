@@ -3,10 +3,6 @@
 # Udisks2 API reference: 
 # http://storaged.org/doc/udisks2-api/latest/ref-library.html
 
-import gi
-# Make sure the right UDisks version is loaded
-gi.require_version('UDisks', '2.0')
-from gi.repository import UDisks, GLib
 from os.path import exists, join, basename
 import os
 from os import makedirs
@@ -14,6 +10,11 @@ from utils import getoutput, shell_exec, has_grub, get_uuid, \
                   get_mount_points, get_filesystem, get_label
 from encryption import get_status, is_encrypted, \
                        is_connected, connect_block_device
+
+import gi
+# Make sure the right UDisks version is loaded
+gi.require_version('UDisks', '2.0')
+from gi.repository import UDisks, GLib
 
 
 # Subclass dict class to overwrite the __missing__() method
@@ -30,7 +31,8 @@ class Udisks2():
         super(Udisks2, self).__init__()
         self.no_options = GLib.Variant('a{sv}', {})
         self.read_only = GLib.Variant('a{sv}', {'options': GLib.Variant('s', 'ro')})
-        self.no_interaction = GLib.Variant('a{sv}', {'auth.no_user_interaction': GLib.Variant('b', True)})
+        self.no_interaction = GLib.Variant('a{sv}',
+                                           {'auth.no_user_interaction': GLib.Variant('b', True)})
         self.devices = Tree()
 
     # Create multi-dimensional dictionary with drive/device/deviceinfo
@@ -44,7 +46,7 @@ class Udisks2():
         for obj in manager.get_objects():
             block = None
             partition = None
-            fs = None
+            device_fs = None
             drive = None
             device_path = ''
             fs_type = ''
@@ -80,7 +82,7 @@ class Udisks2():
                 total_size = 0
                 free_size = 0
                 used_size = 0
-            
+
                 total_size = (block.get_cached_property('Size').get_uint64() / 1024)
                 if (mapper_path and total_size == 0) or \
                    (not mapper_path and not exists(drive_path)) or \
@@ -100,32 +102,32 @@ class Udisks2():
                 is_hot_plugged = True if 'hotplug' in sort_key else False
                 #media = drive.get_cached_property("Media").get_string()
                 #media_compatibility = drive.get_cached_property("MediaCompatibility").get_strv()
-                
+
                 # Is this a USB pen drive?
-                is_flash = True if connection_bus == 'usb' and removable and is_hot_plugged else False
+                is_flash = connection_bus == 'usb' and removable and is_hot_plugged
 
                 if (include_flash and is_flash) or (include_drives and not is_flash):
                     # There are no partitions: set free size to total size
                     partition = obj.get_partition()
                     if partition is None:
                         free_size = total_size
-                    
+
                     # Get mount point and sizes
                     if luks_mount:
                         mount_point = luks_mount
                         total_size, free_size, used_size = self.get_mount_size(mount_point)
                     else:
-                        fs = obj.get_filesystem()
-                        if fs is not None:
+                        device_fs = obj.get_filesystem()
+                        if device_fs is not None:
                             unmount = False
                             # Get the file system's mount point
-                            mount_points = fs.get_cached_property('MountPoints').get_bytestring_array()
+                            mount_points = device_fs.get_cached_property('MountPoints').get_bytestring_array()
                             if not mount_points:
                                 # It can be manually mounted (with mount command)
                                 mount_points = get_mount_points(device_path)
                             if not mount_points:
                                 # If not mounted, temporary mount it to get needed info
-                                mount_points = self._mount_filesystem(fs, read_only=True)
+                                mount_points = self._mount_filesystem(device_fs, read_only=True)
                                 unmount = True
                             if mount_points:
                                 mount_point = mount_points[0]
@@ -134,27 +136,27 @@ class Udisks2():
                                     total_size, free_size, used_size = self.get_mount_size(mount_point)
                                 if unmount:
                                     # Unmount the temporary mounted file system
-                                    if self._unmount_filesystem(fs):
+                                    if self._unmount_filesystem(device_fs):
                                         mount_point = ''
-                    
+
                     uuid = get_uuid(device_path)
                     label = get_label(device_path)
                     grub = has_grub(device_path)
-                    debug_title = 'Device Info of: {}'.format(device_path)
-                    print(('========== {} =========='.format(debug_title)))
-                    print(('UUID: {}'.format(uuid)))
-                    print(('FS Type: {}'.format(fs_type)))
-                    print(('Mount Point: {}'.format(mount_point)))
-                    print(('Label: {}'.format(label)))
-                    print(('Total Size: {}'.format(total_size)))
-                    print(('Free Size: {}'.format(free_size)))
-                    print(('Used Size: {}'.format(used_size)))
-                    print(('Connection Bus: {}'.format(connection_bus)))
-                    print(('Removable: {}'.format(removable)))
-                    print(('Ejectable: {}'.format(ejectable)))
-                    print(('Can Power Off: {}'.format(can_power_off)))
-                    print(('Hot Plugged: {}'.format(is_hot_plugged)))
-                    print(('Has Grub: {}'.format(grub)))
+                    debug_title = f'Device Info of: {device_path}'
+                    print((f'========== {debug_title} =========='))
+                    print((f'UUID: {uuid}'))
+                    print((f'FS Type: {fs_type}'))
+                    print((f'Mount Point: {mount_point}'))
+                    print((f'Label: {label}'))
+                    print((f'Total Size: {total_size}'))
+                    print((f'Free Size: {free_size}'))
+                    print((f'Used Size: {used_size}'))
+                    print((f'Connection Bus: {connection_bus}'))
+                    print((f'Removable: {removable}'))
+                    print((f'Ejectable: {ejectable}'))
+                    print((f'Can Power Off: {can_power_off}'))
+                    print((f'Hot Plugged: {is_hot_plugged}'))
+                    print((f'Has Grub: {grub}'))
                     print((('=' * 22) + ('=' * len(debug_title))))
 
                     # Partition information
@@ -173,7 +175,7 @@ class Udisks2():
                     self.devices[device_path]['has_grub'] = grub
 
     def _get_object_path(self, device_path):
-        return "/org/freedesktop/UDisks2/block_devices/{}".format(basename(device_path))
+        return f"/org/freedesktop/UDisks2/block_devices/{basename(device_path)}"
 
     def _get_block(self, device_path):
         obj_path = self._get_object_path(device_path)
@@ -245,12 +247,13 @@ class Udisks2():
         return devices
 
     def is_mounted(self, device_path):
-        ret = getoutput("grep '{} ' /proc/mounts".format(device_path))[0]
+        ret = getoutput(f"grep '{device_path} ' /proc/mounts")[0]
         if device_path in ret:
             return True
         return False
-    
-    def mount_device(self, device_path, mount_point=None, filesystem=None, options=None, passphrase=None):
+
+    def mount_device(self, device_path, mount_point=None,
+                     filesystem=None, options=None, passphrase=None):
         if mount_point is None:
             mount_point = ''
         if filesystem is None:
@@ -259,23 +262,22 @@ class Udisks2():
             options = ''
         if passphrase is None:
             passphrase = ''
-            
+
         # Connect encrypted partition
-        connected = False
         if passphrase:
             if is_encrypted(device_path) and not is_connected(device_path):
                 device_path, filesystem = connect_block_device(device_path, passphrase)
-                
+
         # Do not mount swap partition
         if filesystem == 'swap':
             #print((">>>> swap partition: return device_path={0}, filesystem={1}".format(device_path, filesystem)))
             return (device_path, '', filesystem)
-        
+
         # Try udisks way if no mount point has been given
         if not mount_point:
-            fs = self._get_filesystem(device_path)
-            if fs is not None:
-                mount_points = self._mount_filesystem(fs)
+            mount_fs = self._get_filesystem(device_path)
+            if mount_fs is not None:
+                mount_points = self._mount_filesystem(mount_fs)
                 if mount_points:
                     # Set mount point and free space for this device
                     total, free, used = self.get_mount_size(mount_points[0])
@@ -289,7 +291,7 @@ class Udisks2():
                 mount_point = join('/media', uuid)
             else:
                 return (device_path, mount_point, filesystem)
-        
+
         # Mount the device to the given mount point
         if not exists(mount_point):
             makedirs(mount_point, exist_ok=True)
@@ -299,8 +301,8 @@ class Udisks2():
                     options = '-o ' + options
             else:
                 options = ''
-            fs = '-t ' + filesystem if filesystem else ''
-            cmd = "mount {options} {fs} {device_path} {mount_point}".format(**locals())
+            mount_fs = '-t ' + filesystem if filesystem else ''
+            cmd = f"mount {options} {mount_fs} {device_path} {mount_point}"
             shell_exec(cmd)
         if self.is_mounted(device_path):
             filesystem = get_filesystem(device_path)
@@ -308,10 +310,10 @@ class Udisks2():
         return (device_path, '', filesystem)
 
     def unmount_device(self, device_path):
-        fs = self._get_filesystem(device_path)
-        if fs is not None:
+        device_fs = self._get_filesystem(device_path)
+        if device_fs is not None:
             try:
-                self._unmount_filesystem(fs)
+                self._unmount_filesystem(device_fs)
             except:
                 pass
         if self.is_mounted(device_path):
@@ -342,9 +344,9 @@ class Udisks2():
             raise
 
     def set_filesystem_label_by_device(self, device_path, label):
-        fs = self._get_filesystem(device_path)
-        if fs is not None:
-            return self.set_filesystem_label(fs, label)
+        device_fs = self._get_filesystem(device_path)
+        if device_fs is not None:
+            return self.set_filesystem_label(device_fs, label)
         return False
 
     def set_partition_bootable(self, partition):
@@ -395,11 +397,11 @@ class Udisks2():
         mapper_path = ''
         mount_points = []
         mapper = '/dev/mapper'
-        mapper_name = getoutput("ls {0} | grep {1}$".format(mapper, basename(partition_path)))[0]
+        mapper_name = getoutput(f"ls {mapper} | grep {basename(partition_path)}$")[0]
         if not mapper_name:
             uuid = get_uuid(partition_path)
             if uuid:
-                mapper_name = getoutput("ls {0} | grep {1}$".format(mapper, uuid))[0]
+                mapper_name = getoutput(f"ls {mapper} | grep {uuid}$")[0]
         if mapper_name:
             mapper_path = join(mapper, mapper_name)
             if exists(mapper_path):

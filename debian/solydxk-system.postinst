@@ -167,11 +167,6 @@ case "$1" in
             chmod -R 700 /etc/skel/.gnupg
         fi
         
-        PNG='/usr/share/images/desktop-base/desktop-grub.png'
-        if [ -e "$PNG" ]; then
-            ln -sf "$PNG" /etc/alternatives/desktop-grub
-        fi
-        
         # Update cache
         UDD=$(which update-desktop-database)
         if [ ! -z "$UDD" ]; then

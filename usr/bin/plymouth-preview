@@ -17,6 +17,7 @@ if [ $# -ne 1 ]; then
 fi
 
 echo "Preview Plymouth theme $(plymouth-set-default-theme) for $DURATION seconds."
+sleep 3
 
 plymouthd
 plymouth --show-splash

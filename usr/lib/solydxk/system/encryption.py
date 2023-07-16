@@ -4,14 +4,15 @@ import re
 from os.path import basename, exists, join
 from utils import shell_exec, getoutput, get_uuid, \
                   get_filesystem, get_device_from_uuid, \
-                  get_package_version, compare_package_versions
+                  get_package_version, compare_package_versions, \
+                  VersionComparison
 
 
 def clear_partition(device):
     unmount_partition(device)
     enc_key = '-pbkdf2'
     openssl_version = get_package_version('openssl')
-    if compare_package_versions(openssl_version, '1.1.1') == 'smaller':
+    if compare_package_versions(openssl_version, '1.1.1') == VersionComparison.SMALLER:
         # deprecated key derivation in openssl 1.1.1+
         enc_key = '-aes-256-ctr'
     # Check "man openssl-enc" for options

@@ -13,18 +13,28 @@ import threading
 import operator
 import glob
 import filecmp
+import numbers
+from enum import Enum
 from os import walk, listdir
 from os.path import exists, isdir, expanduser,  splitext,  dirname, islink
-from distutils.version import LooseVersion, StrictVersion
+from packaging.version import Version, InvalidVersion
 import apt
 
+# Debian testing uses names, not numbers
+# Complement this dictionary with this URL:
+# https://wiki.debian.org/DebianReleases
 deb_name = {}
+deb_name[14] = "forky"
+deb_name[13] = "trixie"
 deb_name[12] = "bookworm"
 deb_name[11] = "bullseye"
 deb_name[10] = "buster"
 deb_name[9] = "stretch"
 deb_name[8] = "jessie"
 deb_name[7] = "wheezy"
+deb_name[6] = "squeeze"
+deb_name[5] = "lenny"
+deb_name[4] = "etch"
 
 
 def shell_exec_popen(command, kwargs={}):
@@ -214,26 +224,24 @@ def get_package_version(package, candidate=False):
     return ''
 
 
-def compare_package_versions(package_version_1, package_version_2, compare_loose=True):
+class VersionComparison(Enum):
+    """ Return enum for compare_package_versions """
+    INVALID = 1
+    EQUAL = 2
+    SMALLER = 3
+    LARGER = 4
+
+def compare_package_versions(package_version_1, package_version_2):
     """ Compare two package version strings """
-    if compare_loose:
-        try:
-            if LooseVersion(package_version_1) < LooseVersion(package_version_2):
-                return 'smaller'
-            if LooseVersion(package_version_1) > LooseVersion(package_version_2):
-                return 'larger'
-            return 'equal'
-        except Exception:
-            return ''
-    else:
-        try:
-            if StrictVersion(package_version_1) < StrictVersion(package_version_2):
-                return 'smaller'
-            if StrictVersion(package_version_1) > StrictVersion(package_version_2):
-                return 'larger'
-            return 'equal'
-        except Exception:
-            return ''
+    try:
+        if Version(package_version_1) < Version(package_version_2):
+            return VersionComparison.SMALLER
+        elif Version(package_version_1) > Version(package_version_2):
+            return VersionComparison.LARGER
+        elif Version(package_version_1) == Version(package_version_2):
+            return VersionComparison.EQUAL
+    except InvalidVersion:
+        return VersionComparison.INVALID
 
 
 def get_system_version_info():
@@ -250,9 +258,9 @@ def get_system_version_info():
 
 def get_current_resolution():
     """ Return current screen resolution """
-    res = getoutput("xrandr | awk '/*/{print $1}'")[0]
+    res = getoutput("xrandr 2>/dev/null | awk '/*/{print $1}'")[0]
     if not res:
-        res = getoutput("xdpyinfo | awk '/dimensions/{print $2}'")[0]
+        res = getoutput("xdpyinfo 2>/dev/null | awk '/dimensions/{print $2}'")[0]
     return res
 
 
@@ -270,7 +278,7 @@ def get_resolutions(min_res='', max_res='', reverse_order=False, use_vesa=False)
                 "hwinfo --framebuffer | awk '/[0-9]+x[0-9]+\s/{print $3}'", 5)
     else:
         resolutions = getoutput(
-            "xrandr | awk '/[0-9]+x[0-9]+\s/{print $1}'", 5)
+            "xrandr 2>/dev/null | awk '/[0-9]+x[0-9]+\s/{print $1}'", 5)
 
     if not resolutions[0]:
         # Add current resolution and set that as maximum
@@ -291,12 +299,12 @@ def get_resolutions(min_res='', max_res='', reverse_order=False, use_vesa=False)
     # Split the minimum and maximum resolutions
     if 'x' in min_res:
         min_res_list = min_res.split('x')
-        min_width = str_to_nr(min_res_list[0], True)
-        min_height = str_to_nr(min_res_list[1], True)
+        min_width = str_to_nr(min_res_list[0])
+        min_height = str_to_nr(min_res_list[1])
     if 'x' in max_res:
         max_res_list = max_res.split('x')
-        max_width = str_to_nr(max_res_list[0], True)
-        max_height = str_to_nr(max_res_list[1], True)
+        max_width = str_to_nr(max_res_list[0])
+        max_height = str_to_nr(max_res_list[1])
 
     # Fill the list with screen resolutions
     for line in res_list:
@@ -304,8 +312,8 @@ def get_resolutions(min_res='', max_res='', reverse_order=False, use_vesa=False)
             item_chk = re.search(r'\d+x\d+', line)
             if item_chk:
                 item_list = item.split('x')
-                item_width = str_to_nr(item_list[0], True)
-                item_height = str_to_nr(item_list[1], True)
+                item_width = str_to_nr(item_list[0])
+                item_height = str_to_nr(item_list[1])
                 # Check if it can be added
                 if (item_width >= min_width and item_height >= min_height) and \
                    (max_width == 0 and max_height == 0 or (max_width > 0 and max_height > 0 and item_width <= max_width and item_height <= max_height)):
@@ -330,8 +338,8 @@ def get_resolution_aspect_ratio(resolution_string):
     if len(res) != 2:
         return ''
 
-    res_width = str_to_nr(res[0], True)
-    res_height = str_to_nr(res[1], True)
+    res_width = str_to_nr(res[0])
+    res_height = str_to_nr(res[1])
 
     if res_width <= 0 or res_height <= 0:
         return ''
@@ -378,7 +386,7 @@ def human_size(nkbytes):
     while nkbytes >= 1024 and i < len(suffixes) - 1:
         nkbytes /= 1024.
         i += 1
-    format_string = (f'{nkbytes}.2f').rstrip('0').rstrip('.')
+    format_string = f'{nkbytes:.2f}'.rstrip('0').rstrip('.')
     return f'{format_string} {suffixes[i]}'
 
 
@@ -396,18 +404,26 @@ def can_copy(file1, file2):
     return ret
 
 
-def str_to_nr(stringnr, to_int=False):
+def str_to_nr(value):
     """ Convert string to number """
-    number = 0
-    stringnr = stringnr.strip()
+    if isinstance(value, numbers.Number):
+        # Already numeric
+        return value
+
+    number = None
     try:
-        if to_int:
-            number = int(stringnr)
-        else:
-            number = float(stringnr)
+        number = int(value)
     except ValueError:
-        number = 0
+        try:
+            number = float(value)
+        except ValueError:
+            number = None
     return number
+
+
+def is_numeric(value):
+    """ Check if value is a number """
+    return bool(str_to_nr(value))
 
 
 def has_string_in_file(search_string, file_path):
@@ -474,7 +490,7 @@ def get_apt_force():
     # --force-yes is deprecated in stretch
     force = '--force-yes'
     ver = get_debian_version()
-    if ver == 0 or ver >= 9:
+    if ver >= 9:
         force = '--allow-downgrades --allow-remove-essential --allow-change-held-packages'
     force += ' --yes -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold'
     return force
@@ -502,25 +518,16 @@ def get_debian_name():
 def get_debian_version():
     """ Get Debian's version number (float) """
     version = 0
-    deb_ver_val = ''
     if exists('/etc/debian_version'):
-        deb_ver_val = getoutput(
-            "grep -oP '^[a-z0-9]+' /etc/debian_version")[0].strip()
-    if exists('/etc/os-release') and not deb_ver_val:
-        deb_ver_val = getoutput(
-            "grep VERSION= /etc/os-release | grep -oP '[0-9]+'")[0].strip()
-    if exists('/etc/lsb-release') and not deb_ver_val:
-        deb_ver_val = getoutput(
-            "grep DISTRIB_RELEASE= /etc/lsb-release | grep -oP '[0-9]+'").strip()
-    try:
-        version = int(deb_ver_val)
-    except Exception:
-        # Testing uses names, not version numbers
-        for key, val in deb_name.items():
-            if deb_ver_val == val:
-                version = key
+        cmd = "grep -oP '^[a-z0-9]+' /etc/debian_version"
+        version = str_to_nr(getoutput(cmd)[0].strip())
+    if not version:
+        cmd = "grep -Ei 'version=|version_id=|release=' /etc/*release | grep -oP '[0-9]+'"
+        versions = getoutput(cmd)
+        for version in versions:
+            if is_numeric(version):
+                version = str_to_nr(version)
                 break
-    # Return version number
     return version
 
 
@@ -529,7 +536,8 @@ def get_firefox_version():
     firefox = "firefox"
     if is_package_installed("firefox-esr"):
         firefox = "firefox-esr"
-    return str_to_nr(getoutput(f"{firefox} --version 2>/dev/null | egrep -o '[0-9]{2,}' || echo 0")[0], True)
+    cmd = f"{firefox} --version 2>/dev/null | egrep -o '[0-9]{2,}' || echo 0"
+    return str_to_nr(getoutput(cmd)[0])
 
 
 def get_backports(exclude_disabled=True):
@@ -551,8 +559,7 @@ def has_newer_in_backports(package_name, backports_repository):
     try:
         out = getoutput(
             f"apt-cache madison {package_name} | grep {backports_repository}")[0]
-        if out:
-            return True
+        return bool(out)
     except Exception:
         return False
 
@@ -563,7 +570,7 @@ def comment_line(file_path, pattern, comment=True):
         pattern = pattern.replace("/", r"\/")
         cmd = f"sed -i '/{pattern}/s/^/#/' {file_path}"
         if not comment:
-            cmd = f"sed -i '/^#.*{pattern}/s/^#//' {file_path}"
+            cmd = rf"sed -i '/^#.*{pattern}/s/^#//' {file_path}"
         shell_exec(cmd)
 
 
@@ -585,12 +592,11 @@ def replace_pattern_in_file(pattern, replace_string, file, append_if_not_exists=
             with open(file=file, mode='w', encoding='utf-8') as target_fle:
                 target_fle.write(cont)
 
-
 def get_nr_files_in_dir(path, recursive=True):
     """ Return number of files in path """
     total = 0
     if isdir(path):
-        # return str_to_nr(getoutput("find %s -type f | wc -l" % path)[0], True)
+        # return str_to_nr(getoutput("find %s -type f | wc -l" % path)[0])
         if recursive:
             for root, directories, filenames in walk(path):
                 total += len(filenames)
@@ -661,6 +667,18 @@ def has_value_in_multi_array(value, multi_array, index=None):
             return False
     return False
 
+def _ratio_devider(width, height):
+    if height == 0:
+        return width
+    return _ratio_devider(height, width % height)
+
+def aspect_ratio(width, height):
+    """ Get screen aspect ratio, e.g.: '16:9' """
+    try:
+        ratio_devider = _ratio_devider(width, height)
+        return f'{int(width / ratio_devider)}:{int(height / ratio_devider)}'
+    except Exception:
+        return None
 
 class ExecuteThreadedCommands(threading.Thread):
     """ Class to run commands in a thread and return the output in a queue """
