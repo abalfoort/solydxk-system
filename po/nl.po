@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-15 12:52+0200\n"
+"POT-Creation-Date: 2023-07-20 09:35+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: Dutch (https://app.transifex.com/abalfoort/teams/54212/nl/)\n"
@@ -33,7 +33,7 @@ msgstr ""
 "SolydXK Systeeminstellingen kan niet starten om de volgende fout. Gelieve "
 "een bug verslag in te dienen!"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:52
+#: usr/lib/solydxk/system/endecrypt_partitions.py:54
 #, python-brace-format
 msgid ""
 "Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Kon geen backup maken op {backup_dir} (rsync code: {rsync_code}).\n"
 "Selecteer een ander backup medium voordat u het weer probeert."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:91
+#: usr/lib/solydxk/system/endecrypt_partitions.py:97
 #, python-brace-format
 msgid ""
 "Could not format the device {device}.\n"
@@ -53,7 +53,7 @@ msgstr ""
 "U moet uw apparaat handmatig formatteren en de gegevens terugzetten van: "
 "{backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:128
+#: usr/lib/solydxk/system/endecrypt_partitions.py:134
 #, python-brace-format
 msgid ""
 "Could not restore the backup (rsync code: {rsync_code}).\n"
@@ -62,7 +62,7 @@ msgstr ""
 "Kon de backup niet terugzetten (rsync code: {rsync_code}).\n"
 "U moet uw data handmatig terugzetten van: {backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:152
+#: usr/lib/solydxk/system/endecrypt_partitions.py:158
 #, python-brace-format
 msgid ""
 "Error formatting partition {0}:\n"
@@ -71,7 +71,29 @@ msgstr ""
 "Fout bij formatteren van partitie {0}\n"
 "Het heeft geen bestandssysteem type."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:304
+#: usr/lib/solydxk/system/endecrypt_partitions.py:260
+#: usr/lib/solydxk/system/solydxk_system.py:170
+#, python-brace-format
+msgid ""
+"Could not mount {0}\n"
+"Please mount {0} and refresh when done."
+msgstr ""
+"Kon {0} niet koppelen.\n"
+"Ververs wanneer u {0} gekoppeld heeft."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:263
+#: usr/lib/solydxk/system/solydxk_system.py:2221
+msgid "Partition passphrase"
+msgstr "Partitie wachtwoord"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:264
+#: usr/lib/solydxk/system/solydxk_system.py:2222
+msgid ""
+"Please, provide the current passphrase\n"
+"for the encrypted partition"
+msgstr "Geef het huidige wachtwoord van de versleutelde partitie."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:319
 #, python-brace-format
 msgid ""
 "Could not change the passphrase for {0}\n"
@@ -230,15 +252,6 @@ msgstr "Standaard"
 #: usr/lib/solydxk/system/solydxk_system.py:169
 msgid "Please provide a passphrase (6-20 characters)."
 msgstr "Geef een wachtwoord (6-20 tekens)."
-
-#: usr/lib/solydxk/system/solydxk_system.py:170
-#, python-brace-format
-msgid ""
-"Could not mount {0}\n"
-"Please mount {0} and refresh when done."
-msgstr ""
-"Kon {0} niet koppelen.\n"
-"Ververs wanneer u {0} gekoppeld heeft."
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Cleanup"
@@ -519,19 +532,19 @@ msgstr "Pakketbron"
 msgid "URL"
 msgstr "URL"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2137
+#: usr/lib/solydxk/system/solydxk_system.py:2140
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Herstart uw systeem om de nieuwe instellingen te gebruiken."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2138
+#: usr/lib/solydxk/system/solydxk_system.py:2141
 msgid "Reboot"
 msgstr "Herstarten"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2149
+#: usr/lib/solydxk/system/solydxk_system.py:2152
 msgid "Encryption done"
 msgstr "Versleuteling klaar"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2150
+#: usr/lib/solydxk/system/solydxk_system.py:2153
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -541,11 +554,11 @@ msgstr ""
 "\n"
 "Wilt u de computer herstarten?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2153
+#: usr/lib/solydxk/system/solydxk_system.py:2156
 msgid "Decryption done"
 msgstr "Ontsleuteling klaar"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2154
+#: usr/lib/solydxk/system/solydxk_system.py:2157
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -555,20 +568,10 @@ msgstr ""
 "\n"
 "Wilt u de computer herstarten?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2167
+#: usr/lib/solydxk/system/solydxk_system.py:2170
 #, python-brace-format
 msgid "Passphrase changed for {devices}."
 msgstr "Wachtwoord gewijzigd voor {devices}."
-
-#: usr/lib/solydxk/system/solydxk_system.py:2218
-msgid "Partition passphrase"
-msgstr "Partitie wachtwoord"
-
-#: usr/lib/solydxk/system/solydxk_system.py:2219
-msgid ""
-"Please, provide the current passphrase\n"
-"for the encrypted partition"
-msgstr "Geef het huidige wachtwoord van de versleutelde partitie."
 
 #: usr/bin/iso-usb:79
 #, sh-format

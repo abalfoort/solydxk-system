@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-15 12:52+0200\n"
+"POT-Creation-Date: 2023-07-20 09:35+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: Spanish (Latin America) (https://app.transifex.com/abalfoort/"
@@ -36,7 +36,7 @@ msgstr ""
 "SolydXK System Settings ha fallado con el siguiente error inesperado. Por "
 "favor envía el reporte del bug!"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:52
+#: usr/lib/solydxk/system/endecrypt_partitions.py:54
 #, python-brace-format
 msgid ""
 "Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Por favor, seleccione otro medio de copia de seguridad antes de volver a "
 "intentarlo."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:91
+#: usr/lib/solydxk/system/endecrypt_partitions.py:97
 #, python-brace-format
 msgid ""
 "Could not format the device {device}.\n"
@@ -58,7 +58,7 @@ msgstr ""
 "Debe formatear manualmente el dispositivo y restaurar sus datos desde: "
 "{backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:128
+#: usr/lib/solydxk/system/endecrypt_partitions.py:134
 #, python-brace-format
 msgid ""
 "Could not restore the backup (rsync code: {rsync_code}).\n"
@@ -67,7 +67,7 @@ msgstr ""
 "No se pudo restaurar la copia de seguridad (rsync code: {rsync_code}).\n"
 "Debes restaurar manualmente tus datos desde: {backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:152
+#: usr/lib/solydxk/system/endecrypt_partitions.py:158
 #, python-brace-format
 msgid ""
 "Error formatting partition {0}:\n"
@@ -76,7 +76,31 @@ msgstr ""
 "Error formateando partición {0}:\n"
 "No tiene ningún tipo de sistema de archivos."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:304
+#: usr/lib/solydxk/system/endecrypt_partitions.py:260
+#: usr/lib/solydxk/system/solydxk_system.py:170
+#, python-brace-format
+msgid ""
+"Could not mount {0}\n"
+"Please mount {0} and refresh when done."
+msgstr ""
+"No se pudo montar {0}\n"
+"Por favor, monte {0} y actualice cuando termine."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:263
+#: usr/lib/solydxk/system/solydxk_system.py:2221
+msgid "Partition passphrase"
+msgstr "Frase de acceso de la partición"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:264
+#: usr/lib/solydxk/system/solydxk_system.py:2222
+msgid ""
+"Please, provide the current passphrase\n"
+"for the encrypted partition"
+msgstr ""
+"Por favor, proporcione la frase de acceso actual\n"
+"para la partición encriptada"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:319
 #, python-brace-format
 msgid ""
 "Could not change the passphrase for {0}\n"
@@ -236,15 +260,6 @@ msgstr "Predeterminado"
 #: usr/lib/solydxk/system/solydxk_system.py:169
 msgid "Please provide a passphrase (6-20 characters)."
 msgstr "Por favor proporcione una frase de acceso (6-20 caracteres)."
-
-#: usr/lib/solydxk/system/solydxk_system.py:170
-#, python-brace-format
-msgid ""
-"Could not mount {0}\n"
-"Please mount {0} and refresh when done."
-msgstr ""
-"No se pudo montar {0}\n"
-"Por favor, monte {0} y actualice cuando termine."
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Cleanup"
@@ -528,21 +543,21 @@ msgstr "Repositorio"
 msgid "URL"
 msgstr "URL"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2137
+#: usr/lib/solydxk/system/solydxk_system.py:2140
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr ""
 "Es necesario reiniciar el sistema para que la nueva configuración surta "
 "efecto."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2138
+#: usr/lib/solydxk/system/solydxk_system.py:2141
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2149
+#: usr/lib/solydxk/system/solydxk_system.py:2152
 msgid "Encryption done"
 msgstr "Cifrado realizado"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2150
+#: usr/lib/solydxk/system/solydxk_system.py:2153
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -552,11 +567,11 @@ msgstr ""
 "\n"
 "¿Deseas reiniciar el computador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2153
+#: usr/lib/solydxk/system/solydxk_system.py:2156
 msgid "Decryption done"
 msgstr "Descifrado finalizado"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2154
+#: usr/lib/solydxk/system/solydxk_system.py:2157
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -566,22 +581,10 @@ msgstr ""
 "\n"
 "¿Deseas reiniciar el computador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2167
+#: usr/lib/solydxk/system/solydxk_system.py:2170
 #, python-brace-format
 msgid "Passphrase changed for {devices}."
 msgstr "Frase clave cambiada por {devices}."
-
-#: usr/lib/solydxk/system/solydxk_system.py:2218
-msgid "Partition passphrase"
-msgstr "Frase de acceso de la partición"
-
-#: usr/lib/solydxk/system/solydxk_system.py:2219
-msgid ""
-"Please, provide the current passphrase\n"
-"for the encrypted partition"
-msgstr ""
-"Por favor, proporcione la frase de acceso actual\n"
-"para la partición encriptada"
 
 #: usr/bin/iso-usb:79
 #, sh-format

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-15 12:52+0200\n"
+"POT-Creation-Date: 2023-07-20 09:35+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: Catalan (https://app.transifex.com/abalfoort/teams/54212/"
@@ -35,7 +35,7 @@ msgstr ""
 "SolydXK System Settings ha fallat amb el següent error inesperat. Si us "
 "plau, envieu un informe d'error!"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:52
+#: usr/lib/solydxk/system/endecrypt_partitions.py:54
 #, python-brace-format
 msgid ""
 "Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
@@ -45,7 +45,7 @@ msgstr ""
 "{rsync_code}).\n"
 "Trieu un altre dispositiu de còpia de seguretat abans de tornar a provar-ho."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:91
+#: usr/lib/solydxk/system/endecrypt_partitions.py:97
 #, python-brace-format
 msgid ""
 "Could not format the device {device}.\n"
@@ -55,7 +55,7 @@ msgstr ""
 "No puc formatar el dispositiu {device}.\n"
 "Cal que el formateu manualment i restaureu les dades des de: {backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:128
+#: usr/lib/solydxk/system/endecrypt_partitions.py:134
 #, python-brace-format
 msgid ""
 "Could not restore the backup (rsync code: {rsync_code}).\n"
@@ -64,7 +64,7 @@ msgstr ""
 "No puc restaurar la còpia de seguretat de (rsync code: {rsync_code}).\n"
 "Cal que restaureu manualment les vostres dades des de: {backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:152
+#: usr/lib/solydxk/system/endecrypt_partitions.py:158
 #, python-brace-format
 msgid ""
 "Error formatting partition {0}:\n"
@@ -73,7 +73,31 @@ msgstr ""
 "Error formatant la partició {0}:\n"
 "No té tipus de sistema de fitxers."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:304
+#: usr/lib/solydxk/system/endecrypt_partitions.py:260
+#: usr/lib/solydxk/system/solydxk_system.py:170
+#, python-brace-format
+msgid ""
+"Could not mount {0}\n"
+"Please mount {0} and refresh when done."
+msgstr ""
+"No puc muntar {0}\n"
+"Si us plau, munteu {0} i refresqueu-ho un cop fet."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:263
+#: usr/lib/solydxk/system/solydxk_system.py:2221
+msgid "Partition passphrase"
+msgstr "Contrasenya de la partició"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:264
+#: usr/lib/solydxk/system/solydxk_system.py:2222
+msgid ""
+"Please, provide the current passphrase\n"
+"for the encrypted partition"
+msgstr ""
+"Si us plau, doneu la contrasenya actual\n"
+"de la partició encrptada"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:319
 #, python-brace-format
 msgid ""
 "Could not change the passphrase for {0}\n"
@@ -229,15 +253,6 @@ msgstr "Omissió"
 #: usr/lib/solydxk/system/solydxk_system.py:169
 msgid "Please provide a passphrase (6-20 characters)."
 msgstr "Si us plau, doneu una contrasenya (6-20 caràcters)."
-
-#: usr/lib/solydxk/system/solydxk_system.py:170
-#, python-brace-format
-msgid ""
-"Could not mount {0}\n"
-"Please mount {0} and refresh when done."
-msgstr ""
-"No puc muntar {0}\n"
-"Si us plau, munteu {0} i refresqueu-ho un cop fet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Cleanup"
@@ -519,19 +534,19 @@ msgstr "Dipòsit "
 msgid "URL"
 msgstr "URL "
 
-#: usr/lib/solydxk/system/solydxk_system.py:2137
+#: usr/lib/solydxk/system/solydxk_system.py:2140
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Us cal tornar a arrencar el sistema per activar la nova configuració."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2138
+#: usr/lib/solydxk/system/solydxk_system.py:2141
 msgid "Reboot"
 msgstr "Reinicia"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2149
+#: usr/lib/solydxk/system/solydxk_system.py:2152
 msgid "Encryption done"
 msgstr "Fet l'encriptatge"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2150
+#: usr/lib/solydxk/system/solydxk_system.py:2153
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -541,11 +556,11 @@ msgstr ""
 "\n"
 "Voleu tornar a arrencar l'ordinador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2153
+#: usr/lib/solydxk/system/solydxk_system.py:2156
 msgid "Decryption done"
 msgstr "Fet el desencriptatge"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2154
+#: usr/lib/solydxk/system/solydxk_system.py:2157
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -555,22 +570,10 @@ msgstr ""
 "\n"
 "Voleu tornar a arrencar l'ordinador?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2167
+#: usr/lib/solydxk/system/solydxk_system.py:2170
 #, python-brace-format
 msgid "Passphrase changed for {devices}."
 msgstr "Canviada la contrasenya per {devices}."
-
-#: usr/lib/solydxk/system/solydxk_system.py:2218
-msgid "Partition passphrase"
-msgstr "Contrasenya de la partició"
-
-#: usr/lib/solydxk/system/solydxk_system.py:2219
-msgid ""
-"Please, provide the current passphrase\n"
-"for the encrypted partition"
-msgstr ""
-"Si us plau, doneu la contrasenya actual\n"
-"de la partició encrptada"
 
 #: usr/bin/iso-usb:79
 #, sh-format

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-15 12:52+0200\n"
+"POT-Creation-Date: 2023-07-20 09:35+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: Serbian (https://app.transifex.com/abalfoort/teams/54212/"
@@ -36,7 +36,7 @@ msgstr ""
 "Поставке СолидИксК система су имале неочекивану грешку. Пошаљите извештај о "
 "грешци!"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:52
+#: usr/lib/solydxk/system/endecrypt_partitions.py:54
 #, python-brace-format
 msgid ""
 "Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Не могу да направим резерву у {backup_dir} (rsync код: {rsync_code}).\n"
 "Изаберите други медијум за резерву пре него што покушате поново."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:91
+#: usr/lib/solydxk/system/endecrypt_partitions.py:97
 #, python-brace-format
 msgid ""
 "Could not format the device {device}.\n"
@@ -55,7 +55,7 @@ msgstr ""
 "Не могу да форматирам уређај {device}.\n"
 "Морате ручно да форматирате уређај и вратите податке из: {backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:128
+#: usr/lib/solydxk/system/endecrypt_partitions.py:134
 #, python-brace-format
 msgid ""
 "Could not restore the backup (rsync code: {rsync_code}).\n"
@@ -64,7 +64,7 @@ msgstr ""
 "Не могу да вратим резерву (rsync код: {rsync_code}).\n"
 "Морате ручно да вратите податке из: {backup_dir}"
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:152
+#: usr/lib/solydxk/system/endecrypt_partitions.py:158
 #, python-brace-format
 msgid ""
 "Error formatting partition {0}:\n"
@@ -73,7 +73,31 @@ msgstr ""
 "Грешка при форматирању партиције {0}:\n"
 "Нема тип фајл система."
 
-#: usr/lib/solydxk/system/endecrypt_partitions.py:304
+#: usr/lib/solydxk/system/endecrypt_partitions.py:260
+#: usr/lib/solydxk/system/solydxk_system.py:170
+#, python-brace-format
+msgid ""
+"Could not mount {0}\n"
+"Please mount {0} and refresh when done."
+msgstr ""
+"Не могу да монтирам {0}\n"
+"Монтирајте {0} и освежите када завршите."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:263
+#: usr/lib/solydxk/system/solydxk_system.py:2221
+msgid "Partition passphrase"
+msgstr "Лозинка партиције"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:264
+#: usr/lib/solydxk/system/solydxk_system.py:2222
+msgid ""
+"Please, provide the current passphrase\n"
+"for the encrypted partition"
+msgstr ""
+"Наведите тренутну лозинку за\n"
+"шифровану партицију"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:319
 #, python-brace-format
 msgid ""
 "Could not change the passphrase for {0}\n"
@@ -230,15 +254,6 @@ msgstr "Подразумевано"
 #: usr/lib/solydxk/system/solydxk_system.py:169
 msgid "Please provide a passphrase (6-20 characters)."
 msgstr "Наведите лозинку (6-20 знакова)"
-
-#: usr/lib/solydxk/system/solydxk_system.py:170
-#, python-brace-format
-msgid ""
-"Could not mount {0}\n"
-"Please mount {0} and refresh when done."
-msgstr ""
-"Не могу да монтирам {0}\n"
-"Монтирајте {0} и освежите када завршите."
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Cleanup"
@@ -518,19 +533,19 @@ msgstr "складиште"
 msgid "URL"
 msgstr "УРЛ"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2137
+#: usr/lib/solydxk/system/solydxk_system.py:2140
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr "Морате поново покренути систем како би нове поставке биле примењене."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2138
+#: usr/lib/solydxk/system/solydxk_system.py:2141
 msgid "Reboot"
 msgstr "Поново покрени"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2149
+#: usr/lib/solydxk/system/solydxk_system.py:2152
 msgid "Encryption done"
 msgstr "Шифровање завршено"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2150
+#: usr/lib/solydxk/system/solydxk_system.py:2153
 msgid ""
 "Encryption has finished.\n"
 "\n"
@@ -540,11 +555,11 @@ msgstr ""
 "\n"
 "Желите ли да поново покренете рачунар?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2153
+#: usr/lib/solydxk/system/solydxk_system.py:2156
 msgid "Decryption done"
 msgstr "Дешифровање завршено"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2154
+#: usr/lib/solydxk/system/solydxk_system.py:2157
 msgid ""
 "Decryption has finished.\n"
 "\n"
@@ -554,22 +569,10 @@ msgstr ""
 "\n"
 "Желите ли да поново покренете рачунар?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2167
+#: usr/lib/solydxk/system/solydxk_system.py:2170
 #, python-brace-format
 msgid "Passphrase changed for {devices}."
 msgstr "Лозинка измењена за {devices}."
-
-#: usr/lib/solydxk/system/solydxk_system.py:2218
-msgid "Partition passphrase"
-msgstr "Лозинка партиције"
-
-#: usr/lib/solydxk/system/solydxk_system.py:2219
-msgid ""
-"Please, provide the current passphrase\n"
-"for the encrypted partition"
-msgstr ""
-"Наведите тренутну лозинку за\n"
-"шифровану партицију"
 
 #: usr/bin/iso-usb:79
 #, sh-format

@@ -1,3 +1,21 @@
+solydxk-system (4.3.3) stable; urgency=low
+
+  * Use luks2/argon2id for encryption
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 20 Jul 2023 09:10:25 +0200
+
+solydxk-system (4.3.2) stable; urgency=low
+
+  * Fix update-alternatives when Plymouth theme is None
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 17 Jul 2023 22:35:43 +0200
+
+solydxk-system (4.3.1) stable; urgency=low
+
+  * Fix crash when Plymouth is not installed
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 17 Jul 2023 20:00:39 +0200
+
 solydxk-system (4.3.0) stable; urgency=low
 
   * Add Grub theme configuration
