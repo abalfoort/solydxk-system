@@ -16,29 +16,32 @@ def clear_partition(device):
         # deprecated key derivation in openssl 1.1.1+
         enc_key = '-aes-256-ctr'
     # Check "man openssl-enc" for options
-    shell_exec("head -c 5M /dev/zero | openssl enc {key} -pass pass:\"$(dd if=/dev/urandom" 
-               " bs=128 count=1 2>/dev/null | base64)\" -nosalt > {device}".format(key=enc_key, device=device))
+    shell_exec(f"head -c 5M /dev/zero | openssl enc {enc_key} -pass pass:\"$(dd if=/dev/urandom" 
+               f" bs=128 count=1 2>/dev/null | base64)\" -nosalt > {device}")
 
 
-def encrypt_partition(device, passphrase, luks_version=1):
+def encrypt_partition(device, passphrase, luks_version=2):
     if unmount_partition(device):
         # Cannot use echo to pass the passphrase to cryptsetup because that adds a carriadge return
-        # Use LUKS1 for now because grub does not support LUKS2, yet:
+        # Note: use LUKS1 for boot partitions because grub does not support LUKS2, yet:
         # https://git.savannah.gnu.org/cgit/grub.git/commit/?id=365e0cc3e7e44151c14dd29514c2f870b49f9755
-        shell_exec("printf \"{passphrase}\" | cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 " \
-                   "--use-random --type luks{luks_version} --iter-time 5000 luksFormat {device}".format(passphrase=passphrase,
-                                                                                                        luks_version=luks_version,
-                                                                                                        device=device))
+
+        luks = '--type luks1'
+        if luks_version == 2:
+            luks = '--type luks2 --pbkdf argon2id'
+        shell_exec(f"printf \"{passphrase}\" | cryptsetup {luks} "
+                   "--cipher aes-xts-plain64 --key-size 512 --hash sha512 "
+                   f"--use-random --iter-time 5000 luksFormat {device}")
         mapped_device, filesystem = connect_block_device(device, passphrase)
         return mapped_device
     return ''
 
 
 def unmount_partition(device):
-    shell_exec("umount -f {}".format(device))
+    shell_exec(f"umount -f {device}")
     if is_connected(device):
-        shell_exec("cryptsetup close {} 2>/dev/null".format(device))
-    ret = getoutput("grep '%s ' /proc/mounts" % device)[0]
+        shell_exec(f"cryptsetup close {device} 2>/dev/null")
+    ret = getoutput(f"grep '{device} ' /proc/mounts")[0]
     if not device in ret:
         return True
     return False
@@ -47,7 +50,7 @@ def unmount_partition(device):
 def connect_block_device(device, passphrase):
     if exists(device):
         mapped_name = basename(device)
-        shell_exec("printf \"{}\" | cryptsetup open --type luks {} {}".format(passphrase, device, mapped_name))
+        shell_exec(f"printf \"{passphrase}\" | cryptsetup open --type luks {device} {mapped_name}")
         # Collect info to return
         mapped_device = join('/dev/mapper', mapped_name)
         if exists(mapped_device):
@@ -69,9 +72,10 @@ def is_encrypted(device):
 
 
 def get_status(device):
-    status_dict = {'offset': '', 'mode': '', 'device': '', 'cipher': '', 'keysize': '', 'filesystem': '', 'active': '', 'type': '', 'size': ''}
+    status_dict = {'offset': '', 'mode': '', 'device': '', 'cipher': '', 'keysize': '',
+                   'filesystem': '', 'active': '', 'type': '', 'size': ''}
     mapped_name = basename(device)
-    status_info = getoutput("env LANG=C cryptsetup status {}".format(mapped_name))
+    status_info = getoutput(f"env LANG=C cryptsetup status {mapped_name}")
     for line in status_info:
         parts = line.split(':')
         if len(parts) == 2:
@@ -86,10 +90,10 @@ def get_status(device):
         status_dict['device'] = device
     if status_dict['active'] == '' and is_encrypted(device):
         mapped_name = basename(device)
-        status_dict['active'] = "/dev/mapper/{}".format(mapped_name)
+        status_dict['active'] = f"/dev/mapper/{mapped_name}"
 
     if status_dict['type'] != '':
-        print(("Encryption: mapped drive status = {}".format(status_dict)))
+        print((f"Encryption: mapped drive status = {status_dict}"))
     return status_dict
 
 
@@ -97,72 +101,65 @@ def create_keyfile(keyfile_path, device, passphrase):
     # Note: do this outside the chroot.
     # https://www.martineve.com/2012/11/02/luks-encrypting-multiple-partitions-on-debianubuntu-with-a-single-passphrase/
     if not exists(keyfile_path):
-        shell_exec("dd if=/dev/urandom of=%s bs=512 count=8 iflag=fullblock" % keyfile_path)
-        shell_exec("chmod 000 %s" % keyfile_path)
+        shell_exec(f"dd if=/dev/urandom of={keyfile_path} bs=512 count=8 iflag=fullblock")
+        shell_exec(f"chmod 000 {keyfile_path}")
     # Remove any keys for this device first
-    shell_exec("printf \"%s\" | cryptsetup luksRemoveKey %s %s" % (passphrase, device, keyfile_path))
+    shell_exec(f"printf \"{passphrase}\" | cryptsetup luksRemoveKey {device} {keyfile_path}")
     # Now add the new key for this device
-    shell_exec("printf \"%s\" | cryptsetup luksAddKey %s %s" % (passphrase, device, keyfile_path))
+    shell_exec(f"printf \"{passphrase}\" | cryptsetup luksAddKey {device} {keyfile_path}")
 
 
 def write_crypttab(device, fs_type, crypttab_path=None, keyfile_path=None, remove_device=False):
-    #print(("++++ device=%s, fs_type=%s, crypttab_path=%s, keyfile_path=%s, remove_device=%s" % (device, fs_type, str(crypttab_path), str(keyfile_path), str(remove_device))))
     if crypttab_path is None or not '/' in crypttab_path:
         crypttab_path = '/etc/crypttab'
     device = device.replace('/mapper', '')
 
     if not exists(crypttab_path):
-        with open(crypttab_path, 'w') as f:
-            f.write('# <target name>\t<source device>\t<key file>\t<options>\n')
+        with open(file=crypttab_path, mode='w', encoding='utf-8') as crypttab_fle:
+            crypttab_fle.write('# <target name>\t<source device>\t<key file>\t<options>\n')
 
     if keyfile_path is None or keyfile_path == '':
         keyfile_path = 'none'
-    crypttab_uuid = "UUID=%s" % get_uuid(device)
+    crypttab_uuid = f"UUID={get_uuid(device)}"
     new_line = ''
     if not remove_device:
         swap = ''
         if fs_type == 'swap':
             swap = 'swap,'
-        new_line = "%s %s %s %sluks,timeout=60\n" % (basename(device), crypttab_uuid, keyfile_path, swap)
-        
-    #print(("++++ new_line=%s" % new_line))
+        new_line = f"{basename(device)} {crypttab_uuid} {keyfile_path} {swap}luks,timeout=60\n"
 
     # Create new crypttab contents
     cont = ''
-    with open(crypttab_path, 'r') as f:
-        cont = f.read()
-    regexp = r".*\s{}\s.*".format(crypttab_uuid)
-    matchObj = re.search(regexp, cont)
-    if matchObj:
-        cont = (re.sub(regexp, new_line, cont))
+    with open(file=crypttab_path, mode='r', encoding='utf-8') as crypttab_fle:
+        cont = crypttab_fle.read()
+    regexp = rf".*\s{crypttab_uuid}\s.*"
+    match = re.search(regexp, cont)
+    if match:
+        cont = re.sub(regexp, new_line, cont)
     else:
         if not remove_device:
             cont += new_line
-            
-    #print(("++++ cont=%s" % cont))
 
     # Save the new crypttab
-    with open(crypttab_path, 'w') as f:
-        f.write(cont)
-        
-    #print(("++++ write_crypttab done"))
+    with open(file=crypttab_path, mode='w', encoding='utf-8') as crypttab_fle:
+        crypttab_fle.write(cont)
 
 
 # Returns dictionary {device: {target_name, uuid, key_file}}
 def get_crypttab_info(crypttab_path):
     crypttab_info = {}
     if exists(crypttab_path):
-        with open(crypttab_path, 'r') as f:
-            for line in f.readlines():
+        with open(file=crypttab_path, mode='r', encoding='utf-8') as crypttab_fle:
+            for line in crypttab_fle.readlines():
                 line = line.strip()
-                lineData = line.split()
-                uuid = lineData[1].split('=')[0]
+                line_data = line.split()
+                uuid = line_data[1].split('=')[0]
                 device = get_device_from_uuid(uuid)
                 if device != '':
-                    key_file = lineData[2]
+                    key_file = line_data[2]
                     if key_file == 'none':
                         key_file = ''
-                    crypttab_info[device] = {'target_name': lineData[0],
+                    crypttab_info[device] = {'target_name': line_data[0],
                                              'uuid': uuid,
                                              'key_file': key_file}
     return crypttab_info
@@ -172,8 +169,8 @@ def cleanup_passphrase(passphrase):
     clean_passphrase = ''
     for char in passphrase:
         c_code = ord(char)
-        if (c_code > 32 and c_code < 95) or \
-           (c_code > 96 and c_code < 127):
+        if (c_code > 32 < 95) or \
+           (c_code > 96 < 127):
             clean_passphrase += char
-    
+
     return clean_passphrase

@@ -5,10 +5,12 @@ import time
 from shutil import rmtree
 import os
 import math
+from dialogs import InputDialog
 from os.path import exists, join, basename, isdir
 from udisks2 import Udisks2
 from utils import shell_exec, get_logged_user, get_uuid, \
-                    get_nr_files_in_dir, shell_exec_popen
+                  get_nr_files_in_dir, shell_exec_popen, \
+                  get_debian_version
 from encryption import encrypt_partition, create_keyfile
 
 # i18n: http://docs.python.org/3/library/gettext.html
@@ -59,7 +61,11 @@ class EnDecryptPartitions(threading.Thread):
                     if self.encrypt:
                         # Encrypt
                         self.log.write("Start encryption of %s" % partition['device'], 'endecrypt', 'info')
-                        mapped_device = encrypt_partition(partition['device'], self.passphrase)
+                        deb_version = get_debian_version()
+                        luks_version = 1 if deb_version < 12 else 2
+                        mapped_device = encrypt_partition(device=partition['device'],
+                                                          passphrase=self.passphrase,
+                                                          luks_version=luks_version)
                         #print((">>>> mapped_device=%s" % mapped_device))
                         if mapped_device:
                             partition['device'] = mapped_device
@@ -251,6 +257,15 @@ class ChangePassphrase(threading.Thread):
         self.log = log
         # Queue returns list: [fraction, error_code, partition_index, partition, message]
         self.queue = queue
+        self.mount_error = _("Could not mount {0}\nPlease mount {0} and refresh when done.")
+
+    def passphrase_dialog(self, device_path):
+        passphrase_title = _("Partition passphrase")
+        passphrase_text = _("Please, provide the current passphrase\n"
+                            "for the encrypted partition")
+        return InputDialog(title=passphrase_title,
+                           text=f"{passphrase_text}:\n\n<b>{device_path}</b>",
+                           is_password=True).show()
 
     def run(self):
         steps = 4
@@ -271,7 +286,7 @@ class ChangePassphrase(threading.Thread):
                 pf_changed = False
                 current_passphrase = partition['passphrase']
                 if not current_passphrase:
-                    current_passphrase = self.get_passphrase_dialog(device)
+                    current_passphrase = self.passphrase_dialog(device)
                 if current_passphrase:
                     step = (i + 1) * 1
                     self.queue.put([1 / (total_steps / step), 0, None, None, None])
