@@ -2020,7 +2020,10 @@ class SolydXKSystemSettings(object):
         self.lightdm.save(plymouth_theme)
 
         # Update alternatives
-        desktop_themes = glob(fr'/usr/share/desktop-base/{plymouth_theme}*/')
+        desktop_themes = glob(fr'/usr/share/desktop-base/{grub_theme}*/')
+        desktop_theme = ''
+        if not desktop_themes:
+            desktop_themes = glob(fr'/usr/share/desktop-base/{plymouth_theme}*/')
         if desktop_themes:
             desktop_theme = desktop_themes[0].rstrip("/")
             shell_exec(rf'update-alternatives --set desktop-theme {desktop_theme}')
@@ -2028,10 +2031,10 @@ class SolydXKSystemSettings(object):
         # Change Grub and Plymouth background images according to screen resolution
         ratio = get_current_aspect_ratio()
         # Grub
-        src = f"/usr/share/desktop-base/{grub_theme}-theme/grub/grub-16x9.png"
+        src = f"{desktop_theme}/grub/grub-16x9.png"
         dst = f"/usr/share/grub/themes/{grub_theme}/bg.png"
         if ratio == '4:3':
-            src = f"/usr/share/desktop-base/{grub_theme}-theme/grub/grub-4x3.png"
+            src = f"{desktop_theme}/grub/grub-4x3.png"
         if exists(src) and exists(dst):
             shutil.copyfile(src, dst)
 

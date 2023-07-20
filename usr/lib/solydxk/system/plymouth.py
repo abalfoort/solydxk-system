@@ -19,12 +19,15 @@ class Plymouth():
         self.log = logger_object
         self.grub = Grub(self.log)
         self.avl_themes_search_str = '^plymouth-theme'
-        self.set_theme_path = which('plymouth-set-default-theme')
+        try:
+            self.set_theme_path = which('plymouth-set-default-theme')
+        except:
+            self.set_theme_path = None
         self.modules_path = '/etc/initramfs-tools/modules'
 
     # Get a list of installed Plymouth themes
     def installed_themes(self):
-        if isfile(self.set_theme_path):
+        if self.set_theme_path:
             cmd = f'{self.set_theme_path} --list'
             return getoutput(cmd)
         return []
@@ -48,8 +51,8 @@ class Plymouth():
     def current_theme(self):
         if not self.grub.has_splash():
             return None
-        if isfile(self.set_theme_path) and \
-                  self.is_plymouth_booted():
+        if self.set_theme_path and \
+           self.is_plymouth_booted():
             return getoutput(self.set_theme_path)[0]
         return None
 
