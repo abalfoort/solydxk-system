@@ -97,7 +97,11 @@ class Logger():
                 self.rtobject.set_text(message)
             elif 'treeview' in self.typeString.lower():
                 tvHandler = TreeViewHandler(self.rtobject)
-                tvHandler.fillTreeview([message], ['str'], [-1], 0, 400, False, True, True, fontSize=10000)
+                tvHandler.fillTreeview(contentList=[message],
+                                       columnTypesList=['str'],
+                                       appendToExisting=True,
+                                       appendToTop=True,
+                                       fontSize=10000)
             elif 'statusbar' in self.typeString.lower():
                 self.pushMessage(message)
             else:
