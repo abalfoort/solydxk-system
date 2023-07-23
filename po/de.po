@@ -6,17 +6,17 @@
 # Translators:
 # pitfd, 2021
 # Werner Jud, 2021
-# ilu lu, 2022
 # Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023
+# ilu lu, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 09:35+0200\n"
+"POT-Creation-Date: 2023-07-22 14:38+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
+"Last-Translator: ilu lu, 2023\n"
 "Language-Team: German (https://app.transifex.com/abalfoort/teams/54212/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -322,19 +322,19 @@ msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:186
 msgid "Boot splash"
-msgstr ""
+msgstr "Startbildschirm"
 
 #: usr/lib/solydxk/system/solydxk_system.py:187
 msgid "Select a theme for Plymouth and Grub."
-msgstr ""
+msgstr "Ein Thema für Plymouth und Grub wählen."
 
 #: usr/lib/solydxk/system/solydxk_system.py:188
 msgid "Plymouth themes"
-msgstr "Plymouth Themes"
+msgstr "Plymouth Thema"
 
 #: usr/lib/solydxk/system/solydxk_system.py:189
 msgid "Grub themes"
-msgstr "Grub Themes"
+msgstr "Grub Thema"
 
 #: usr/lib/solydxk/system/solydxk_system.py:190
 msgid "Save"

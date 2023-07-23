@@ -6,15 +6,16 @@
 # Translators:
 # Eduard Selma <selma@tinet.cat>, 2021
 # Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023
+# ilu lu, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 09:35+0200\n"
+"POT-Creation-Date: 2023-07-22 14:38+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
+"Last-Translator: ilu lu, 2023\n"
 "Language-Team: Catalan (https://app.transifex.com/abalfoort/teams/54212/"
 "ca/)\n"
 "Language: ca\n"
@@ -315,7 +316,7 @@ msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:187
 msgid "Select a theme for Plymouth and Grub."
-msgstr ""
+msgstr "Trieu un temes de Plymouth i de Grub."
 
 #: usr/lib/solydxk/system/solydxk_system.py:188
 msgid "Plymouth themes"
