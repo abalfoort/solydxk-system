@@ -1,3 +1,10 @@
+solydxk-system (4.3.4) stable; urgency=low
+
+  * Move postinst code to iso-constructor
+  * Remove /etc/grub.d/07_solydxk_theme
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 22 Jul 2023 14:37:10 +0200
+
 solydxk-system (4.3.3) stable; urgency=low
 
   * Use luks2/argon2id for encryption
