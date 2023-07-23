@@ -4,195 +4,33 @@ set -e
 
 #DEBHELPER#
 
-function adust_trigger_files {
-    # Desktop files
-    FLE='/usr/share/applications/gdebi.desktop'
-    if [ -f "$FLE" ]; then
-        sed -i 's#Exec=.*#Exec=sh -c "gdebi-gtk %f"#' "$FLE"
-    fi
-    FLE='/usr/share/applications/xfce4-mail-reader.desktop'
-    if [ -f "$FLE" ]; then
-        sed -i 's#OnlyShowIn=.*#NoDisplay=true#' "$FLE"
-    fi
-    FLE='/usr/share/applications/xfce4-web-browser.desktop'
-    if [ -f "$FLE" ]; then
-        sed -i 's#OnlyShowIn=.*#NoDisplay=true#' "$FLE"
-    fi
-    FLE='/usr/share/applications/hardinfo.desktop'
-    if [ -f "$FLE" ]; then
-        sed -i 's#Icon=.*#Icon=hardinfo#' "$FLE"
-    fi
-    FLE='/usr/share/applications/luckybackup-su.desktop'
-    if [ -f "$FLE" ]; then
-        sed -i 's#Icon=.*#Icon=luckybackup#' "$FLE"
-    fi
-    FLE='/usr/share/applications/luckybackup.desktop'
-    if [ -f "$FLE" ]; then
-        sed -i 's#Icon=.*#Icon=luckybackup#' "$FLE"
-    fi
-    
-    # Pulsaudio files
-    FLE='/etc/pulse/daemon.conf'
-    if [ -f "$FLE" ]; then
-        # Fix volume always set to 100%
-        sed -i '/^# Fix pulse/,/= no/d' "$FLE"
-        sed -i 's/.*flat-v.*lumes.*/flat-volumes = no/' "$FLE"
-    fi
-    
-    # Add live menus in grub when needed
-    FLE='/etc/grub.d/10_linux'
-    SH='/usr/lib/solydxk/grub/boot-isos.sh'
-    if [ -f "$FLE" ]; then
-        if ! grep -q "$SH" "$FLE"; then
-            sed -i "s#echo '}'#if [ -e "$SH" ]; then /bin/bash "$SH"; fi; echo '}'#" "$FLE"
-        else
-            # Fix bad format
-            sed -i "s/fi; echo '}}'/fi; echo '}'/" "$FLE"
-        fi
-    fi
-    
-    # Adapt .bashrc
-    FLE='/etc/skel/.bashrc'
-    INFO='/usr/share/solydxk/info'
-    if [ -f "$FLE" ]; then
-        # Fix multiple entries in .bashrc
-        # - Search for start line until first empty line and delete that
-        sed -i '/# Source the SolydXK info file/,/^$/{/^$/!d}' "$FLE"
-        # Fix volume always set to 100%
-        sed -i 's/;31m/;34m/' "$FLE"
-        sed -i 's/;32m/;34m/' "$FLE"
-        sed -i 's/#\s*alias\s/alias /g' "$FLE"
-        # Check if already added
-        if ! grep -Fq "$INFO" "$FLE"; then
-            cat >> "$FLE" << EOF
-
-# Source SolydXK info file
-if [ -f $INFO ]; then
-    . $INFO
-fi
-EOF
-        fi
-    fi
-    
-    # Change face icon
-    FLE='/etc/skel/.face'
-    if [ -f "$FLE" ]; then
-        cp '/usr/share/icons/hicolor/scalable/apps/solydxk.svg' "$FLE"
-    fi
-}
-
-function _file_to_root {
-    cd $1
-    ROOTDIR="/root/$3"
-    mkdir -p $ROOTDIR
-    for F in $2; do
-        if [ -e "$F" ] && [ ! -e "${ROOTDIR}${F}" ]; then
-            cp -v --parents "$F" "${ROOTDIR}"
-        fi
-    done
-}
-
-function install_root_files {
-    # Copy root files
-    FLS='.config/gtk-3.0/gtk.css .mozilla .selected_editor .thunderbird'
-    _file_to_root '/usr/share/solydxk/root_files' "$FLS"
-    
-    # Copy skel files to root
-    _file_to_root '/etc/skel' '.bashrc .profile'
-}
-
 function run_scripts {
-    /bin/bash /usr/lib/solydxk/scripts/os-prober-luks.sh
-    /bin/bash /usr/lib/solydxk/scripts/ping-uid.sh
     /bin/bash /usr/lib/solydxk/scripts/kodi.sh
-    /bin/bash /usr/lib/solydxk/scripts/fix-gpg.sh
+    python3 /usr/lib/solydxk/system/adjust.py
 }
-
 
 case "$1" in
     configure|upgrade|update|reconfigure)
-
-        if [ -f /etc/default/grub ]; then
-            sed -i -e 's/GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR=`lsb_release -d -s 2>\/dev\/null || echo SolydXK`/' /etc/default/grub
+        # Add live menus in grub when needed
+        FLE='/etc/grub.d/10_linux'
+        SH='/usr/lib/solydxk/grub/boot-isos.sh'
+        if [ -e "$FLE" ] && [ -e "$SH" ]; then
+            if ! grep -q "$SH" "$FLE"; then
+                sed -i "s#echo '}'#if [ -e "$SH" ]; then /bin/bash "$SH"; fi; echo '}'#" "$FLE"
+            else
+                # Fix bad format
+                sed -i "s/fi; echo '}}'/fi; echo '}'/" "$FLE"
+            fi
         fi
         
-        if [ -f /etc/lightdm/lightdm.conf ]; then
-            sed -i -e 's/[# ]*greeter-hide-users=.*/greeter-hide-users=false/' /etc/lightdm/lightdm.conf
-        fi
-            
-        CONT=""
-        if [ -f /etc/modprobe.d/alsa-base.conf ]; then
-            CONT=$(cat /etc/modprobe.d/alsa-base.conf)
-        fi
-        
-        CHK="options snd-hda-intel model"
-        case "$CONT" in
-            *$CHK* )
-                #echo "snd-hda-intel model already set"
-                ;;
-            *) 
-                echo "snd-hda-intel model set to auto"
-                echo >> /etc/modprobe.d/alsa-base.conf
-                echo "options snd-hda-intel model=auto" >> /etc/modprobe.d/alsa-base.conf
-        esac
-        
-        CONT=""
-        if [ -f /etc/modprobe.d/alsa-base-blacklist.conf ]; then
-            CONT=$(cat /etc/modprobe.d/alsa-base-blacklist.conf)
-        fi
-        
-        CHK="blacklist pcspkr"
-        case "$CONT" in
-            *$CHK* )
-                #echo "pcspkr already blacklisted"
-                ;;
-            *) 
-                echo "pcspkr blacklisted"
-                echo >> /etc/modprobe.d/alsa-base-blacklist.conf
-            echo "blacklist pcspkr" >> /etc/modprobe.d/alsa-base-blacklist.conf
-        esac
-
-        if which glib-compile-schemas >/dev/null 2>&1
-        then
-            glib-compile-schemas /usr/share/glib-2.0/schemas
-        fi
-        
-        # If dpkg removed /usr/local/bin: recreate it
-        if [ ! -e /usr/local/bin ]; then
-            mkdir -p /usr/local/bin
-        fi
-        
-        # Set the right permissions to /etc/skel/.gnupg
-        if [ -d /etc/skel/.gnupg ]; then
-            chmod -R 700 /etc/skel/.gnupg
-        fi
-        
-        # Update cache
-        UDD=$(which update-desktop-database)
-        if [ ! -z "$UDD" ]; then
-            update-desktop-database -q
-        fi
-        
-        # Recreate pixbuf cache
-        PIX_CACHE='/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders'
-        if [ -x "$PIX_CACHE" ]; then
-            $PIX_CACHE --update-cache
-        fi
-        
-        adust_trigger_files
         run_scripts
-        install_root_files
-        python3 /usr/lib/solydxk/system/adjust.py
-        
         ;;
         
     abort-upgrade|abort-remove|abort-deconfigure)
         ;;
         
     triggered)
-        adust_trigger_files
         run_scripts
-        python3 /usr/lib/solydxk/system/adjust.py
         ;;
         
     *)
