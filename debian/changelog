@@ -1,3 +1,9 @@
+solydxk-system (4.3.5) stable; urgency=low
+
+  * Save Boot Splasy after update-alternatives command
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 24 Jul 2023 08:19:18 +0200
+
 solydxk-system (4.3.4) stable; urgency=low
 
   * Move postinst code to iso-constructor
