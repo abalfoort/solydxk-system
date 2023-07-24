@@ -47,6 +47,7 @@ class Grub():
                 theme_path = os.path.join(theme_dir, theme + "/theme.txt")
                 if os.path.exists(theme_path):
                     themes.append(theme_path)
+        themes.sort()
         return themes
 
     # Get current Grub resolution

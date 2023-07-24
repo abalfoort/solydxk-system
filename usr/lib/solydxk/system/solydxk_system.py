@@ -2015,10 +2015,6 @@ class SolydXKSystemSettings(object):
         resolution = self.cmbSplashResolutionHandler.getValue()
         splash = str(plymouth_theme) != 'None'
 
-        self.grub.save(grub_theme, resolution, splash)
-        self.plymouth.save(plymouth_theme)
-        self.lightdm.save(plymouth_theme)
-
         # Update alternatives
         desktop_themes = glob(fr'/usr/share/desktop-base/{grub_theme}*/')
         desktop_theme = ''
@@ -2042,6 +2038,10 @@ class SolydXKSystemSettings(object):
         dst = f"/usr/share/plymouth/themes/{plymouth_theme}/bg.png"
         if exists(src) and exists(dst):
             shutil.copyfile(src, dst)
+
+        self.grub.save(grub_theme, resolution, splash)
+        self.plymouth.save(plymouth_theme)
+        self.lightdm.save(plymouth_theme)
 
     def save(self):
         name = 'splash'
