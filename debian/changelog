@@ -1,3 +1,9 @@
+solydxk-system (4.3.8) stable; urgency=low
+
+  * Adapt passphrase label text
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 06 Sep 2023 18:43:33 +0200
+
 solydxk-system (4.3.7) stable; urgency=low
 
   * Remove 20 chars limitation on encryption pwd
