@@ -137,7 +137,7 @@ class SolydXKSystemSettings(object):
         self.btnHoldback.set_label(_("Hold back"))
         self.lblRepositories.set_label(_("Repositories"))
         self.lblEncryption.set_label(_("Encryption"))
-        builder("lblPassphrase").set_label(_("Passphrase (6-20 chr)"))
+        builder("lblPassphrase").set_label(_("Passphrase (6+ chrs)"))
         self.btnEncrypt.set_label(_("Encrypt"))
         self.btnDecrypt.set_label(_("Decrypt"))
         self.btnChangePassphrase.set_label(_("Change passphrase"))
@@ -166,7 +166,7 @@ class SolydXKSystemSettings(object):
         self.locale_title = _('Locale')
         self.language_title = _('Language')
         self.default_title = _('Default')
-        self.no_passphrase_msg = _("Please provide a passphrase (6-20 characters).")
+        self.no_passphrase_msg = _("Please provide a passphrase (6+ characters).")
         self.mount_error = _("Could not mount {0}\nPlease mount {0} and refresh when done.")
         builder("lblCleanup").set_label(_("Cleanup"))
         builder("lblCleanupInfo").set_label(_("Remove unneeded packages\n"
