@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-22 19:06+0200\n"
+"POT-Creation-Date: 2023-09-06 18:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,7 +116,7 @@ msgid "Encryption"
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:140
-msgid "Passphrase (6-20 chr)"
+msgid "Passphrase (6+ chrs)"
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:141
@@ -215,7 +215,7 @@ msgid "Default"
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:169
-msgid "Please provide a passphrase (6-20 characters)."
+msgid "Please provide a passphrase (6+ characters)."
 msgstr ""
 
 #: usr/lib/solydxk/system/solydxk_system.py:171

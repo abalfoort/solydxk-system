@@ -5,17 +5,17 @@
 #
 # Translators:
 # Slobodan Simić <slsimic@gmail.com>, 2021
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023
 # ilu lu, 2023
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-22 14:38+0200\n"
+"POT-Creation-Date: 2023-09-06 18:54+0200\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: ilu lu, 2023\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: Serbian (https://app.transifex.com/abalfoort/teams/54212/"
 "sr/)\n"
 "Language: sr\n"
@@ -140,8 +140,8 @@ msgid "Encryption"
 msgstr "Шифровање"
 
 #: usr/lib/solydxk/system/solydxk_system.py:140
-msgid "Passphrase (6-20 chr)"
-msgstr "Лозинка (6-20 зн)"
+msgid "Passphrase (6+ chrs)"
+msgstr "Лозинка (6+ зн)"
 
 #: usr/lib/solydxk/system/solydxk_system.py:141
 msgid "Encrypt"
@@ -253,8 +253,8 @@ msgid "Default"
 msgstr "Подразумевано"
 
 #: usr/lib/solydxk/system/solydxk_system.py:169
-msgid "Please provide a passphrase (6-20 characters)."
-msgstr "Наведите лозинку (6-20 знакова)"
+msgid "Please provide a passphrase (6+ characters)."
+msgstr "Наведите лозинку (6+ знакова)"
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Cleanup"
