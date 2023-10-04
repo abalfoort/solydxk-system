@@ -4,6 +4,7 @@
 # http://storaged.org/doc/udisks2-api/latest/ref-library.html
 
 from os.path import exists, join, basename
+import re
 import os
 from os import makedirs
 from utils import getoutput, shell_exec, has_grub, get_uuid, \
@@ -380,6 +381,8 @@ class Udisks2():
                 device_path = status['device']
             else:
                 device_path = device_path.replace('/mapper', '')
+        if 'nvme' in device_path:
+            return re.sub('p[0-9]+$', '', device_path)
         return device_path.rstrip('0123456789')
 
     # returns total/free/used tuple (Kb)
