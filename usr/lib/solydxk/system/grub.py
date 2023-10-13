@@ -18,9 +18,6 @@ class Grub():
         self.installed_themes = self._installed_themes()
         self.resolution = self._current_resolution()
         self.theme = self._current_theme()
-        self.grub_default_lines = []
-        with open(file=self.grub_default, mode='r', encoding='utf-8') as grub_fle:
-            self.grub_default_lines = grub_fle.read().splitlines()
 
     def _grub_default_value(self, pattern, group_nr=0):
         if not self.grub_default:
