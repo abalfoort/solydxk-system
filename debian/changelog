@@ -1,3 +1,15 @@
+solydxk-system (4.4.1) stable; urgency=low
+
+  * New translation: ru
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 13 Oct 2023 08:44:04 +0200
+
+solydxk-system (4.4.0) stable; urgency=low
+
+  * Fix crash when /etc/default/grub does not exist
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 11 Oct 2023 15:31:44 +0200
+
 solydxk-system (4.3.9) stable; urgency=low
 
   * Fix not listing nvme partitions
