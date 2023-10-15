@@ -1,3 +1,9 @@
+solydxk-system (4.4.2) stable; urgency=low
+
+  * Move /lib to /usr/lib
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 14 Oct 2023 12:00:55 +0200
+
 solydxk-system (4.4.1) stable; urgency=low
 
   * New translation: ru
