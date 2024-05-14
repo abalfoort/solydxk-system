@@ -1826,12 +1826,12 @@ class SolydXKSystemSettings(object):
 
     def fill_treeview_cleanup(self):
         pck_data = []
-        # Get list of packages from autoremove and deborphan
+        # Get list of packages from autoremove and obsolete
         for pck in self.autoremove_packages():
             if pck not in self.holdback:
                 pck_data.append([True, pck])
-        for pck in self.deborphan_packages():
-            if (pck not in self.holdback and 
+        for pck in self.obsolete_packages():
+            if (pck not in self.holdback and
                 not any(pck in x for x in pck_data)):
                 pck_data.append([False, pck])
         for pck in self.old_kernel_packages():
@@ -1858,11 +1858,18 @@ class SolydXKSystemSettings(object):
                     ret.append(package)
         return ret
 
-    def deborphan_packages(self):
-        orphans = getoutput('deborphan')
-        if len(orphans) == 1 and orphans[0] == '':
-            orphans = []
-        return orphans
+    def obsolete_packages(self):
+        obs_exec = 'deborphan'
+        if not is_package_installed('deborphan'):
+            # Alternative for deborphan
+            if is_package_installed('aptitude'):
+                obs_exec = "aptitude -F%p search '~o (~slibs|~soldlibs|~sintrospection) !~Rdepends:.*'"
+            else:
+                return []
+        obs_pcks = getoutput(obs_exec)
+        if len(obs_pcks) == 1 and obs_pcks[0] == '':
+            obs_pcks = []
+        return obs_pcks
 
     def old_kernel_packages(self):
         kernel_packages = []
