@@ -22,7 +22,13 @@ case "$1" in
                 sed -i "s/fi; echo '}}'/fi; echo '}'/" "$FLE"
             fi
         fi
-        
+
+        # one time fix - can be removed in due time
+        if [ -f /usr/bin/apt.restored ]; then
+          mv -f /usr/bin/apt.restored /usr/lib/solydxk/apt
+          rm -f /usr/bin/apt.bak
+        fi
+
         run_scripts
         ;;
         

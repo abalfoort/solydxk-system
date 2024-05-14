@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ScriptName=apt
-ScriptVersion=2.10.0
-ScriptDate=2023-06-16
+ScriptVersion=2.11.0
+ScriptDate=2023-12-15
 
 # Copyright:  2011-2023 Frank & Arjen @ SolydXK
 # Licence:    EUPL 1.2 (GPL 2 compatible)
@@ -10,13 +10,16 @@ ScriptDate=2023-06-16
 # Disclaimer: Use entirely at your own risk.
 
 Info="$ScriptName - version $ScriptVersion - $ScriptDate
-A bug-fixed, extended, simplified, plain bash version of Linux Mint's apt.
+A plain bash apt wrapper script, roughly based on Linux Mint's apt script.
+Uses the APT Team's apt where possible. Add the -g switch to enforce using
+apt-get or aptitude (where possible/applicable).
 
 Usage: $ScriptName command [options] [arguments]
-       $ScriptName --help|-h command [options] [arguments]
+       $ScriptName help|--help|-h command [options] [arguments]
 
 Commands:
 autoclean       Erase all unavailable (see below) package files from local cache
+autopurge       As autoremove and also remove configuration files
 autoremove      Remove all unused, automatically installed packages 
 build           Build binary or source packages from sources
 build-dep       Configure build-dependencies for source packages
@@ -27,6 +30,7 @@ contains        List packages containing the specified files
 content         List files contained in packages
 deb             Install .deb packages
 depends         Show raw dependency information for packages
+dist-upgrade    Perform an upgrade, possibly installing and removing packages
 diversions      List all diversions (you may pass a string to limit the list)
 divert          Divert a file
 download        Download package files including dependencies
@@ -44,22 +48,26 @@ listrepo        List installed packages from given repository
 policy          Show policy settings for packages
 purge           Remove packages and their configuration files
 rdepends        Show reverse dependency information for packages
+recommends      List missing recommended packages for a package (top level only)
 reinstall       Download and (possibly) reinstall already installed packages
 reinstall-all   Reinstall packages, including dependencies and recommends 
 remove          Remove packages
 repair          Try to fix broken and/or misconfigured packages
+satisfy         Satisfy dependency strings
 search          Search for packages by name and/or expression
 show            Display detailed information about packages
+showsrc         Show all source package records that match a given package name
 source          Download source archives
+sources         Edit /etc/apt/sources.list with your favourite text editor
 stats           Show some information about the cache
-sync [-a] [-c]  Update, full-upgrade and -optionally- autoremove and/or clean
+sync [-a] [-c]  Update, full-upgrade and -optionally- autopurge and/or clean
 unavailable     List installed packages no longer available in any repository
 undivert [-b]   Undivert a file or all files diverted by the package mentioned
 unhold          Unhold packages
 update          Download lists of new/upgradable packages
 upgradable      List upgradable packages - all if no names are specified
 upgrade         Perform a safe upgrade
-version         Show the installed version of packages
+version         Show the installed version of packages or the script/apt itself
 
 If a command takes arguments such as names of packages or files, more than one
 argument may be given, unless that makes no sense (or the command is diversion
@@ -71,12 +79,14 @@ any old configuration file which was modified by the user."
 while [ $# -gt 0 ]; do
 	if [ "${1:0:1}" != "-" ]; then
 		[ "$Cmd" ] && Args+=" $1" || Cmd=$1
+		[ "$Cmd" == help ] && { unset -v Cmd; OptH=1; }
 	else
 		if [ "${1:1:1}" == "-" ]; then
 			case "${1:2}" in
 			help)OptH=1;;
-			version)echo "$ScriptName $ScriptVersion - $ScriptDate"; exit;;
-			*)Args+=" $1"
+			install)OptI=1;;
+			version)Cmd=version; break;;
+			*)Opts+=" $1"
 			esac
 		else
 			S="${1:1}"
@@ -85,20 +95,24 @@ while [ $# -gt 0 ]; do
 				a)OptA=1;;
 				b)OptB=1;;
 				c)OptC=1;;
+				g)OptG=1;;
 				h)OptH=1;;
 				k)OptK=" -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold";;
 				u)OptU=1;;
 				v)OptV=" --verbose-versions";;
-				*)Args+=" -${S:I:1}"
+				*)Opts+=" -${S:I:1}"
 				esac
 			done
 		fi
 	fi
 	shift
 done
-Args=${Args:1}
+Args+=$Opts; Args=${Args:1}
 
 [ $EUID == 0 ] || Sudo='sudo '
+
+Usr=$(readlink -f "$0"); Usr=${Usr%/*/*}
+Apt=$Usr/lib/solydxk/apt; [ -f $Apt ] || { Apt=/usr/bin/apt; [[ $(file -bi $Apt) != *script* ]] || Apt=/usr/bin/apt-get; }
 
 Fetch(){
 	local A D F I N R V
@@ -130,19 +144,69 @@ Fetch(){
 	done
 }
 
-[ -f /usr/bin/apt.divert ] && RealApt=/usr/bin/apt.divert || RealApt=/usr/bin/apt
+IsInstalled(){
+	local I=$(LANG=C dpkg-query -W -f='${db:status-abbrev}' $1 2>&1)
+	test "${I:0:2}" == "ii"
+}
+
+Recommends(){
+	[ "$1" ] || { aptitude search '?broken-reverse-recommends(?installed)'; return; }
+	local E F I L M N R IFS=$'\n'
+	while read -r L; do L=${L#Recommends:}
+		[ "${L:0:1}" == ' ' ] && R+="$L," || break
+	done < <(sed -n '/Recommends:/,//'p <(apt-cache show $1 2>/dev/null))
+	[ "$R" ] || { echo "Package '$1' not found or has no recommended packages"; return; }
+	R="${R//,/$'\n'}"
+	[ $OptI ] || echo "The package '$1' has the following recommended packages:"
+	for L in $R; do L=${L# }
+		if [[ $L == *"|"* ]]; then
+			M=$L; L+="|"; F=''
+			until [ ! "$L" ]; do E=${L%%|*}; E=${E%% *}; L=${L#*|}
+				IsInstalled "$E" && I+="$E " || F+="$E "
+			done
+			[ $OptI ] || echo "$M"
+			if [ "$I" ]; then
+				[ $OptI ] || echo "- at least one of these is installed (${I% })"
+			else
+				[ $OptI ] || echo "- none of these is installed"
+				N+="${F%% *} "
+			fi
+		else
+			L=${L%% *}
+			[ $OptI ] || echo -n "$L (is "
+			IsInstalled "$L" || { N+="$L "; [ $OptI ] || echo -n "not "; }
+			[ $OptI ] || echo "installed)"
+		fi
+	done
+	if [ "$N" ]; then
+		[ $OptI ] && { apt --install-recommends install ${Args#* } $N; return; }
+		echo -e "\nYou can install the missing recommended packages with the command:"
+		echo "apt install --install-recommends $N"
+		echo "or:"
+		echo "apt --install recommends $Args"
+		IsInstalled "$1" || echo -e "\nBe aware that '$1' is not installed either"
+	else
+		echo -e "\nNone of the recommended packages is missing"
+	fi
+}
 
 
 case $Cmd in
-autoclean|autoremove|build-deb|check|clean|dselect-upgrade|install|purge|remove|update)
+autoremove|auto-remove|install|reinstall|remove|purge|update|satisfy|showsrc|autopurge)
+	[ $OptG ] && Apt=apt-get
+	Command="${Sudo}$Apt $Cmd $Args";;
+clean|dselect-upgrade|build-dep|check|autoclean|auto-clean)
+	echo "[]"
 	Command="${Sudo}apt-get $Cmd $Args";;
 upg|upgrade)
-	Command="${Sudo}apt-get upgrade$OptK$OptV $Args";;
+	[ $OptG ] && Apt=apt-get
+	Command="${Sudo}$Apt upgrade$OptK$OptV $Args";;
 di|dist-upgrade|du|fu|full|full-upgrade)
-	Command="${Sudo}apt-get dist-upgrade$OptK$OptV $Args";;
+	[ $OptG ] && Apt=apt-get
+	Command="${Sudo}$Apt full-upgrade$OptK$OptV $Args";;
 bu|build)
 	Command="${Sudo}dpkg-buildpackage $Args";;
-changelog|moo|source)
+changelog|moo|source|indextargets)
 	Command="apt-get $Cmd $Args";;
 contains|has)
 	Command="dpkg-query --search $Args";;
@@ -162,7 +226,7 @@ dl|do|download)
 	[ "$(dpkg --print-architecture)" == "amd64" ] && F=i386 || F=amd64
 	Command="LANG=C apt-cache depends $Args | sed -r '/.+:'$F'|Breaks:|Conflicts:|Enhances:|Provides:|Replaces:|Suggests:.+/d; s/^ .+ (.+)$/\\1/; s/[<>]//g' | xargs apt-get --install-recommends download ";;
 edit-sources|sources)
-	Command="$Sudo$RealApt edit-sources";;
+	Command="$Sudo$Apt edit-sources";;
 fe|fetch|get)
 	if [ $OptU ]; then
 		Comment="\nThe 'Fetch' command is a bash function defined in this script."
@@ -177,22 +241,26 @@ he|held)
 ho|hold)
 	Command="for I in $Args; do ${Sudo}dpkg --set-selections <<<\"\$I hold\"; done";;
 installed)
-	Command="$RealApt list --installed $Args";;
+	Command="$Apt list --installed $Args";;
 list)
-	Command="$RealApt list $Args";;
+	Command="$Apt list $Args";;
 listrepo)
 	Command="aptitude search \"?narrow(~i, ~A$Args)\"";;
+pass)
+	Command="$Apt $Args";;
 po|policy)
 	Command="apt-cache policy $Args";;
-rei|reinstall)
-	Command="${Sudo}apt-get install --reinstall $Args";;
+rec|recommends)
+	Comment="\nThe 'Recommends' command is a bash function defined in this script."
+	Command="Recommends $Args";;
 reinstall-all)
-	Command="${Sudo}apt-get install --reinstall $Args $(apt-cache depends $Args | grep -Po '(Depends:|Recommends:)\s+\K[^ ]+$' | grep -v '<' | tr '\n' ' ')";;
+	Command="${Sudo}apt-get reinstall $Args $(apt-cache depends $Args | grep -Po '(Depends:|Recommends:)\s+\K[^ ]+$' | grep -v '<' | tr '\n' ' ')";;
 search|show)
-	Command="aptitude $Cmd $Args";;
+	[ $OptG ] && Apt=aptitude
+	Command="$Apt $Cmd $Args";;
 sy|sync)
 	Command="${Sudo}apt-get update && ${Sudo}apt-get dist-upgrade$OptK$OptV $Args"
-	[ $OptA ] && Command+=" && ${Sudo}apt-get autoremove -y --purge"
+	[ $OptA ] && Command+=" && ${Sudo}apt-get autopurge -y"
 	[ $OptC ] && Command+=" && ${Sudo}apt-get clean"
 	;;
 una|unavailable)
@@ -209,13 +277,23 @@ und|undivert)
 unh|unhold)
 	Command="for I in $Args; do ${Sudo}dpkg --set-selections <<<\"\$I install\"; done";;
 upg|upgradable)
-	Command="$RealApt list --upgradable $Args";;
+	Command="$Apt list --upgradable $Args";;
 ve|version)
-	Command="LANG=C apt-cache policy $Args | sed -n 's/^ *Installed: \(.*\)$/\\1/p'";;
+	if [ "$Args" ]; then
+		Command="LANG=C apt-cache policy $Args | sed -n 's/^ *Installed: \(.*\)$/\\1/p'"
+	else
+		Command="echo -en \"SolydXK : $ScriptName $ScriptVersion ($ScriptDate)\nAPT Team: \"; $Apt --version"
+	fi;;
 *)
 	[ "$Cmd" ] && echo -e "$ScriptName: unknown command '$Cmd'\n"
 	echo "$Info"
 	exit
 esac
 
-[ $OptH ] && echo -e "\"$ScriptName $Cmd $Args\" is equivalent to:\n$Command$Comment" || eval "$Command"
+if [ $OptH ]; then
+	Cmd="$Cmd $Args"
+	echo -e "\"$ScriptName ${Cmd% }\" is equivalent to:\n${Command/$Apt/apt}$Comment"
+	Doc=$Usr/share/doc/solydxk-system/$ScriptName/info; [ -f $Doc ] && . $Doc "${Cmd% }"
+else
+	eval "$Command"
+fi

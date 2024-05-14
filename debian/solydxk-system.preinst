@@ -21,8 +21,24 @@ fi
 
 FLE=/usr/bin/apt
 ISDIVERTED=$(LANG=C dpkg-divert --list $FLE)
+# First remove the old style diversion, if it exists...
+if [ -f $FLE.divert ] && [ "$ISDIVERTED" ]; then
+  # Need to move this out of the way or the dpkg-divert --rename will fail.
+  [ -f $FLE ] && mv -f $FLE $FLE.bak
+  dpkg-divert --remove --rename $FLE
+  # At this point, the previously diverted /usr/bin/apt has been restored.
+  # However, since the this package 'owns' a file with the same name, this
+  # will disappear when the older package's files are removed. We need to
+  # fix this in the postinst, but just this once!
+  cp -af $FLE $FLE.restored
+  ISDIVERTED=$(LANG=C dpkg-divert --list $FLE)
+fi
+
 if [ -f $FLE ] && [ ! "$ISDIVERTED" ]; then
-  dpkg-divert --add --rename --divert $FLE.divert $FLE
+  # This *could* be a first install of this package and this is the preinst,
+  # so make sure the target location of the diversion is there...
+  mkdir -p /usr/lib/solydxk
+  dpkg-divert --add --rename --divert /usr/lib/solydxk/apt $FLE
 fi
 
 FLE=/etc/X11/xorg.conf.d/solydxk-synaptics.conf

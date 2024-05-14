@@ -1,0 +1,28 @@
+# /usr/share/doc/solydxk-system/apt/info  1.0.0  2023-12-15
+
+case "$1" in
+
+pass)
+echo -en "
+Pass any argument directly to the default apt executable.
+"
+;;
+
+recommends)
+echo -en "
+Without argument, show a list of all packages that could have been installed as
+recommended package to an installed package but are not. This uses the command
+
+  aptitude search '?broken-reverse-recommends(?installed)'
+
+With a package name as argument, check which packages are recommended for that
+package and whether they are installed or not.
+"
+;;
+
+*)
+echo -en "
+No additional information available.
+"
+
+esac
