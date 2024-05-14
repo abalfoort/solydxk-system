@@ -1,3 +1,15 @@
+solydxk-system (4.4.4) stable; urgency=low
+
+  * solydxk_system.py: use aptitude ?obsolete as an alternative for deborphan
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 02 May 2024 15:31:22 +0200
+
+solydxk-system (4.4.3) stable; urgency=low
+
+  * Updated apt script and info
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 17 Dec 2023 13:09:54 +0100
+
 solydxk-system (4.4.2) stable; urgency=low
 
   * Move /lib to /usr/lib
