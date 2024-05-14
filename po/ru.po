@@ -1,26 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Михаил Ильинский (milinsky) <mail@milinsky.com>, 2023
+# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023
+# Chour L <chv2016@rambler.ru>, 2023
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-13 08:44+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: ChourS <ChourS2008@yandex.ru>\n"
-"Language-Team: \n"
-"Language: ru_RU\n"
+"POT-Creation-Date: 2024-05-05 13:35+0200\n"
+"PO-Revision-Date: 2017-04-24 19:40+0000\n"
+"Last-Translator: Chour L <chv2016@rambler.ru>, 2023\n"
+"Language-Team: Russian (https://app.transifex.com/abalfoort/teams/54212/"
+"ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: usr/lib/solydxk/system/main.py:53
 msgid "Unexpected error"
-msgstr ""
+msgstr "Неожиданная ошибка"
 
 #: usr/lib/solydxk/system/main.py:54
 msgid ""
 "SolydXK System Settings has failed with the following unexpected error. "
 "Please submit a bug report!"
 msgstr ""
+"SolydXK System Settings не удалось выполнить из-за следующей непредвиденной "
+"ошибки. Пожалуйста, отправьте отчет об ошибке!"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:54
 #, python-brace-format
@@ -28,6 +44,10 @@ msgid ""
 "Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
 "Please, select another backup medium before you try again."
 msgstr ""
+"Не удалось создать резервную копию на {backup_dir} (rsync code: "
+"{rsync_code}).\n"
+"Пожалуйста, выберите другой носитель резервной копии, прежде чем повторить "
+"попытку."
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:97
 #, python-brace-format
@@ -36,6 +56,9 @@ msgid ""
 "You need to manually format the device and restore your data from: "
 "{backup_dir}"
 msgstr ""
+"Не удалось отформатировать устройство {device}.\n"
+"Вам необходимо вручную отформатировать устройство и восстановить данные из: "
+"{backup_dir}"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:134
 #, python-brace-format
@@ -43,6 +66,8 @@ msgid ""
 "Could not restore the backup (rsync code: {rsync_code}).\n"
 "You need to manually restore your data from: {backup_dir}"
 msgstr ""
+"Не удалось восстановить резервную копию (rsync code: {rsync_code}).\n"
+"Вам необходимо вручную восстановить данные из: {backup_dir}"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:158
 #, python-brace-format
@@ -50,6 +75,8 @@ msgid ""
 "Error formatting partition {0}:\n"
 "It has no file system type."
 msgstr ""
+"Ошибка форматирования раздела {0}:\n"
+"У него нет типа файловой системы."
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:260
 #: usr/lib/solydxk/system/solydxk_system.py:170
@@ -58,19 +85,22 @@ msgid ""
 "Could not mount {0}\n"
 "Please mount {0} and refresh when done."
 msgstr ""
+"Не удалось смонтировать {0}\n"
+"Пожалуйста, смонтируйте {0} и обновите, когда закончите."
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:263
-#: usr/lib/solydxk/system/solydxk_system.py:2221
+#: usr/lib/solydxk/system/solydxk_system.py:2228
 msgid "Partition passphrase"
-msgstr ""
+msgstr "Пароль раздела"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:264
-#: usr/lib/solydxk/system/solydxk_system.py:2222
-#, fuzzy
+#: usr/lib/solydxk/system/solydxk_system.py:2229
 msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
-msgstr "Изменить парольную фразу зашифрованного раздела"
+msgstr ""
+"Пожалуйста, укажите текущую парольную фразу\n"
+"для зашифрованного раздела"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:319
 #, python-brace-format
@@ -78,77 +108,79 @@ msgid ""
 "Could not change the passphrase for {0}\n"
 "Please, provide the current and new passphrase."
 msgstr ""
+"Не удалось изменить парольную фразу для {0}\n"
+"Пожалуйста, укажите текущую и новую парольную фразу."
 
 #: usr/lib/solydxk/system/solydxk_system.py:132
 msgid "View log"
-msgstr ""
+msgstr "Посмотреть log-журнал"
 
 #: usr/lib/solydxk/system/solydxk_system.py:133
 msgid "Save backports"
-msgstr ""
+msgstr "Сохранить backports"
 
 #: usr/lib/solydxk/system/solydxk_system.py:134
 msgid "Save mirrors"
-msgstr ""
+msgstr "Сохранить mirrors"
 
 #: usr/lib/solydxk/system/solydxk_system.py:135
 msgid "Check mirrors speed"
-msgstr ""
+msgstr "Проверить скорость mirrors"
 
 #: usr/lib/solydxk/system/solydxk_system.py:136
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: usr/lib/solydxk/system/solydxk_system.py:137
 msgid "Hold back"
-msgstr ""
+msgstr "Hold back"
 
 #: usr/lib/solydxk/system/solydxk_system.py:138
 msgid "Repositories"
-msgstr ""
+msgstr "Репозитории"
 
 #: usr/lib/solydxk/system/solydxk_system.py:139
-#, fuzzy
 msgid "Encryption"
-msgstr "Описание"
+msgstr "Шифрование"
 
 #: usr/lib/solydxk/system/solydxk_system.py:140
 msgid "Passphrase (6+ chrs)"
-msgstr ""
+msgstr "Парольная фраза (6+ символов)"
 
 #: usr/lib/solydxk/system/solydxk_system.py:141
 msgid "Encrypt"
-msgstr ""
+msgstr "Шифровать"
 
 #: usr/lib/solydxk/system/solydxk_system.py:142
 msgid "Decrypt"
-msgstr ""
+msgstr "Расшифровать"
 
 #: usr/lib/solydxk/system/solydxk_system.py:143
 msgid "Change passphrase"
-msgstr ""
+msgstr "Изменить парольную фразу"
 
 #: usr/lib/solydxk/system/solydxk_system.py:144
 msgid "Manually create key file"
-msgstr ""
+msgstr "Создать файл ключа вручную"
 
 #: usr/lib/solydxk/system/solydxk_system.py:145
 msgid "Localization"
-msgstr ""
+msgstr "Локализация"
 
 #: usr/lib/solydxk/system/solydxk_system.py:146
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #: usr/lib/solydxk/system/solydxk_system.py:147
 #: usr/lib/solydxk/system/solydxk_system.py:166
 msgid "Locale"
-msgstr ""
+msgstr "Локаль"
 
 #: usr/lib/solydxk/system/solydxk_system.py:148
 msgid ""
 "Enable encryption: this will temporarily mount any not mounted partition."
 msgstr ""
+"Включить шифрование: это временно смонтирует любой несмонтированный раздел."
 
 #: usr/lib/solydxk/system/solydxk_system.py:149
 msgid ""
@@ -156,12 +188,18 @@ msgid ""
 "Warning: backup your data before you continue!\n"
 "Note: you can Ctrl-left click to select multiple partitions."
 msgstr ""
+"Зашифруйте разделы и сохраните свои данные в безопасности.\n"
+"Внимание: сделайте резервную копию данных, прежде чем продолжить!\n"
+"Примечание: вы можете щелкнуть Ctrl-left для выбора нескольких разделов."
 
 #: usr/lib/solydxk/system/solydxk_system.py:152
 msgid ""
 "Configure your locales (one as default) and time zone.\n"
 "Note: make sure you have an internet connection to localize your software."
 msgstr ""
+"Настройте свои региональные стандарты (один по умолчанию) и часовой пояс.\n"
+"Примечание. Убедитесь, что у вас есть подключение к Интернету для "
+"локализации вашего программного обеспечения."
 
 #: usr/lib/solydxk/system/solydxk_system.py:154
 msgid ""
@@ -170,54 +208,63 @@ msgid ""
 "your system.\n"
 "Use at your own risk!"
 msgstr ""
+"Включите репозиторий Backports, если вам нужна более новая версия "
+"программного обеспечения.\n"
+"Внимание: установка программного обеспечения из репозитория backports может "
+"дестабилизировать вашу систему.\n"
+"Используйте на свой риск!"
 
 #: usr/lib/solydxk/system/solydxk_system.py:157
 msgid ""
 "Select the fastest repository for your updates.\n"
 "Note: make sure you have an internet connection."
 msgstr ""
+"Выберите самый быстрый репозиторий для ваших обновлений.\n"
+"Примечание: убедитесь, что у вас есть подключение к Интернету."
 
 #: usr/lib/solydxk/system/solydxk_system.py:159
 msgid "Hold back packages"
-msgstr ""
+msgstr "Hold back пакеты"
 
 #: usr/lib/solydxk/system/solydxk_system.py:160
 msgid "Held back packages"
-msgstr ""
+msgstr "Held back пакеты"
 
 #: usr/lib/solydxk/system/solydxk_system.py:161
 msgid "Available packages"
-msgstr ""
+msgstr "Доступные пакеты"
 
 #: usr/lib/solydxk/system/solydxk_system.py:162
 msgid ""
 "Hold back individual packages.\n"
 "Holding back a package will prevent this package from being updated."
 msgstr ""
+"Hold back индивидуальные пакеты.\n"
+"Holding back пакет предотвратит обновление этого пакета."
 
 #: usr/lib/solydxk/system/solydxk_system.py:164
 msgid "Save locale"
-msgstr ""
+msgstr "Сохранить локаль"
 
 #: usr/lib/solydxk/system/solydxk_system.py:165
 msgid "Installed"
-msgstr ""
+msgstr "Установлен"
 
 #: usr/lib/solydxk/system/solydxk_system.py:167
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: usr/lib/solydxk/system/solydxk_system.py:168
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 #: usr/lib/solydxk/system/solydxk_system.py:169
 msgid "Please provide a passphrase (6+ characters)."
-msgstr ""
+msgstr "Укажите парольную фразу (6+ символов)."
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Cleanup"
-msgstr ""
+msgstr "Очистка"
 
 #: usr/lib/solydxk/system/solydxk_system.py:172
 msgid ""
@@ -225,123 +272,134 @@ msgid ""
 "Pre-selected packages are safe to remove (autoremove).\n"
 "Other packages: remove with caution!"
 msgstr ""
+"Удалить ненужные пакеты\n"
+"Pre-selected пакеты можно безопасно удалить (autoremove).\n"
+"Другие пакеты: удалять осторожно!"
 
 #: usr/lib/solydxk/system/solydxk_system.py:175
 msgid "Unneeded packages"
-msgstr ""
+msgstr "Ненужные пакеты"
 
 #: usr/lib/solydxk/system/solydxk_system.py:176
 #: usr/lib/solydxk/system/solydxk_system.py:177
 msgid "Fstab mounts"
-msgstr ""
+msgstr "Fstab монтирования"
 
 #: usr/lib/solydxk/system/solydxk_system.py:178
 msgid ""
 "Mount additional partitions on boot with Fstab.\n"
 "When added to Fstab, the partition will be mounted in /media."
 msgstr ""
+"Монтируйте дополнительные разделы при загрузке с помощью Fstab.\n"
+"При добавлении в Fstab раздел будет смонтирован в /media."
 
 #: usr/lib/solydxk/system/solydxk_system.py:180
 msgid "Save Fstab mounts"
-msgstr ""
+msgstr "Сохранить монтирования Fstab"
 
 #: usr/lib/solydxk/system/solydxk_system.py:181
 msgid "Save drivers"
-msgstr ""
+msgstr "Сохранить драйвера"
 
 #: usr/lib/solydxk/system/solydxk_system.py:182
 msgid "Use Backports"
-msgstr ""
+msgstr "Использовать Backports"
 
 #: usr/lib/solydxk/system/solydxk_system.py:183
 msgid "Device Driver"
-msgstr ""
+msgstr "Драйвер устройства"
 
 #: usr/lib/solydxk/system/solydxk_system.py:184
 msgid ""
 "Install drivers for supported hardware.\n"
 "Note: this will install the open drivers, NOT the proprietary drivers."
 msgstr ""
+"Установите драйвера для поддерживаемого оборудования.\n"
+"Примечание. При этом будут установлены открытые, а НЕ проприетарные драйвера."
 
 #: usr/lib/solydxk/system/solydxk_system.py:186
 msgid "Boot splash"
-msgstr ""
+msgstr "Boot splash"
 
 #: usr/lib/solydxk/system/solydxk_system.py:187
 msgid "Select a theme for Plymouth and Grub."
-msgstr ""
+msgstr "Выберите тему для Plymouth и Grub."
 
 #: usr/lib/solydxk/system/solydxk_system.py:188
 msgid "Plymouth themes"
-msgstr ""
+msgstr "Темы Plymouth"
 
 #: usr/lib/solydxk/system/solydxk_system.py:189
 msgid "Grub themes"
-msgstr ""
+msgstr "Темы Grub"
 
 #: usr/lib/solydxk/system/solydxk_system.py:190
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: usr/lib/solydxk/system/solydxk_system.py:191
 msgid "Resolution"
-msgstr ""
+msgstr "Разрешение"
 
 #: usr/lib/solydxk/system/solydxk_system.py:232
 #: usr/lib/solydxk/system/solydxk_system.py:404
-#, fuzzy
 msgid "Partition"
-msgstr "Описание"
+msgstr "Раздел"
 
 #: usr/lib/solydxk/system/solydxk_system.py:232
 #: usr/lib/solydxk/system/solydxk_system.py:404
 msgid "Label"
-msgstr ""
+msgstr "Метка"
 
 #: usr/lib/solydxk/system/solydxk_system.py:232
 msgid "File system"
-msgstr ""
+msgstr "Файловая система"
 
 #: usr/lib/solydxk/system/solydxk_system.py:233
 msgid "Total size"
-msgstr ""
+msgstr "Общий размер"
 
 #: usr/lib/solydxk/system/solydxk_system.py:233
 msgid "Free size"
-msgstr ""
+msgstr "Свободно"
 
 #: usr/lib/solydxk/system/solydxk_system.py:233
 msgid "Mount point"
-msgstr ""
+msgstr "Точка монтирования"
 
 #: usr/lib/solydxk/system/solydxk_system.py:404
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: usr/lib/solydxk/system/solydxk_system.py:510
 #, python-brace-format
 msgid "Could not add {device} to {fstab_path}: missing fs type."
-msgstr ""
+msgstr "Не удалось добавить {device} в {fstab_path}: отсутствует тип fs."
 
 #: usr/lib/solydxk/system/solydxk_system.py:567
 msgid ""
 "Changes were made to fstab.\n"
 "Please reboot your computer for these changes to take effect."
 msgstr ""
+"Изменения были внесены в fstab.\n"
+"Пожалуйста, перезагрузите компьютер, чтобы эти изменения вступили в силу."
 
 #: usr/lib/solydxk/system/solydxk_system.py:571
 msgid "No changes were made to fstab."
-msgstr ""
+msgstr "Никаких изменений в fstab не вносилось."
 
 #: usr/lib/solydxk/system/solydxk_system.py:639
 msgid "No internet connection"
-msgstr ""
+msgstr "Нет соединения с интернетом"
 
 #: usr/lib/solydxk/system/solydxk_system.py:640
 msgid ""
 "You need an internet connection to install the additional software.\n"
 "Please, connect to the internet and try again."
 msgstr ""
+"Для установки дополнительного программного обеспечения необходимо "
+"подключение к Интернету.\n"
+"Пожалуйста, подключитесь к Интернету и повторите попытку."
 
 #: usr/lib/solydxk/system/solydxk_system.py:647
 msgid ""
@@ -354,29 +412,37 @@ msgid ""
 "\n"
 "Are you sure you want to continue?"
 msgstr ""
+"Вы выбрали установку драйверов из репозитория backports, всякий раз когда "
+"они доступны.\n"
+"\n"
+"Хотя вы можете запустить более современное программное обеспечение, \n"
+"используя репозиторий backports, вы при этом увеличиваете риск поломки.\n"
+"\n"
+"Вы уверены что хотите продолжить?"
 
 #: usr/lib/solydxk/system/solydxk_system.py:683
 msgid "Remove kernel"
-msgstr ""
+msgstr "Удалить ядро"
 
 #: usr/lib/solydxk/system/solydxk_system.py:684
 msgid ""
 "You cannot remove a booted kernel.\n"
 "Please, boot another kernel and try again."
 msgstr ""
+"Вы не можете удалить загруженное ядро.\n"
+"Пожалуйста, загрузите другое ядро ​​и повторите попытку."
 
 #: usr/lib/solydxk/system/solydxk_system.py:712
 msgid "Install"
-msgstr ""
+msgstr "Установить"
 
 #: usr/lib/solydxk/system/solydxk_system.py:712
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 #: usr/lib/solydxk/system/solydxk_system.py:792
-#, fuzzy
 msgid "Encrypted partition"
-msgstr "Расшифровать раздел"
+msgstr "Зашифрованный раздел"
 
 #: usr/lib/solydxk/system/solydxk_system.py:793
 #, python-brace-format
@@ -386,16 +452,22 @@ msgid ""
 "\n"
 "Do you want to continue?"
 msgstr ""
+"Раздел {device} уже зашифрован.\n"
+"Продолжение приведет к изменению ключа шифрования этого раздела.\n"
+"\n"
+"Вы хотите продолжить?"
 
 #: usr/lib/solydxk/system/solydxk_system.py:814
 msgid ""
 "The partition is not encrypted.\n"
 "Please choose another partition to decrypt."
 msgstr ""
+"Раздел не зашифрован.\n"
+"Пожалуйста, выберите другой раздел для расшифровки."
 
 #: usr/lib/solydxk/system/solydxk_system.py:869
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr ""
+msgstr "Не удалось установить cryptsetup/cryptsetup-initramfs."
 
 #: usr/lib/solydxk/system/solydxk_system.py:887
 #, python-brace-format
@@ -403,10 +475,12 @@ msgid ""
 "{device} is not encrypted.\n"
 "Please choose an encrypted partition."
 msgstr ""
+"{device} не зашифрован.\n"
+"Пожалуйста, выберите зашифрованный раздел."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1039
 msgid "Backup"
-msgstr ""
+msgstr "Backup"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1076
 #, python-brace-format
@@ -414,12 +488,16 @@ msgid ""
 "You need a backup partition with at least {size} free.\n"
 "Mount a backup drive and hit the refresh button."
 msgstr ""
+"Вам нужен резервный раздел, в котором свободно не менее {size}.\n"
+"Подключите резервный диск и нажмите кнопку обновления."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1465
 msgid ""
 "Firefox and/or Thunderbird are running.\n"
 "Please close these applications before you continue."
 msgstr ""
+"Firefox и/или Thunderbird работают.\n"
+"Пожалуйста, закройте эти приложения, прежде чем продолжить."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1488
 #, python-brace-format
@@ -427,6 +505,9 @@ msgid ""
 "{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
+"{title} невозможно загрузить и установить пакеты локализации программного "
+"обеспечения\n"
+"Повторите этот процесс после установки подключения к Интернету."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1649
 #: usr/lib/solydxk/system/solydxk_system.py:1738
@@ -434,133 +515,140 @@ msgid ""
 "Could not update the apt cache.\n"
 "Please update the apt cache manually with: apt-get update"
 msgstr ""
+"Не удалось обновить кэш apt.\n"
+"Пожалуйста, обновите кеш apt вручную с помощью: apt-get update"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1653
 msgid "Nothing to do."
-msgstr ""
+msgstr "Нечего делать."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1745
 msgid "There are no repositories to save."
-msgstr ""
+msgstr "Нет репозиториев для сохранения."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1751
 msgid "Current"
-msgstr ""
+msgstr "Текущий"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1751
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1751
 msgid "Repository"
-msgstr ""
+msgstr "Репозиторий"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1751
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2140
+#: usr/lib/solydxk/system/solydxk_system.py:2147
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr ""
+"Вам необходимо перезагрузить систему, чтобы новые настройки вступили в силу."
 
-#: usr/lib/solydxk/system/solydxk_system.py:2141
+#: usr/lib/solydxk/system/solydxk_system.py:2148
 msgid "Reboot"
-msgstr ""
+msgstr "Перезагрузить"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2152
+#: usr/lib/solydxk/system/solydxk_system.py:2159
 msgid "Encryption done"
-msgstr ""
+msgstr "Шифрование выполнено"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2153
+#: usr/lib/solydxk/system/solydxk_system.py:2160
 msgid ""
 "Encryption has finished.\n"
 "\n"
 "Do you want to restart your computer?"
 msgstr ""
+"Шифрование завершено.\n"
+"\n"
+"Вы хотите перезагрузить компьютер?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2156
-#, fuzzy
+#: usr/lib/solydxk/system/solydxk_system.py:2163
 msgid "Decryption done"
-msgstr "Описание"
+msgstr "Расшифровка завершена"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2157
+#: usr/lib/solydxk/system/solydxk_system.py:2164
 msgid ""
 "Decryption has finished.\n"
 "\n"
 "Do you want to restart your computer?"
 msgstr ""
+"Расшифровка завершена.\n"
+"\n"
+"Вы хотите перезагрузить компьютер?"
 
-#: usr/lib/solydxk/system/solydxk_system.py:2170
+#: usr/lib/solydxk/system/solydxk_system.py:2177
 #, python-brace-format
 msgid "Passphrase changed for {devices}."
-msgstr ""
+msgstr "Парольная фраза для {devices} изменена."
 
 #: usr/bin/iso-usb:79
 #, sh-format
 msgid "ISO to USB"
-msgstr ""
+msgstr "ISO на USB"
 
 #: usr/bin/iso-usb:80
 #, sh-format
 msgid "Full path to ISO file"
-msgstr ""
+msgstr "Полный путь к файлу ISO"
 
 #: usr/bin/iso-usb:81
 #, sh-format
 msgid "Confirm USB device"
-msgstr ""
+msgstr "Подтвердите USB-устройство"
 
 #: usr/bin/iso-usb:82
 #, sh-format
 msgid "This will destroy all data on:"
-msgstr ""
+msgstr "Это приведет к уничтожению всех данных на:"
 
 #: usr/bin/iso-usb:83
 #, sh-format
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Вы уверены, что хотите продолжить?"
 
 #: usr/bin/iso-usb:84
-#, fuzzy, sh-format
+#, sh-format
 msgid "No USB pen drive found."
-msgstr "Зашифровать USB-накопитель"
+msgstr "USB-накопитель не найден."
 
 #: usr/bin/iso-usb:85
 #, sh-format
 msgid "No ISO path provided."
-msgstr ""
+msgstr "Путь к ISO не указан."
 
 #: usr/share/applications/solydxk-system.desktop.in.h:1
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-#, fuzzy
 msgid "SolydXK System Settings"
-msgstr "SolydXK System Settings Шифрование Помощь"
+msgstr "SolydXK System Settings"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
 msgid "Change system settings for SolydXK"
-msgstr ""
+msgstr "Изменить настройки системы для SolydXK"
 
 #: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
 msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr ""
+msgstr "Зашифруйте или дешифруйте это USB-устройство с помощью SolydXK System."
 
 #: usr/share/kservices5/settings-system-admin.desktop.in.h:1
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
-msgstr ""
+msgstr "Ограничить размер файла xsession-errors"
 
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:2
 msgid "Xsession Errors Log Control"
-msgstr ""
+msgstr "Xsession Errors Log Control"
 
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
 msgid "Run LuckyBackup as super user"
-msgstr "Запустите LuckyBackup от имени суперпользователя."
+msgstr "Запустите LuckyBackup от имени суперпользователя"
 
 #. (itstool) path: action/message
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:9
@@ -573,9 +661,8 @@ msgid "Authentication is required to run SolydXK System Settings"
 msgstr "Для запуска SolydXK System Settings необходима аутентификация"
 
 #: po/en/helpdd.html%2Bhtml.body.h1:8-2
-#, fuzzy
 msgid "SolydXK System Settings: Device Driver Help"
-msgstr "SolydXK System Settings Шифрование Помощь"
+msgstr "SolydXK System Settings: Устройство Драйвер Помощь"
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:10-3
 msgid "Description"
@@ -589,6 +676,12 @@ msgid ""
 "Driver will only list those devices that are supported. It will not list any "
 "other devices then mentioned above."
 msgstr ""
+"Драйвер устройства — это инструмент, помогающий пользователям устанавливать "
+"драйвера оборудования сторонних производителей. В настоящее время доступны "
+"драйвера Nvidia, AMD/ATI и Broadcom, которые позволяют установить ядро ​​PAE "
+"для многоядерных 32-битных систем. В драйвере устройства будут перечислены "
+"только те устройства, которые поддерживаются. В нем не будут перечислены "
+"другие устройства, упомянутые выше."
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:13-3
 msgid "Important"
@@ -600,16 +693,21 @@ msgid ""
 "repositories. Make sure you have an internet connection if you want to "
 "install the drivers."
 msgstr ""
+"Драйвер устройства может устанавливать только те драйвера, которые доступны "
+"в репозиториях. Убедитесь, что у вас есть подключение к Интернету, если вы "
+"хотите установить драйвера."
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:16-3
 msgid "Commands"
-msgstr ""
+msgstr "Команды"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:17-3
 msgid ""
 "If you prefer to install the drivers by terminal, you can use the following "
 "commands:"
 msgstr ""
+"Если вы предпочитаете устанавливать драйвера через терминал, вы можете "
+"использовать следующие команды:"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
@@ -618,6 +716,10 @@ msgid ""
 "1000 and 5000 will use the Radeon drivers. Use \"ddm -p amd\" to remove the "
 "drivers from your system."
 msgstr ""
+"При этом будут установлены драйвера для вашей графической карты AMD/ATI. "
+"Карты AMD/ATI версии HD 5000 и выше поддерживаются драйверами. Версии между "
+"1000 и 5000 будут использовать драйвера Radeon. Используйте «ddm -p amd», "
+"чтобы удалить драйвера из вашей системы."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
@@ -625,18 +727,27 @@ msgid ""
 "select the Bumblebee drivers in case you have a hybrid card (both Nvidia and "
 "Intel). Use \"ddm -p nvidia\" to remove the drivers from your system."
 msgstr ""
+"Это позволит выбрать правильные драйвера для вашей графической карты Nvidia. "
+"Будутвыбраны драйвера Bumblebee, если у вас гибридная карта (как Nvidia, так "
+"и Intel). Используйте «ddm -p nvidia», чтобы удалить драйвера из вашей "
+"системы."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
 "drivers. It will remove any proprietary drivers from your system."
 msgstr ""
+"Вы можете использовать эту команду, если хотите вернуться к открытым "
+"драйверам Nouveau. Это удалит все проприетарные драйвера из вашей системы."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
 "adapter. Use \"ddm -p broadcom\" to remove the drivers from your system."
 msgstr ""
+"Эта команда установит правильный драйвер для вашего беспроводного адаптера "
+"Broadcom. Используйте «ddm -p Broadcom», чтобы удалить драйвера из вашей "
+"системы."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -644,10 +755,14 @@ msgid ""
 "OS. Use \"ddm -p pae\" to remove the PAE kernel from your system. Note that "
 "you cannot remove the kernel when you are currently booted into that kernel."
 msgstr ""
+"Это позволит установить ядро ​​PAE на многопроцессорных системах под "
+"управлением 32-битной ОС. Используйте «ddm -p pae», чтобы удалить ядро ​​PAE "
+"из вашей системы. Обратите внимание, что вы не можете удалить ядро, "
+"загруженное в данный момент ."
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
-msgstr ""
+msgstr "Ведение журнала"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:38-3
 msgid ""
@@ -655,6 +770,9 @@ msgid ""
 "href=\"https://forums.solydxk.com\" target=\"_blank\">https://forums.solydxk."
 "com</a>"
 msgstr ""
+"Пожалуйста, прикрепите файл журнала, когда вы публикуете проблему на нашем "
+"форуме: <a href=\"https://forums.solydxk.com\" target=\"_blank\">https://"
+"forums.solydxk.com</a>"
 
 #: po/en/help.html%2Bhtml.body.h1:8-2
 msgid "SolydXK System Settings Encryption Help"
@@ -670,7 +788,7 @@ msgid ""
 "partition you are going to encrypt or decrypt. Mount a partition or external "
 "drive for this purpose before you start."
 msgstr ""
-"SolydXK System Settings создадут и восстановят резервную копию данных "
+"SolydXK System Settings создаст и восстановит резервную копию данных "
 "раздела, который вы собираетесь зашифровать или расшифровать. Для этого "
 "перед началом работы смонтируйте раздел или внешний диск."
 
@@ -685,9 +803,9 @@ msgstr ""
 "Вы не можете зашифровать загруженный корневой или домашний раздел с помощью "
 "SolydXK System Settings. Если вы хотите это сделать, вы можете загрузить "
 "последнюю версию ISO с нашего основного сайта и запустить SolydXK System "
-"Settings в режиме реального времени. Обратите внимание, что вам нужен "
-"незашифрованный загрузочный раздел, если вы хотите зашифровать корневой "
-"раздел, и что Grub2 будет установлен на диск, где находится корневой раздел."
+"Settings в live-режиме. Обратите внимание, что вам нужен незашифрованный "
+"загрузочный раздел, если вы хотите зашифровать корневой раздел, и что Grub2 "
+"будет установлен на диск, где находится корневой раздел."
 
 #: po/en/help.html%2Bhtml.body.div.p:16-3
 msgid ""
@@ -717,9 +835,9 @@ msgstr ""
 "Когда вы запустите SolydXK System Settings, вы увидите список разделов, "
 "которые вы можете зашифровать или расшифровать. Зашифрованному разделу "
 "соответствует этот значок: <img src=\"/usr/share/solydxk/system/icons/"
-"encrypted.png\" />, и незашифрованному разделу - этот значок: <img src=\"/"
+"encrypted.png\" />, а незашифрованному разделу - этот значок: <img src=\"/"
 "usr/share/solydxk/system/icons/unencrypted.png\" />. От вашего выбора будет "
-"зависеть, какие действия можно предпринять с этим разделом. На съемных "
+"зависеть, какие действия могут быть предприняты с этим разделом. На съемных "
 "носителях будут отображаться следующие значки: <img src=\"/usr/share/solydxk/"
 "system/icons/unencrypted-usb.png\" /> и <img src=\"/usr/share/solydxk/system/"
 "icons/encrypted-usb.png\" />."
@@ -763,9 +881,9 @@ msgid ""
 "dev/sda2. Change the partition paths accordingly to your situation."
 msgstr ""
 "Вам понадобится незашифрованный раздел /boot. Если у вас нет раздела /boot, "
-"вот как его создать. В реальном сеансе вы запускаете GParted и создаете "
-"раздел размером не менее 200 МБ свободного места. Этот раздел можно создать "
-"из существующего нераспределенного пространства или путем сжатия другого "
+"вот как его создать. В live сессии вы запускаете GParted и создаете раздел "
+"размером не менее 200 МБ свободного места. Этот раздел можно создать из "
+"существующего нераспределенного пространства или путем сжатия другого "
 "раздела и использования вновь созданного свободного пространства. В этом "
 "примере я создал новый раздел: /dev/sda1, который хочу смонтировать как /"
 "boot в корневой раздел /dev/sda2. Измените пути к разделам в соответствии с "
@@ -805,7 +923,6 @@ msgstr ""
 "Выберите зашифрованный раздел из списка, дважды введите парольную фразу и "
 "нажмите кнопку «Изменить парольную фразу»."
 
-# выбора или открытия(расшифровки)??
 #: po/en/help.html%2Bhtml.body.div.h3:41-3
 msgid "Create a key file for a selection of encrypted partitions"
 msgstr "Создайте файл ключа для выбора зашифрованных разделов"
@@ -826,8 +943,6 @@ msgstr ""
 msgid "Decrypt a partition"
 msgstr "Расшифровать раздел"
 
-# Вариант
-# Вам будет предложено предоставить другой носитель резервной копии, если для продолжения недостаточно свободного места.
 #: po/en/help.html%2Bhtml.body.div.p:45-3
 msgid ""
 "Select an encrypted partition from the list, fill in your passphrase twice "
@@ -837,7 +952,7 @@ msgid ""
 "cannot find enough free space to continue."
 msgstr ""
 "Выберите зашифрованный раздел из списка, дважды введите парольную фразу и "
-"нажмите кнопку «Расшифровать». SolydXK System Settings выполнит поиск "
+"нажмите кнопку «Расшифровать». Системные настройки SolydXK выполнят поиск "
 "раздела с достаточным количеством свободного места для создания временной "
 "резервной копии раздела, который вы хотите расшифровать. Вам будет "
 "предложено предоставить носитель резервной копии, если на нем не найдется "
