@@ -1,3 +1,27 @@
+solydxk-system (4.4.9) stable; urgency=low
+
+  * Updated to Frank's script
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 07 Feb 2025 10:32:28 +0100
+
+solydxk-system (4.4.8) stable; urgency=low
+
+  * Edit all sources.list files with: apt (edit-)sources
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 05 Feb 2025 13:38:07 +0100
+
+solydxk-system (4.4.7) stable; urgency=low
+
+  * Add modernize-sources to apt
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 04 Feb 2025 16:05:24 +0100
+
+solydxk-system (4.4.6) stable; urgency=low
+
+  * Fix SyntaxWarning: invalid escape sequence \s
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 07 Sep 2024 15:53:58 +0200
+
 solydxk-system (4.4.5) stable; urgency=low
 
   * Updated apt mirror list
