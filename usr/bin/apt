@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ScriptName=apt
-ScriptVersion=2.11.0
-ScriptDate=2023-12-15
+ScriptVersion=2.12.1
+ScriptDate=2025-02-07
 
-# Copyright:  2011-2023 Frank & Arjen @ SolydXK
+# Copyright:  2011-2025 Frank & Arjen @ SolydXK
 # Licence:    EUPL 1.2 (GPL 2 compatible)
 #             https://joinup.ec.europa.eu/collection/eupl/introduction-eupl-licence
 # Disclaimer: Use entirely at your own risk.
@@ -45,6 +45,8 @@ install         Install or upgrade packages
 installed       List installed packages - all if no names are specified
 list            List available packages - all if no names are specified
 listrepo        List installed packages from given repository
+modernize       Modernize the available sources list(s) (apt 2.9.26 and later)
+pass            Pass any argument directly to the default apt executable
 policy          Show policy settings for packages
 purge           Remove packages and their configuration files
 rdepends        Show reverse dependency information for packages
@@ -226,10 +228,14 @@ dl|do|download)
 	[ "$(dpkg --print-architecture)" == "amd64" ] && F=i386 || F=amd64
 	Command="LANG=C apt-cache depends $Args | sed -r '/.+:'$F'|Breaks:|Conflicts:|Enhances:|Provides:|Replaces:|Suggests:.+/d; s/^ .+ (.+)$/\\1/; s/[<>]//g' | xargs apt-get --install-recommends download ";;
 edit-sources|sources)
-	Command="$Sudo$Apt edit-sources";;
+	for F in $(find /etc/apt -type f | grep 'sources.list'); do
+		[ ${F: -3} == 'bak' ] || Command+="${Sudo}editor $F;"
+	done
+	[ "$Command" ] && Command+="${Sudo}$Apt update"
+	;;
 fe|fetch|get)
 	if [ $OptU ]; then
-		Comment="\nThe 'Fetch' command is a bash function defined in this script."
+		Comment="\nThe 'Fetch' command with -u is a bash function defined in this script."
 		Command="Fetch $Args"
 	else
 		Command="apt-get download $Args"
@@ -246,7 +252,10 @@ list)
 	Command="$Apt list $Args";;
 listrepo)
 	Command="aptitude search \"?narrow(~i, ~A$Args)\"";;
+modernize|modernize-sources)
+	Command="$Apt modernize-sources $Args";;
 pass)
+	Comment="\nUse this for apt commands that have not (yet) been added to this script."
 	Command="$Apt $Args";;
 po|policy)
 	Command="apt-cache policy $Args";;
@@ -285,7 +294,7 @@ ve|version)
 		Command="echo -en \"SolydXK : $ScriptName $ScriptVersion ($ScriptDate)\nAPT Team: \"; $Apt --version"
 	fi;;
 *)
-	[ "$Cmd" ] && echo -e "$ScriptName: unknown command '$Cmd'\n"
+	[ "$Cmd" ] && echo -e "$ScriptName: unknown command '$Cmd' - apt pass $Cmd may work\n"
 	echo "$Info"
 	exit
 esac
