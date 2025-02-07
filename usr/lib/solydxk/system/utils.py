@@ -275,10 +275,10 @@ def get_resolutions(min_res='', max_res='', reverse_order=False, use_vesa=False)
             resolutions = getoutput(f"cat {vbe_modes} | cut -d'-' -f1", 5)
         elif is_package_installed('hwinfo'):
             resolutions = getoutput(
-                "hwinfo --framebuffer | awk '/[0-9]+x[0-9]+\s/{print $3}'", 5)
+                r"hwinfo --framebuffer | awk '/[0-9]+x[0-9]+\s/{print $3}'", 5)
     else:
         resolutions = getoutput(
-            "xrandr 2>/dev/null | awk '/[0-9]+x[0-9]+\s/{print $1}'", 5)
+            r"xrandr 2>/dev/null | awk '/[0-9]+x[0-9]+\s/{print $1}'", 5)
 
     if not resolutions[0]:
         # Add current resolution and set that as maximum
