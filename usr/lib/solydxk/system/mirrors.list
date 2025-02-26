@@ -1,52 +1,52 @@
 Netherlands [main],SolydXK,https://repository.solydxk.com/
-Germany,SolydXK,mirror.netcologne.de/solydxk/
-Hungary,SolydXK,quantum-mirror.hu/mirrors/pub/solydxk/repository/
-Netherlands,SolydXK,ftp.nluug.nl/os/Linux/distr/solydxk/repository/
-Philippines,SolydXK,mirror.rise.ph/solydxk/repository/
-South Africa,SolydXK,solydxk.mirror.ac.za/repository/
-Sweden,SolydXK,ftp.acc.umu.se/mirror/solydxk.com/repository/
-Sweden,SolydXK,ftpmirror.infania.net/mirror/solydxk/repository/
-United Kingdom,SolydXK,mirrorservice.org/sites/repository.solydxk.com/
-United States,SolydXK,files.elixirhosting.com/pub/os/linux/solydxk/repository/
-World,Debian,deb.debian.org/debian/
-Armenia,Debian,ftp.am.debian.org/debian/
-Australia,Debian,ftp.au.debian.org/debian/
-Austria,Debian,ftp.at.debian.org/debian/
-Belarus,Debian,ftp.by.debian.org/debian/
-Belgium,Debian,ftp.be.debian.org/debian/
-Brazil,Debian,ftp.br.debian.org/debian/
-Canada,Debian,ftp.ca.debian.org/debian/
-Chile,Debian,ftp.cl.debian.org/debian/
-China,Debian,ftp.cn.debian.org/debian/
-Croatia,Debian,ftp.hr.debian.org/debian/
-Czech Republic,Debian,ftp.cz.debian.org/debian/
-Denmark,Debian,ftp.dk.debian.org/debian/
-El Salvador,Debian,ftp.sv.debian.org/debian/
-Estonia,Debian,ftp.ee.debian.org/debian/
-Finland,Debian,ftp.fi.debian.org/debian/
-France,Debian,ftp.fr.debian.org/debian/
-Germany,Debian,ftp.de.debian.org/debian/
-Hong Kong,Debian,ftp.hk.debian.org/debian/
-Hungary,Debian,ftp.hu.debian.org/debian/
-Iceland,Debian,ftp.is.debian.org/debian/
-Italy,Debian,ftp.it.debian.org/debian/
-Japan,Debian,ftp.jp.debian.org/debian/
-Korea,Debian,ftp.kr.debian.org/debian/
-Lithuania,Debian,ftp.lt.debian.org/debian/
-Moldova,Debian,ftp.md.debian.org/debian/
-Netherlands,Debian,ftp.nl.debian.org/debian/
-New Caledonia,Debian,ftp.nc.debian.org/debian/
-New Zealand,Debian,ftp.nz.debian.org/debian/
-Norway,Debian,ftp.no.debian.org/debian/
-Poland,Debian,ftp.pl.debian.org/debian/
-Portugal,Debian,ftp.pt.debian.org/debian/
-Russia,Debian,ftp.ru.debian.org/debian/
-Slovakia,Debian,ftp.sk.debian.org/debian/
-Slovenia,Debian,ftp.si.debian.org/debian/
-Spain,Debian,ftp.es.debian.org/debian/
-Sweden,Debian,ftp.se.debian.org/debian/
-Switzerland,Debian,ftp.ch.debian.org/debian/
-Taiwan,Debian,ftp.tw.debian.org/debian/
-Turkey,Debian,ftp.tr.debian.org/debian/
-United Kingdom,Debian,ftp.uk.debian.org/debian/
-United States,Debian,ftp.us.debian.org/debian/
+Germany,SolydXK,https://mirror.netcologne.de/solydxk/
+Hungary,SolydXK,https://quantum-mirror.hu/mirrors/pub/solydxk/repository/
+Netherlands,SolydXK,https://ftp.nluug.nl/os/Linux/distr/solydxk/repository/
+Philippines,SolydXK,http://mirror.rise.ph/solydxk/repository/
+South Africa,SolydXK,https://solydxk.mirror.ac.za/repository/
+Sweden,SolydXK,https://mirror.accum.se/mirror/solydxk.com/repository/
+Sweden,SolydXK,https://ftpmirror.infania.net/mirror/solydxk/repository/
+United Kingdom,SolydXK,https://mirrorservice.org/sites/repository.solydxk.com/
+United States,SolydXK,http://files.elixirhosting.com/pub/os/linux/solydxk/repository/
+World,Debian,https://deb.debian.org/debian/
+Armenia,Debian,http://ftp.am.debian.org/debian/
+Australia,Debian,http://ftp.au.debian.org/debian/
+Austria,Debian,http://ftp.at.debian.org/debian/
+Belarus,Debian,http://ftp.by.debian.org/debian/
+Belgium,Debian,http://ftp.be.debian.org/debian/
+Brazil,Debian,http://ftp.br.debian.org/debian/
+Canada,Debian,http://ftp.ca.debian.org/debian/
+Chile,Debian,http://ftp.cl.debian.org/debian/
+China,Debian,http://ftp.cn.debian.org/debian/
+Croatia,Debian,http://ftp.hr.debian.org/debian/
+Czech Republic,Debian,http://ftp.cz.debian.org/debian/
+Denmark,Debian,http://ftp.dk.debian.org/debian/
+El Salvador,Debian,http://ftp.sv.debian.org/debian/
+Estonia,Debian,http://ftp.ee.debian.org/debian/
+Finland,Debian,http://ftp.fi.debian.org/debian/
+France,Debian,http://ftp.fr.debian.org/debian/
+Germany,Debian,http://ftp.de.debian.org/debian/
+Hong Kong,Debian,http://ftp.hk.debian.org/debian/
+Hungary,Debian,http://ftp.hu.debian.org/debian/
+Iceland,Debian,http://ftp.is.debian.org/debian/
+Italy,Debian,http://ftp.it.debian.org/debian/
+Japan,Debian,http://ftp.jp.debian.org/debian/
+Korea,Debian,http://ftp.kr.debian.org/debian/
+Lithuania,Debian,http://ftp.lt.debian.org/debian/
+Moldova,Debian,http://ftp.md.debian.org/debian/
+Netherlands,Debian,http://ftp.nl.debian.org/debian/
+New Caledonia,Debian,http://ftp.nc.debian.org/debian/
+New Zealand,Debian,http://ftp.nz.debian.org/debian/
+Norway,Debian,http://ftp.no.debian.org/debian/
+Poland,Debian,http://ftp.pl.debian.org/debian/
+Portugal,Debian,http://ftp.pt.debian.org/debian/
+Russia,Debian,http://ftp.ru.debian.org/debian/
+Slovakia,Debian,http://ftp.sk.debian.org/debian/
+Slovenia,Debian,http://ftp.si.debian.org/debian/
+Spain,Debian,http://ftp.es.debian.org/debian/
+Sweden,Debian,http://ftp.se.debian.org/debian/
+Switzerland,Debian,http://ftp.ch.debian.org/debian/
+Taiwan,Debian,http://ftp.tw.debian.org/debian/
+Turkey,Debian,http://ftp.tr.debian.org/debian/
+United Kingdom,Debian,http://ftp.uk.debian.org/debian/
+United States,Debian,http://ftp.us.debian.org/debian/
