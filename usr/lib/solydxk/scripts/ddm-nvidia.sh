@@ -57,11 +57,12 @@ fi
 function get_backports_string() {
   PCK=$1
   local BPSTR=''
-  BP=$(grep backports /etc/apt/sources.list /etc/apt/sources.list.d/*.list | grep debian | grep -v 'list:#' | awk '{print $3}')
-  if [ "$BP" != '' ]; then
-    BP=$(echo $BP | cut -d' ' -f 1)
+  cd /usr/lib/solydxk/welcome
+  BP=$(python3 -c"from apt_sources import Apt; print((Apt().get_repo_suite('backports')))")
+  if [ ! -z "$BP" ]; then
+    # Check if package exists in backports
     PCKCHK=$(apt-cache madison $PCK | grep "$BP")
-    if [ "$PCKCHK" != '' ]; then
+    if [ ! -z "$PCKCHK" ]; then
       BPSTR="-t $BP"
     fi
   fi

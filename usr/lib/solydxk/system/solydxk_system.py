@@ -7,6 +7,7 @@ from glob import glob
 from queue import Queue
 # abspath, dirname, join, expanduser, exists, basename
 from os.path import join, abspath, dirname, isdir, exists, basename
+from threading import Thread
 from localize import LocaleInfo, Localize
 from udisks2 import Udisks2
 from logger import Logger
@@ -14,15 +15,14 @@ from treeview import TreeViewHandler
 from combobox import ComboBoxHandler
 from utils import getoutput, ExecuteThreadedCommands, \
                   shell_exec, human_size, has_internet_connection, \
-                  get_backports, get_debian_name, comment_line, \
-                  in_virtual_box, get_apt_force, is_running_live, \
+                  get_debian_name, in_virtual_box, get_apt_force, is_running_live, \
                   get_device_from_uuid, get_label, is_package_installed, \
                   get_logged_user, get_uuid, compare_package_versions, VersionComparison, \
                   get_current_resolution, get_resolutions, is_xfce_running, \
                   is_process_running, has_value_in_multi_array, get_current_aspect_ratio
 from dialogs import MessageDialog, QuestionDialog, InputDialog, \
                     WarningDialog
-from mirror import MirrorGetSpeed, Mirror, get_mirror_data, get_local_repos
+from apt_sources import Apt
 from encryption import is_encrypted, create_keyfile, write_crypttab, \
                        connect_block_device, cleanup_passphrase
 from endecrypt_partitions import EnDecryptPartitions, ChangePassphrase
@@ -30,7 +30,6 @@ from plymouth import Plymouth
 from grub import Grub
 from splash import Splash
 from lightdm import LightDM
-from threading import Thread
 
 # Make sure the right Gtk version is loaded
 import gi
@@ -44,9 +43,8 @@ _ = gettext.translation('solydxk-system', fallback=True).gettext
 
 TMPMOUNT = '/mnt/solydxk-system'
 
-
-#class for the main window
-class SolydXKSystemSettings(object):
+class SolydXKSystemSettings():
+    """class for the main window"""    
     def __init__(self, nosplash=False):
         # Load and install test data for the device manager
         self.test_devices = False
@@ -86,7 +84,6 @@ class SolydXKSystemSettings(object):
         self.nbPref = builder('nbPref')
         self.btnSaveBackports = builder('btnSaveBackports')
         self.btnSaveMirrors = builder('btnSaveMirrors')
-        self.btnCheckMirrorSpeed = builder("btnCheckMirrorSpeed")
         self.lblRepositories = builder('lblRepositories')
         self.tvMirrors = builder("tvMirrors")
         self.chkEnableBackports = builder("chkEnableBackports")
@@ -132,7 +129,6 @@ class SolydXKSystemSettings(object):
         builder("btnLogDeviceDriver").set_label(_("View log"))
         self.btnSaveBackports.set_label(_("Save backports"))
         self.btnSaveMirrors.set_label(_("Save mirrors"))
-        self.btnCheckMirrorSpeed.set_label(_("Check mirrors speed"))
         self.btnRemoveHoldback.set_label(_("Remove"))
         self.btnHoldback.set_label(_("Hold back"))
         self.lblRepositories.set_label(_("Repositories"))
@@ -213,7 +209,7 @@ class SolydXKSystemSettings(object):
         # Initialize
         self.queue = Queue(-1)
         self.threads = {}
-        self.exclude_mirrors = ['security', 'community']
+        self.exclude_suites = ['backports', 'security', 'updates']
         self.current_debian_repo = ''
         self.holdback = []
         self.available = []
@@ -245,9 +241,10 @@ class SolydXKSystemSettings(object):
 
         # Collect data and disable tabs when running live:
         # Device Driver, Fstab mounts, Localization, Hold back packages, Cleanup
+        self.apt = Apt()
         self.live = is_running_live()
-        self.active_mirrors = get_mirror_data(excludeMirrors=self.exclude_mirrors)
-        self.dead_mirrors = get_mirror_data(getDeadMirrors=True)
+        self.active_mirrors = self.apt.get_mirror_data(exclude_mirrors=self.exclude_suites)
+        self.dead_mirrors = self.apt.get_mirror_data(get_dead_mirrors=True)
         self.mirrors = self.list_mirrors()
         self.fill_treeview_mirrors()
         self.boxEncryptionEnable.set_sensitive(False)
@@ -259,7 +256,7 @@ class SolydXKSystemSettings(object):
             self.nbPref.get_nth_page(6).set_visible(False)
             self.nbPref.get_nth_page(7).set_visible(False)
         else:
-            self.backports = get_backports()
+            self.backports = self.apt.get_backports()
             self.locale_info = LocaleInfo()
             # holdback before cleanup: held back packages needed for cleanup list
             self.fill_treeview_holdback()
@@ -297,9 +294,6 @@ class SolydXKSystemSettings(object):
     # ===============================================
     # Main window functions
     # ===============================================
-
-    def on_btnCheckMirrorSpeed_clicked(self, widget):
-        self.check_mirror_speed()
 
     def on_btnSaveBackports_clicked(self, widget):
         self.save_backports()
@@ -1589,11 +1583,11 @@ class SolydXKSystemSettings(object):
     # ===============================================
 
     def save_backports(self):
-        sources_path  = '/etc/apt/sources.list'
         sources_changed = False
+        backports_name = f"{self.debian_name}-backports"
 
         if self.chkEnableBackports.get_active():
-            self.backports = get_backports(False)
+            self.backports = self.apt.get_backports(exclude_disabled=False)
             # Check which regular repository is enabled
             debian_domain = ''
             match = re.search(r"([a-z0-9\.]+)debian\.org", self.current_debian_repo)
@@ -1601,37 +1595,43 @@ class SolydXKSystemSettings(object):
                 debian_domain = f"{match.group(1)}debian.org"
             # Create backports line for sources.list
             if self.debian_name and debian_domain:
-                backports_name = f"{self.debian_name}-backports"
-                uncomment = False
-                for backports in self.backports:
-                    if debian_domain in backports:
-                        self.log.write(f"Uncomment line in sources.list: {backports}",
+                for backport_source in self.backports:
+                    if debian_domain in backport_source['source-entry'].uri:
+
+                        # Enable disabled backports repo
+                        self.apt.set_disable(apt_source=backport_source, disabled=False)
+                        self.apt.save(self.backports)
+
+                        self.log.write('Enable existing source: ' \
+                                       f"{backport_source['source-entry'].uri}",
                                        'save_backport')
-                        uncomment = True
+                        sources_changed = True
                         break
-                if uncomment:
-                    comment_line(sources_path, backports_name, False)
-                    sources_changed = True
-                else:
-                    # Add new line
-                    repo_line = f"deb http://{debian_domain}/debian/ {backports_name} main contrib non-free"
-                    self.log.write(f"Add line to sources.list: {repo_line}", 'save_backport')
-                    with open(file=sources_path, mode='a', encoding='utf-8') as sources_fle:
-                        sources_fle.write(repo_line + '\n')
+                if not sources_changed:
+                    # Add new backports repo
+                    new_apt_source = self.apt.new_apt_source(types=['deb'],
+                                                             uri=f"https://{debian_domain}/debian/",
+                                                             suites=[backports_name],
+                                                             comps=self.apt.distro_comps['debian']
+                                                             )
+                    self.backports.append(new_apt_source)
+                    self.apt.save(self.backports)
+
                     sources_changed = True
         else:
             # Comment the backports repository entry in sources.list
-            comment = False
-            self.backports = get_backports()
-            backports_name = f"{self.debian_name}-backports"
-            for backports in self.backports:
-                if backports_name in backports:
-                    comment = True
-            if comment:
-                self.log.write(f"Comment line in sources.list with pattern: {backports_name}",
-                               'save_backport')
-                comment_line(sources_path, backports_name)
-                sources_changed = True
+            self.backports = self.apt.get_backports()
+            for backport_source in self.backports:
+                if backports_name in backport_source['suites']:
+
+                    # Disable the backports repo
+                    self.apt.set_disable(apt_source=backport_source, disabled=True)
+                    self.apt.save(self.backports)
+
+                    self.log.write('Disable existing source: ' \
+                                   f"{backport_source['source-entry'].uri}",
+                                   'save_backport')
+                    sources_changed = True
 
         # Update the apt cache
         if sources_changed:
@@ -1655,7 +1655,7 @@ class SolydXKSystemSettings(object):
 
         # Make sure the current state is saved
         # and that the backports checkbox for devices is enabled/disabled
-        self.backports = get_backports()
+        self.backports = self.apt.get_backports()
         if self.backports:
             self.chkBackportsDeviceDriver.set_sensitive(True)
         else:
@@ -1665,8 +1665,6 @@ class SolydXKSystemSettings(object):
         # Fill mirror list
         if len(self.mirrors) > 1:
             # Fill treeview
-            # Remove speed test: not working anymore
-            #col_type_lst = ['bool', 'str', 'str', 'str', 'str']
             col_type_lst = ['bool', 'str', 'str', 'str']
             self.tvMirrorsHandler.fillTreeview(self.mirrors, col_type_lst, 0, 400, True)
 
@@ -1677,7 +1675,7 @@ class SolydXKSystemSettings(object):
 
     def save_mirrors(self):
         # Safe mirror settings
-        replaceRepos = []
+        replace_repos = []
         # Get user selected mirrors
         model = self.tvMirrors.get_model()
         itr = model.get_iter_first()
@@ -1693,17 +1691,17 @@ class SolydXKSystemSettings(object):
                         mirror[3] = mirror[3].rstrip('/')
                         if mirror[3] != url:
                             # Currently selected mirror
-                            replaceRepos.append([mirror[3], url])
+                            replace_repos.append([mirror[3], url])
                         else:
                             not_changed = url
                         break
-                if (not has_value_in_multi_array(value=url, multi_array=replaceRepos, index=1) 
+                if (not has_value_in_multi_array(value=url, multi_array=replace_repos, index=1)
                     and url not in not_changed):
                     # Append the repository to the sources file
-                    replaceRepos.append(['', url])
+                    replace_repos.append(['', url])
             itr = model.iter_next(itr)
 
-        if not replaceRepos:
+        if not replace_repos:
             # Check for dead mirrors
             model = self.tvMirrors.get_model()
             itr = model.get_iter_first()
@@ -1711,19 +1709,31 @@ class SolydXKSystemSettings(object):
                 sel = model.get_value(itr, 0)
                 if sel:
                     repo = model.get_value(itr, 2)
-                    url = model.get_value(itr, 3)
+                    url = model.get_value(itr, 3).rstrip('/')
                     # Get currently selected data
                     for mirror in self.dead_mirrors:
+                        mirror[1] = mirror[1].rstrip('/')
+                        mirror[2] = mirror[2].rstrip('/')
                         if mirror[1] == repo and mirror[2] != url:
                             # Currently selected mirror
-                            replaceRepos.append([mirror[2], url])
+                            replace_repos.append([mirror[2], url])
                             break
                 itr = model.iter_next(itr)
 
-        if replaceRepos:
-            mirror = Mirror()
-            ret = mirror.save(replaceRepos, self.exclude_mirrors)
-            if ret == '':
+        if replace_repos:
+            # Replace the current repo with the new repo
+            repo_replaced = False
+            apt_sources = self.apt.get_apt_sources()
+
+            for repo in replace_repos:
+                for apt_source in apt_sources:
+                    # Find the repo to be replaced
+                    if repo[0] == apt_source['source-entry'].uri.rstrip('/'):
+                        self.apt.set_uri(apt_source=apt_source, uri=repo[1])
+                        repo_replaced = True
+
+            if repo_replaced:
+                self.apt.save(new_sources_list=apt_sources)
                 if has_internet_connection():
                     # Run update in a thread and show progress
                     name = 'updatebp'
@@ -1738,71 +1748,22 @@ class SolydXKSystemSettings(object):
                     msg = _("Could not update the apt cache.\n"
                             "Please update the apt cache manually with: apt-get update")
                     WarningDialog(self.btnSaveMirrors.get_label(), msg)
-            else:
-                self.log.write(ret, 'save_mirrors')
 
         else:
             msg = _("There are no repositories to save.")
             MessageDialog(self.lblRepositories.get_label(), msg)
 
     def list_mirrors(self):
-        # Remove speed test: not working anymore
-        #mirrors = [[_("Current"), _("Country"), _("Repository"), _("URL"), _("Speed")]]
         mirrors = [[_("Current"), _("Country"), _("Repository"), _("URL")]]
         for mirror in self.active_mirrors:
             if mirror:
                 self.log.write(f"Mirror data: {' '.join(mirror)}", 'get_mirrors')
-                is_current = self.is_url_in_sources(mirror[2])
+                is_current = self.apt.is_uri_in_sources(uri=mirror[2])
                 # Save current debian repo in a variable
                 if is_current and 'debian.org' in mirror[2]:
                     self.current_debian_repo = mirror[2]
-                # Remove speed test: not working anymore
-                #mirrors.append([blnCurrent, mirror[0], mirror[1], mirror[2], ''])
                 mirrors.append([is_current, mirror[0], mirror[1], mirror[2]])
         return mirrors
-
-    def is_url_in_sources(self, url):
-        pre_str = ''
-        if not '://' in url:
-            pre_str = '://'
-        url = f"{pre_str}{url.rstrip('/')}"
-        ret = False
-
-        for repo in get_local_repos():
-            if url in repo:
-                ret = True
-                for excl in self.exclude_mirrors:
-                    if excl in repo:
-                        ret = False
-                        break
-                break
-        return ret
-
-    def check_mirror_speed(self):
-        name = 'mirrorspeed'
-        self.set_buttons_state(False)
-        thread = MirrorGetSpeed(self.mirrors, self.queue)
-        self.threads[name] = thread
-        thread.daemon = True
-        thread.start()
-        self.queue.join()
-        GLib.timeout_add(5, self.check_thread, name)
-
-    def write_speed(self, url, speed):
-        model = self.tvMirrors.get_model()
-        itr = model.get_iter_first()
-        while itr is not None:
-            repo = model.get_value(itr, 3)
-            if repo == url:
-                self.log.write(f"Mirror speed for {url} = {speed}", 'write_speed')
-                model.set_value(itr, 4, speed)
-                path = model.get_path(itr)
-                self.tvMirrors.scroll_to_cell(path)
-            itr = model.iter_next(itr)
-        self.tvMirrors.set_model(model)
-        # Repaint GUI, or the update won't show
-        while Gtk.events_pending():
-            Gtk.main_iteration()
 
     def on_tvMirrors_toggle(self, obj, path, colNr, toggleValue):
         path = int(path)
@@ -2072,13 +2033,7 @@ class SolydXKSystemSettings(object):
                 self.queue.task_done()
                 if ret:
                     self.log.write(f"Queue returns: {ret}", 'check_thread')
-                    if name == 'mirrorspeed':
-                        if ret[2] > 0 and ret[3] > 0:
-                            self.update_progress(1 / (ret[3] / ret[2]))
-                        else:
-                            self.update_progress(0)
-                        self.write_speed(ret[0], ret[1])
-                    elif name == 'localize':
+                    if name == 'localize':
                         if ret[0] > 0 and ret[1] > 0:
                             self.update_progress(1 / (ret[0] / ret[1]))
                         else:
@@ -2111,9 +2066,7 @@ class SolydXKSystemSettings(object):
             self.queue.task_done()
             if ret:
                 self.log.write(f"Queue returns: {ret}", 'check_thread')
-                if name == 'mirrorspeed':
-                    self.write_speed(ret[0], ret[1])
-                elif name == 'endecrypt':
+                if name == 'endecrypt':
                     # Queue returns list: [fraction, error_code, partition, message]
                     self.endecrypt_success = True
                     self.update_progress(ret[0])
@@ -2185,7 +2138,6 @@ class SolydXKSystemSettings(object):
         return False
 
     def set_buttons_state(self, enable):
-        self.btnCheckMirrorSpeed.set_sensitive(enable)
         self.btnSaveBackports.set_sensitive(enable)
         self.btnSaveMirrors.set_sensitive(enable)
         self.btnEncrypt.set_sensitive(enable)
@@ -2194,8 +2146,6 @@ class SolydXKSystemSettings(object):
         self.btnChangePassphrase.set_sensitive(enable)
         self.btnCreateKeyfile.set_sensitive(enable)
         self.btnSaveLocale.set_sensitive(enable)
-        self.btnSaveMirrors.set_sensitive(enable)
-        self.btnCheckMirrorSpeed.set_sensitive(enable)
         self.btnHoldback.set_sensitive(enable)
         self.btnRemoveHoldback.set_sensitive(enable)
         self.btnCleanup.set_sensitive(enable)

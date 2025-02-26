@@ -1,6 +1,5 @@
-""" General pupose functions """
-
 #!/usr/bin/env python3
+""" General pupose functions """
 
 import subprocess
 from socket import timeout
@@ -11,19 +10,22 @@ from random import choice
 import re
 import threading
 import operator
-import glob
 import filecmp
 import numbers
+import socket
+import pwd
 from enum import Enum
 from os import walk, listdir
 from os.path import exists, isdir, expanduser,  splitext,  dirname, islink
 from packaging.version import Version, InvalidVersion
 import apt
 
+
 # Debian testing uses names, not numbers
 # Complement this dictionary with this URL:
 # https://wiki.debian.org/DebianReleases
 deb_name = {}
+deb_name[15] = "duke"
 deb_name[14] = "forky"
 deb_name[13] = "trixie"
 deb_name[12] = "bookworm"
@@ -37,8 +39,10 @@ deb_name[5] = "lenny"
 deb_name[4] = "etch"
 
 
-def shell_exec_popen(command, kwargs={}):
+def shell_exec_popen(command, kwargs=None):
     """ Execute a command with Popen (returns the returncode attribute) """
+    if not kwargs:
+        kwargs = {}
     print((f"Executing: {command}"))
     # return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, **kwargs)
     return subprocess.Popen(command,
@@ -49,9 +53,11 @@ def shell_exec_popen(command, kwargs={}):
                             **kwargs)
 
 
-def shell_exec(command):
+def shell_exec(command, wait=False):
     """ Execute a command (returns the returncode attribute) """
     print((f"Executing: {command}"))
+    if wait:
+        return subprocess.check_call(command, shell=True)
     return subprocess.call(command, shell=True)
 
 
@@ -60,7 +66,8 @@ def getoutput(command, timeout=None):
     try:
         output = subprocess.check_output(
             command, shell=True, timeout=timeout).decode('utf-8').strip().split('\n')
-    except Exception:
+    except Exception as detail:
+        print((f'getoutput exception: {detail}'))
         output = ['']
     return output
 
@@ -112,25 +119,21 @@ def get_config_dict(file, key_value=re.compile(r'^\s*(\w+)\s*=\s*["\']?(.*?)["\'
     return conf_dict
 
 
-def has_internet_connection(test_url=None):
+def has_internet_connection(hostname=None):
     """ Check for internet connection """
-    urls = []
-    if test_url is not None:
-        urls.append(test_url)
-    if not urls:
-        src_lst = '/etc/apt/sources.list'
-        if exists(src_lst):
-            with open(file=src_lst, mode='r', encoding='utf-8') as source_fle:
-                for line in source_fle:
-                    line = line.strip()
-                    if not line.startswith('#'):
-                        match_obj = re.search(
-                            r'http[s]{,1}://[a-z0-9\.]+', line)
-                        if match_obj:
-                            urls.append(match_obj.group(0))
-    for url in urls:
-        if get_value_from_url(url) is not None:
-            return True
+    # Taken from https://stackoverflow.com/questions/20913411/test-if-an-internet-connection-is-present-in-python
+    if not hostname:
+        hostname = 'solydxk.com'
+    try:
+        # See if we can resolve the host name - tells us if there is
+        # A DNS listening
+        host = socket.gethostbyname(hostname)
+        # Connect to the host - tells us if the host is actually reachable
+        s = socket.create_connection((host, 80), 2)
+        s.close()
+        return True
+    except Exception:
+        pass # We ignore any errors, returning False
     return False
 
 
@@ -212,18 +215,6 @@ def is_xfce_running():
     return False
 
 
-def get_package_version(package, candidate=False):
-    """ Get package version (default=installed) """
-    cmd = f"env LANG=C bash -c 'apt-cache policy {package} | grep \"Installed:\"'"
-    if candidate:
-        cmd = f"env LANG=C bash -c 'apt-cache policy {package} | grep \"Candidate:\"'"
-    lst = getoutput(cmd)[0].strip().split(' ')
-    if lst:
-        if not '(' in lst[-1]:
-            return lst[-1]
-    return ''
-
-
 class VersionComparison(Enum):
     """ Return enum for compare_package_versions """
     INVALID = 1
@@ -242,6 +233,54 @@ def compare_package_versions(package_version_1, package_version_2):
             return VersionComparison.EQUAL
     except InvalidVersion:
         return VersionComparison.INVALID
+
+
+def does_package_exist(package_name):
+    """ Check if a package exists """
+    try:
+        return bool(apt.Cache()[package_name])
+    except KeyError:
+        return False
+
+
+def is_package_installed(package_name):
+    """ Check if a package is installed """
+    try:
+        return apt.Cache()[package_name].is_installed
+    except KeyError:
+        return False
+
+
+def get_package_version(package_name, candidate=False):
+    """ Get package version (default=installed) """
+    if not does_package_exist(package_name=package_name):
+        return ''
+    if candidate:
+        return apt.Cache()[package_name].candidate.version
+    return apt.Cache()[package_name].installed.version
+
+
+def validate_package_version(package_name, min_package_version):
+    """ Validate the installed package version with a minimum version number """
+    installed_version = get_package_version(package_name=package_name)
+    if Version(installed_version) >= Version(min_package_version):
+        return True
+    return False
+
+
+def has_newer_in_backports(package_name, backports_repository):
+    """ Check if a package has a newer version in backports """
+    # https://apt-team.pages.debian.net/python-apt/library/apt.package.html
+    # Command: f"apt-cache madison {package_name} | grep {backports_repository}")
+    installed_version = get_package_version(package_name=package_name)
+    if not installed_version:
+        return False
+    for version in apt.Cache()[package_name].versions:
+        for origin in version.origins:
+            if backports_repository in origin.archive:
+                if Version(version.version) > Version(installed_version):
+                    return True
+    return False
 
 
 def get_system_version_info():
@@ -436,24 +475,6 @@ def has_string_in_file(search_string, file_path):
     return False
 
 
-def does_package_exist(package_name):
-    """ Check if a package exists """
-    try:
-        cache = apt.Cache()
-        return bool(cache[package_name])
-    except Exception:
-        return False
-
-
-def is_package_installed(package_name):
-    """ Check if a package is installed """
-    cache = apt.Cache()
-    try:
-        return cache[package_name].is_installed
-    except Exception:
-        return False
-
-
 def is_running_live():
     """ Is the system a live system """
     live_dirs = ['/live', '/lib/live/mount', '/rofs']
@@ -506,6 +527,13 @@ def get_apt_cache_locked_program():
     return ''
 
 
+def get_installed_file_path(file_name):
+    """ Return the program that is locking apt cache """
+    if not file_name:
+        return ''
+    return getoutput(f"dpkg -S {file_name} | awk '{{print $NF;}}'")[0]
+
+
 def get_debian_name():
     """ Return the debian system name """
     try:
@@ -538,30 +566,6 @@ def get_firefox_version():
         firefox = "firefox-esr"
     cmd = f"{firefox} --version 2>/dev/null | egrep -o '[0-9]{2,}' || echo 0"
     return str_to_nr(getoutput(cmd)[0])
-
-
-def get_backports(exclude_disabled=True):
-    """ Return available backports repos """
-    files = glob.glob('/etc/apt/**/*.list', recursive=True)
-    backports = []
-    for file in files:
-        with open(file=file, mode='r', encoding='utf-8') as sources_list:
-            for line in sources_list.readlines():
-                if 'backports' in line:
-                    if exclude_disabled and line.strip()[0] == '#':
-                        continue
-                    backports.append(line)
-    return backports
-
-
-def has_newer_in_backports(package_name, backports_repository):
-    """ Check if a package has a newer version in backports """
-    try:
-        out = getoutput(
-            f"apt-cache madison {package_name} | grep {backports_repository}")[0]
-        return bool(out)
-    except Exception:
-        return False
 
 
 def comment_line(file_path, pattern, comment=True):
@@ -606,8 +610,13 @@ def get_nr_files_in_dir(path, recursive=True):
 
 
 def get_logged_user():
-    """ Return the logged in user name """
-    return getoutput("logname")[0]
+    """ Get user name """
+    p = os.popen("logname", 'r')
+    user_name = p.readline().strip()
+    p.close()
+    if user_name == "":
+        user_name = pwd.getpwuid(os.getuid()).pw_name
+    return user_name
 
 
 def get_user_home():
