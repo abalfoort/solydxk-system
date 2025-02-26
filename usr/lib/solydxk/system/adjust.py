@@ -1,6 +1,5 @@
-""" Module to adjust general SolydXK settings """
-
 #!/usr/bin/env python3
+""" Module to adjust general SolydXK settings """
 
 import os
 from os.path import exists, dirname, isdir

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" ComboBoxHandler class """
 
 # Make sure the right Gtk version is loaded
 import gi

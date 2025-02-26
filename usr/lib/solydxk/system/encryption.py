@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" Encryption functions """
 
 import re
 from os.path import basename, exists, join
