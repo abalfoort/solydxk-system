@@ -1,3 +1,15 @@
+solydxk-system (4.5.1) stable; urgency=low
+
+  * Fix dialogs not closing
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 26 Feb 2025 11:42:05 +0100
+
+solydxk-system (4.5.0) stable; urgency=low
+
+  * Implement deb822
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 22 Feb 2025 08:41:12 +0100
+
 solydxk-system (4.4.9) stable; urgency=low
 
   * Updated to Frank's script
