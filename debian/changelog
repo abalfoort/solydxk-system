@@ -1,3 +1,9 @@
+solydxk-system (4.5.2) stable; urgency=low
+
+  * Fix dialogs.py always returning False
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 28 Feb 2025 10:18:14 +0100
+
 solydxk-system (4.5.1) stable; urgency=low
 
   * Fix dialogs not closing
