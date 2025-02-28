@@ -6,7 +6,7 @@ import logging
 import re
 import sys
 from shutil import move
-from dialogs import ErrorDialog
+from dialogs import error_dialog
 from treeview import TreeViewHandler
 
 
@@ -58,8 +58,8 @@ class Logger():
             logging.getLogger('').addHandler(console)
 
     # Write message
-    # Use safe=False when calling from a thread
-    def write(self, message, loggerName='log', logLevel='debug', showErrorDialog=True,  safe=True):
+    # Use is_threaded=True when calling from a thread
+    def write(self, message, loggerName='log', logLevel='debug', showErrorDialog=True,  is_threaded=False):
         message = str(message).strip()
         if message != '':
             logLevel = logLevel.lower()
@@ -76,17 +76,17 @@ class Logger():
                 myLogger.error(message)
                 self.rtobjectWrite(message)
                 if showErrorDialog:
-                    ErrorDialog('Error', message,  None,  None,  safe)
+                    error_dialog(title='Error', text=message, is_threaded=is_threaded)
             elif logLevel == 'critical':
                 myLogger.critical(message)
                 self.rtobjectWrite(message)
                 if showErrorDialog:
-                    ErrorDialog('Critical', message,  None,  None,  safe)
+                    error_dialog(title='Critical', text=message, is_threaded=is_threaded)
             elif logLevel == 'exception':
                 myLogger.exception(message)
                 self.rtobjectWrite(message)
                 if showErrorDialog:
-                    ErrorDialog('Exception', message,  None,  None,  safe)
+                    error_dialog(title='Exception', text=message, is_threaded=is_threaded)
             # Flush now
             sys.stdout.flush()
 

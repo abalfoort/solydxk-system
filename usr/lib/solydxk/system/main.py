@@ -4,9 +4,8 @@
 import sys
 import argparse
 import traceback
-from os.path import abspath, dirname
 from utils import compare_package_versions, VersionComparison
-from dialogs import ErrorDialog
+from dialogs import error_dialog
 from solydxk_system import SolydXKSystemSettings
 
 # Make sure the right Gtk version is loaded
@@ -25,8 +24,6 @@ nosplash = args.nosplash
 import gettext
 _ = gettext.translation('solydxk-system', fallback=True).gettext
 
-scriptDir = abspath(dirname(__file__))
-
 
 def uncaught_excepthook(*args):
     sys.__excepthook__(*args)
@@ -34,7 +31,9 @@ def uncaught_excepthook(*args):
         details = '\n'.join(traceback.format_exception(*args)).replace('<', '').replace('>', '')
         title = _('Unexpected error')
         msg = _('SolydXK System Settings has failed with the following unexpected error. Please submit a bug report!')
-        ErrorDialog(title, f"<b>{msg}</b>", f"<tt>{details}</tt>", None, True, 'solydxk')
+        error_dialog(title=title,
+                     text=msg,
+                     text2=details)
 
     sys.exit(1)
 

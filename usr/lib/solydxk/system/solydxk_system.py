@@ -20,8 +20,8 @@ from utils import getoutput, ExecuteThreadedCommands, \
                   get_logged_user, get_uuid, compare_package_versions, VersionComparison, \
                   get_current_resolution, get_resolutions, is_xfce_running, \
                   is_process_running, has_value_in_multi_array, get_current_aspect_ratio
-from dialogs import MessageDialog, QuestionDialog, InputDialog, \
-                    WarningDialog
+from dialogs import message_dialog, question_dialog, InputDialog, \
+                    warning_dialog
 from apt_sources import Apt
 from encryption import is_encrypted, create_keyfile, write_crypttab, \
                        connect_block_device, cleanup_passphrase
@@ -503,7 +503,7 @@ class SolydXKSystemSettings():
                     # We should not get here
                     msg = _(f"Could not add {device} to {fstab_path}: missing fs type.")
                     self.log.write(msg, 'save_fstab_mounts')
-                    WarningDialog(self.btnSaveFstabMounts.get_label(), msg)
+                    warning_dialog(self.btnSaveFstabMounts.get_label(), msg)
                     continue
             elif not selected and fstab_mount:
                 # Remove partition line from fstab
@@ -560,10 +560,10 @@ class SolydXKSystemSettings():
             # Show a message
             msg = _("Changes were made to fstab.\n"
                     "Please reboot your computer for these changes to take effect.")
-            MessageDialog(self.btnSaveFstabMounts.get_label(), msg)
+            message_dialog(self.btnSaveFstabMounts.get_label(), msg)
         else:
             msg = _("No changes were made to fstab.")
-            MessageDialog(self.btnSaveFstabMounts.get_label(), msg)
+            message_dialog(self.btnSaveFstabMounts.get_label(), msg)
 
         self.set_buttons_state(True)
 
@@ -633,11 +633,11 @@ class SolydXKSystemSettings():
                 title = _("No internet connection")
                 msg = _("You need an internet connection to install the additional software.\n"
                         "Please, connect to the internet and try again.")
-                WarningDialog(title, msg)
+                warning_dialog(title, msg)
             else:
                 # Warn for use of Backports
                 if self.chkBackportsDeviceDriver.get_active():
-                    answer = QuestionDialog(self.chkBackportsDeviceDriver.get_label(),
+                    answer = question_dialog(self.chkBackportsDeviceDriver.get_label(),
                             _("You have selected to install drivers from the backports repository whenever they are available.\n\n"
                               "Although you can run more up to date software using the backports repository,\n"
                               "you introduce a greater risk of breakage doing so.\n\n"
@@ -677,7 +677,7 @@ class SolydXKSystemSettings():
             title = _("Remove kernel")
             msg = _("You cannot remove a booted kernel.\nPlease, boot another kernel and try again.")
             self.log.write(msg, 'on_tvDeviceDriver_toggled')
-            WarningDialog(title, msg)
+            warning_dialog(title, msg)
             model[itr][0] = True
 
     def fill_hw(self, driver_name, hw_lst):
@@ -765,7 +765,7 @@ class SolydXKSystemSettings():
             action = self.btnEncrypt.get_label()
             if self.my_passphrase == '':
                 # Message user for passphrase
-                MessageDialog(action, self.no_passphrase_msg)
+                message_dialog(action, self.no_passphrase_msg)
                 return
         else:
             self.my_passphrase = ''
@@ -783,7 +783,7 @@ class SolydXKSystemSettings():
                     if partition['encrypted']:
                         if partition['mount_point']:
                             device = partition['device']
-                            answer = QuestionDialog(_("Encrypted partition"),
+                            answer = question_dialog(_("Encrypted partition"),
                                                     _(f"The partition {device} is already encrypted.\n"
                                                       "Continuing will change the encryption key of this partition.\n\n"
                                                       "Do you want to continue?"))
@@ -862,7 +862,7 @@ class SolydXKSystemSettings():
                 # Show a warning message
                 msg = _("Could not install cryptsetup/cryptsetup-initramfs.")
                 self.log.write(msg, 'endecrypt')
-                WarningDialog('endecrypt', msg)
+                warning_dialog('endecrypt', msg)
 
     def change_passphrase(self):
         if len(self.my_partitions) == 0:
@@ -871,7 +871,7 @@ class SolydXKSystemSettings():
         # Check passphrase first
         if not self.my_passphrase:
             # Message user for passphrase
-            MessageDialog(self.btnChangePassphrase.get_label(), self.no_passphrase_msg)
+            message_dialog(self.btnChangePassphrase.get_label(), self.no_passphrase_msg)
             return
 
         for partition in self.my_partitions:
@@ -880,7 +880,7 @@ class SolydXKSystemSettings():
                 device = partition['device']
                 msg = _(f"{device} is not encrypted.\n"
                         "Please choose an encrypted partition.")
-                MessageDialog(self.btnChangePassphrase.get_label(), msg)
+                message_dialog(self.btnChangePassphrase.get_label(), msg)
                 return
 
         # Run encrypt/decrypt in separate thread
@@ -1069,7 +1069,7 @@ class SolydXKSystemSettings():
             size = human_size(used_size)
             msg = _(f"You need a backup partition with at least {size} free.\n"
                     "Mount a backup drive and hit the refresh button.")
-            MessageDialog(bak_str, msg)
+            message_dialog(bak_str, msg)
 
         return bak_partition
 
@@ -1461,7 +1461,7 @@ class SolydXKSystemSettings():
             while is_process_running('firefox') \
                 or is_process_running('firefox-esr') \
                 or is_process_running('thunderbird'):
-                WarningDialog(self.btnSaveLocale.get_label(), msg)
+                warning_dialog(self.btnSaveLocale.get_label(), msg)
 
             locales = self.tvLocaleHandler.model_to_list()
             timezone = join(self.cmbTimezoneContinentHandler.getValue(),
@@ -1481,7 +1481,7 @@ class SolydXKSystemSettings():
             title = self.title
             msg = _(f"{title} cannot download and install the software localization packages\n"
                     "Please repeat this process when you established an internet connection.")
-            WarningDialog(self.btnSaveLocale.get_label(), msg)
+            warning_dialog(self.btnSaveLocale.get_label(), msg)
 
     def fill_treeview_locale(self):
         self.locales = [[self.installed_title, self.locale_title,
@@ -1648,10 +1648,10 @@ class SolydXKSystemSettings():
             else:
                 msg = _("Could not update the apt cache.\n"
                         "Please update the apt cache manually with: apt-get update")
-                WarningDialog(self.btnSaveBackports.get_label(), msg)
+                warning_dialog(self.btnSaveBackports.get_label(), msg)
         else:
             msg = _("Nothing to do.")
-            MessageDialog(self.btnSaveBackports.get_label(), msg)
+            message_dialog(self.btnSaveBackports.get_label(), msg)
 
         # Make sure the current state is saved
         # and that the backports checkbox for devices is enabled/disabled
@@ -1747,11 +1747,11 @@ class SolydXKSystemSettings():
                 else:
                     msg = _("Could not update the apt cache.\n"
                             "Please update the apt cache manually with: apt-get update")
-                    WarningDialog(self.btnSaveMirrors.get_label(), msg)
+                    warning_dialog(self.btnSaveMirrors.get_label(), msg)
 
         else:
             msg = _("There are no repositories to save.")
-            MessageDialog(self.lblRepositories.get_label(), msg)
+            message_dialog(self.lblRepositories.get_label(), msg)
 
     def list_mirrors(self):
         mirrors = [[_("Current"), _("Country"), _("Repository"), _("URL")]]
@@ -2098,7 +2098,7 @@ class SolydXKSystemSettings():
             self.set_buttons_state(True)
         elif name in ['localize', 'splash']:
             msg = _("You need to reboot your system for the new settings to take affect.")
-            MessageDialog(_("Reboot"), msg)
+            message_dialog(_("Reboot"), msg)
             self.update_progress(0)
             self.set_buttons_state(True)
         elif name == 'endecrypt':
@@ -2109,11 +2109,11 @@ class SolydXKSystemSettings():
                 # Ask to reboot
                 answer = False
                 if self.encrypt:
-                    answer = QuestionDialog(_("Encryption done"),
+                    answer = question_dialog(_("Encryption done"),
                                             _("Encryption has finished.\n\n"
                                               "Do you want to restart your computer?"))
                 else:
-                    answer = QuestionDialog(_("Decryption done"),
+                    answer = question_dialog(_("Decryption done"),
                                             _("Decryption has finished.\n\n"
                                               "Do you want to restart your computer?"))
                 if answer:
@@ -2128,7 +2128,7 @@ class SolydXKSystemSettings():
             if self.changed_devices:
                 devices = ', '.join(self.changed_devices)
                 msg = _(f"Passphrase changed for {devices}.")
-                MessageDialog(self.btnChangePassphrase.get_label(), msg)
+                message_dialog(self.btnChangePassphrase.get_label(), msg)
             self.update_progress(0)
             self.set_buttons_state(True)
         else:
