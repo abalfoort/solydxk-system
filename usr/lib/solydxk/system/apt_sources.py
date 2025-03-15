@@ -38,14 +38,14 @@ class FilteredSourcesList(SourcesList):
 
     def __filtered_sources_list(self):
         filtered_list = []
-        sources_list = SourcesList(deb822=True).list
+        sources_list = SourcesList(deb822=DEB822).list
         for source_entry in sources_list:
-            # Only save repos that are listed in self.include_repos
-            if not any(x in source_entry.uri for x in self.__include_repos):
-                continue
-
             # SourcesList appears to return empty lines and comments as well
             if source_entry.type not in ['deb', 'deb-src']:
+                continue
+
+            # Only save repos that are listed in self.include_repos
+            if not any(x in source_entry.uri for x in self.__include_repos):
                 continue
 
             # If not provided, set the supported architectures
