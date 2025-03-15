@@ -1,3 +1,9 @@
+solydxk-system (4.5.6) stable; urgency=low
+
+  * Fix crash when having old and new deb822 configs
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 15 Mar 2025 13:59:28 +0100
+
 solydxk-system (4.5.5) stable; urgency=low
 
   * Add Network;WebBrowser; to solydxk-forums.desktop
