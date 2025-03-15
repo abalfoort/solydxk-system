@@ -1,3 +1,16 @@
+solydxk-system (4.5.5) stable; urgency=low
+
+  * Add Network;WebBrowser; to solydxk-forums.desktop
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 14 Mar 2025 09:28:31 +0100
+
+solydxk-system (4.5.4) stable; urgency=low
+
+  * Fix apt -t argument bug
+  * Add link in start menu to SolydXK Forums
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 12 Mar 2025 19:25:19 +0100
+
 solydxk-system (4.5.3) stable; urgency=low
 
   * Use transient_for in dialogs init
