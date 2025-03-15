@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 19:35+0100\n"
+"POT-Creation-Date: 2025-03-14 09:28+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: Serbian (https://app.transifex.com/abalfoort/teams/54212/"
@@ -24,88 +24,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-#: usr/lib/solydxk/system/main.py:35
-msgid "Unexpected error"
-msgstr "Неочекивана грешка"
-
-#: usr/lib/solydxk/system/main.py:36
-msgid ""
-"SolydXK System Settings has failed with the following unexpected error. "
-"Please submit a bug report!"
-msgstr ""
-"Поставке СолидИксК система су имале неочекивану грешку. Пошаљите извештај о "
-"грешци!"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:55
-#, python-brace-format
-msgid ""
-"Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
-"Please, select another backup medium before you try again."
-msgstr ""
-"Не могу да направим резерву у {backup_dir} (rsync код: {rsync_code}).\n"
-"Изаберите други медијум за резерву пре него што покушате поново."
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:98
-#, python-brace-format
-msgid ""
-"Could not format the device {device}.\n"
-"You need to manually format the device and restore your data from: "
-"{backup_dir}"
-msgstr ""
-"Не могу да форматирам уређај {device}.\n"
-"Морате ручно да форматирате уређај и вратите податке из: {backup_dir}"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:135
-#, python-brace-format
-msgid ""
-"Could not restore the backup (rsync code: {rsync_code}).\n"
-"You need to manually restore your data from: {backup_dir}"
-msgstr ""
-"Не могу да вратим резерву (rsync код: {rsync_code}).\n"
-"Морате ручно да вратите податке из: {backup_dir}"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:159
-#, python-brace-format
-msgid ""
-"Error formatting partition {0}:\n"
-"It has no file system type."
-msgstr ""
-"Грешка при форматирању партиције {0}:\n"
-"Нема тип фајл система."
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:261
-#: usr/lib/solydxk/system/solydxk_system.py:166
-#, python-brace-format
-msgid ""
-"Could not mount {0}\n"
-"Please mount {0} and refresh when done."
-msgstr ""
-"Не могу да монтирам {0}\n"
-"Монтирајте {0} и освежите када завршите."
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:264
-#: usr/lib/solydxk/system/solydxk_system.py:2178
-msgid "Partition passphrase"
-msgstr "Лозинка партиције"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:265
-#: usr/lib/solydxk/system/solydxk_system.py:2179
-msgid ""
-"Please, provide the current passphrase\n"
-"for the encrypted partition"
-msgstr ""
-"Наведите тренутну лозинку за\n"
-"шифровану партицију"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:320
-#, python-brace-format
-msgid ""
-"Could not change the passphrase for {0}\n"
-"Please, provide the current and new passphrase."
-msgstr ""
-"Не могу да изменим лозинку за {0}\n"
-"Дајте тренутну и нову лозинку."
 
 #: usr/lib/solydxk/system/solydxk_system.py:129
 msgid "View log"
@@ -251,6 +169,16 @@ msgstr "Подразумевано"
 #: usr/lib/solydxk/system/solydxk_system.py:165
 msgid "Please provide a passphrase (6+ characters)."
 msgstr "Наведите лозинку (6+ знакова)"
+
+#: usr/lib/solydxk/system/solydxk_system.py:166
+#: usr/lib/solydxk/system/endecrypt_partitions.py:261
+#, python-brace-format
+msgid ""
+"Could not mount {0}\n"
+"Please mount {0} and refresh when done."
+msgstr ""
+"Не могу да монтирам {0}\n"
+"Монтирајте {0} и освежите када завршите."
 
 #: usr/lib/solydxk/system/solydxk_system.py:167
 msgid "Cleanup"
@@ -571,6 +499,78 @@ msgstr ""
 msgid "Passphrase changed for {devices}."
 msgstr "Лозинка измењена за {devices}."
 
+#: usr/lib/solydxk/system/solydxk_system.py:2178
+#: usr/lib/solydxk/system/endecrypt_partitions.py:264
+msgid "Partition passphrase"
+msgstr "Лозинка партиције"
+
+#: usr/lib/solydxk/system/solydxk_system.py:2179
+#: usr/lib/solydxk/system/endecrypt_partitions.py:265
+msgid ""
+"Please, provide the current passphrase\n"
+"for the encrypted partition"
+msgstr ""
+"Наведите тренутну лозинку за\n"
+"шифровану партицију"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:55
+#, python-brace-format
+msgid ""
+"Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
+"Please, select another backup medium before you try again."
+msgstr ""
+"Не могу да направим резерву у {backup_dir} (rsync код: {rsync_code}).\n"
+"Изаберите други медијум за резерву пре него што покушате поново."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:98
+#, python-brace-format
+msgid ""
+"Could not format the device {device}.\n"
+"You need to manually format the device and restore your data from: "
+"{backup_dir}"
+msgstr ""
+"Не могу да форматирам уређај {device}.\n"
+"Морате ручно да форматирате уређај и вратите податке из: {backup_dir}"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:135
+#, python-brace-format
+msgid ""
+"Could not restore the backup (rsync code: {rsync_code}).\n"
+"You need to manually restore your data from: {backup_dir}"
+msgstr ""
+"Не могу да вратим резерву (rsync код: {rsync_code}).\n"
+"Морате ручно да вратите податке из: {backup_dir}"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:159
+#, python-brace-format
+msgid ""
+"Error formatting partition {0}:\n"
+"It has no file system type."
+msgstr ""
+"Грешка при форматирању партиције {0}:\n"
+"Нема тип фајл система."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:320
+#, python-brace-format
+msgid ""
+"Could not change the passphrase for {0}\n"
+"Please, provide the current and new passphrase."
+msgstr ""
+"Не могу да изменим лозинку за {0}\n"
+"Дајте тренутну и нову лозинку."
+
+#: usr/lib/solydxk/system/main.py:32
+msgid "Unexpected error"
+msgstr "Неочекивана грешка"
+
+#: usr/lib/solydxk/system/main.py:33
+msgid ""
+"SolydXK System Settings has failed with the following unexpected error. "
+"Please submit a bug report!"
+msgstr ""
+"Поставке СолидИксК система су имале неочекивану грешку. Пошаљите извештај о "
+"грешци!"
+
 #: usr/bin/iso-usb:79
 #, sh-format
 msgid "ISO to USB"
@@ -606,24 +606,6 @@ msgstr "Није нађен УСБ диск."
 msgid "No ISO path provided."
 msgstr "Нисте навели ИСО путању."
 
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "Системске поставке за СолидИксК"
-
-#: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
-msgid "Change system settings for SolydXK"
-msgstr "Измена системских поставки за СолидИксК"
-
-#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
-msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr "Шифруј или дешифруј овај УСБ помоћу СолидИксК система."
-
-#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
-msgid "System"
-msgstr "Систем"
-
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
 msgstr "Ограничи величину за фајл „xsession-errors“"
@@ -631,6 +613,36 @@ msgstr "Ограничи величину за фајл „xsession-errors“"
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:2
 msgid "Xsession Errors Log Control"
 msgstr "Управљање дневником грешака Икс-сесије"
+
+#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
+msgid "Encrypt or decrypt this USB device with SolydXK System."
+msgstr "Шифруј или дешифруј овај УСБ помоћу СолидИксК система."
+
+#: usr/share/applications/solydxk-forums.desktop.in.h:1
+msgid "Get help from the SolydXK Community"
+msgstr ""
+
+#: usr/share/applications/solydxk-forums.desktop.in.h:2
+msgid "SolydXK Community Forums"
+msgstr ""
+
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
+msgid "Change system settings for SolydXK"
+msgstr "Измена системских поставки за СолидИксК"
+
+#: usr/share/applications/solydxk-system.desktop.in.h:2
+msgid "Icon=solydxk"
+msgstr ""
+
+#: usr/share/applications/solydxk-system.desktop.in.h:3
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "Системске поставке за СолидИксК"
+
+#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
+msgid "System"
+msgstr "Систем"
 
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8

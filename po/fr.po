@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 19:35+0100\n"
+"POT-Creation-Date: 2025-03-14 09:28+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
 "Language-Team: French (https://app.transifex.com/abalfoort/teams/54212/fr/)\n"
@@ -25,90 +25,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
-
-#: usr/lib/solydxk/system/main.py:35
-msgid "Unexpected error"
-msgstr "Erreur inattendue"
-
-#: usr/lib/solydxk/system/main.py:36
-msgid ""
-"SolydXK System Settings has failed with the following unexpected error. "
-"Please submit a bug report!"
-msgstr ""
-"SolydXK System Settings a échoué avec l'erreur inattendue suivante. Veuillez "
-"soumettre un rapport de bogue!"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:55
-#, python-brace-format
-msgid ""
-"Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
-"Please, select another backup medium before you try again."
-msgstr ""
-"Impossible de créer une sauvegarde sur {backup_dir} (rsync code: "
-"{rsync_code}).\n"
-"Veuillez sélectionner un autre support de sauvegarde avant de réessayer."
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:98
-#, python-brace-format
-msgid ""
-"Could not format the device {device}.\n"
-"You need to manually format the device and restore your data from: "
-"{backup_dir}"
-msgstr ""
-"Impossible de formater le périphérique {device}.\n"
-"Vous avez besoin de le formater manuellement et de restaurer vos données à "
-"partir de: {backup_dir}"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:135
-#, python-brace-format
-msgid ""
-"Could not restore the backup (rsync code: {rsync_code}).\n"
-"You need to manually restore your data from: {backup_dir}"
-msgstr ""
-"Impossible de restaurer la sauvegarde (rsync code: {rsync_code}).\n"
-"Vous devez restaurer manuellement vos données à partir de: {backup_dir}"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:159
-#, python-brace-format
-msgid ""
-"Error formatting partition {0}:\n"
-"It has no file system type."
-msgstr ""
-"Erreur en formatant la partition {0}:\n"
-"Il n'y a pas de système de fichiers."
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:261
-#: usr/lib/solydxk/system/solydxk_system.py:166
-#, python-brace-format
-msgid ""
-"Could not mount {0}\n"
-"Please mount {0} and refresh when done."
-msgstr ""
-"Impossible de monter {0}\n"
-"Essayer de monter {0} et rafraîchir une fois fait."
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:264
-#: usr/lib/solydxk/system/solydxk_system.py:2178
-msgid "Partition passphrase"
-msgstr "Phrase secrète de la partition"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:265
-#: usr/lib/solydxk/system/solydxk_system.py:2179
-msgid ""
-"Please, provide the current passphrase\n"
-"for the encrypted partition"
-msgstr ""
-"Veuillez fournir la phrase secrète courante\n"
-"pour la partition chiffrée"
-
-#: usr/lib/solydxk/system/endecrypt_partitions.py:320
-#, python-brace-format
-msgid ""
-"Could not change the passphrase for {0}\n"
-"Please, provide the current and new passphrase."
-msgstr ""
-"Impossible de changer la phrase secrète pour {0}\n"
-"Veuillez fournir la phrase secrète courante et la nouvelle."
 
 #: usr/lib/solydxk/system/solydxk_system.py:129
 msgid "View log"
@@ -257,6 +173,16 @@ msgstr "Défaut"
 #: usr/lib/solydxk/system/solydxk_system.py:165
 msgid "Please provide a passphrase (6+ characters)."
 msgstr "Veuillez fournir une phrase secrète (6+ caractères)."
+
+#: usr/lib/solydxk/system/solydxk_system.py:166
+#: usr/lib/solydxk/system/endecrypt_partitions.py:261
+#, python-brace-format
+msgid ""
+"Could not mount {0}\n"
+"Please mount {0} and refresh when done."
+msgstr ""
+"Impossible de monter {0}\n"
+"Essayer de monter {0} et rafraîchir une fois fait."
 
 #: usr/lib/solydxk/system/solydxk_system.py:167
 msgid "Cleanup"
@@ -582,6 +508,80 @@ msgstr ""
 msgid "Passphrase changed for {devices}."
 msgstr "Phrase secrète changée pour {devices}."
 
+#: usr/lib/solydxk/system/solydxk_system.py:2178
+#: usr/lib/solydxk/system/endecrypt_partitions.py:264
+msgid "Partition passphrase"
+msgstr "Phrase secrète de la partition"
+
+#: usr/lib/solydxk/system/solydxk_system.py:2179
+#: usr/lib/solydxk/system/endecrypt_partitions.py:265
+msgid ""
+"Please, provide the current passphrase\n"
+"for the encrypted partition"
+msgstr ""
+"Veuillez fournir la phrase secrète courante\n"
+"pour la partition chiffrée"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:55
+#, python-brace-format
+msgid ""
+"Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
+"Please, select another backup medium before you try again."
+msgstr ""
+"Impossible de créer une sauvegarde sur {backup_dir} (rsync code: "
+"{rsync_code}).\n"
+"Veuillez sélectionner un autre support de sauvegarde avant de réessayer."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:98
+#, python-brace-format
+msgid ""
+"Could not format the device {device}.\n"
+"You need to manually format the device and restore your data from: "
+"{backup_dir}"
+msgstr ""
+"Impossible de formater le périphérique {device}.\n"
+"Vous avez besoin de le formater manuellement et de restaurer vos données à "
+"partir de: {backup_dir}"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:135
+#, python-brace-format
+msgid ""
+"Could not restore the backup (rsync code: {rsync_code}).\n"
+"You need to manually restore your data from: {backup_dir}"
+msgstr ""
+"Impossible de restaurer la sauvegarde (rsync code: {rsync_code}).\n"
+"Vous devez restaurer manuellement vos données à partir de: {backup_dir}"
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:159
+#, python-brace-format
+msgid ""
+"Error formatting partition {0}:\n"
+"It has no file system type."
+msgstr ""
+"Erreur en formatant la partition {0}:\n"
+"Il n'y a pas de système de fichiers."
+
+#: usr/lib/solydxk/system/endecrypt_partitions.py:320
+#, python-brace-format
+msgid ""
+"Could not change the passphrase for {0}\n"
+"Please, provide the current and new passphrase."
+msgstr ""
+"Impossible de changer la phrase secrète pour {0}\n"
+"Veuillez fournir la phrase secrète courante et la nouvelle."
+
+#: usr/lib/solydxk/system/main.py:32
+msgid "Unexpected error"
+msgstr "Erreur inattendue"
+
+#: usr/lib/solydxk/system/main.py:33
+msgid ""
+"SolydXK System Settings has failed with the following unexpected error. "
+"Please submit a bug report!"
+msgstr ""
+"SolydXK System Settings a échoué avec l'erreur inattendue suivante. Veuillez "
+"soumettre un rapport de bogue!"
+
 #: usr/bin/iso-usb:79
 #, sh-format
 msgid "ISO to USB"
@@ -617,24 +617,6 @@ msgstr "Aucune clé USB trouvée."
 msgid "No ISO path provided."
 msgstr "Pas de chemin vers l'ISO fourni."
 
-#: usr/share/applications/solydxk-system.desktop.in.h:1
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
-msgid "SolydXK System Settings"
-msgstr "SolydXK System Settings"
-
-#: usr/share/applications/solydxk-system.desktop.in.h:2
-#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
-msgid "Change system settings for SolydXK"
-msgstr "Changer les paramètres système de SolydXK"
-
-#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
-msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr "Chiffrez ou déchiffrez ce lecteur USB avec SolydXK System."
-
-#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
-msgid "System"
-msgstr "Système"
-
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
 msgstr "Limiter la taille du registre d'erreur xsession"
@@ -642,6 +624,36 @@ msgstr "Limiter la taille du registre d'erreur xsession"
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:2
 msgid "Xsession Errors Log Control"
 msgstr "Contrôle des registres d'erreurs (logs) Xsession"
+
+#: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
+msgid "Encrypt or decrypt this USB device with SolydXK System."
+msgstr "Chiffrez ou déchiffrez ce lecteur USB avec SolydXK System."
+
+#: usr/share/applications/solydxk-forums.desktop.in.h:1
+msgid "Get help from the SolydXK Community"
+msgstr ""
+
+#: usr/share/applications/solydxk-forums.desktop.in.h:2
+msgid "SolydXK Community Forums"
+msgstr ""
+
+#: usr/share/applications/solydxk-system.desktop.in.h:1
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
+msgid "Change system settings for SolydXK"
+msgstr "Changer les paramètres système de SolydXK"
+
+#: usr/share/applications/solydxk-system.desktop.in.h:2
+msgid "Icon=solydxk"
+msgstr ""
+
+#: usr/share/applications/solydxk-system.desktop.in.h:3
+#: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
+msgid "SolydXK System Settings"
+msgstr "SolydXK System Settings"
+
+#: usr/share/kservices5/settings-system-admin.desktop.in.h:1
+msgid "System"
+msgstr "Système"
 
 #. (itstool) path: action/description
 #: usr/share/polkit-1/actions/com.solydxk.pkexec.luckybackup.policy:8
