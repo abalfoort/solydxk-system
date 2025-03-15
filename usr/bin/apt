@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ScriptName=apt
-ScriptVersion=2.12.1
-ScriptDate=2025-02-07
+ScriptVersion=2.12.2
+ScriptDate=2025-03-12
 
 # Copyright:  2011-2025 Frank & Arjen @ SolydXK
 # Licence:    EUPL 1.2 (GPL 2 compatible)
@@ -100,6 +100,7 @@ while [ $# -gt 0 ]; do
 				g)OptG=1;;
 				h)OptH=1;;
 				k)OptK=" -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold";;
+				t)Opts+=" -t $2"; shift;;
 				u)OptU=1;;
 				v)OptV=" --verbose-versions";;
 				*)Opts+=" -${S:I:1}"
