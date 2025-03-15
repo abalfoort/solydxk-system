@@ -51,18 +51,24 @@ function remove_divert {
 }
 
 case "$1" in
-    remove|abort-install|disappear|purge)
-    # Remove diversions
-    remove_divert 'solydxk-system'
-    
-    # Remove any symlings to the SolydXK logos
-    find /usr/share/icons -type l -iname "*solyd*" ! -path "*evolvere-additional*" -delete
-    
-    # Remove gnupg configuration from skel
-    GNUPG='/etc/skel/.gnupg'
-    if [ -d "$GNUPG" ]; then
-        rm -rf "$GNUPG"
-    fi
+    remove|purge)
+        # Remove diversions
+        remove_divert 'solydxk-system'
+        
+        # Remove any symlings to the SolydXK logos
+        find /usr/share/icons -type l -iname "*solyd*" ! -path "*evolvere-additional*" -delete
+        
+        # Remove gnupg configuration from skel
+        GNUPG='/etc/skel/.gnupg'
+        if [ -d "$GNUPG" ]; then
+            rm -rf "$GNUPG"
+        fi
+    ;;
+    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    ;;
+    *)
+        echo "postrm called with unknown argument \`$1'" >&2
+        exit 1
     ;;
 esac
 
