@@ -1,3 +1,9 @@
+solydxk-system (4.5.7) stable; urgency=low
+
+  * Updated translation: lt
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 23 Mar 2025 18:11:32 +0100
+
 solydxk-system (4.5.6) stable; urgency=low
 
   * Fix crash when having old and new deb822 configs
