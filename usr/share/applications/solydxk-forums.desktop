@@ -1,9 +1,15 @@
 [Desktop Entry]
 Comment=Get help from the SolydXK Community
+Comment[lt]=Gaukite pagalbos iš SolydXK bendruomenės
+Comment[ru]=Получите помощь от сообщества Solydxk
 Exec=xdg-open https://forums.solydxk.com
 GenericName=SolydXK Community Forums
+GenericName[lt]=SolydXK bendruomenės forumai
+GenericName[ru]=SolydXK -форумы сообщества
 Icon=solydxk
 Name=SolydXK Community Forums
+Name[lt]=SolydXK bendruomenės forumai
+Name[ru]=SolydXK -форумы сообщества
 NoDisplay=false
 Path=
 StartupNotify=true
