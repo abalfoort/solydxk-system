@@ -1,3 +1,10 @@
+solydxk-system (4.5.8) stable; urgency=low
+
+  * Remove variables with empty strings in .desktop files
+  * Remove obsolete package apt-transport-https
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 24 Mar 2025 08:45:31 +0100
+
 solydxk-system (4.5.7) stable; urgency=low
 
   * Updated translation: lt
