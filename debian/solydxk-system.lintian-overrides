@@ -3,3 +3,4 @@ package-installs-apt-preferences
 package-contains-file-in-etc-skel
 maintainer-script-should-not-use-recursive-chown-or-chmod
 systemd-service-file-refers-to-unusual-wantedby-target
+desktop-command-not-in-package
