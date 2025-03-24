@@ -1,21 +1,21 @@
 [Desktop Entry]
 Comment=Get help from the SolydXK Community
 Comment[lt]=Gaukite pagalbos iš SolydXK bendruomenės
+Comment[nl]=Krijg hulp van de SolydXK gemeenschap
 Comment[ru]=Получите помощь от сообщества Solydxk
 Exec=xdg-open https://forums.solydxk.com
 GenericName=SolydXK Community Forums
 GenericName[lt]=SolydXK bendruomenės forumai
+GenericName[nl]=Forums van de SolydXK gemeenschap
 GenericName[ru]=SolydXK -форумы сообщества
 Icon=solydxk
 Name=SolydXK Community Forums
 Name[lt]=SolydXK bendruomenės forumai
+Name[nl]=Forums van de SolydXK gemeenschap
 Name[ru]=SolydXK -форумы сообщества
 NoDisplay=false
-Path=
 StartupNotify=true
 Terminal=false
-TerminalOptions=
 Type=Application
 Categories=Documentation;Network;WebBrowser;
 X-KDE-SubstituteUID=false
-X-KDE-Username=

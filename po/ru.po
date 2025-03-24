@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-23 18:11+0100\n"
+"POT-Creation-Date: 2025-03-24 09:13+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
 "Last-Translator: Chour L <chv2016@rambler.ru>, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/abalfoort/teams/54212/"
@@ -641,10 +641,6 @@ msgid "Change system settings for SolydXK"
 msgstr "Изменить настройки системы для SolydXK"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
-msgid "Icon=solydxk"
-msgstr "Icon=solydxk"
-
-#: usr/share/applications/solydxk-system.desktop.in.h:3
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
 msgid "SolydXK System Settings"
 msgstr "SolydXK System Settings"

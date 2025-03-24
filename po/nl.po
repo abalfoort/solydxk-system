@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023
+# Arjen Balfoort <arjenbalfoort@tutamail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-14 09:28+0100\n"
+"POT-Creation-Date: 2025-03-24 09:13+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Arjen Balfoort <arjenbalfoort@hotmail.com>, 2023\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@tutamail.com>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/abalfoort/teams/54212/nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -618,11 +618,11 @@ msgstr "Versleutel of ontsleutel dit USB-apparaat met SolydXK System."
 
 #: usr/share/applications/solydxk-forums.desktop.in.h:1
 msgid "Get help from the SolydXK Community"
-msgstr ""
+msgstr "Krijg hulp van de SolydXK gemeenschap"
 
 #: usr/share/applications/solydxk-forums.desktop.in.h:2
 msgid "SolydXK Community Forums"
-msgstr ""
+msgstr "Forums van de SolydXK gemeenschap"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:1
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
@@ -630,10 +630,6 @@ msgid "Change system settings for SolydXK"
 msgstr "Verander systeem instellingen voor SolydXK"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
-msgid "Icon=solydxk"
-msgstr ""
-
-#: usr/share/applications/solydxk-system.desktop.in.h:3
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
 msgid "SolydXK System Settings"
 msgstr "SolydXK Systeeminstellingen"

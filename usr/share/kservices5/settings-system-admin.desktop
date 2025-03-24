@@ -2,7 +2,6 @@
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=system-administration
-X-KDE-System-Settings-Parent-Category=
 X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
