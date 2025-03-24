@@ -5,7 +5,7 @@ set -e
 #DEBHELPER#
 
 function run_scripts {
-    /bin/bash /usr/lib/solydxk/scripts/kodi.sh
+    bash /usr/lib/solydxk/scripts/kodi.sh
     python3 /usr/lib/solydxk/system/adjust.py
 }
 
@@ -16,7 +16,7 @@ case "$1" in
         SH='/usr/lib/solydxk/grub/boot-isos.sh'
         if [ -e "$FLE" ] && [ -e "$SH" ]; then
             if ! grep -q "$SH" "$FLE"; then
-                sed -i "s#echo '}'#if [ -e "$SH" ]; then /bin/bash "$SH"; fi; echo '}'#" "$FLE"
+                sed -i "s#echo '}'#if [ -e "$SH" ]; then bash "$SH"; fi; echo '}'#" "$FLE"
             else
                 # Fix bad format
                 sed -i "s/fi; echo '}}'/fi; echo '}'/" "$FLE"
