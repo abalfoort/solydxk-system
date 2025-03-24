@@ -39,7 +39,6 @@ Depends: ${misc:Depends}, ${python3:Depends}
   , gawk
   , apt
   , apt-show-versions
-  , apt-transport-https
   , hwinfo
   , pv
   , zenity
