@@ -5,17 +5,17 @@
 #
 # Translators:
 # ilu lu, 2023
-# Arjen Balfoort <arjenbalfoort@tutamail.com>, 2023
-# Luis Filipe Teixeira <lufilte@gmail.com>, 2023
+# Luis Filipe Teixeira <lufilte@gmail.com>, 2025
+# Arjen Balfoort <arjenbalfoort@tutamail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-24 09:13+0100\n"
+"POT-Creation-Date: 2025-03-25 15:27+0100\n"
 "PO-Revision-Date: 2017-04-24 19:40+0000\n"
-"Last-Translator: Luis Filipe Teixeira <lufilte@gmail.com>, 2023\n"
+"Last-Translator: Arjen Balfoort <arjenbalfoort@tutamail.com>, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/abalfoort/teams/54212/"
 "pt/)\n"
 "Language: pt\n"
@@ -90,7 +90,7 @@ msgstr "Local"
 msgid ""
 "Enable encryption: this will temporarily mount any not mounted partition."
 msgstr ""
-"Ativar a cifragem: isto vai montar temporariamente qualquer partição não "
+"Ativar cifragem: isto irá montar temporariamente qualquer partição não "
 "montada."
 
 #: usr/lib/solydxk/system/solydxk_system.py:145
@@ -101,17 +101,16 @@ msgid ""
 msgstr ""
 "Cifrar partições e manter os seus dados seguros.\n"
 "Aviso: faça uma cópia de segurança dos seus dados antes de continuar!\n"
-"Nota: você pode pressionar Ctrl+ botão esquerdo do rato para selecionar "
-"múltiplas partições."
+"Nota: pode clicar com a tecla Ctrl-esquerda para selecionar várias partições."
 
 #: usr/lib/solydxk/system/solydxk_system.py:148
 msgid ""
 "Configure your locales (one as default) and time zone.\n"
 "Note: make sure you have an internet connection to localize your software."
 msgstr ""
-"Configure os seus locais (uma por defeito) e o fuso horário.\n"
-"Nota: certifique-se de ter uma conexão à Internet para localizar o seu "
-"software."
+"Configure os seus locais (um por defeito) e o fuso horário.\n"
+"Nota: certifique-se de que tem uma ligação à Internet para localizar o seu "
+"‘software’."
 
 #: usr/lib/solydxk/system/solydxk_system.py:150
 msgid ""
@@ -120,11 +119,11 @@ msgid ""
 "your system.\n"
 "Use at your own risk!"
 msgstr ""
-"Ativar o repositório Backports se precisa de uma versão de software mais "
-"recente.\n"
-"Aviso: Ao instalar o software a partir do repositório de Backports pode "
+"Ative o repositório Backports se necessitar de uma versão mais recente do "
+"‘software’.\n"
+"Aviso: a instalação de ‘software’ do repositório de backports pode "
 "desestabilizar o seu sistema.\n"
-"Use por sua conta e risco!"
+"Use por sua própria conta e risco!"
 
 #: usr/lib/solydxk/system/solydxk_system.py:153
 msgid ""
@@ -132,11 +131,11 @@ msgid ""
 "Note: make sure you have an internet connection."
 msgstr ""
 "Selecione o repositório mais rápido para as suas atualizações.\n"
-"Nota: Certifique-se de que tem uma ligação à Internet."
+"Nota: certifique-se de que tem uma ligação à Internet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:155
 msgid "Hold back packages"
-msgstr "Pacotes a reter"
+msgstr "Retenção de pacotes"
 
 #: usr/lib/solydxk/system/solydxk_system.py:156
 msgid "Held back packages"
@@ -152,11 +151,11 @@ msgid ""
 "Holding back a package will prevent this package from being updated."
 msgstr ""
 "Reter pacotes individuais.\n"
-"Ao reter um pacote, impedirá que este pacote seja atualizado."
+"A retenção de um pacote impedirá que este pacote seja atualizado."
 
 #: usr/lib/solydxk/system/solydxk_system.py:160
 msgid "Save locale"
-msgstr "Salvar a localização"
+msgstr "Guardar a localização"
 
 #: usr/lib/solydxk/system/solydxk_system.py:161
 msgid "Installed"
@@ -164,15 +163,15 @@ msgstr "Instalado"
 
 #: usr/lib/solydxk/system/solydxk_system.py:163
 msgid "Language"
-msgstr "Língua"
+msgstr "Idioma"
 
 #: usr/lib/solydxk/system/solydxk_system.py:164
 msgid "Default"
-msgstr "Predefinição"
+msgstr "Padrão"
 
 #: usr/lib/solydxk/system/solydxk_system.py:165
 msgid "Please provide a passphrase (6+ characters)."
-msgstr "Por favor, forneça uma frase-senha (6+ caracteres)."
+msgstr "Forneça uma frase-chave (6+ caracteres)."
 
 #: usr/lib/solydxk/system/solydxk_system.py:166
 #: usr/lib/solydxk/system/endecrypt_partitions.py:261
@@ -181,8 +180,8 @@ msgid ""
 "Could not mount {0}\n"
 "Please mount {0} and refresh when done."
 msgstr ""
-"Não é possível montar {0}\n"
-"Por favor, montar {0} e atualize quando terminar."
+"Não foi possível montar {0}\n"
+"Por favor, monte {0} e atualize quando terminar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:167
 msgid "Cleanup"
@@ -194,9 +193,9 @@ msgid ""
 "Pre-selected packages are safe to remove (autoremove).\n"
 "Other packages: remove with caution!"
 msgstr ""
-"Remove pacotes desnecessários\n"
-"Os pacotes pré-selecionados são seguros para remover (autoremove).\n"
-"Outros pacotes: remova com precaução!"
+"Remover pacotes desnecessários\n"
+"Os pacotes pré-selecionados podem ser removidos com segurança (autoremove).\n"
+"Outros pacotes: remova com cuidado!"
 
 #: usr/lib/solydxk/system/solydxk_system.py:171
 msgid "Unneeded packages"
@@ -212,12 +211,12 @@ msgid ""
 "Mount additional partitions on boot with Fstab.\n"
 "When added to Fstab, the partition will be mounted in /media."
 msgstr ""
-"Montar partições adicionais no arranque com Fstab.\n"
-"Quando adicionado ao Fstab, a partição será montada em /media."
+"Montar partições adicionais no arranque com o Fstab.\n"
+"Quando adicionada ao Fstab, a partição será montada em /media."
 
 #: usr/lib/solydxk/system/solydxk_system.py:176
 msgid "Save Fstab mounts"
-msgstr "Salvar montagens do Fstab"
+msgstr "Salvar montagens Fstab"
 
 #: usr/lib/solydxk/system/solydxk_system.py:177
 msgid "Save drivers"
@@ -229,15 +228,16 @@ msgstr "Usar Backports"
 
 #: usr/lib/solydxk/system/solydxk_system.py:179
 msgid "Device Driver"
-msgstr "Driver do Dispositivo"
+msgstr "Controlador de dispositivo"
 
 #: usr/lib/solydxk/system/solydxk_system.py:180
 msgid ""
 "Install drivers for supported hardware.\n"
 "Note: this will install the open drivers, NOT the proprietary drivers."
 msgstr ""
-"Instalar drivers para o hardware suportado.\n"
-"Nota: isto vai instalar os drivers abertos, NÃO os drivers proprietários."
+"Instalar controladores para o ‘hardware’ suportado.\n"
+"Nota: isto irá instalar os controladores abertos, NÃO os controladores "
+"proprietários."
 
 #: usr/lib/solydxk/system/solydxk_system.py:182
 msgid "Boot splash"
@@ -245,7 +245,7 @@ msgstr "Ecrã de arranque"
 
 #: usr/lib/solydxk/system/solydxk_system.py:183
 msgid "Select a theme for Plymouth and Grub."
-msgstr "Seleccione um tema para Plymouth e Grub."
+msgstr "Selecione um tema para o Plymouth e o Grub."
 
 #: usr/lib/solydxk/system/solydxk_system.py:184
 msgid "Plymouth themes"
@@ -297,31 +297,31 @@ msgstr "Adicionar"
 #, python-brace-format
 msgid "Could not add {device} to {fstab_path}: missing fs type."
 msgstr ""
-"Não é possível adicionar {device} para {fstab_path}: tipo de fs em falta."
+"Não foi possível adicionar {device} a {fstab_path}: tipo de fs em falta."
 
 #: usr/lib/solydxk/system/solydxk_system.py:561
 msgid ""
 "Changes were made to fstab.\n"
 "Please reboot your computer for these changes to take effect."
 msgstr ""
-"As alterações foram feitas para fstab.\n"
-"Por favor, reinicie o computador para que essas alterações tenham efeito."
+"Foram efetuadas alterações ao fstab.\n"
+"Reinicie o seu computador para que estas alterações tenham efeito."
 
 #: usr/lib/solydxk/system/solydxk_system.py:565
 msgid "No changes were made to fstab."
-msgstr "Não foram feitas alterações para fstab."
+msgstr "Não foram efetuadas alterações ao fstab."
 
 #: usr/lib/solydxk/system/solydxk_system.py:633
 msgid "No internet connection"
-msgstr "Sem conexão com a Internet"
+msgstr "Sem ligação à Internet"
 
 #: usr/lib/solydxk/system/solydxk_system.py:634
 msgid ""
 "You need an internet connection to install the additional software.\n"
 "Please, connect to the internet and try again."
 msgstr ""
-"Necessita de uma conexão à Internet para instalar o “software” adicional.\n"
-"Por favor, conecte-se à Internet e tente novamente."
+"É necessária uma ligação à Internet para instalar o ‘software’ adicional.\n"
+"Por favor, ligue-se à Internet e tente novamente."
 
 #: usr/lib/solydxk/system/solydxk_system.py:641
 msgid ""
@@ -334,13 +334,14 @@ msgid ""
 "\n"
 "Are you sure you want to continue?"
 msgstr ""
-"Selecionou drivers a instalar a partir do repositório backports sempre que "
-"estiverem disponíveis.\n"
+"Selecionou a instalação de controladores do repositório de backports sempre "
+"que estiverem disponíveis.\n"
 "\n"
-"Embora possa executar mais software atualizado ao usar o repositório de "
-"backports, introduz um maior risco de quebra ao fazê-lo.\n"
+"Embora seja possível executar ‘software’ mais atualizado utilizando o "
+"repositório de backports,\n"
+"introduz um maior risco de avaria ao fazê-lo.\n"
 "\n"
-"Tem a certeza que quer continuar?"
+"Tem a certeza de que pretende continuar?"
 
 #: usr/lib/solydxk/system/solydxk_system.py:677
 msgid "Remove kernel"
@@ -351,8 +352,8 @@ msgid ""
 "You cannot remove a booted kernel.\n"
 "Please, boot another kernel and try again."
 msgstr ""
-"Não pode remover um “kernel” iniciado.\n"
-"Por favor, inicie com um outro “kernel” e tente de novo."
+"Não é possível remover um kernel inicializado.\n"
+"Por favor, inicie outro kernel e tente novamente."
 
 #: usr/lib/solydxk/system/solydxk_system.py:706
 msgid "Install"
@@ -375,9 +376,9 @@ msgid ""
 "Do you want to continue?"
 msgstr ""
 "A partição {device} já está cifrada.\n"
-"Ao continuar, mudará a chave de cifra desta partição.\n"
+"Continuar irá alterar a chave de cifragem desta partição.\n"
 "\n"
-"Vai querer continuar?"
+"Deseja continuar?"
 
 #: usr/lib/solydxk/system/solydxk_system.py:808
 msgid ""
@@ -385,11 +386,11 @@ msgid ""
 "Please choose another partition to decrypt."
 msgstr ""
 "A partição não está cifrada.\n"
-"Por favor, escolha outra partição para cifrar."
+"Escolha outra partição para decifrar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:863
 msgid "Could not install cryptsetup/cryptsetup-initramfs."
-msgstr "Não é possível instalar cryptsetup/cryptsetup-initramfs."
+msgstr "Não foi possível instalar o cryptsetup/cryptsetup-initramfs."
 
 #: usr/lib/solydxk/system/solydxk_system.py:881
 #, python-brace-format
@@ -397,7 +398,7 @@ msgid ""
 "{device} is not encrypted.\n"
 "Please choose an encrypted partition."
 msgstr ""
-"{device} não é cifrada.\n"
+"{device} não está cifrado.\n"
 "Por favor, escolha uma partição cifrada."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1033
@@ -410,16 +411,17 @@ msgid ""
 "You need a backup partition with at least {size} free.\n"
 "Mount a backup drive and hit the refresh button."
 msgstr ""
-"Precisa de uma partição de “backup” com pelo menos {size} livre.\n"
-"Monte uma unidade de “backup” e aperte o botão de atualizar."
+"Necessita de uma partição de cópia de segurança com pelo menos {size} "
+"livre.\n"
+"Monte uma unidade de cópia de segurança e prima o botão atualizar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1459
 msgid ""
 "Firefox and/or Thunderbird are running.\n"
 "Please close these applications before you continue."
 msgstr ""
-"Firefox e/ou Thunderbird estão em execução.\n"
-"Por favor, Encerre as aplicações antes de continuar."
+"O Firefox e/ou o Thunderbird estão a ser executados.\n"
+"Feche estas aplicações antes de continuar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1482
 #, python-brace-format
@@ -427,10 +429,9 @@ msgid ""
 "{title} cannot download and install the software localization packages\n"
 "Please repeat this process when you established an internet connection."
 msgstr ""
-"{title} não se consegue baixar e instalar os pacotes de software de "
-"localização\n"
-"Por favor de repetir o processo quando estabelecer uma conexão com a "
-"internet."
+"{title} não é possível transferir e instalar os pacotes de localização de "
+"‘software’\n"
+"Repita este processo quando tiver estabelecido uma ligação à Internet."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1649
 #: usr/lib/solydxk/system/solydxk_system.py:1748
@@ -439,7 +440,7 @@ msgid ""
 "Please update the apt cache manually with: apt-get update"
 msgstr ""
 "Não foi possível atualizar a cache do apt.\n"
-"Por favor, atualize a cache apt manualmente com: apt-get update"
+"Por favor, atualize a cache do apt manualmente com: apt-get update"
 
 #: usr/lib/solydxk/system/solydxk_system.py:1653
 msgid "Nothing to do."
@@ -447,7 +448,7 @@ msgstr "Nada a fazer."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1753
 msgid "There are no repositories to save."
-msgstr "Não há nenhum repositórios para salvar."
+msgstr "Não há repositórios para guardar."
 
 #: usr/lib/solydxk/system/solydxk_system.py:1757
 msgid "Current"
@@ -468,8 +469,7 @@ msgstr "URL"
 #: usr/lib/solydxk/system/solydxk_system.py:2100
 msgid "You need to reboot your system for the new settings to take affect."
 msgstr ""
-"É necessário reiniciar o sistema para que as novas configurações tomem "
-"efeito."
+"É necessário reiniciar o sistema para que as novas definições tenham efeito."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2101
 msgid "Reboot"
@@ -485,13 +485,13 @@ msgid ""
 "\n"
 "Do you want to restart your computer?"
 msgstr ""
-"A cifragem foi concluída.\n"
+"A cifragem terminou.\n"
 "\n"
-"Deseja reiniciar o computador?"
+"Pretende reiniciar o computador?"
 
 #: usr/lib/solydxk/system/solydxk_system.py:2116
 msgid "Decryption done"
-msgstr "Decifração concluída"
+msgstr "Decifragem efetuada"
 
 #: usr/lib/solydxk/system/solydxk_system.py:2117
 msgid ""
@@ -499,19 +499,19 @@ msgid ""
 "\n"
 "Do you want to restart your computer?"
 msgstr ""
-"A decifração foi concluída.\n"
+"A decifração está completa.\n"
 "\n"
-"Deseja reiniciar o computador?"
+"Deseja reiniciar o seu computador?"
 
 #: usr/lib/solydxk/system/solydxk_system.py:2130
 #, python-brace-format
 msgid "Passphrase changed for {devices}."
-msgstr "Frase-senha alterada para {devices}."
+msgstr "A frase-chave foi alterada para {devices}."
 
 #: usr/lib/solydxk/system/solydxk_system.py:2178
 #: usr/lib/solydxk/system/endecrypt_partitions.py:264
 msgid "Partition passphrase"
-msgstr "Frase-senha da partição"
+msgstr "Frase-chave da partição"
 
 #: usr/lib/solydxk/system/solydxk_system.py:2179
 #: usr/lib/solydxk/system/endecrypt_partitions.py:265
@@ -519,7 +519,7 @@ msgid ""
 "Please, provide the current passphrase\n"
 "for the encrypted partition"
 msgstr ""
-"Por favor, forneça a atual frase-senha\n"
+"Por favor, forneça a frase-passe atual\n"
 "para a partição cifrada"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:55
@@ -528,9 +528,10 @@ msgid ""
 "Could not create a backup on {backup_dir} (rsync code: {rsync_code}).\n"
 "Please, select another backup medium before you try again."
 msgstr ""
-"Não foi possível criar um backup no {backup_dir} (rsync code: "
+"Não foi possível criar uma cópia de segurança em {backup_dir} (código rsync: "
 "{rsync_code}).\n"
-"Por favor, selecione outro meio de backup antes de tentar novamente."
+"Por favor, selecione outro suporte de cópia de segurança antes de tentar "
+"novamente."
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:98
 #, python-brace-format
@@ -540,8 +541,8 @@ msgid ""
 "{backup_dir}"
 msgstr ""
 "Não foi possível formatar o dispositivo {device}.\n"
-"Você precisa de formatar o dispositivo manualmente e restaurar os dados a "
-"partir de: {backup_dir}"
+"Tem de formatar manualmente o dispositivo e restaurar os seus dados a partir "
+"de: {backup_dir}"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:135
 #, python-brace-format
@@ -549,8 +550,9 @@ msgid ""
 "Could not restore the backup (rsync code: {rsync_code}).\n"
 "You need to manually restore your data from: {backup_dir}"
 msgstr ""
-"Não foi possível restaurar o backup (rsync code: {rsync_code}).\n"
-"Você precisa de restaurar os seus dados manualmente de: {backup_dir}"
+"Não foi possível restaurar a cópia de segurança (código rsync: "
+"{rsync_code}).\n"
+"Tem de restaurar manualmente os seus dados a partir de: {backup_dir}"
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:159
 #, python-brace-format
@@ -559,7 +561,7 @@ msgid ""
 "It has no file system type."
 msgstr ""
 "Erro ao formatar a partição {0}:\n"
-"Não tem nenhum tipo de ficheiro de sistema."
+"Não tem nenhum tipo de sistema de ficheiros."
 
 #: usr/lib/solydxk/system/endecrypt_partitions.py:320
 #, python-brace-format
@@ -567,8 +569,8 @@ msgid ""
 "Could not change the passphrase for {0}\n"
 "Please, provide the current and new passphrase."
 msgstr ""
-"Não foi possível alterar a frase-senha para {0}\n"
-"Por favor, forneça a atual e a nova frase-senha."
+"Não foi possível alterar a frase-chave de {0}\n"
+"Por favor, forneça a frase-chave atual e a nova."
 
 #: usr/lib/solydxk/system/main.py:32
 msgid "Unexpected error"
@@ -579,8 +581,8 @@ msgid ""
 "SolydXK System Settings has failed with the following unexpected error. "
 "Please submit a bug report!"
 msgstr ""
-"As Configurações de Sistema SolydXK falharam com o seguinte erro. Por favor "
-"envie um relatório de bug!"
+"As definições do sistema SolydXK falharam com o seguinte erro inesperado. "
+"Por favor, envie um relatório de erro!"
 
 #: usr/bin/iso-usb:79
 #, sh-format
@@ -615,7 +617,7 @@ msgstr "Não foi encontrado uma pen USB."
 #: usr/bin/iso-usb:85
 #, sh-format
 msgid "No ISO path provided."
-msgstr "Não foi fornecido o caminho para o ISO."
+msgstr "Não foi fornecido nenhum caminho ISO."
 
 #: etc/skel/.config/autostart/xsession-logcontrol.desktop.in.h:1
 msgid "Limit the xsession-errors file size"
@@ -627,25 +629,25 @@ msgstr "Controlo de Log de Erros Xsession"
 
 #: usr/share/solid/actions/solydxk-system-openusb.desktop.in.h:1
 msgid "Encrypt or decrypt this USB device with SolydXK System."
-msgstr "Cifrar ou decifrar este dispositivo USB com o Sistema SolydXK."
+msgstr "Cifrar ou decifrar este dispositivo USB com “SolydXK System”."
 
 #: usr/share/applications/solydxk-forums.desktop.in.h:1
 msgid "Get help from the SolydXK Community"
-msgstr ""
+msgstr "Obter ajuda da comunidade SolydXK"
 
 #: usr/share/applications/solydxk-forums.desktop.in.h:2
 msgid "SolydXK Community Forums"
-msgstr ""
+msgstr "Fóruns da comunidade SolydXK"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:1
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:2
 msgid "Change system settings for SolydXK"
-msgstr "Alterar as configurações de sistema SolydXK"
+msgstr "Alterar as definições do sistema do SolydXK"
 
 #: usr/share/applications/solydxk-system.desktop.in.h:2
 #: usr/share/kservices5/kcm_solydxk-system.desktop.in.h:1
 msgid "SolydXK System Settings"
-msgstr "Configurações de Sistema SolydXK"
+msgstr "Definições de sistema SolydXK"
 
 #: usr/share/kservices5/settings-system-admin.desktop.in.h:1
 msgid "System"
@@ -670,7 +672,7 @@ msgstr ""
 
 #: po/en/helpdd.html%2Bhtml.body.h1:8-2
 msgid "SolydXK System Settings: Device Driver Help"
-msgstr "Configurações de Sistema de SolydXK: Ajuda ao Driver do Dispositivo"
+msgstr "Definições do sistema SolydXK: Ajuda do controlador de dispositivo"
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:10-3
 msgid "Description"
@@ -684,12 +686,12 @@ msgid ""
 "Driver will only list those devices that are supported. It will not list any "
 "other devices then mentioned above."
 msgstr ""
-"O Driver de Dispositivo é uma ferramenta para ajudar os utilizadores na "
-"instalação de drivers de hardware de terceiros. Atualmente, os drivers da "
-"Nvidia, AMD/ATI e Broadcom podem ser instaladas e permite instalar o kernel "
-"PAE para sistemas de 32 bits multi-core. O Driver de Dispositivo só irá "
-"listar os dispositivos que são suportados. Ele não irá listar quaisquer "
-"outros dispositivos mencionados acima."
+"O Device Driver é uma ferramenta que ajuda os utilizadores a instalar "
+"controladores de ‘hardware’ de terceiros. Atualmente, podem ser instalados "
+"controladores Nvidia, AMD/ATI e Broadcom e permite instalar o kernel PAE "
+"para sistemas multi-core de 32 bits. O Device Driver apenas irá listar os "
+"dispositivos suportados. Ele não listará nenhum outro dispositivo além dos "
+"mencionados acima."
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:13-3
 msgid "Important"
@@ -701,9 +703,9 @@ msgid ""
 "repositories. Make sure you have an internet connection if you want to "
 "install the drivers."
 msgstr ""
-"O Driver de Dispositivo só pode instalar drivers que estão disponíveis nos "
-"repositórios. Certifique-se de ter uma conexão à Internet se desejar "
-"instalar os drivers."
+"O Controlador de Dispositivos só pode instalar controladores que estejam "
+"disponíveis nos repositórios. Certifique-se de que tem uma ligação à "
+"Internet se quiser instalar os controladores."
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:16-3
 msgid "Commands"
@@ -714,8 +716,8 @@ msgid ""
 "If you prefer to install the drivers by terminal, you can use the following "
 "commands:"
 msgstr ""
-"Se prefere instalar os “drivers” pelo terminal, pode usar os seguintes "
-"comandos:"
+"Se preferir instalar os controladores através do terminal, pode utilizar os "
+"seguintes comandos:"
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:22-3
 msgid ""
@@ -724,10 +726,10 @@ msgid ""
 "1000 and 5000 will use the Radeon drivers. Use \"ddm -p amd\" to remove the "
 "drivers from your system."
 msgstr ""
-"Isto irá instalar os drivers para sua placa gráfica AMD / ATI. As placas "
-"AMD / ATI da versão HD 5000 e superior são suportados pelos drivers. Versões "
-"entre 1000 e 5000 usarão os drivers Radeon. Use \"ddm -p amd\" para remover "
-"os drivers do seu sistema."
+"Isto irá instalar os controladores para a sua placa gráfica AMD/ATI. As "
+"placas AMD/ATI a partir da versão HD 5000 são suportadas pelos "
+"controladores. As versões entre 1000 e 5000 utilizarão os controladores "
+"Radeon. Utilize “ddm -p amd” para remover os controladores do seu sistema."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:25-3
 msgid ""
@@ -735,26 +737,28 @@ msgid ""
 "select the Bumblebee drivers in case you have a hybrid card (both Nvidia and "
 "Intel). Use \"ddm -p nvidia\" to remove the drivers from your system."
 msgstr ""
-"Isso irá selecionar os drivers corretos para a sua placa gráfica Nvidia. Ele "
-"selecionará os drivers do Bumblebee caso você tenha uma placa híbrida "
-"(Nvidia e Intel). Use \"ddm -p nvidia\" para remover os drivers do seu "
-"sistema."
+"Isto irá selecionar os controladores corretos para a sua placa gráfica "
+"Nvidia. Selecionará os controladores Bumblebee no caso de ter uma placa "
+"híbrida (tanto Nvidia como Intel). Utilize “ddm -p nvidia” para remover os "
+"controladores do seu sistema."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:28-3
 msgid ""
 "You can use this command if you want to revert back to the open Nouveau "
 "drivers. It will remove any proprietary drivers from your system."
 msgstr ""
-"Pode usar este comando se quiser reverter para os “drivers” abertos Nouveau. "
-"Ele removerá todos os “drivers” proprietários do seu sistema."
+"Pode utilizar este comando se pretender reverter para os controladores "
+"Nouveau abertos. Irá remover quaisquer controladores proprietários do seu "
+"sistema."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:31-3
 msgid ""
 "This command will install the right driver for your wireless Broadcom "
 "adapter. Use \"ddm -p broadcom\" to remove the drivers from your system."
 msgstr ""
-"Este comando irá instalar o driver correto para o adaptador wireless "
-"Broadcom. Use \"ddm -p broadcom\" para remover os drivers do seu sistema."
+"Este comando irá instalar o controlador correto para o seu adaptador "
+"Broadcom sem fios. Use “ddm -p broadcom” para remover os controladores do "
+"seu sistema."
 
 #: po/en/helpdd.html%2Bhtml.body.div.p:34-3
 msgid ""
@@ -762,10 +766,9 @@ msgid ""
 "OS. Use \"ddm -p pae\" to remove the PAE kernel from your system. Note that "
 "you cannot remove the kernel when you are currently booted into that kernel."
 msgstr ""
-"Isto irá instalar o kernel PAE em sistemas multi-processadores que executam "
-"um sistema operativo de 32 bits. Use \"ddm -p pae\" para remover o kernel "
-"PAE do seu sistema. Observe que você não pode remover o kernel quando "
-"atualmente você o tem inicializado."
+"Isto irá instalar o kernel PAE em sistemas multi-processador a correr um SO "
+"de 32-bit. Utilize “ddm -p pae” para remover o kernel PAE do seu sistema. "
+"Note que não pode remover o kernel quando arranca atualmente nesse kernel."
 
 #: po/en/helpdd.html%2Bhtml.body.div.h2:36-3
 msgid "Logging"
@@ -777,13 +780,13 @@ msgid ""
 "href=\"https://forums.solydxk.com\" target=\"_blank\">https://forums.solydxk."
 "com</a>"
 msgstr ""
-"Por favor, anexe o seu ficheiro de log quando publica um problema no nosso "
-"fórum: <a href=\"https://forums.solydxk.com\" target=\"_blank\">https://"
-"forums.solydxk.com</a>"
+"Por favor, anexe o seu ficheiro de registo quando publicar um problema no "
+"nosso fórum: <a href=\"https://forums.solydxk.com\" "
+"target=\"_blank\">https://forums.solydxk.com</a>"
 
 #: po/en/help.html%2Bhtml.body.h1:8-2
 msgid "SolydXK System Settings Encryption Help"
-msgstr "Ajuda de Cifra em Configurações de Sistema SolydXK"
+msgstr "SolydXK Definições do sistema Ajuda de cifragem"
 
 #: po/en/help.html%2Bhtml.body.div.p:11-3
 msgid "Encrypt partitions of your system with LUKS."
@@ -795,9 +798,9 @@ msgid ""
 "partition you are going to encrypt or decrypt. Mount a partition or external "
 "drive for this purpose before you start."
 msgstr ""
-"As Configurações de Sistema SolydXK irá criar ou restaurar um “backup” dos "
-"dados da partição que irá cifrar ou decifrar. Monte uma partição ou unidade "
-"externa para esse propósito antes de começar."
+"O SolydXK System Settings irá criar e restaurar uma cópia de segurança dos "
+"dados da partição que vai encriptar ou desencriptar. Monte uma partição ou "
+"unidade externa para este fim antes de começar."
 
 #: po/en/help.html%2Bhtml.body.div.p:15-3
 msgid ""
@@ -807,12 +810,12 @@ msgid ""
 "an unencrypted boot partition if you want to encrypt your root partition and "
 "that Grub2 will be installed on the disk where the root partition is."
 msgstr ""
-"Não pode cifrar uma partição root ou home inicializada com as Configurações "
-"de Sistema SolydXK. Se desejar fazê-lo, pode descarregar o ISO mais recente "
-"do nosso sítio principal e executar Configurações do Sistema SolydXK numa "
-"sessão live. Observe que precisa de uma partição de inicialização não "
-"cifrada se desejar cifrar a sua partição root e que Grub2 será instalado no "
-"disco de onde a partição root está."
+"Não é possível cifrar uma partição raiz ou home inicializada com o SolydXK "
+"System Settings. Se desejar fazê-lo, pode descarregar a última ISO do nosso "
+"sítio principal e executar o SolydXK System Settings numa sessão ao vivo. "
+"Note que precisa de uma partição de arranque não cifrada se quiser cifrar a "
+"sua partição raiz e que o Grub2 será instalado no disco onde está a partição "
+"raiz."
 
 #: po/en/help.html%2Bhtml.body.div.p:16-3
 msgid ""
@@ -820,9 +823,9 @@ msgid ""
 "wish to include new partitions in fstab you need to manually add them before "
 "you run SolydXK System Settings."
 msgstr ""
-"Somente as partições que são montadas no fstab são salvas no fstab. Se você "
-"desejar incluir novas partições em fstab que você precisa, deve adicionar-"
-"las manualmente antes de executar as Configurações de Sistema SolydXK."
+"Somente as partições que estão montadas no fstab são salvas no fstab. Se "
+"quiser incluir novas partições no fstab, precisa de as adicionar manualmente "
+"antes de executar o SolydXK System Settings."
 
 #: po/en/help.html%2Bhtml.body.div.h2:18-3
 msgid "Examples"
@@ -839,24 +842,23 @@ msgid ""
 "usr/share/solydxk/system/icons/unencrypted-usb.png\" /> and <img src=\"/usr/"
 "share/solydxk/system/icons/encrypted-usb.png\" />."
 msgstr ""
-"Quando iniciar as Configurações de Sistema SolydXK, verá uma lista de "
-"partições que pode cifrar ou decifrar. Uma partição cifrada mostra este "
-"ícone:  <img src=\"/usr/share/solydxk/system/icons/encrypted.png\" /> e uma "
-"partição não cifrada mostra este ícone: <img src=\"/usr/share/solydxk/system/"
-"icons/unencrypted.png\" />. A sua seleção irá decidir quais as ações que "
-"podem ser tomadas nessa partição. Os meios removíveis mostrarão estes "
-"ícones: <img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
+"Quando iniciar as Definições do Sistema SolydXK, verá uma lista de partições "
+"que pode encriptar ou desencriptar. Uma partição encriptada mostra este "
+"ícone: <img src=\"/usr/share/solydxk/system/icons/encrypted.png\" /> e uma "
+"partição não cifrada mostra este ícone:  <img src=\"/usr/share/solydxk/"
+"system/icons/unencrypted.png\" />. A sua seleção decidirá quais as ações que "
+"podem ser executadas nessa partição. Os suportes amovíveis mostrarão estes "
+"ícones: ⁣<img src=\"/usr/share/solydxk/system/icons/unencrypted-usb.png\" /> "
 "e <img src=\"/usr/share/solydxk/system/icons/encrypted-usb.png\" />."
 
 #: po/en/help.html%2Bhtml.body.div.p:20-3
 msgid "Following are some examples on how to use SolydXK System Settings:"
 msgstr ""
-"Seguem-se alguns exemplos sobre como usar as Configurações de Sistema "
-"SolydXK:"
+"Seguem-se alguns exemplos de como utilizar as definições do sistema SolydXK:"
 
 #: po/en/help.html%2Bhtml.body.div.h3:22-3
 msgid "Encrypt a USB pen drive"
-msgstr "Cifrar uma pen USB "
+msgstr "Cifrar uma pen drive USB"
 
 #: po/en/help.html%2Bhtml.body.div.p:23-3
 msgid ""
@@ -864,9 +866,9 @@ msgid ""
 "drive and select the partition of that drive drive you wish to encrypt. Fill "
 "in your passphrase twice and hit the \"Encrypt\" button."
 msgstr ""
-"Insira uma pen USB e monte-a. Pressione o botão de atualizar para listar a "
-"pen USB e selecione a partição da unidade que deseja cifrar. Preencha sua "
-"frase-senha duas vezes e pressione o botão \"Cifrar\"."
+"Insira uma pen drive USB e monte-a. Prima o botão “atualizar” para listar a "
+"pen drive e selecione a partição dessa unidade que pretende encriptar. "
+"Preencha a sua frase-chave duas vezes e prima o botão “Cifrar”."
 
 #: po/en/help.html%2Bhtml.body.div.h3:25-3
 msgid "Encrypt the root (and swap) partition"
@@ -874,7 +876,7 @@ msgstr "Cifrar a partição root (e swap)"
 
 #: po/en/help.html%2Bhtml.body.div.strong.p:26-11
 msgid "WARNING: do this at your own risk!"
-msgstr "AVISO: faça isto pela sua conta e risco!"
+msgstr "AVISO: faça-o por sua conta e risco!"
 
 #: po/en/help.html%2Bhtml.body.div.p:27-3
 msgid ""
@@ -886,25 +888,25 @@ msgid ""
 "partition: /dev/sda1 which I want to mount as /boot into the root partition /"
 "dev/sda2. Change the partition paths accordingly to your situation."
 msgstr ""
-"Necessitará de uma partição /boot que não seja cifrada. Se não possui uma "
-"partição /boot, veja como criar uma. Numa sessão live, inicie GParted e crie "
-"uma partição de pelo menos 200 MB de espaço livre. Esta partição pode ser "
-"criada a partir de espaço não alocado existente ou encolhendo outra partição "
-"e usando o espaço livre recém-criado. Neste exemplo, criei uma partição: /"
-"dev/sda1 que eu quero montar como /boot na partição raiz /dev/sda2. Altere "
-"os caminhos da partição de acordo com a sua situação."
+"Necessitará de uma partição /boot não encriptada. Se não tiver uma partição /"
+"boot, veja como criar uma. Numa sessão live, inicie o GParted e crie uma "
+"partição com pelo menos 200 MB de espaço livre. Esta partição pode ser "
+"criada a partir do espaço não alocado existente, ou reduzindo outra partição "
+"e usando o espaço livre recém-criado. Neste exemplo, eu criei uma partição: /"
+"dev/sda1 que quero montar como /boot na partição raiz /dev/sda2. Altere os "
+"caminhos das partições consoante a sua situação."
 
 #: po/en/help.html%2Bhtml.body.div.p:28-3
 msgid "Open a terminal, and run these commands as root:"
-msgstr "Abra um terminal e execute esses comandos como root:"
+msgstr "Abra um terminal e execute estes comandos como root:"
 
 #: po/en/help.html%2Bhtml.body.div.p:34-3
 msgid ""
 "You can now reboot your system and check if the boot partition is properly "
 "mounted:"
 msgstr ""
-"Agora você pode reiniciar seu sistema e verificar se a partição de "
-"inicialização está corretamente montada:"
+"Pode agora reiniciar o seu sistema e verificar se a partição de arranque "
+"está corretamente montada:"
 
 #: po/en/help.html%2Bhtml.body.div.p:36-3
 msgid ""
@@ -912,9 +914,9 @@ msgid ""
 "again, start SolydXK System Settings and select the root partition (and any "
 "other partition you'd like to encrypt)."
 msgstr ""
-"Para cifrar a partição root (e swap), precisa iniciar uma sessão live "
-"novamente, iniciar Configurações do Sistema SolydXK e selecionar a partição "
-"root (e qualquer outra partição que deseja cifrar)."
+"Para cifrar a partição root (e swap), é necessário iniciar novamente uma "
+"sessão live, iniciar o SolydXK System Settings e selecionar a partição root "
+"(e qualquer outra partição que queira cifrar)."
 
 #: po/en/help.html%2Bhtml.body.div.h3:38-3
 msgid "Change the passphrase of an encrypted partition"
@@ -925,12 +927,12 @@ msgid ""
 "Select an encrypted partition from the list, fill in your passphrase twice "
 "and hit the \"Change Passphrase\" button."
 msgstr ""
-"Selecione uma partição cifrada da lista, preencha a sua frase-senha duas "
-"vezes e pressione o botão \"Alterar frase-senha\"."
+"Selecione uma partição cifrada da lista, preencha a sua frase secreta duas "
+"vezes e clique no botão “Alterar frase secreta”."
 
 #: po/en/help.html%2Bhtml.body.div.h3:41-3
 msgid "Create a key file for a selection of encrypted partitions"
-msgstr "Criar um ficheiro chave para uma selecção de partições cifradas"
+msgstr "Criar um ficheiro chave para uma seleção de partições cifradas"
 
 #: po/en/help.html%2Bhtml.body.div.p:42-3
 msgid ""
@@ -939,14 +941,14 @@ msgid ""
 "partition will hold the key file while the other partitions are "
 "automatically opened with that key file."
 msgstr ""
-"Selecione várias partições cifradas da lista, digite a sua frase-senha duas "
-"vezes e clique no botão \"Criar manualmente o ficheiro chave\". A primeira "
-"partição cifrada irá manter o ficheiro chave enquanto as outras partições "
-"serão abertas automaticamente com esse ficheiro chave."
+"Selecione várias partições cifradas da lista, preencha a sua frase secreta "
+"duas vezes e clique no botão “Criar manualmente o arquivo de chaves”. A "
+"primeira partição cifrada irá conter o ficheiro chave enquanto as outras "
+"partições são automaticamente abertas com esse ficheiro chave."
 
 #: po/en/help.html%2Bhtml.body.div.h3:44-3
 msgid "Decrypt a partition"
-msgstr "Decifrar a partição"
+msgstr "Decifrar uma partição"
 
 #: po/en/help.html%2Bhtml.body.div.p:45-3
 msgid ""
@@ -956,16 +958,15 @@ msgid ""
 "partition you want to decrypt. You will be asked for a backup medium if it "
 "cannot find enough free space to continue."
 msgstr ""
-"Selecione uma partição cifrada da lista, preencha sua frase-senha duas vezes "
-"e pressione o botão \"Decifrar\". As Configurações de Sistema SolydXK vai "
-"procurar uma partição com espaço livre suficiente para criar um backup "
-"temporário da partição que você deseja decifrar. Você será solicitado por um "
-"média de backup se não conseguir encontrar espaço livre suficiente para "
-"continuar."
+"Selecione uma partição cifrada da lista, preencha a sua frase secreta duas "
+"vezes e clique no botão “Decifrar”. O SolydXK System Settings irá procurar "
+"uma partição com espaço livre suficiente para criar uma cópia de segurança "
+"temporária da partição que pretende decifrar. Ser-lhe-á pedido um suporte de "
+"cópia de segurança se não encontrar espaço livre suficiente para continuar."
 
 #: po/en/help.html%2Bhtml.body.div.h2:48-3
 msgid "Troubleshooting"
-msgstr "Solução de problemas"
+msgstr "Resolução de problemas"
 
 #: po/en/help.html%2Bhtml.body.div.p:49-3
 msgid ""
@@ -973,9 +974,9 @@ msgid ""
 "href=\"https://github.com/SolydXK/solydxk-system\" target=\"_blank\">GitHub</"
 "a> page."
 msgstr ""
-"Por favor ajude a melhorar esta aplicação. Poderá encontrar o código fonte "
-"na nossa página do  <a href=\"https://github.com/SolydXK/solydxk-system\" "
-"target=\"_blank\">GitHub</a> ."
+"Ajude a melhorar esta aplicação. Pode encontrar o código-fonte na nossa "
+"página <a href=\"https://github.com/SolydXK/solydxk-system\" "
+"target=\"_blank\">GitHub</a>."
 
 #: po/en/help.html%2Bhtml.body.div.p:50-3
 msgid ""
@@ -983,14 +984,14 @@ msgid ""
 "please visit our <a href=\"https://forums.solydxk.com\" "
 "target=\"_blank\">forum</a> and post your issue there."
 msgstr ""
-"Se, por algum motivo, o seu sistema não montar a nova partição cifrada, por "
-"favor visite o nosso <a href=\"https://forums.solydxk.com\" "
-"target=\"_blank\">fórum</a> e publique seu problema lá."
+"Se, por algum motivo, o seu sistema não montar a partição recém-cifrada, "
+"visite o nosso<a href=\"https://forums.solydxk.com\" "
+"target=\"_blank\">fórum</a> e publique aí o seu problema."
 
 #: po/en/help.html%2Bhtml.body.div.p:51-3
 msgid ""
 "Don't forget to attach the log file when you post an issue on our forum: /"
 "var/log/solydxk-system.log"
 msgstr ""
-"Não se esqueça de anexar o ficheiro de log quando você publicar um problema "
-"no nosso fórum: /var/log/solydxk-system.log"
+"Não se esqueça de anexar o ficheiro de registo quando colocar um problema no "
+"nosso fórum: /var/log/solydxk-system.log"

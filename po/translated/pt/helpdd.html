@@ -5,57 +5,59 @@
   </head>
   <body>
     <div id="background"></div>
-	<h1>Configurações de Sistema de SolydXK: Ajuda ao Driver do Dispositivo</h1>
+	<h1>Definições do sistema SolydXK: Ajuda do controlador de dispositivo</h1>
 	<div class="main">
 		<h2>Descrição</h2>
-		<p>O Driver de Dispositivo é uma ferramenta para ajudar os utilizadores na
-instalação de drivers de hardware de terceiros. Atualmente, os drivers da
-Nvidia, AMD/ATI e Broadcom podem ser instaladas e permite instalar o kernel
-PAE para sistemas de 32 bits multi-core. O Driver de Dispositivo só irá
-listar os dispositivos que são suportados. Ele não irá listar quaisquer
-outros dispositivos mencionados acima.</p>
+		<p>O Device Driver é uma ferramenta que ajuda os utilizadores a instalar
+controladores de ‘hardware’ de terceiros. Atualmente, podem ser instalados
+controladores Nvidia, AMD/ATI e Broadcom e permite instalar o kernel PAE
+para sistemas multi-core de 32 bits. O Device Driver apenas irá listar os
+dispositivos suportados. Ele não listará nenhum outro dispositivo além dos
+mencionados acima.</p>
 
 		<h2>Importante</h2>
-		<p>O Driver de Dispositivo só pode instalar drivers que estão disponíveis nos
-repositórios. Certifique-se de ter uma conexão à Internet se desejar
-instalar os drivers.</p>
+		<p>O Controlador de Dispositivos só pode instalar controladores que estejam
+disponíveis nos repositórios. Certifique-se de que tem uma ligação à
+Internet se quiser instalar os controladores.</p>
 
 		<h2>Comandos</h2>
-		<p>Se prefere instalar os “drivers” pelo terminal, pode usar os seguintes
-comandos:</p>
+		<p>Se preferir instalar os controladores através do terminal, pode utilizar os
+seguintes comandos:</p>
 
 		<p>&nbsp;</p>
 
 		<h3># ddm -i amd</h3>
-		<p>Isto irá instalar os drivers para sua placa gráfica AMD / ATI. As placas AMD
-/ ATI da versão HD 5000 e superior são suportados pelos drivers. Versões
-entre 1000 e 5000 usarão os drivers Radeon. Use "ddm -p amd" para remover os
-drivers do seu sistema.</p>
+		<p>Isto irá instalar os controladores para a sua placa gráfica AMD/ATI. As
+placas AMD/ATI a partir da versão HD 5000 são suportadas pelos
+controladores. As versões entre 1000 e 5000 utilizarão os controladores
+Radeon. Utilize “ddm -p amd” para remover os controladores do seu sistema.</p>
 
 		<h3># ddm -i nvidia</h3>
-		<p>Isso irá selecionar os drivers corretos para a sua placa gráfica Nvidia. Ele
-selecionará os drivers do Bumblebee caso você tenha uma placa híbrida
-(Nvidia e Intel). Use "ddm -p nvidia" para remover os drivers do seu
-sistema.</p>
+		<p>Isto irá selecionar os controladores corretos para a sua placa gráfica
+Nvidia. Selecionará os controladores Bumblebee no caso de ter uma placa
+híbrida (tanto Nvidia como Intel). Utilize “ddm -p nvidia” para remover os
+controladores do seu sistema.</p>
 
 		<h3># ddm -i open</h3>
-		<p>Pode usar este comando se quiser reverter para os “drivers” abertos
-Nouveau. Ele removerá todos os “drivers” proprietários do seu sistema.</p>
+		<p>Pode utilizar este comando se pretender reverter para os controladores
+Nouveau abertos. Irá remover quaisquer controladores proprietários do seu
+sistema.</p>
 
 		<h3># ddm -i broadcom</h3>
-		<p>Este comando irá instalar o driver correto para o adaptador wireless
-Broadcom. Use "ddm -p broadcom" para remover os drivers do seu sistema.</p>
+		<p>Este comando irá instalar o controlador correto para o seu adaptador
+Broadcom sem fios. Use “ddm -p broadcom” para remover os controladores do
+seu sistema.</p>
 
 		<h3># ddm -i pae</h3>
-		<p>Isto irá instalar o kernel PAE em sistemas multi-processadores que executam
-um sistema operativo de 32 bits. Use "ddm -p pae" para remover o kernel PAE
-do seu sistema. Observe que você não pode remover o kernel quando atualmente
-você o tem inicializado.</p>
+		<p>Isto irá instalar o kernel PAE em sistemas multi-processador a correr um SO
+de 32-bit. Utilize “ddm -p pae” para remover o kernel PAE do seu
+sistema. Note que não pode remover o kernel quando arranca atualmente nesse
+kernel.</p>
 
 		<h2>Registos</h2>
 		<h3>File: /var/log/solydxk-system.log</h3>
-		<p>Por favor, anexe o seu ficheiro de log quando publica um problema no nosso
-fórum: <a href="https://forums.solydxk.com"
+		<p>Por favor, anexe o seu ficheiro de registo quando publicar um problema no
+nosso fórum: <a href="https://forums.solydxk.com"
 target="_blank">https://forums.solydxk.com</a></p>
     </div>
   </body>

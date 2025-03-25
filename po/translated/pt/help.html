@@ -5,89 +5,86 @@
   </head>
   <body>
     <div id="background"></div>
-	<h1>Ajuda de Cifra em Configurações de Sistema SolydXK</h1>
+	<h1>SolydXK Definições do sistema Ajuda de cifragem</h1>
 	<div class="main">
 		<h2>Descrição</h2>
 		<p>Cifrar as partições do seu sistema com LUKS.</p>
 
 		<h2>Importante</h2>
-		<p>As Configurações de Sistema SolydXK irá criar ou restaurar um “backup” dos
-dados da partição que irá cifrar ou decifrar. Monte uma partição ou unidade
-externa para esse propósito antes de começar.</p>
-		<p>Não pode cifrar uma partição root ou home inicializada com as Configurações
-de Sistema SolydXK. Se desejar fazê-lo, pode descarregar o ISO mais recente
-do nosso sítio principal e executar Configurações do Sistema SolydXK numa
-sessão live. Observe que precisa de uma partição de inicialização não
-cifrada se desejar cifrar a sua partição root e que Grub2 será instalado no
-disco de onde a partição root está.</p>
-		<p>Somente as partições que são montadas no fstab são salvas no fstab. Se você
-desejar incluir novas partições em fstab que você precisa, deve
-adicionar-las manualmente antes de executar as Configurações de Sistema
-SolydXK.</p>
+		<p>O SolydXK System Settings irá criar e restaurar uma cópia de segurança dos
+dados da partição que vai encriptar ou desencriptar. Monte uma partição ou
+unidade externa para este fim antes de começar.</p>
+		<p>Não é possível cifrar uma partição raiz ou home inicializada com o SolydXK
+System Settings. Se desejar fazê-lo, pode descarregar a última ISO do nosso
+sítio principal e executar o SolydXK System Settings numa sessão ao
+vivo. Note que precisa de uma partição de arranque não cifrada se quiser
+cifrar a sua partição raiz e que o Grub2 será instalado no disco onde está a
+partição raiz.</p>
+		<p>Somente as partições que estão montadas no fstab são salvas no fstab. Se
+quiser incluir novas partições no fstab, precisa de as adicionar manualmente
+antes de executar o SolydXK System Settings.</p>
 
 		<h2>Exemplos</h2>
 		<p>When you start SolydXK System Settings you will see a list of partitions
 that you can either encrypt or decrypt. An encrypted partition shows this
 icon: <img src="/usr/share/solydxk/system/icons/encrypted.png" /> and an unencrypted partition shows this icon: <img src="/usr/share/solydxk/system/icons/unencrypted.png" />. Your selection will decide which actions can be taken on that
 partition. Removable media will show these icons: <img src="/usr/share/solydxk/system/icons/unencrypted-usb.png" /> and <img src="/usr/share/solydxk/system/icons/encrypted-usb.png" />.</p>
-		<p>Seguem-se alguns exemplos sobre como usar as Configurações de Sistema
-SolydXK:</p>
+		<p>Seguem-se alguns exemplos de como utilizar as definições do sistema SolydXK:</p>
 
-		<h3>Cifrar uma pen USB </h3>
-		<p>Insira uma pen USB e monte-a. Pressione o botão de atualizar para listar a
-pen USB e selecione a partição da unidade que deseja cifrar. Preencha sua
-frase-senha duas vezes e pressione o botão "Cifrar".</p>
+		<h3>Cifrar uma pen drive USB</h3>
+		<p>Insira uma pen drive USB e monte-a. Prima o botão “atualizar” para listar a
+pen drive e selecione a partição dessa unidade que pretende
+encriptar. Preencha a sua frase-chave duas vezes e prima o botão “Cifrar”.</p>
 		
 		<h3>Cifrar a partição root (e swap)</h3>
-		<strong><p>AVISO: faça isto pela sua conta e risco!</p></strong>
-		<p>Necessitará de uma partição /boot que não seja cifrada. Se não possui uma
-partição /boot, veja como criar uma. Numa sessão live, inicie GParted e crie
-uma partição de pelo menos 200 MB de espaço livre. Esta partição pode ser
-criada a partir de espaço não alocado existente ou encolhendo outra partição
-e usando o espaço livre recém-criado. Neste exemplo, criei uma partição:
-/dev/sda1 que eu quero montar como /boot na partição raiz /dev/sda2. Altere
-os caminhos da partição de acordo com a sua situação.</p>
-		<p>Abra um terminal e execute esses comandos como root:</p>
+		<strong><p>AVISO: faça-o por sua conta e risco!</p></strong>
+		<p>Necessitará de uma partição /boot não encriptada. Se não tiver uma partição
+/boot, veja como criar uma. Numa sessão live, inicie o GParted e crie uma
+partição com pelo menos 200 MB de espaço livre. Esta partição pode ser
+criada a partir do espaço não alocado existente, ou reduzindo outra partição
+e usando o espaço livre recém-criado. Neste exemplo, eu criei uma partição:
+/dev/sda1 que quero montar como /boot na partição raiz /dev/sda2. Altere os
+caminhos das partições consoante a sua situação.</p>
+		<p>Abra um terminal e execute estes comandos como root:</p>
 		<pre># mkdir /mnt/boot /mnt/root
 # mount /dev/sda1 /mnt/boot
 # mount /dev/sda2 /mnt/root
 # cp -a /mnt/root/boot/* /mnt/boot/
 # echo "UUID=$(blkid -o value -s UUID /dev/sda1)    /boot   ext4    defaults    0   0" >> /mnt/root/etc/fstab</pre>
-		<p>Agora você pode reiniciar seu sistema e verificar se a partição de
-inicialização está corretamente montada:</p>
+		<p>Pode agora reiniciar o seu sistema e verificar se a partição de arranque
+está corretamente montada:</p>
 		<pre>$ mount | grep sda2</pre>
-		<p>Para cifrar a partição root (e swap), precisa iniciar uma sessão live
-novamente, iniciar Configurações do Sistema SolydXK e selecionar a partição
-root (e qualquer outra partição que deseja cifrar).</p>
+		<p>Para cifrar a partição root (e swap), é necessário iniciar novamente uma
+sessão live, iniciar o SolydXK System Settings e selecionar a partição root
+(e qualquer outra partição que queira cifrar).</p>
 		
 		<h3>Alterar a frase-senha de uma partição cifrada</h3>
-		<p>Selecione uma partição cifrada da lista, preencha a sua frase-senha duas
-vezes e pressione o botão "Alterar frase-senha".</p>
+		<p>Selecione uma partição cifrada da lista, preencha a sua frase secreta duas
+vezes e clique no botão “Alterar frase secreta”.</p>
 		
-		<h3>Criar um ficheiro chave para uma selecção de partições cifradas</h3>
-		<p>Selecione várias partições cifradas da lista, digite a sua frase-senha duas
-vezes e clique no botão "Criar manualmente o ficheiro chave". A primeira
-partição cifrada irá manter o ficheiro chave enquanto as outras partições
-serão abertas automaticamente com esse ficheiro chave.</p>
+		<h3>Criar um ficheiro chave para uma seleção de partições cifradas</h3>
+		<p>Selecione várias partições cifradas da lista, preencha a sua frase secreta
+duas vezes e clique no botão “Criar manualmente o arquivo de chaves”. A
+primeira partição cifrada irá conter o ficheiro chave enquanto as outras
+partições são automaticamente abertas com esse ficheiro chave.</p>
 		
-		<h3>Decifrar a partição</h3>
-		<p>Selecione uma partição cifrada da lista, preencha sua frase-senha duas vezes
-e pressione o botão "Decifrar". As Configurações de Sistema SolydXK vai
-procurar uma partição com espaço livre suficiente para criar um backup
-temporário da partição que você deseja decifrar. Você será solicitado por um
-média de backup se não conseguir encontrar espaço livre suficiente para
-continuar.</p>
+		<h3>Decifrar uma partição</h3>
+		<p>Selecione uma partição cifrada da lista, preencha a sua frase secreta duas
+vezes e clique no botão “Decifrar”. O SolydXK System Settings irá procurar
+uma partição com espaço livre suficiente para criar uma cópia de segurança
+temporária da partição que pretende decifrar. Ser-lhe-á pedido um suporte de
+cópia de segurança se não encontrar espaço livre suficiente para continuar.</p>
 		
 
-		<h2>Solução de problemas</h2>
-		<p>Por favor ajude a melhorar esta aplicação. Poderá encontrar o código fonte
-na nossa página do  <a href="https://github.com/SolydXK/solydxk-system"
-target="_blank">GitHub</a> .</p>
-		<p>Se, por algum motivo, o seu sistema não montar a nova partição cifrada, por
-favor visite o nosso <a href="https://forums.solydxk.com"
-target="_blank">fórum</a> e publique seu problema lá.</p>
-		<p>Não se esqueça de anexar o ficheiro de log quando você publicar um problema
-no nosso fórum: /var/log/solydxk-system.log</p>
+		<h2>Resolução de problemas</h2>
+		<p>Ajude a melhorar esta aplicação. Pode encontrar o código-fonte na nossa
+página <a href="https://github.com/SolydXK/solydxk-system"
+target="_blank">GitHub</a>.</p>
+		<p>Se, por algum motivo, o seu sistema não montar a partição recém-cifrada,
+visite o nosso<a href="https://forums.solydxk.com" target="_blank">fórum</a>
+e publique aí o seu problema.</p>
+		<p>Não se esqueça de anexar o ficheiro de registo quando colocar um problema no
+nosso fórum: /var/log/solydxk-system.log</p>
     </div>
   </body>
 </html>
