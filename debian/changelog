@@ -1,210 +1,216 @@
+solydxk-system (4.6.0) stable; urgency=low
+
+  * Remove solydk, solydl, solydx logos
+
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 12 May 2025 15:51:37 +0200
+
 solydxk-system (4.5.9) stable; urgency=low
 
   * Updated translation: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 25 Mar 2025 15:04:35 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 25 Mar 2025 15:04:35 +0100
 
 solydxk-system (4.5.8) stable; urgency=low
 
   * Remove variables with empty strings in .desktop files
   * Remove obsolete package apt-transport-https
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 24 Mar 2025 08:45:31 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 24 Mar 2025 08:45:31 +0100
 
 solydxk-system (4.5.7) stable; urgency=low
 
   * Updated translation: lt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 23 Mar 2025 18:11:32 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 23 Mar 2025 18:11:32 +0100
 
 solydxk-system (4.5.6) stable; urgency=low
 
   * Fix crash when having old and new deb822 configs
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 15 Mar 2025 13:59:28 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 15 Mar 2025 13:59:28 +0100
 
 solydxk-system (4.5.5) stable; urgency=low
 
   * Add Network;WebBrowser; to solydxk-forums.desktop
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 14 Mar 2025 09:28:31 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 14 Mar 2025 09:28:31 +0100
 
 solydxk-system (4.5.4) stable; urgency=low
 
   * Fix apt -t argument bug
   * Add link in start menu to SolydXK Forums
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 12 Mar 2025 19:25:19 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 12 Mar 2025 19:25:19 +0100
 
 solydxk-system (4.5.3) stable; urgency=low
 
   * Use transient_for in dialogs init
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 01 Mar 2025 12:01:13 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 01 Mar 2025 12:01:13 +0100
 
 solydxk-system (4.5.2) stable; urgency=low
 
   * Fix dialogs.py always returning False
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 28 Feb 2025 10:18:14 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 28 Feb 2025 10:18:14 +0100
 
 solydxk-system (4.5.1) stable; urgency=low
 
   * Fix dialogs not closing
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 26 Feb 2025 11:42:05 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 26 Feb 2025 11:42:05 +0100
 
 solydxk-system (4.5.0) stable; urgency=low
 
   * Implement deb822
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 22 Feb 2025 08:41:12 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 22 Feb 2025 08:41:12 +0100
 
 solydxk-system (4.4.9) stable; urgency=low
 
   * Updated to Frank's script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 07 Feb 2025 10:32:28 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 07 Feb 2025 10:32:28 +0100
 
 solydxk-system (4.4.8) stable; urgency=low
 
   * Edit all sources.list files with: apt (edit-)sources
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 05 Feb 2025 13:38:07 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 05 Feb 2025 13:38:07 +0100
 
 solydxk-system (4.4.7) stable; urgency=low
 
   * Add modernize-sources to apt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 04 Feb 2025 16:05:24 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 04 Feb 2025 16:05:24 +0100
 
 solydxk-system (4.4.6) stable; urgency=low
 
   * Fix SyntaxWarning: invalid escape sequence \s
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 07 Sep 2024 15:53:58 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 07 Sep 2024 15:53:58 +0200
 
 solydxk-system (4.4.5) stable; urgency=low
 
   * Updated apt mirror list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 May 2024 10:46:05 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 May 2024 10:46:05 +0200
 
 solydxk-system (4.4.4) stable; urgency=low
 
   * solydxk_system.py: use aptitude ?obsolete as an alternative for deborphan
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 02 May 2024 15:31:22 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 02 May 2024 15:31:22 +0200
 
 solydxk-system (4.4.3) stable; urgency=low
 
   * Updated apt script and info
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 17 Dec 2023 13:09:54 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 17 Dec 2023 13:09:54 +0100
 
 solydxk-system (4.4.2) stable; urgency=low
 
   * Move /lib to /usr/lib
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 14 Oct 2023 12:00:55 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 14 Oct 2023 12:00:55 +0200
 
 solydxk-system (4.4.1) stable; urgency=low
 
   * New translation: ru
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 13 Oct 2023 08:44:04 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 13 Oct 2023 08:44:04 +0200
 
 solydxk-system (4.4.0) stable; urgency=low
 
   * Fix crash when /etc/default/grub does not exist
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 11 Oct 2023 15:31:44 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 11 Oct 2023 15:31:44 +0200
 
 solydxk-system (4.3.9) stable; urgency=low
 
   * Fix not listing nvme partitions
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 04 Oct 2023 10:36:25 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 04 Oct 2023 10:36:25 +0200
 
 solydxk-system (4.3.8) stable; urgency=low
 
   * Adapt passphrase label text
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 06 Sep 2023 18:43:33 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 06 Sep 2023 18:43:33 +0200
 
 solydxk-system (4.3.7) stable; urgency=low
 
   * Remove 20 chars limitation on encryption pwd
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 02 Sep 2023 11:07:50 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 02 Sep 2023 11:07:50 +0200
 
 solydxk-system (4.3.6) stable; urgency=low
 
   * Add /etc/skel/.xsessionrc to source profile files
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 21 Aug 2023 10:12:52 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 21 Aug 2023 10:12:52 +0200
 
 solydxk-system (4.3.5) stable; urgency=low
 
   * Save Boot Splasy after update-alternatives command
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 24 Jul 2023 08:19:18 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 24 Jul 2023 08:19:18 +0200
 
 solydxk-system (4.3.4) stable; urgency=low
 
   * Move postinst code to iso-constructor
   * Remove /etc/grub.d/07_solydxk_theme
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 22 Jul 2023 14:37:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 22 Jul 2023 14:37:10 +0200
 
 solydxk-system (4.3.3) stable; urgency=low
 
   * Use luks2/argon2id for encryption
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 20 Jul 2023 09:10:25 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 20 Jul 2023 09:10:25 +0200
 
 solydxk-system (4.3.2) stable; urgency=low
 
   * Fix update-alternatives when Plymouth theme is None
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 17 Jul 2023 22:35:43 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 17 Jul 2023 22:35:43 +0200
 
 solydxk-system (4.3.1) stable; urgency=low
 
   * Fix crash when Plymouth is not installed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 17 Jul 2023 20:00:39 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 17 Jul 2023 20:00:39 +0200
 
 solydxk-system (4.3.0) stable; urgency=low
 
   * Add Grub theme configuration
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 11 Jul 2023 10:16:36 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 11 Jul 2023 10:16:36 +0200
 
 solydxk-system (4.2.9) stable; urgency=low
 
   * Updated apt
   * Updated SolydXK.mirrors
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 17 Jun 2023 15:30:31 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 17 Jun 2023 15:30:31 +0200
 
 solydxk-system (4.2.8) stable; urgency=low
 
   * Add apt reinstall-all (incl dependencies/recommends)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 15 May 2023 11:32:32 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 15 May 2023 11:32:32 +0200
 
 solydxk-system (4.2.7) stable; urgency=low
 
   * Fix ntpsec: create /var/log/ntpsec
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 15 May 2023 08:34:47 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 15 May 2023 08:34:47 +0200
 
 solydxk-system (4.2.6) stable; urgency=high
 
   * Fix bad format in /etc/grub.d/10_linux
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 30 Apr 2023 09:26:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 30 Apr 2023 09:26:11 +0200
 
 solydxk-system (4.2.5) stable; urgency=low
 
@@ -212,491 +218,491 @@ solydxk-system (4.2.5) stable; urgency=low
   * Remove repo speed test: not working anymore
   * Fix repo switch
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 20 Mar 2023 14:14:24 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 20 Mar 2023 14:14:24 +0100
 
 solydxk-system (4.2.4) stable; urgency=low
 
   * Set gtk root border to 2px
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Mar 2023 11:41:09 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 19 Mar 2023 11:41:09 +0100
 
 solydxk-system (4.2.3) stable; urgency=low
 
   * Simplify root theme
   * postinst: fix multiple entries in .bashrc
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 16 Mar 2023 18:11:53 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 16 Mar 2023 18:11:53 +0100
 
 solydxk-system (4.2.2) stable; urgency=low
 
   * Add default configuration for /root
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Feb 2023 10:32:25 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 Feb 2023 10:32:25 +0100
 
 solydxk-system (4.2.1) stable; urgency=high
 
   * Fix type not starting GUI
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 22 Feb 2023 18:32:15 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 22 Feb 2023 18:32:15 +0100
 
 solydxk-system (4.2.0) stable; urgency=low
 
   * Revert set root gtk-3 theme
   * Needed to run adjust.py on every boot for EE
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 21 Feb 2023 12:45:13 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 21 Feb 2023 12:45:13 +0100
 
 solydxk-system (4.1.9) stable; urgency=low
 
   * Cleanup and simplify adjust.py
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 18 Feb 2023 16:22:40 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 18 Feb 2023 16:22:40 +0100
 
 solydxk-system (4.1.8) stable; urgency=low
 
   * Create script to set root gtk-3 theme same as first users theme
   * Updated translation: lt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 22 Jan 2023 16:39:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 22 Jan 2023 16:39:00 +0100
 
 solydxk-system (4.1.7) stable; urgency=low
 
   * Update gdebi.desktop: Exec=sh -c "gdebi-gtk %f"
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 16 Jan 2023 19:14:38 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 16 Jan 2023 19:14:38 +0100
 
 solydxk-system (4.1.6) stable; urgency=low
 
   * Updated translation: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 27 Dec 2022 16:58:14 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 27 Dec 2022 16:58:14 +0100
 
 solydxk-system (4.1.5) stable; urgency=low
 
   * Add listrepo to apt: list installed packages from given repository
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 16 Nov 2022 08:44:47 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 16 Nov 2022 08:44:47 +0100
 
 solydxk-system (4.1.4) stable; urgency=low
 
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 09 Oct 2022 11:37:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 09 Oct 2022 11:37:11 +0200
 
 solydxk-system (4.1.3) stable; urgency=low
 
   * Updated translation: es
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 07 Oct 2022 19:15:13 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 07 Oct 2022 19:15:13 +0200
 
 solydxk-system (4.1.2) stable; urgency=low
 
   * Updated translation: de
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 06 Oct 2022 12:29:48 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 06 Oct 2022 12:29:48 +0200
 
 solydxk-system (4.1.1) stable; urgency=low
 
   * Remove /usr/bin/bootinfoscript
   * Add recommends boot-info-script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 26 Aug 2022 11:45:37 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 26 Aug 2022 11:45:37 +0200
 
 solydxk-system (4.1.0) stable; urgency=low
 
   * Fix bug not able to add backports repo
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 30 Jul 2022 13:09:02 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 30 Jul 2022 13:09:02 +0200
 
 solydxk-system (4.0.9) stable; urgency=low
 
   * Updated translation: es_419 (latin america)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Jun 2022 08:28:25 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 Jun 2022 08:28:25 +0200
 
 solydxk-system (4.0.8) stable; urgency=low
 
   * Updated mirrors list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 22 Jun 2022 11:33:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 22 Jun 2022 11:33:11 +0200
 
 solydxk-system (4.0.7) stable; urgency=low
 
   * Add/change additional mounts for chroot-partition
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Jun 2022 13:54:27 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 19 Jun 2022 13:54:27 +0200
 
 solydxk-system (4.0.6) stable; urgency=low
 
   * Rewrite umount.luks
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 28 May 2022 17:48:17 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 28 May 2022 17:48:17 +0200
 
 solydxk-system (4.0.5) stable; urgency=low
 
   * mount.luk: fix crashing on mounting non-encrypted partitions
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 25 May 2022 13:54:47 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 25 May 2022 13:54:47 +0200
 
 solydxk-system (4.0.4) stable; urgency=low
 
   * Fix ddm scripts with -s parameter
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 04 May 2022 15:41:03 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 04 May 2022 15:41:03 +0200
 
 solydxk-system (4.0.3) stable; urgency=low
 
   * adjust.py: update /etc/*release code
   * Fix error: error: unknown filesystem in boot-isos.sh
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 28 Apr 2022 16:52:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 28 Apr 2022 16:52:10 +0200
 
 solydxk-system (4.0.2) stable; urgency=low
 
   * Fix /etc/*release not written correctly
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 27 Apr 2022 12:51:12 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 27 Apr 2022 12:51:12 +0200
 
 solydxk-system (4.0.1) stable; urgency=low
 
   * Create fix for minissdpd not finding interface: minissdpd.sh
   * Remove dependency haveged
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 26 Apr 2022 09:54:44 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 26 Apr 2022 09:54:44 +0200
 
 solydxk-system (4.0.0) stable; urgency=low
 
   * Updated /usr/share/python-apt/templates/SolydXK.mirrors 
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 20 Apr 2022 19:09:29 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 20 Apr 2022 19:09:29 +0200
 
 solydxk-system (3.9.9) stable; urgency=low
 
   * Updated translation: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 16 Apr 2022 07:49:19 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 16 Apr 2022 07:49:19 +0200
 
 solydxk-system (3.9.8) stable; urgency=low
 
   * Add password verification entry field for luks encryption
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 10 Apr 2022 16:44:57 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 10 Apr 2022 16:44:57 +0200
 
 solydxk-system (3.9.7) stable; urgency=low
 
   * Fix chroot-partition crashing when resolv.conf is a symlink
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 02 Apr 2022 14:03:53 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 02 Apr 2022 14:03:53 +0200
 
 solydxk-system (3.9.6) stable; urgency=high
 
   * Fix bug crashing when crypttab contains lines with a single word/character
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 24 Mar 2022 11:02:35 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 24 Mar 2022 11:02:35 +0100
 
 solydxk-system (3.9.5) stable; urgency=low
 
   * apt: add --autoremove to purge command
   * Remove references to solydxk-system-adjust.service
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 16 Mar 2022 09:09:28 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 16 Mar 2022 09:09:28 +0100
 
 solydxk-system (3.9.4) stable; urgency=low
 
   * Minimize use of adjust.py (improve bootup time)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 14 Dec 2021 16:37:59 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 14 Dec 2021 16:37:59 +0100
 
 solydxk-system (3.9.3) stable; urgency=low
 
   * search: default exclude binary pattern search
   * search: add -b/--include-binaries arguments 
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 12 Sep 2021 12:46:30 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 12 Sep 2021 12:46:30 +0200
 
 solydxk-system (3.9.2) stable; urgency=low
 
   * chroot-partition: run in separate name space
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 31 Aug 2021 10:25:27 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 31 Aug 2021 10:25:27 +0200
 
 solydxk-system (3.9.1) stable; urgency=low
 
   * Fix chroot-partition not finding missing target dirs
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 12 Aug 2021 11:30:13 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 12 Aug 2021 11:30:13 +0200
 
 solydxk-system (3.9.0) stable; urgency=low
 
   * Added solydxk-12 repository to python-apt SolydXK.info
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 12 Aug 2021 07:46:34 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 12 Aug 2021 07:46:34 +0200
 
 solydxk-system (3.8.9) stable; urgency=low
 
   * Remove solydxk-logos.sh script
   * Updated translation: ca
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 05 Aug 2021 15:03:25 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 05 Aug 2021 15:03:25 +0200
 
 solydxk-system (3.8.8) stable; urgency=low
 
   * Mount efivars in chroot-partition
   * Added elixirhosting (US) to our apt repository list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 30 Jul 2021 23:54:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 30 Jul 2021 23:54:59 +0200
 
 solydxk-system (3.8.7) stable; urgency=low
 
   * Do not allow spaces in encryption passphrase
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 30 Jul 2021 10:01:16 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 30 Jul 2021 10:01:16 +0200
 
 solydxk-system (3.8.6) stable; urgency=low
 
   * Updated translation: sr
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 16 Jun 2021 09:36:21 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 16 Jun 2021 09:36:21 +0200
 
 solydxk-system (3.8.5) stable; urgency=low
 
   * Set button label to view driver installation log file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 21 May 2021 08:48:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 21 May 2021 08:48:59 +0200
 
 solydxk-system (3.8.4) stable; urgency=low
 
   * Fix text for translations in help.html
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 25 Jan 2021 09:58:11 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 25 Jan 2021 09:58:11 +0100
 
 solydxk-system (3.8.3) stable; urgency=low
 
   * Do not translate commands in html pages
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 19 Jan 2021 16:55:44 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 19 Jan 2021 16:55:44 +0100
 
 solydxk-system (3.8.2) stable; urgency=low
 
   * Updated translation: ca
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 17 Dec 2020 09:38:09 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 17 Dec 2020 09:38:09 +0100
 
 solydxk-system (3.8.1) stable; urgency=low
 
   * Update unattended upgrade configuration
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 02 Dec 2020 09:10:44 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 02 Dec 2020 09:10:44 +0100
 
 solydxk-system (3.8.0) stable; urgency=low
 
   * Updated translation: it
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 02 Nov 2020 11:41:11 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 02 Nov 2020 11:41:11 +0100
 
 solydxk-system (3.7.9) stable; urgency=low
 
   * Fix bug not encrypting
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 30 Oct 2020 16:40:53 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 30 Oct 2020 16:40:53 +0100
 
 solydxk-system (3.7.8) stable; urgency=low
 
   * Updated translation: da
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 24 Oct 2020 19:18:24 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 24 Oct 2020 19:18:24 +0200
 
 solydxk-system (3.7.7) stable; urgency=low
 
   * Fix screen resolution selection logic
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 07 Sep 2020 15:25:20 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 07 Sep 2020 15:25:20 +0200
 
 solydxk-system (3.7.6) stable; urgency=low
 
   * Use current resolution as max if no resolutions list could be retrieved
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 07 Sep 2020 09:08:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 07 Sep 2020 09:08:10 +0200
 
 solydxk-system (3.7.5) stable; urgency=low
 
   * Fix Plymouth bug not setting resolution
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 04 Sep 2020 22:31:58 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 04 Sep 2020 22:31:58 +0200
 
 solydxk-system (3.7.4) stable; urgency=low
 
   * mount.luks: mount encrypted partition in /tmp if not available in fstab
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 23 Aug 2020 20:54:57 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 23 Aug 2020 20:54:57 +0200
 
 solydxk-system (3.7.3) stable; urgency=low
 
   * Updated translation: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 07 Aug 2020 10:19:42 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 07 Aug 2020 10:19:42 +0200
 
 solydxk-system (3.7.2) stable; urgency=low
 
   * Include com.solydxk.pkexec.luckybackup.policy
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 24 Jul 2020 11:33:57 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 24 Jul 2020 11:33:57 +0200
 
 solydxk-system (3.7.1) stable; urgency=low
 
   * boot-isos.sh now checks names of vmlinuz and initrd.img.
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 10 Jul 2020 19:50:03 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 10 Jul 2020 19:50:03 +0200
 
 solydxk-system (3.7.0) stable; urgency=low
 
   * Create symlink to /usr/share/python-apt/templates/Solydxk.info
   * Updated /usr/share/python-apt/templates/SolydXK.mirrors
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 22 Jun 2020 11:27:31 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 22 Jun 2020 11:27:31 +0200
 
 solydxk-system (3.6.9) stable; urgency=low
 
   * Add VERSION_CODENAME to /etc/os-release
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 22 Jun 2020 10:09:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 22 Jun 2020 10:09:11 +0200
 
 solydxk-system (3.6.8) stable; urgency=low
 
   * adjust.py: add needed log files for login
   * Make chroot-partition script safer
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 02 Jun 2020 15:11:28 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 02 Jun 2020 15:11:28 +0200
 
 solydxk-system (3.6.7) stable; urgency=low
 
   * Add solydx, solydk and solydxk icons to hicolor icon theme
   * Updated translation: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 11 May 2020 16:00:20 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 11 May 2020 16:00:20 +0200
 
 solydxk-system (3.6.6) stable; urgency=low
 
   * Fix bug not able to cleanup when kbuild package needs to be removed 
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 15 Apr 2020 19:41:20 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 15 Apr 2020 19:41:20 +0200
 
 solydxk-system (3.6.5) stable; urgency=low
 
   * Updated translation: da
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 20 Mar 2020 10:07:58 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 20 Mar 2020 10:07:58 +0100
 
 solydxk-system (3.6.4) stable; urgency=low
 
   * Updated translation: de
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 26 Feb 2020 08:20:29 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 26 Feb 2020 08:20:29 +0100
 
 solydxk-system (3.6.3) stable; urgency=low
 
   * Add overwrite for /usr/share/applications/clamtk-kde.desktop
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 01 Feb 2020 20:23:11 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 01 Feb 2020 20:23:11 +0100
 
 solydxk-system (3.6.2) stable; urgency=low
 
   * Updated translation: lt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 30 Jan 2020 20:58:23 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 30 Jan 2020 20:58:23 +0100
 
 solydxk-system (3.6.1) stable; urgency=low
 
   * Enable debug mode in solydxk-system-pkexec
   * Fix deprecated code
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 30 Jan 2020 12:12:12 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 30 Jan 2020 12:12:12 +0100
 
 solydxk-system (3.6.0) stable; urgency=low
 
   * Move cryptsetup from depends to recommends
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 15 Dec 2019 09:16:52 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 15 Dec 2019 09:16:52 +0100
 
 solydxk-system (3.5.9) stable; urgency=low
 
   * Updated translation: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 10 Nov 2019 10:49:41 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 10 Nov 2019 10:49:41 +0100
 
 solydxk-system (3.5.8) stable; urgency=low
 
   * Updated translations: da, pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 08 Nov 2019 17:31:02 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 08 Nov 2019 17:31:02 +0100
 
 solydxk-system (3.5.7) stable; urgency=low
 
   * Fix get debian version function on testing
   * Remove old samba settings from smb.conf
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 12 Oct 2019 17:28:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 12 Oct 2019 17:28:59 +0200
 
 solydxk-system (3.5.5) stable; urgency=low
 
   * No sound: corrected typo
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 29 Sep 2019 07:29:14 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 29 Sep 2019 07:29:14 +0200
 
 solydxk-system (3.5.4) stable; urgency=low
 
   * Do not add packages to cleanup when held back
   * Fix /etc/pulse/daemon.conf
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 28 Sep 2019 14:48:07 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 28 Sep 2019 14:48:07 +0200
 
 solydxk-system (3.5.3) stable; urgency=low
 
   * Add VERSION_ID/VERSION to os-release
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 21 Sep 2019 09:38:41 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 21 Sep 2019 09:38:41 +0200
 
 solydxk-system (3.5.2) stable; urgency=low
 
   * Add gnome-keyring-pkcs11.desktop to overwrite if it exists
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 19 Sep 2019 13:24:58 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 19 Sep 2019 13:24:58 +0200
 
 solydxk-system (3.5.1) stable; urgency=low
 
   * Improve resolution settings for Plymouth/Grub
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 05 Sep 2019 13:49:40 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 05 Sep 2019 13:49:40 +0200
 
 solydxk-system (3.5.0) stable; urgency=low
 
   * Updated translation: ca
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 31 Aug 2019 21:26:55 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 31 Aug 2019 21:26:55 +0200
 
 solydxk-system (3.4.9) stable; urgency=low
 
   * Set the environment variable for qt5ct
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 30 Aug 2019 20:03:13 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 30 Aug 2019 20:03:13 +0200
 
 solydxk-system (3.4.8) stable; urgency=low
 
   * Updated translation: de
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 29 Aug 2019 16:09:17 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 29 Aug 2019 16:09:17 +0200
 
 solydxk-system (3.4.7) stable; urgency=low
 
   * Named parameters for Gtk.MessageDialog
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 25 Aug 2019 14:55:42 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 25 Aug 2019 14:55:42 +0200
 
 solydxk-system (3.4.6) stable; urgency=low
 
   * Updated python-apt templates
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 15 Aug 2019 20:00:45 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 15 Aug 2019 20:00:45 +0200
 
 solydxk-system (3.4.5) stable; urgency=low
 
@@ -704,92 +710,92 @@ solydxk-system (3.4.5) stable; urgency=low
   * Use more generic icons for new icon theme
   * Updated translation: li
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 05 Aug 2019 18:16:12 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 05 Aug 2019 18:16:12 +0200
 
 solydxk-system (3.4.4) stable; urgency=low
 
   * Reintroduce and update IM desktop file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 03 Aug 2019 14:01:14 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 03 Aug 2019 14:01:14 +0200
 
 solydxk-system (3.4.3) stable; urgency=low
 
   * Remove ImageMagick custom destkop files
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 03 Aug 2019 10:30:00 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 03 Aug 2019 10:30:00 +0200
 
 solydxk-system (3.4.2) stable; urgency=low
 
   * Fix bug: udisks2/get_luks_info - list index out of range
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 28 Jul 2019 09:37:30 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 28 Jul 2019 09:37:30 +0200
 
 solydxk-system (3.4.1) stable; urgency=low
 
   * Exclude adjustments files from translation
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 24 Jul 2019 11:48:31 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 24 Jul 2019 11:48:31 +0200
 
 solydxk-system (3.4.0) stable; urgency=low
 
   * Run adjust.py before freshclam service
   * Add Acquire::AllowReleaseInfoChange to apt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 20 Jul 2019 15:35:13 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 20 Jul 2019 15:35:13 +0200
 
 solydxk-system (3.3.9) stable; urgency=low
 
   * Check if already started
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 30 Jun 2019 15:48:54 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 30 Jun 2019 15:48:54 +0200
 
 solydxk-system (3.3.8) stable; urgency=low
 
   * Removed gnugpg configuration
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 30 Jun 2019 10:31:34 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 30 Jun 2019 10:31:34 +0200
 
 solydxk-system (3.3.7) stable; urgency=low
 
   * Use luks2 when encrypting
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 09 Jun 2019 19:44:01 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 09 Jun 2019 19:44:01 +0200
 
 solydxk-system (3.3.6) stable; urgency=low
 
   * Include iso-usb script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 31 May 2019 02:09:24 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 31 May 2019 02:09:24 +0200
 
 solydxk-system (3.3.5) stable; urgency=low
 
   * Revert back to old pkexec situation: too many issues
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 May 2019 15:41:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 May 2019 15:41:59 +0200
 
 solydxk-system (3.3.4) stable; urgency=low
 
   * Fix error pkexec commands with pkexec arguments
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 May 2019 13:31:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 May 2019 13:31:11 +0200
 
 solydxk-system (3.3.3) stable; urgency=low
 
   * Fix not finding pkexec.divert on non-English systems
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 May 2019 11:51:58 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 May 2019 11:51:58 +0200
 
 solydxk-system (3.3.2) stable; urgency=low
 
   * Fix bug cleanup old kernels
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 27 May 2019 12:12:27 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 27 May 2019 12:12:27 +0200
 
 solydxk-system (3.3.1) stable; urgency=low
 
   * Divert pkexec and replace with custom bash
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 25 May 2019 01:39:09 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 25 May 2019 01:39:09 +0200
 
 solydxk-system (3.3.0) stable; urgency=low
 
@@ -797,107 +803,107 @@ solydxk-system (3.3.0) stable; urgency=low
   * ddm-amd.sh: check on card id
   * Adept os-release when necessary
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 15 May 2019 20:38:15 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 15 May 2019 20:38:15 +0200
 
 solydxk-system (3.2.9) stable; urgency=low
 
   * Fool proof removal of diversions
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 09 May 2019 11:01:21 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 09 May 2019 11:01:21 +0200
 
 solydxk-system (3.2.8) stable; urgency=low
 
   * Include /etc/lightdm/Xsession
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 02 May 2019 12:02:17 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 02 May 2019 12:02:17 +0200
 
 solydxk-system (3.2.7) stable; urgency=low
 
   * Show partitions currently in fstab that you can remove from fstab
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 17 Apr 2019 08:42:13 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 17 Apr 2019 08:42:13 +0200
 
 solydxk-system (3.2.6) stable; urgency=low
 
   * Resolve bug still temporary mounting excluded flash drives
   * Use SortKey property to check if drive is hotplugged
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 16 Apr 2019 11:34:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 16 Apr 2019 11:34:10 +0200
 
 solydxk-system (3.2.5) stable; urgency=low
 
   * Mount temporary mounts read-only
   * Exclude flash drives from fstab mountable drives list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 11 Apr 2019 14:45:06 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 11 Apr 2019 14:45:06 +0200
 
 solydxk-system (3.2.4) stable; urgency=low
 
   * Fix bug not unmounting temporary mounted devices
   * Updated translation: de
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 11 Apr 2019 11:42:42 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 11 Apr 2019 11:42:42 +0200
 
 solydxk-system (3.2.3) stable; urgency=low
 
   * Added XDG_CURRENT_DESKTOP to pkexec command
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 14 Mar 2019 10:46:28 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 14 Mar 2019 10:46:28 +0100
 
 solydxk-system (3.2.2) stable; urgency=low
 
   * Added missing triggers
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 13 Mar 2019 10:22:38 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 13 Mar 2019 10:22:38 +0100
 
 solydxk-system (3.2.1) stable; urgency=low
 
   * Do not install lightning-l10n packages
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 24 Feb 2019 15:35:21 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 24 Feb 2019 15:35:21 +0100
 
 solydxk-system (3.2.0) stable; urgency=low
 
   * Added mount.luks and umount.luks
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 14 Feb 2019 10:51:49 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 14 Feb 2019 10:51:49 +0100
 
 solydxk-system (3.1.9) stable; urgency=low
 
   * Check GObject version with Gtk object, not Python version
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 30 Jan 2019 20:03:42 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 30 Jan 2019 20:03:42 +0100
 
 solydxk-system (3.1.8) stable; urgency=low
 
   * Updated translations: fr
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 22 Jan 2019 09:10:32 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 22 Jan 2019 09:10:32 +0100
 
 solydxk-system (3.1.7) stable; urgency=low
 
   * Add new line to issue.net
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 17 Jan 2019 16:02:50 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 17 Jan 2019 16:02:50 +0100
 
 solydxk-system (3.1.6) stable; urgency=low
 
   * Encrypt for openssl 1.1.1+
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 02 Jan 2019 18:02:29 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 02 Jan 2019 18:02:29 +0100
 
 solydxk-system (3.1.5) stable; urgency=low
 
   * adjust.py: Change Firefox widget theme for SolydX
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 29 Dec 2018 11:09:38 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 29 Dec 2018 11:09:38 +0100
 
 solydxk-system (3.1.4) stable; urgency=low
 
   * Updated translations: da
   * Remove symlinks and move them to the .links file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 04 Dec 2018 12:06:12 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 04 Dec 2018 12:06:12 +0100
 
 solydxk-system (3.1.3) stable; urgency=low
 
@@ -905,130 +911,130 @@ solydxk-system (3.1.3) stable; urgency=low
   * Only add packages to cleanup list if it wasn't already added
   * Updated translations: pt
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 27 Nov 2018 10:35:38 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 27 Nov 2018 10:35:38 +0100
 
 solydxk-system (3.1.2) stable; urgency=low
 
   * Add /etc/skel/.gnupg/* files
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 22 Nov 2018 15:57:57 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 22 Nov 2018 15:57:57 +0100
 
 solydxk-system (3.1.1) stable; urgency=low
 
   * Do not show LO Math in Science & Math category
   * Do not overwrite symlink with file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 07 Nov 2018 14:08:01 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 07 Nov 2018 14:08:01 +0100
 
 solydxk-system (3.1.0) stable; urgency=low
 
   * Debug: not ending thread on Plymouth save
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 06 Nov 2018 16:02:35 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 06 Nov 2018 16:02:35 +0100
 
 solydxk-system (3.0.9) stable; urgency=low
 
   * Include .xsession-errors log control
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 07 Oct 2018 11:34:38 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 07 Oct 2018 11:34:38 +0200
 
 solydxk-system (3.0.8) stable; urgency=low
 
   * Resolved typos and wrong paths for overwrites
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 12 Sep 2018 19:27:51 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 12 Sep 2018 19:27:51 +0200
 
 solydxk-system (3.0.7b9) stable; urgency=low
 
   * Include adapted libreoffice-math.desktop
   * Updated other .desktop adjustments
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 12 Sep 2018 17:04:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 12 Sep 2018 17:04:10 +0200
 
 solydxk-system (3.0.7b8) stable; urgency=low
 
   * Include adapted hardinfo.desktop
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 11 Sep 2018 10:37:40 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 11 Sep 2018 10:37:40 +0200
 
 solydxk-system (3.0.7b7) stable; urgency=low
 
   * Updated translations: da
   * Include bootinfoscript
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 26 Aug 2018 11:04:36 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 26 Aug 2018 11:04:36 +0200
 
 solydxk-system (3.0.7b6) stable; urgency=low
 
   * Let avahi-daemon.service wait for network
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 30 Jul 2018 20:03:01 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 30 Jul 2018 20:03:01 +0200
 
 solydxk-system (3.0.7b5) stable; urgency=low
 
   * Proxy implementation for urlopen
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 03 Jul 2018 11:16:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 03 Jul 2018 11:16:59 +0200
 
 solydxk-system (3.0.7b4) stable; urgency=low
 
   * Add setup-wifi to setup wifi without network manager
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 11 Jun 2018 14:03:34 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 11 Jun 2018 14:03:34 +0200
 
 solydxk-system (3.0.7b3) stable; urgency=low
 
   * Let get-mozilla-adjustments check for existence of var in prefs.js
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 07 Jun 2018 16:44:33 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 07 Jun 2018 16:44:33 +0200
 
 solydxk-system (3.0.7b2) stable; urgency=low
 
   * Change mirrors.list url
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 05 Jun 2018 20:13:52 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 05 Jun 2018 20:13:52 +0200
 
 solydxk-system (3.0.7b1) stable; urgency=low
 
   * URL check
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 01 Jun 2018 09:47:41 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 01 Jun 2018 09:47:41 +0200
 
 solydxk-system (3.0.6b9) stable; urgency=low
 
   * Fix Plymouth configuration when Grub is not installed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 31 May 2018 12:12:07 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 31 May 2018 12:12:07 +0200
 
 solydxk-system (3.0.6b8) stable; urgency=low
 
   * Change repository back to .com domain now that migration is done
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 31 May 2018 11:02:53 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 31 May 2018 11:02:53 +0200
 
 solydxk-system (3.0.6b7) stable; urgency=low
 
   * Fix EE mirror rewrite
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 17 May 2018 08:39:50 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 17 May 2018 08:39:50 +0200
 
 solydxk-system (3.0.6b6) stable; urgency=low
 
   * Fix selecting repository when http protocol is added to url
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 30 Apr 2018 18:48:19 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 30 Apr 2018 18:48:19 +0200
 
 solydxk-system (3.0.6b5) stable; urgency=low
 
   * Fix solydxk sources url rewrite
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 29 Apr 2018 15:57:22 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 29 Apr 2018 15:57:22 +0200
 
 solydxk-system (3.0.6b4) stable; urgency=low
 
   * Improved internet connection check
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 24 Apr 2018 22:53:34 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 24 Apr 2018 22:53:34 +0200
 
 solydxk-system (3.0.6b3) stable; urgency=low
 
@@ -1037,62 +1043,62 @@ solydxk-system (3.0.6b3) stable; urgency=low
   * Change default download file
   * Change solydxk.com to solydxk.nl repository in sources.list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 17 Apr 2018 11:03:30 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 17 Apr 2018 11:03:30 +0200
 
 solydxk-system (3.0.6b2) stable; urgency=low
 
   * Added Danish translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 11 Apr 2018 10:47:54 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 11 Apr 2018 10:47:54 +0200
 
 solydxk-system (3.0.6b1) stable; urgency=low
 
   * Resolve bug not creating correct solydxk sources line when switching mirrors
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 17 Mar 2018 11:02:45 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 17 Mar 2018 11:02:45 +0100
 
 solydxk-system (3.0.5b10) stable; urgency=low
 
   * Create correct /etc/initramfs-tools/conf.d/resume when swap or no swap is defined
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 12 Mar 2018 18:15:53 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 12 Mar 2018 18:15:53 +0100
 
 solydxk-system (3.0.5b9) stable; urgency=low
 
   * Add stretch-updates to sources.list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 04 Mar 2018 11:49:25 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 04 Mar 2018 11:49:25 +0100
 
 solydxk-system (3.0.5b8) stable; urgency=low
 
   * Fix fstab mounts regexp for multiline variable
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 01 Mar 2018 19:14:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 01 Mar 2018 19:14:00 +0100
 
 solydxk-system (3.0.5b7) stable; urgency=low
 
   * Exclude commented mounts in fstab
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 28 Feb 2018 22:18:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 28 Feb 2018 22:18:00 +0100
 
 solydxk-system (3.0.5b6) stable; urgency=low
 
   * Fix not listing mounts listed in non-local fstab file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 27 Feb 2018 20:14:55 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 27 Feb 2018 20:14:55 +0100
 
 solydxk-system (3.0.5b5) stable; urgency=low
 
   * Fix splash
   * Only list fstab mountable partitions when not already in fstab
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 27 Feb 2018 16:30:48 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 27 Feb 2018 16:30:48 +0100
 
 solydxk-system (3.0.5b4) stable; urgency=low
 
   * Resolve unmountable partitions in udisks2
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 26 Feb 2018 09:31:49 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 26 Feb 2018 09:31:49 +0100
 
 solydxk-system (3.0.5b3) stable; urgency=low
 
@@ -1101,70 +1107,70 @@ solydxk-system (3.0.5b3) stable; urgency=low
   * Add systemd service to umount cifs mounts on shutdown
   * Disable wifi powersafe in NetworkManager
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 22 Feb 2018 17:10:57 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 22 Feb 2018 17:10:57 +0100
 
 solydxk-system (3.0.5b2) stable; urgency=low
 
   * Use pkexec for administrative privileges
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 12 Feb 2018 15:46:25 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 12 Feb 2018 15:46:25 +0100
 
 solydxk-system (3.0.4b13) stable; urgency=low
 
   * Remove triggers on /etc files
   * Add nosplash argument
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 21 Jan 2018 22:53:56 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 21 Jan 2018 22:53:56 +0100
 
 solydxk-system (3.0.4b12) stable; urgency=low
 
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 14 Jan 2018 11:44:44 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 14 Jan 2018 11:44:44 +0100
 
 solydxk-system (3.0.4b11) stable; urgency=low
 
   * Include localizing Lightning calendar
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 03 Jan 2018 12:27:05 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 03 Jan 2018 12:27:05 +0100
 
 solydxk-system (3.0.4b10) stable; urgency=low
 
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 01 Jan 2018 15:11:04 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 01 Jan 2018 15:11:04 +0100
 
 solydxk-system (3.0.4b9) stable; urgency=low
 
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 24 Dec 2017 21:23:41 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 24 Dec 2017 21:23:41 +0100
 
 solydxk-system (3.0.4b8) stable; urgency=low
 
   * Typo SolidXK in package description changed to SolydXK
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 22 Dec 2017 18:37:36 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 22 Dec 2017 18:37:36 +0100
 
 solydxk-system (3.0.4b7) stable; urgency=low
 
   * Check internet connection using repositories in /etc/apt/sources.list
   * Install all localized packages when localizing instead of just the default locale
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 20 Dec 2017 10:06:41 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 20 Dec 2017 10:06:41 +0100
 
 solydxk-system (3.0.4b6) stable; urgency=low
 
   * Show splash at least 5 seconds
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 03 Nov 2017 15:48:45 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 03 Nov 2017 15:48:45 +0100
 
 solydxk-system (3.0.4b5) stable; urgency=low
 
   * Fix saving additional fstab mount
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 30 Oct 2017 14:16:05 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 30 Oct 2017 14:16:05 +0100
 
 solydxk-system (3.0.4b4) stable; urgency=low
 
@@ -1172,25 +1178,25 @@ solydxk-system (3.0.4b4) stable; urgency=low
   * De-couple partition listing for encryption and fstab
   * Improve detecting possible resolutions for Plymouth
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 21 Oct 2017 11:05:23 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 21 Oct 2017 11:05:23 +0200
 
 solydxk-system (3.0.4b3) stable; urgency=low
 
   * Include splash screen
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 15 Oct 2017 15:22:12 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 15 Oct 2017 15:22:12 +0200
 
 solydxk-system (3.0.4b2) stable; urgency=low
 
   * Integrate debian-plymouth-manager
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 10 Oct 2017 17:25:14 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 10 Oct 2017 17:25:14 +0200
 
 solydxk-system (3.0.3b4) stable; urgency=low
 
   * Add old kernel packages to cleanup list
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 09 Oct 2017 11:12:06 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 09 Oct 2017 11:12:06 +0200
 
 solydxk-system (3.0.3b3) stable; urgency=low
 
@@ -1199,387 +1205,387 @@ solydxk-system (3.0.3b3) stable; urgency=low
   * Check if /etc/usbguard/rules.conf exists
   * Check if accountsservice is installed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 08 Oct 2017 06:15:03 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 08 Oct 2017 06:15:03 +0200
 
 solydxk-system (3.0.3b2) stable; urgency=low
 
   * Improved is_package_installed in utils.py
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 21 Sep 2017 14:06:48 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 21 Sep 2017 14:06:48 +0200
 
 solydxk-system (3.0.3b1) stable; urgency=low
 
   * Added feature: additional Fstab mounts
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 12 Sep 2017 11:54:08 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 12 Sep 2017 11:54:08 +0200
 
 solydxk-system (3.0.2) stable; urgency=low
 
   * Merge with DDM
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 08 Sep 2017 07:26:06 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 08 Sep 2017 07:26:06 +0200
 
 solydxk-system (3.0.1) stable; urgency=low
 
   * Fix pulse audio setting volume to 100%
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 25 Aug 2017 22:24:16 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 25 Aug 2017 22:24:16 +0200
 
 solydxk-system (3.0.0b2.7) stable; urgency=low
 
   * Add dependency: gir1.2-udisks-2.0
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 15 Aug 2017 19:54:43 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 15 Aug 2017 19:54:43 +0200
 
 solydxk-system (3.0.0b2.6) stable; urgency=low
 
   * Cleanup /etc/default/grub in adjust.py
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 19 Jul 2017 13:28:33 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 19 Jul 2017 13:28:33 +0200
 
 solydxk-system (3.0.0b2.5) stable; urgency=low
 
   * Complete rewrite of localization
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 18 Jul 2017 08:23:26 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 18 Jul 2017 08:23:26 +0200
 
 solydxk-system (3.0.0b2.4) stable; urgency=low
 
   * Changed LANG= to GRUB_LANG= in /etc/default/grub
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 17 Jul 2017 14:53:31 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 17 Jul 2017 14:53:31 +0200
 
 solydxk-system (3.0.0b2.3) stable; urgency=low
 
   * Added entry for KCM (systemsettings)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 15 Jul 2017 10:44:57 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 15 Jul 2017 10:44:57 +0200
 
 solydxk-system (3.0.0b2.2) stable; urgency=low
 
   * Debugging threading
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 13 Jul 2017 17:12:09 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 13 Jul 2017 17:12:09 +0200
 
 solydxk-system (3.0.0b2.1) stable; urgency=low
 
   * Copy missing Grub2 translation files
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 13 Jul 2017 08:52:29 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 13 Jul 2017 08:52:29 +0200
 
 solydxk-system (3.0.0b2.0) stable; urgency=low
 
   * Localize Grub2 when needed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 12 Jul 2017 17:04:09 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 12 Jul 2017 17:04:09 +0200
 
 solydxk-system (3.0.0b1.9) stable; urgency=low
 
   * Prefer hunspell instead of myspell if locale for package exists
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 11 Jul 2017 14:21:06 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 11 Jul 2017 14:21:06 +0200
 
 solydxk-system (3.0.0b1.8) stable; urgency=low
 
   * Update SolydXK.info to include solydxk-ee suite
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 10 Jul 2017 12:29:03 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 10 Jul 2017 12:29:03 +0200
 
 solydxk-system (3.0.0b1.7) stable; urgency=low
 
   * Run change passphrase in separate thread
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 06 Jul 2017 17:03:23 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 06 Jul 2017 17:03:23 +0200
 
 solydxk-system (3.0.0b1.6) stable; urgency=low
 
   * Show in XFCE System Settings
   * Debug localization
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 06 Jul 2017 08:34:40 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 06 Jul 2017 08:34:40 +0200
 
 solydxk-system (3.0.0b1.5) stable; urgency=low
 
   * Updated translations
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 05 Jul 2017 18:09:49 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 05 Jul 2017 18:09:49 +0200
 
 solydxk-system (3.0.0b1.4) stable; urgency=low
 
   * Fix Gtk warnings of deprecated style properties in Breeze themes
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 01 Jul 2017 13:46:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 01 Jul 2017 13:46:11 +0200
 
 solydxk-system (3.0.0b1.3) stable; urgency=low
 
   * Include /etc/initramfs-tools/conf.d/resume
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 29 Jun 2017 14:10:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 29 Jun 2017 14:10:59 +0200
 
 solydxk-system (3.0.0b1.2) stable; urgency=low
 
   * Include GUI to change SolydXK system settings
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 19 Jun 2017 11:02:40 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 19 Jun 2017 11:02:40 +0200
 
 solydxk-system (2.6.1) stable; urgency=low
 
   * Fix device notifiers for Plasma 5
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 30 Mar 2017 22:37:20 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 30 Mar 2017 22:37:20 +0200
 
 solydxk-system (2.6.0) stable; urgency=low
 
   * Added Plasma5 config files for Firefox version check
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Mar 2017 07:30:47 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 Mar 2017 07:30:47 +0200
 
 solydxk-system (2.5.9) stable; urgency=low
 
   * Add udev rules when kodi is installed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 21 Mar 2017 20:51:01 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 21 Mar 2017 20:51:01 +0100
 
 solydxk-system (2.5.8) stable; urgency=low
 
   * Create /var/lib/lightdm/data if it does not exist
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 21 Mar 2017 13:37:54 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 21 Mar 2017 13:37:54 +0100
 
 solydxk-system (2.5.7) stable; urgency=low
 
   * Include adapting some user configuration for new default locale
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 20 Mar 2017 09:54:44 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 20 Mar 2017 09:54:44 +0100
 
 solydxk-system (2.5.6) stable; urgency=low
 
   * Improved l10n package selection in /usr/bin/localize script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Mar 2017 12:12:48 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 19 Mar 2017 12:12:48 +0100
 
 solydxk-system (2.5.5) stable; urgency=low
 
   * Include localize script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 18 Mar 2017 16:11:56 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 18 Mar 2017 16:11:56 +0100
 
 solydxk-system (2.5.4) stable; urgency=low
 
   * Fix bug in adjust.py not creating multiple symlinks of the same file
   * Add links for solydxk logos in any evolvere theme installed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 14 Mar 2017 09:48:55 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 14 Mar 2017 09:48:55 +0100
 
 solydxk-system (2.5.3) stable; urgency=low
 
   * Fix kodi user not in input group
   * Remove solydxk-usb-creator if usb-creator is installed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 10 Mar 2017 08:52:44 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 10 Mar 2017 08:52:44 +0100
 
 solydxk-system (2.5.2) stable; urgency=low
 
   * Purge v86d if it is installed
   * Fix order not honored when adjusting the system
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 07 Mar 2017 16:44:26 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 07 Mar 2017 16:44:26 +0100
 
 solydxk-system (2.5.1) stable; urgency=low
 
   * Remove recommends section in control file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 03 Mar 2017 13:27:45 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 03 Mar 2017 13:27:45 +0100
 
 solydxk-system (2.5.0) stable; urgency=low
 
   * Revert logname / who -m change
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 02 Mar 2017 13:12:40 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 02 Mar 2017 13:12:40 +0100
 
 solydxk-system (2.4.9) stable; urgency=low
 
   * Include overwrite for pk_update-icon.desktop
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 27 Feb 2017 09:59:09 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 27 Feb 2017 09:59:09 +0100
 
 solydxk-system (2.4.8) stable; urgency=low
 
   * Source /usr/share/solydxk/info in /etc/skel/.bashrc
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 25 Feb 2017 11:22:40 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 25 Feb 2017 11:22:40 +0100
 
 solydxk-system (2.4.7) stable; urgency=low
 
   * Adapted adjust_sources.py for stretch
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Feb 2017 22:03:38 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 19 Feb 2017 22:03:38 +0100
 
 solydxk-system (2.4.6) stable; urgency=low
 
   * Fix adjust.py to adapt /etc/bashrc.bashrc
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 14 Feb 2017 20:51:55 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 14 Feb 2017 20:51:55 +0100
 
 solydxk-system (2.4.5) stable; urgency=low
 
   * Implement SolydXK configuration path changes
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 06 Feb 2017 11:36:06 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 06 Feb 2017 11:36:06 +0100
 
 solydxk-system (2.4.4) stable; urgency=low
 
   * Replace solydx/k-system-adjustments-8 with -9 on stretch
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 04 Feb 2017 11:17:38 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 04 Feb 2017 11:17:38 +0100
 
 solydxk-system (2.4.3) stable; urgency=low
 
   * Changed /var/log/sql to mysql:adm
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 02 Feb 2017 07:08:23 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 02 Feb 2017 07:08:23 +0100
 
 solydxk-system (2.4.2) stable; urgency=low
 
   * Extend fix for packages in adjust.py for adjustments packages
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 01 Feb 2017 14:46:40 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 01 Feb 2017 14:46:40 +0100
 
 solydxk-system (2.4.1) stable; urgency=low
 
   * Adapted /usr/bin/apt script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 01 Feb 2017 07:18:34 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 01 Feb 2017 07:18:34 +0100
 
 solydxk-system (2.4.0) stable; urgency=low
 
   * Extend fix for packages in adjust.py for info packages
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 29 Jan 2017 19:28:03 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 29 Jan 2017 19:28:03 +0100
 
 solydxk-system (2.3.9) stable; urgency=low
 
   * postinst: check for rogue files
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 27 Jan 2017 08:50:41 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 27 Jan 2017 08:50:41 +0100
 
 solydxk-system (2.3.8) stable; urgency=low
 
   * Adapted gwenview.desktop not to include inode/directory as a mime type
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 05 Jan 2017 19:35:15 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 05 Jan 2017 19:35:15 +0100
 
 solydxk-system (2.3.7) stable; urgency=low
 
   * Enable prompt coloring in bash's /etc/skel/.bashrc for new users
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 29 Oct 2016 16:31:09 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 29 Oct 2016 16:31:09 +0200
 
 solydxk-system (2.3.6) stable; urgency=low
 
   * Updated apt script
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 02 Oct 2016 14:50:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 02 Oct 2016 14:50:10 +0200
 
 solydxk-system (2.3.5) stable; urgency=low
 
   * Updated SolydXK.mirrors
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 21 Aug 2016 12:28:33 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 21 Aug 2016 12:28:33 +0200
 
 solydxk-system (2.3.4) stable; urgency=low
 
   * X11 configuration for evdev and synaptics in /usr/share/X11/xorg.conf.d
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 18 Jul 2016 11:25:29 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 18 Jul 2016 11:25:29 +0200
 
 solydxk-system (2.3.3) stable; urgency=low
 
   * Check start menu favorites for Firefox ESR or Firefox.
   * Add workaround for cifs mounts in fstab with wireless connection
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 01 Jul 2016 09:32:40 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 01 Jul 2016 09:32:40 +0200
 
 solydxk-system (2.3.2) stable; urgency=low
 
   * Adapt for SolydX RPI
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 15 Jun 2016 20:36:14 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 15 Jun 2016 20:36:14 +0200
 
 solydxk-system (2.3.1) stable; urgency=low
 
   * Replace /usr/bin/apt with Grizzler's version.
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 07 Jun 2016 10:36:50 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 07 Jun 2016 10:36:50 +0200
 
 solydxk-system (2.2.9) stable; urgency=low
 
   * Move scripts out of /usr/local/bin
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 05 Jun 2016 13:40:46 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 05 Jun 2016 13:40:46 +0200
 
 solydxk-system (2.2.8) stable; urgency=low
 
   * Update caches in adjust.py
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 02 Jun 2016 11:21:41 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 02 Jun 2016 11:21:41 +0200
 
 solydxk-system (2.2.7) stable; urgency=low
 
   * Added open-as-user to run commands as user from root
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 01 Jun 2016 17:18:45 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 01 Jun 2016 17:18:45 +0200
 
 solydxk-system (2.2.6) stable; urgency=low
 
   * upgrade script updated for stretch
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 02 May 2016 10:12:42 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 02 May 2016 10:12:42 +0200
 
 solydxk-system (2.2.5) stable; urgency=low
 
   * Added /etc/modprobe.d/nf_conntrack.conf
   * Added trim script: cat /some-file | trim will remove leading and trailing spaces
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 30 Apr 2016 11:33:57 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 30 Apr 2016 11:33:57 +0200
 
 solydxk-system (2.2.4) stable; urgency=low
 
   * Added clamav to create log directory if it is missing (adjust.py)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 22 Apr 2016 20:58:32 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 22 Apr 2016 20:58:32 +0200
 
 solydxk-system (2.2.3) stable; urgency=low
 
   * Added /etc/X11/xorg.conf.d/solydxk-synaptics.conf for touchpad defaults
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 15 Apr 2016 17:08:18 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 15 Apr 2016 17:08:18 +0200
 
 solydxk-system (2.2.2) stable; urgency=low
 
   * Changed pin release in /etc/apt/preferences.d/solydxk
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 24 Mar 2016 17:02:27 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 24 Mar 2016 17:02:27 +0100
 
 solydxk-system (2.2.1) stable; urgency=low
 
   * Added /apt/preferences.d/solydxk to give solydxk.com priority
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 14 Mar 2016 08:53:08 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 14 Mar 2016 08:53:08 +0100
 
 solydxk-system (2.2.0) stable; urgency=low
 
   * Use systemd instead of initv.
   * Fix Apache2 and Mysql log when configured for SSD.
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 11 Mar 2016 10:50:15 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 11 Mar 2016 10:50:15 +0100
 
 solydxk-system (2.1.9) stable; urgency=low
 
   * Set UID on /bin/ping to be able to use ping as user
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 02 Jan 2016 13:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 02 Jan 2016 13:00:00 +0100
 
 solydxk-system (2.1.8) stable; urgency=low
 
@@ -1588,13 +1594,13 @@ solydxk-system (2.1.8) stable; urgency=low
   * Solved orphaned Xfce message in gufw.desktop
   * Remove synaptic.desktop for overwriting
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 20 Dec 2015 22:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 20 Dec 2015 22:00:00 +0100
 
 solydxk-system (2.1.5) stable; urgency=low
 
   * Fix for SolydK BO users
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 22 Oct 2015 21:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 22 Oct 2015 21:00:00 +0100
 
 solydxk-system (2.1.4) stable; urgency=low
 
@@ -1603,52 +1609,52 @@ solydxk-system (2.1.4) stable; urgency=low
   * Workaround for 'apt -f install'
   * Adapt /usr/bin/os-prober to see connected LUKS partitions
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 07 Oct 2015 06:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 07 Oct 2015 06:00:00 +0100
 
 solydxk-system (2.1.1) stable; urgency=low
 
   * Start systemadm with gksudo
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 21 Jul 2015 09:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 21 Jul 2015 09:00:00 +0100
 
 solydxk-system (2.1.0) stable; urgency=low
 
   * Use UUID to identify ISO partition in boot-isos.sh
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 09 Jul 2015 12:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 09 Jul 2015 12:00:00 +0100
 
 solydxk-system (2.0.9) stable; urgency=low
 
   * Include release number in Grub menu
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 03 Jul 2015 16:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 03 Jul 2015 16:00:00 +0100
 
 solydxk-system (2.0.7) stable; urgency=low
 
   * Added gufw desktop file to integrate gufw with System Settings
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 07 May 2015 16:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 07 May 2015 16:00:00 +0100
 
 solydxk-system (2.0.6) stable; urgency=low
 
   * community.solydxk.com was not removed from the sources.list
   * python-apt templates added
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 05 Mar 2015 10:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 05 Mar 2015 10:00:00 +0100
 
 solydxk-system (2.0.5) stable; urgency=low
 
   * Remove temporary /mnt/* directories in boot-isos.sh
   * Prepare for enthusiasts editions
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 14 Feb 2015 12:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 14 Feb 2015 12:00:00 +0100
 
 solydxk-system (2.0.3) stable; urgency=low
 
   * Use current boot parameters in boot-isos.sh
   * Added noswap to boot parameters in boot-isos.sh
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 09 Feb 2015 14:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 09 Feb 2015 14:00:00 +0100
 
 solydxk-system (2.0.0) stable; urgency=low
 
@@ -1656,89 +1662,89 @@ solydxk-system (2.0.0) stable; urgency=low
   * Python scripts converted to python3
   * Add live isos to /boot/boot-isos
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 30 Aug 2014 16:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 30 Aug 2014 16:00:00 +0100
 
 solydxk-system (1.2.4) stable; urgency=low
 
   * Cleaning up code
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 07 Aug 2014 16:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 07 Aug 2014 16:00:00 +0100
 
 solydxk-system (1.2.3) stable; urgency=low
 
   * Only copy files if possible (prevent throwing cp error)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 04 Aug 2014 17:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 04 Aug 2014 17:00:00 +0100
 
 solydxk-system (1.2.2) stable; urgency=low
 
   * Added vendor information: /etc/dpkg/origins/solydxk
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Jul 2014 10:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 Jul 2014 10:00:00 +0100
 
 solydxk-system (1.2.1) stable; urgency=low
 
   * Speed improvements
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 20 Jul 2014 16:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 20 Jul 2014 16:00:00 +0100
 
 solydxk-system (1.1.9) stable; urgency=low
 
   * Added apt configuration
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 07 Jul 2014 14:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 07 Jul 2014 14:00:00 +0100
 
 solydxk-system (1.1.8) stable; urgency=low
 
   * Solved error in adjust.py
   * Changed service dependency start order for systemd
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 22 Jun 2014 23:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 22 Jun 2014 23:00:00 +0100
 
 solydxk-system (1.1.6) stable; urgency=low
 
   * Cleaned up
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 08 Jan 2014 22:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 08 Jan 2014 22:00:00 +0100
 
 solydxk-system (1.1.2) stable; urgency=low
 
   * Move preferences file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 07 Dec 2013 19:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 07 Dec 2013 19:00:00 +0100
 
 solydxk-system (1.1.1) stable; urgency=low
 
   * Make info packages recommended instead depending
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 29 Aug 2013 12:30:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 29 Aug 2013 12:30:00 +0100
 
 solydxk-system (1.0.8) stable; urgency=low
 
   * Adjustment for depricated update-rc.d start and stop
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 06 May 2013 09:30:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 06 May 2013 09:30:00 +0100
 
 solydxk-system (1.0.7) stable; urgency=low
 
   * Support SolydK BO
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 26 May 2013 19:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 26 May 2013 19:00:00 +0100
 
 solydxk-system (1.0.6) stable; urgency=low
 
   * Minor bugs fixed
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 05 Mar 2013 23:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 05 Mar 2013 23:00:00 +0100
  
 solydxk-system (1.0.1) stable; urgency=low
 
   * Added snd-hda-intel fix in postinst version 1.0.1
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 23 Feb 2013 15:00:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 23 Feb 2013 15:00:00 +0100
 
 solydxk-system (1.0.0) stable; urgency=low
 
   * Initial version version 1.0.0
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 23 Jan 2012 08:38:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 23 Jan 2012 08:38:00 +0100
