@@ -2,13 +2,6 @@
 
 set -e
 
-if [ -d /run/systemd/system ] && [ "$1" = remove ]; then
-	deb-systemd-invoke stop 'solydxk-root-gtk3.service' >/dev/null || true
-fi
-if [ -x "/usr/bin/deb-systemd-helper" ]; then
-    deb-systemd-helper purge 'solydxk-root-gtk3.service' >/dev/null || true
-    deb-systemd-helper unmask 'solydxk-root-gtk3.service' >/dev/null || true
-fi
 GTK3='/root/.config/gtk-3.0'
 if [ -L "${GTK3}" ]; then
     rm "${GTK3}"

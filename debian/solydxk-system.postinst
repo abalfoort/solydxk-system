@@ -2,8 +2,6 @@
 
 set -e
 
-#DEBHELPER#
-
 function run_scripts {
     bash /usr/lib/solydxk/scripts/kodi.sh
     python3 /usr/lib/solydxk/system/adjust.py
