@@ -28,6 +28,12 @@ policyfiles := $(shell find ./usr/share/polkit-1/actions/ -name "*.policy" 2>/de
 %:
 	dh $@ --with=python3
 
+override_dh_installsystemd:
+	dh_installsystemd --name=lightdm-user-permission
+	dh_installsystemd --name=solydxk-adjust
+	dh_installsystemd --name=solydxk-cifs-umount
+	dh_installsystemd --name=solydxk-minissdpd
+
 override_dh_auto_clean:
 	# Cleanup first
 	sudo rm -rf ./usr/lib/solydxk/system/__pycache__/
