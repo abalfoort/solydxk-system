@@ -1,3 +1,9 @@
+solydxk-system (4.6.1) stable; urgency=low
+
+  * Set lightdm user permissions
+
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 20 May 2025 13:58:15 +0200
+
 solydxk-system (4.6.0) stable; urgency=low
 
   * Remove solydk, solydl, solydx logos
