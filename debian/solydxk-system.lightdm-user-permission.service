@@ -1,0 +1,10 @@
+[Unit]
+Description=Set lightdm permissions on home directories
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=lightdm-user-permission
+
+[Install]
+WantedBy=multi-user.target

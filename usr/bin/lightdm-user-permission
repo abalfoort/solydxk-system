@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Set x permission on all user home directories for lightdm
+
+MIN_MAX=($(grep -E '^UID_MIN|^UID_MAX' /etc/login.defs | awk '{print $NF}'))
+
+[ ${#MIN_MAX[@]} -ne 2 ] && MIN_MAX=(1000 60000)
+
+HOME_DIRS=$(eval "getent passwd {${MIN_MAX[0]}..${MIN_MAX[1]}} | cut -d':' -f 6")
+
+for D in $HOME_DIRS; do
+    [ -d "$D" ] && setfacl -m u:lightdm:x "$D"
+done
